@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #181a20;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+.container {
+  padding: 24px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+label {
+  font-size: 14px;
+  color: #b7bdc6;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  background-color: #2e3038;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.next-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #fcd535;
+  color: #1e2329;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 16px;
+}
+
+.divider {
+  text-align: center;
+  color: #777;
+  margin: 16px 0;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #2e3038;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.google-btn img {
+  height: 18px;
+}
+
+.create-link {
+  display: block;
+  text-align: center;
+  color: #fcd535;
+  font-size: 14px;
+  text-decoration: none;
+}
