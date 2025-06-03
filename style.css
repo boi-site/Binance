@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  background-color: #181A20;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  align-self: flex-start;
+  margin-top: 5px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+label {
+  font-size: 14px;
+}
+
+input {
+  background-color: #2E3035;
+  border: none;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+.next-btn {
+  background-color: #FCD535;
+  color: #181A20;
+  font-weight: bold;
+  border: none;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  color: #aaa;
+  font-size: 14px;
+  gap: 10px;
+}
+
+.divider hr {
+  flex: 1;
+  border: none;
+  height: 1px;
+  background: #aaa;
+}
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2E3035;
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  gap: 10px;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.create-account {
+  color: #FCD535;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: -10px;
+}
