@@ -38,29 +38,32 @@ body {
   margin-bottom: 6px;
 }
 
-input[type="text"] {
+input[type="text"],
+.next-button,
+.google-button {
   width: 100%;
   padding: 14px;
+  font-size: 15px;
   border: none;
   border-radius: 8px;
+  box-sizing: border-box;
+}
+
+input[type="text"] {
   background-color: #2e3038;
   color: white;
-  font-size: 15px;
   margin-bottom: 16px;
 }
+
 .next-button {
-  width: 100%;
-  display: block;
-  padding: 14px;
   background-color: #fcd535;
   color: black;
-  border: none;
-  border-radius: 8px;
   font-weight: bold;
   font-size: 16px;
   margin-top: 6px;
-  text-decoration: none;
+  cursor: pointer;
 }
+
 .divider {
   display: flex;
   align-items: center;
@@ -89,20 +92,14 @@ input[type="text"] {
   position: relative;
   background-color: #2e3038;
   color: white;
-  font-size: 15px;
   font-weight: bold;
-  padding: 14px;
-  border-radius: 8px;
-  width: 100%;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .google-button img {
-  position: absolute;
-  left: 16px;
   width: 18px;
   height: 18px;
 }
