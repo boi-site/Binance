@@ -88,7 +88,7 @@ input[type="text"] {
 
 .google-button {
   position: relative;
-  background-color: #2e3038;
+  background-color: #2e3038; /* FIXED: dark gray like original */
   color: white;
   font-size: 15px;
   font-weight: bold;
