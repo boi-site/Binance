@@ -34,28 +34,20 @@ body {
 .label {
   font-size: 14px;
   color: #a5a5a5;
-  margin-bottom: 6px;
   display: block;
-}
-
-.input-wrapper {
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 6px;
 }
 
 input[type="text"] {
   width: 100%;
-  max-width: 100%;
   padding: 14px;
   border: none;
   border-radius: 8px;
   background-color: #2e3038;
   color: white;
   font-size: 15px;
-  box-sizing: border-box;
   margin-bottom: 16px;
+  box-sizing: border-box;
 }
 
 .next-button {
@@ -67,8 +59,8 @@ input[type="text"] {
   border-radius: 8px;
   font-weight: bold;
   font-size: 16px;
-  text-align: center;
-  display: block;
+  margin-top: 6px;
+  box-sizing: border-box;
 }
 
 .divider {
@@ -103,11 +95,13 @@ input[type="text"] {
   font-weight: bold;
   padding: 14px;
   border-radius: 8px;
-  width: 100%;
+  width: 100%;           /* Match Next button */
+  max-width: 100%;       /* Ensure no overflow */
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .google-button img {
