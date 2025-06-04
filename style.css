@@ -90,7 +90,7 @@ input[type="text"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #2e3038;
+  background-color: #2e3038; /* Dark gray background */
   color: white;
   font-size: 15px;
   font-weight: bold;
@@ -99,6 +99,7 @@ input[type="text"] {
   border: none;
   width: 100%;
   gap: 10px;
+  position: relative;
 }
 
 .google-button img {
