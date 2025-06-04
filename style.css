@@ -85,23 +85,23 @@ input[type="text"] {
   margin-left: 10px;
 }
 
-.google-button {
+.google-button-wrapper {
+  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
   background-color: #2e3038;
+  padding: 14px;
+  border-radius: 8px;
+  width: 100%;
+  font-weight: bold;
   color: white;
   font-size: 15px;
-  font-weight: bold;
-  padding: 14px 16px;
-  border-radius: 8px;
-  border: none;
-  width: 100%;
-  box-sizing: border-box;
 }
 
-.google-button img {
+.google-button-wrapper img {
+  position: absolute;
+  left: 16px;
   width: 18px;
   height: 18px;
 }
