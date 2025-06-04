@@ -88,16 +88,17 @@ input[type="text"] {
 .google-button {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Pushes logo to the left */
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 12px;
   background-color: #2e3038;
   color: white;
   font-size: 15px;
   font-weight: bold;
-  padding: 14px;
+  padding: 14px 16px;
   border-radius: 8px;
   border: none;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .google-button img {
