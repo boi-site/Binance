@@ -87,11 +87,11 @@ input[type="text"] {
 
 .google-button {
   position: relative;
-  background-color: #fcd535; /* Yellow background */
+  background-color: #fcd535;
   color: black;
   font-size: 15px;
   font-weight: bold;
-  padding: 14px;
+  padding: 14px 16px;
   border-radius: 8px;
   width: 100%;
   text-align: center;
@@ -105,6 +105,11 @@ input[type="text"] {
   left: 16px;
   width: 18px;
   height: 18px;
+}
+
+.google-text {
+  flex: 1;
+  text-align: center;
 }
 
 .create {
