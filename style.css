@@ -59,6 +59,7 @@ input[type="text"] {
   font-weight: bold;
   font-size: 16px;
   margin-top: 6px;
+  text-align: center;
 }
 
 .divider {
@@ -81,35 +82,33 @@ input[type="text"] {
 .divider::before {
   margin-right: 10px;
 }
-
 .divider::after {
   margin-left: 10px;
 }
 
 .google-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #2e3038; /* Dark gray background */
+  position: relative;
+  background-color: #2e3038;
   color: white;
   font-size: 15px;
   font-weight: bold;
   padding: 14px;
   border-radius: 8px;
-  border: none;
   width: 100%;
-  gap: 10px;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
 }
 
 .google-button img {
+  position: absolute;
+  left: 16px;
   width: 18px;
   height: 18px;
-  margin-right: 8px;
-  margin-left: -80px; /* Push logo to the left */
 }
 
-.google-button span {
+.google-text {
   flex: 1;
   text-align: center;
 }
