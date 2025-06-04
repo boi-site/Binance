@@ -48,9 +48,9 @@ input[type="text"] {
   font-size: 15px;
   margin-bottom: 16px;
 }
-
 .next-button {
   width: 100%;
+  display: block;
   padding: 14px;
   background-color: #fcd535;
   color: black;
@@ -61,7 +61,6 @@ input[type="text"] {
   margin-top: 6px;
   text-decoration: none;
 }
-
 .divider {
   display: flex;
   align-items: center;
