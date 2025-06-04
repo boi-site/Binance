@@ -81,33 +81,34 @@ input[type="text"] {
 .divider::before {
   margin-right: 10px;
 }
+
 .divider::after {
   margin-left: 10px;
 }
 
 .google-button {
-  position: relative;
-  background-color: #fcd535;
-  color: black;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 14px 16px;
-  border-radius: 8px;
-  width: 100%;
-  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #2e3038;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  gap: 10px;
 }
 
 .google-button img {
-  position: absolute;
-  left: 16px;
   width: 18px;
   height: 18px;
+  margin-right: 8px;
+  margin-left: -80px; /* Push logo to the left */
 }
 
-.google-text {
+.google-button span {
   flex: 1;
   text-align: center;
 }
