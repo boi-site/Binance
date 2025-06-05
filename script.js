@@ -41,3 +41,11 @@ function updateCoinList() {
 
 updateCoinList();
 setInterval(updateCoinList, 4000);
+// Highlight active nav
+const navItems = document.querySelectorAll(".nav-item");
+navItems.forEach(item => {
+  item.addEventListener("click", () => {
+    navItems.forEach(i => i.classList.remove("active"));
+    item.classList.add("active");
+  });
+});
