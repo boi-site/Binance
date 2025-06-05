@@ -3,113 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Binance Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Binance Clone - Home</title>
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <div class="top-bar">
-    <img src="icons/menu.svg" class="icon" alt="Menu" />
-    <input class="search-bar" placeholder="#MyCOSTrade" />
+  <header class="top-bar">
+    <img src="ic_menu.svg" class="icon" />
+    <input type="text" placeholder="#MyCOSTrade" class="search-bar" />
     <div class="top-icons">
-      <img src="icons/message.svg" class="icon" alt="Msg" />
-      <img src="icons/support.svg" class="icon" alt="Support" />
-      <img src="icons/hand.svg" class="icon" alt="Hand" />
+      <img src="ic_notification.svg" class="icon" />
+      <img src="ic_headset.svg" class="icon" />
+      <img src="ic_coin_in_hand.svg" class="icon" />
     </div>
-  </div>
+  </header>
 
-  <div class="balance-section">
-    <div class="balance-label">Total Balance (BTC) ^</div>
-    <div class="balance-amount">0.00001307</div>
+  <section class="balance-section">
+    <div class="balance-text">Total Balance (BTC) ^</div>
+    <div class="balance-value">0.00001307</div>
     <div class="balance-usd">≈ $1.37</div>
     <button class="add-funds">Add Funds</button>
-  </div>
+  </section>
 
-  <div class="quick-actions">
-    <div class="action"><img src="icons/ic_deposit.svg" /><span>Deposit</span></div>
-    <div class="action"><img src="icons/ic_transfer.svg" /><span>Transfer</span></div>
-    <div class="action"><img src="icons/ic_referral.svg" /><span>Referral</span></div>
-    <div class="action"><img src="icons/ic_more.svg" /><span>More</span></div>
-  </div>
+  <section class="quick-actions">
+    <div class="action"><img src="ic_deposit.svg"/><span>Deposit</span></div>
+    <div class="action"><img src="ic_transfer.svg"/><span>Transfer</span></div>
+    <div class="action"><img src="ic_referral.svg"/><span>Referral</span></div>
+    <div class="action"><img src="ic_more.svg"/><span>More</span></div>
+  </section>
 
-  <div class="tabs">
-    <div class="scroll-tabs">
-      <span class="tab active">Favorites</span>
-      <span class="tab">Hot</span>
-      <span class="tab">Alpha</span>
-      <span class="tab">New</span>
-      <span class="tab">Gainers</span>
-      <span class="tab">Losers</span>
+  <section class="tabs">
+    <div class="main-tabs">
+      <span>Favorites</span>
+      <span class="active">Hot</span>
+      <span>Alpha</span>
+      <span>New</span>
+      <span>Gainers</span>
+      <span>Losers</span>
     </div>
-    <div class="toggle-tabs">
-      <span class="active-toggle">Crypto</span>
+    <div class="sub-tabs">
+      <span class="active">Crypto</span>
       <span>Futures</span>
     </div>
-  </div>
+  </section>
 
-  <table class="price-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Last Price</th>
-        <th>24h chg%</th>
-      </tr>
-    </thead>
-    <tbody id="coin-list">
-      <tr>
-        <td><img src="icons/fire.svg" class="small-icon" /> BNB</td>
-        <td>$668.06</td>
-        <td><span class="price-change">+0.34%</span></td>
-      </tr>
-      <tr>
-        <td><img src="icons/fire.svg" class="small-icon" /> BTC</td>
-        <td>$105,354.82</td>
-        <td><span class="price-change">-0.56%</span></td>
-      </tr>
-      <tr>
-        <td><img src="icons/fire.svg" class="small-icon" /> ETH</td>
-        <td>$2,650.61</td>
-        <td><span class="price-change">+1.36%</span></td>
-      </tr>
-      <tr>
-        <td>PEPE</td>
-        <td>$0.00001241</td>
-        <td><span class="price-change">-2.21%</span></td>
-      </tr>
-      <tr>
-        <td>SOL</td>
-        <td>$156.93</td>
-        <td><span class="price-change">-2.47%</span></td>
-      </tr>
-      <tr>
-        <td>XRP</td>
-        <td>$2.23</td>
-        <td><span class="price-change">-0.69%</span></td>
-      </tr>
-    </tbody>
-  </table>
+  <section class="table">
+    <div class="table-header">
+      <span>Name</span>
+      <span>Last Price</span>
+      <span>24h chg%</span>
+    </div>
+    <div class="coin-list" id="coinList"></div>
+  </section>
 
-  <div class="bottom-nav">
-    <div class="nav-item active" id="home">
-      <img src="icons/ic_home.svg" class="nav-icon" />
-      <span>Home</span>
-    </div>
-    <div class="nav-item" id="markets">
-      <img src="icons/ic_market.svg" class="nav-icon" />
-      <span>Markets</span>
-    </div>
-    <div class="nav-item" id="trade">
-      <img src="icons/ic_trade.svg" class="nav-icon" />
-      <span>Trade</span>
-    </div>
-    <div class="nav-item" id="futures">
-      <img src="icons/ic_futures.svg" class="nav-icon" />
-      <span>Futures</span>
-    </div>
-    <div class="nav-item" id="assets">
-      <img src="icons/ic_assets.svg" class="nav-icon" />
-      <span>Assets</span>
-    </div>
-  </div>
+  <footer class="bottom-nav">
+    <div class="nav-item active"><img src="ic_home.svg"><span>Home</span></div>
+    <div class="nav-item"><img src="ic_market.svg"><span>Markets</span></div>
+    <div class="nav-item"><img src="ic_trade.svg"><span>Trade</span></div>
+    <div class="nav-item"><img src="ic_futures.svg"><span>Futures</span></div>
+    <div class="nav-item"><img src="ic_assets.svg"><span>Assets</span></div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
