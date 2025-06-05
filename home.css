@@ -86,3 +86,65 @@ body {
   background-color: #333;
   margin: 0;
 }
+/* Tabs Style */
+.tabs-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  background-color: #0d0d0d;
+  gap: 10px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #111;
+}
+.tab {
+  padding: 8px 14px;
+  background-color: #1a1a1a;
+  color: #ccc;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.tab.active {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+/* Coin List */
+.coin-list {
+  padding: 15px;
+}
+.coin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #222;
+}
+.coin-name {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+}
+.coin-subtext {
+  font-size: 0.75rem;
+  color: #888;
+}
+.price-info {
+  text-align: right;
+}
+.price {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+}
+.percent-change {
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-top: 4px;
+}
+.green { background-color: #093; color: #fff; }
+.red { background-color: #900; color: #fff; }
+.gray { background-color: #555; color: #fff; }
