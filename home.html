@@ -4,137 +4,111 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Binance Clone</title>
-  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="home.css">
 </head>
 <body>
-  <!-- Status Bar -->
-  <div class="status-bar">
-    <span id="clock">--:--</span>
-  </div>
-
-  <!-- Header Section -->
-  <div class="header">
-    <img src="assets/icons/binance-logo.svg" alt="Binance Logo" class="logo" />
+  <!-- Header Top Bar -->
+  <div class="top-bar">
+    <img src="binance-logo.svg" alt="Binance" class="binance-logo">
     <div class="search-bar">
       <input type="text" placeholder="#RVN" />
-      <img src="assets/icons/ic_search.svg" alt="Search" class="search-icon" />
+      <img src="ic_search.svg" class="search-icon" />
     </div>
-    <div class="header-icons">
+    <div class="top-icons">
       <div class="icon-badge">
-        <img src="assets/icons/ic_notification.svg" alt="Notifications" />
+        <img src="ic_notification.svg" />
         <span class="badge">8</span>
       </div>
-      <img src="assets/icons/ic_headset.svg" alt="Support" />
-      <img src="assets/icons/ic_coin_in_hand.svg" alt="Rewards" />
+      <img src="ic_headset.svg" />
+      <img src="ic_coin_in_hand.svg" />
     </div>
   </div>
 
   <!-- Balance Section -->
   <div class="balance-section">
-    <div class="balance-info">
-      <span class="balance-title">Est. Total Value (USD) <span class="caret">^</span></span>
-      <span class="balance-amount">$1.36</span>
+    <div class="balance-text">
+      <p class="balance-title">Est. Total Value (USD) ^</p>
+      <h1>$1.36</h1>
     </div>
     <button class="add-funds">Add Funds</button>
   </div>
 
-  <!-- Quick Action Buttons -->
-  <div class="quick-actions">
-    <div class="action-button">
-      <img src="assets/icons/ic_earn.svg" alt="Earn" />
-      <span>Earn</span>
+  <!-- Dummy Buttons -->
+  <div class="dummy-buttons">
+    <div class="btn">
+      <img src="ic_earn.svg" />
+      <p>Earn</p>
     </div>
-    <div class="action-button">
-      <img src="assets/icons/ic_deposit.svg" alt="Deposit" />
-      <span>Deposit</span>
+    <div class="btn">
+      <img src="ic_deposit.svg" />
+      <p>Deposit</p>
     </div>
-    <div class="action-button">
-      <img src="assets/icons/ic_transfer.svg" alt="Transfer" />
-      <span>Transfer</span>
+    <div class="btn">
+      <img src="ic_transfer.svg" />
+      <p>Transfer</p>
     </div>
-    <div class="action-button">
-      <img src="assets/icons/ic_referral.svg" alt="Referral" />
-      <span>Referral</span>
+    <div class="btn">
+      <img src="ic_referral.svg" />
+      <p>Referral</p>
     </div>
-    <div class="action-button">
-      <img src="assets/icons/ic_more.svg" alt="More" />
-      <span>More</span>
+    <div class="btn">
+      <img src="ic_more.svg" />
+      <p>More</p>
     </div>
   </div>
 
-  <!-- Category Tabs -->
-  <div class="category-tabs">
-    <div class="tabs-scroll">
-      <span class="tab">Favorites</span>
-      <span class="tab active">Hot</span>
-      <span class="tab">Alpha</span>
-      <span class="tab">New</span>
-      <span class="tab">Gainers</span>
-    </div>
-    <img src="assets/icons/ic_menu.svg" alt="Menu" class="menu-icon" />
+  <!-- Filter Tabs -->
+  <div class="tabs">
+    <span class="active">Favorites</span>
+    <span class="active underline">Hot</span>
+    <span>Alpha</span>
+    <span>New</span>
+    <span>Gainers</span>
+    <img src="ic_menu.svg" class="menu-icon"/>
   </div>
 
-  <!-- Subcategory Tabs -->
-  <div class="subcategory-tabs">
-    <span class="sub-tab active">Crypto</span>
-    <span class="sub-tab">Futures</span>
+  <!-- Sub Tabs -->
+  <div class="sub-tabs">
+    <span class="active-pill">Crypto</span>
+    <span>Futures</span>
   </div>
 
-  <!-- Market Data Table -->
-  <div class="market-table">
-    <div class="table-header">
-      <span>Name</span>
-      <span>Last Price</span>
-      <span>24h chg%</span>
-    </div>
-    <div class="table-row">
-      <div class="token-info">
-        <img src="assets/icons/ic_flame.svg" alt="Hot" class="flame-icon" />
-        <span>BNB</span>
-      </div>
-      <div class="price-info">
-        <span class="price">$668.06</span>
-        <span class="price-usd">≈ $668.06</span>
-      </div>
-      <span class="change positive">+2.5%</span>
-    </div>
-    <!-- Repeat .table-row for other tokens -->
+  <!-- Crypto Table Header -->
+  <div class="table-header">
+    <span>Name</span>
+    <span>Last Price</span>
+    <span>24h chg%</span>
   </div>
 
-  <!-- View More Button -->
-  <div class="view-more">
-    <button class="view-more-btn">View More</button>
+  <!-- Crypto List -->
+  <div id="crypto-list" class="crypto-list">
+    <!-- Items will be added by script.js -->
   </div>
 
-  <!-- Bottom Scroll Tabs -->
-  <div class="bottom-scroll-tabs">
-    <span class="scroll-tab">Discover</span>
-    <span class="scroll-tab">Following</span>
-    <span class="scroll-tab">News</span>
-    <span class="scroll-tab">Announcements</span>
-  </div>
+  <!-- View More -->
+  <div class="view-more">View More</div>
 
-  <!-- Bottom Navigation Bar -->
+  <!-- Bottom Navigation -->
   <div class="bottom-nav">
     <div class="nav-item active">
-      <img src="assets/icons/ic_home.svg" alt="Home" />
-      <span>Home</span>
+      <img src="ic_home.svg" />
+      <p>Home</p>
     </div>
     <div class="nav-item">
-      <img src="assets/icons/ic_market.svg" alt="Markets" />
-      <span>Markets</span>
+      <img src="ic_market.svg" />
+      <p>Markets</p>
     </div>
     <div class="nav-item">
-      <img src="assets/icons/ic_trade.svg" alt="Trade" />
-      <span>Trade</span>
+      <img src="ic_trade.svg" />
+      <p>Trade</p>
     </div>
     <div class="nav-item">
-      <img src="assets/icons/ic_futures.svg" alt="Futures" />
-      <span>Futures</span>
+      <img src="ic_futures.svg" />
+      <p>Futures</p>
     </div>
     <div class="nav-item">
-      <img src="assets/icons/ic_assets.svg" alt="Assets" />
-      <span>Assets</span>
+      <img src="ic_assets.svg" />
+      <p>Assets</p>
     </div>
   </div>
 
