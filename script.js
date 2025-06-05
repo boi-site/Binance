@@ -1,44 +1,35 @@
-// Real-time clock
-function updateClock() {
-  const clock = document.getElementById('clock');
+// Update time
+function updateTime() {
   const now = new Date();
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  clock.textContent = `${hours}:${minutes}`;
+  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  document.getElementById("time").textContent = time;
 }
-setInterval(updateClock, 1000);
-updateClock();
+setInterval(updateTime, 1000);
+updateTime();
 
-// Dummy coin data
-const coins = [
-  { name: "BNB", price: 668.06 },
-  { name: "BTC", price: 105354.82 },
-  { name: "ETH", price: 2650.61 },
-  { name: "PEPE", price: 0.00001241 },
-  { name: "SOL", price: 156.93 },
-  { name: "XRP", price: 2.2354 }
-];
+// Toggle nav icon highlight
+const icons = document.querySelectorAll('.nav-icon');
+icons.forEach(icon => {
+  icon.addEventListener('click', () => {
+    icons.forEach(i => i.classList.remove('active'));
+    icon.classList.add('active');
+  });
+});
 
-function randomChange() {
-  return +(Math.random() * 6 - 3).toFixed(2); // ±3%
-}
-
-function renderCoins() {
-  const list = document.getElementById('coin-list');
-  list.innerHTML = '';
-  coins.forEach((coin) => {
-    const change = randomChange();
-    const percentText = `${change > 0 ? "+" : ""}${change.toFixed(2)}%`;
-    const boxClass = change > 0 ? "green" : change < 0 ? "red" : "gray";
-    const row = `
-      <div class="coin-row">
-        <span>${coin.name}</span>
-        <span>$${coin.price.toLocaleString()}</span>
-        <span class="price-box ${boxClass}">${percentText}</span>
-      </div>
-    `;
-    list.innerHTML += row;
+// Simulate price updates
+function updatePrices() {
+  document.querySelectorAll('.token .change').forEach(el => {
+    const rand = Math.random();
+    if (rand > 0.66) {
+      el.textContent = "+" + (Math.random() * 5).toFixed(2) + "%";
+      el.dataset.change = "up";
+    } else if (rand > 0.33) {
+      el.textContent = "-" + (Math.random() * 5).toFixed(2) + "%";
+      el.dataset.change = "down";
+    } else {
+      el.textContent = "0.00%";
+      el.dataset.change = "same";
+    }
   });
 }
-setInterval(renderCoins, 3000);
-renderCoins();
+setInterval(updatePrices, 3000);
