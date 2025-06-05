@@ -1,228 +1,236 @@
-/* Reset and Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #121212;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0e11;
+  color: #fff;
 }
 
-/* Status Bar */
-.status-bar {
-  padding: 10px;
-  text-align: left;
-  font-weight: bold;
-}
-
-/* Header Section */
-.header {
+.top-bar {
   display: flex;
   align-items: center;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 10px 15px;
 }
 
-.logo {
-  width: 30px;
-  margin-right: 10px;
+.binance-logo {
+  width: 28px;
+  height: 28px;
 }
 
 .search-bar {
-  flex: 1;
-  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 10px;
+  background: #1e2329;
+  border-radius: 10px;
+  padding: 6px 10px;
 }
 
 .search-bar input {
-  width: 100%;
-  padding: 8px 30px 8px 10px;
+  background: transparent;
   border: none;
-  border-radius: 20px;
-  background-color: #2b2b2b;
-  color: #ffffff;
+  color: #ccc;
+  flex-grow: 1;
+  font-size: 14px;
 }
 
 .search-icon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
+  width: 18px;
+  height: 18px;
 }
 
-.header-icons {
+.top-icons {
   display: flex;
   align-items: center;
-  margin-left: 10px;
-}
-
-.header-icons img {
-  width: 20px;
-  margin-left: 15px;
+  gap: 12px;
 }
 
 .icon-badge {
   position: relative;
 }
 
-.badge {
+.icon-badge .badge {
   position: absolute;
-  top: -5px;
-  right: -10px;
-  background-color: #f0b90b;
+  top: -6px;
+  right: -6px;
+  background: #f0b90b;
   color: #000;
-  border-radius: 50%;
-  padding: 2px 5px;
   font-size: 10px;
+  padding: 2px 4px;
+  border-radius: 10px;
 }
 
-/* Balance Section */
 .balance-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-}
-
-.balance-info {
-  display: flex;
-  flex-direction: column;
+  padding: 20px 15px 10px;
 }
 
 .balance-title {
-  font-size: 12px;
-  color: #888;
-}
-
-.balance-amount {
-  font-size: 24px;
-  font-weight: bold;
-  margin-top: 5px;
+  color: #8f8f8f;
+  font-size: 13px;
 }
 
 .add-funds {
-  background-color: #f0b90b;
+  background: #f0b90b;
   color: #000;
-  border: none;
-  border-radius: 20px;
   padding: 8px 16px;
+  border-radius: 8px;
   font-weight: bold;
+  border: none;
 }
 
-/* Quick Action Buttons */
-.quick-actions {
+.dummy-buttons {
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 10px;
 }
 
-.action-button {
+.btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60px;
+  font-size: 12px;
+  color: #ccc;
 }
 
-.action-button img {
-  width: 24px;
+.btn img {
+  width: 30px;
+  height: 30px;
   margin-bottom: 5px;
 }
 
-.action-button span {
-  font-size: 12px;
-}
-
-/* Category Tabs */
-.category-tabs {
+.tabs {
   display: flex;
-  align-items: center;
-  padding: 10px;
   overflow-x: auto;
-}
-
-.tabs-scroll {
-  display: flex;
-  flex: 1;
-}
-
-.tab {
-  margin-right: 15px;
+  gap: 15px;
+  padding: 10px 15px;
   font-size: 14px;
-  color: #888;
+  color: #ccc;
+}
+
+.tabs span {
   white-space: nowrap;
 }
 
-.tab.active {
-  color: #f0b90b;
+.tabs .active {
+  font-weight: bold;
+}
+
+.tabs .underline {
   border-bottom: 2px solid #f0b90b;
+  color: #f0b90b;
 }
 
 .menu-icon {
-  width: 20px;
+  width: 18px;
+  margin-left: auto;
 }
 
-/* Subcategory Tabs */
-.subcategory-tabs {
+.sub-tabs {
   display: flex;
-  padding: 10px;
+  gap: 10px;
+  padding: 0 15px 10px;
 }
 
-.sub-tab {
-  margin-right: 15px;
-  padding: 5px 10px;
-  border-radius: 20px;
-  background-color: #2b2b2b;
-  color: #888;
+.sub-tabs span {
+  padding: 5px 12px;
+  border-radius: 15px;
+  background: transparent;
+  color: #ccc;
+  font-size: 12px;
 }
 
-.sub-tab.active {
-  background-color: #f0b90b;
-  color: #000;
-}
-
-/* Market Data Table */
-.market-table {
-  padding: 10px;
+.sub-tabs .active-pill {
+  background: #1e2329;
+  color: #fff;
 }
 
 .table-header {
   display: flex;
   justify-content: space-between;
-  color: #888;
+  padding: 10px 15px;
   font-size: 12px;
-  margin-bottom: 10px;
+  color: #8f8f8f;
 }
 
-.table-row {
+.crypto-list .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #2b2b2b;
+  padding: 12px 15px;
+  border-bottom: 1px solid #1e2329;
 }
 
-.token-info {
+.crypto-name {
   display: flex;
   align-items: center;
+  gap: 5px;
+  font-weight: 600;
 }
 
-.flame-icon {
-  width: 16px;
-  margin-right: 5px;
+.crypto-prices {
+  text-align: right;
 }
 
-.price-info {
+.crypto-prices small {
+  color: #888;
+  font-size: 12px;
+}
+
+.change {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
+.red {
+  background: #eb4d4b;
+  color: #fff;
+}
+
+.green {
+  background: #2ecc71;
+  color: #fff;
+}
+
+.gray {
+  background: #555;
+  color: #fff;
+}
+
+.view-more {
+  text-align: center;
+  color: #f0b90b;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-top: 1px solid #1e2329;
+  background: #0b0e11;
+}
+
+.nav-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  font-size: 11px;
+  color: #aaa;
 }
 
-.price {
-  font-weight: bold;
+.nav-item img {
+  width: 22px;
+  height: 22px;
 }
 
-.price-usd {
-  font-size 
+.nav-item.active {
+  color: #f0b90b;
+}
