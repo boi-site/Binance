@@ -1,33 +1,40 @@
-// Toggle active class for bottom nav icons
-document.querySelectorAll('.nav-item').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-    item.classList.add('active');
+const coins = [
+  { name: "BNB", price: 668.06, change: 0.34 },
+  { name: "BTC", price: 105354.82, change: -2.09 },
+  { name: "ETH", price: 2650.61, change: 1.36 },
+  { name: "PEPE", price: 0.00001241, change: -2.21 },
+  { name: "SOL", price: 156.93, change: -3.41 },
+  { name: "XRP", price: 2.2354, change: -1.49 },
+];
+
+function renderCoins() {
+  const container = document.getElementById("coinList");
+  container.innerHTML = "";
+
+  coins.forEach((coin) => {
+    const colorClass = coin.change > 0 ? "green" : coin.change < 0 ? "red" : "gray";
+
+    const row = document.createElement("div");
+    row.className = "coin-row";
+
+    row.innerHTML = `
+      <div>${coin.name}</div>
+      <div>$${coin.price.toLocaleString()}</div>
+      <div class="percent ${colorClass}">${coin.change > 0 ? "+" : ""}${coin.change.toFixed(2)}%</div>
+    `;
+
+    container.appendChild(row);
   });
-});
-
-// Simulate real-time price updates
-function updatePrices() {
-  document.querySelectorAll('.price-change').forEach(cell => {
-    const change = (Math.random() * 5 - 2.5).toFixed(2); // random between -2.5% and +2.5%
-    const value = parseFloat(change);
-
-    cell.textContent = (value > 0 ? '+' : '') + change + '%';
-
-    cell.classList.remove('positive', 'negative', 'neutral');
-
-    if (value > 0) {
-      cell.classList.add('positive');
-    } else if (value < 0) {
-      cell.classList.add('negative');
-    } else {
-      cell.classList.add('neutral');
-    }
-  });
-
-  // Repeat every 4 seconds
-  setTimeout(updatePrices, 4000);
 }
 
-// Start updates when DOM is ready
-document.addEventListener('DOMContentLoaded', updatePrices);
+// Run initially
+renderCoins();
+
+// Optional: simulate dynamic update
+setInterval(() => {
+  coins.forEach((c) => {
+    const delta = (Math.random() * 0.5 - 0.25).toFixed(2);
+    c.change += parseFloat(delta);
+  });
+  renderCoins();
+}, 5000);
