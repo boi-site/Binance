@@ -1,8 +1,7 @@
 body {
   margin: 0;
-  padding: 0;
-  background-color: #0b0e11;
   font-family: 'Arial', sans-serif;
+  background-color: #121212;
   color: #fff;
 }
 
@@ -10,191 +9,138 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  padding: 10px;
 }
 
 .icon {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
 .search-bar {
   flex: 1;
   margin: 0 10px;
   padding: 8px 12px;
-  background: #1e2329;
-  border: none;
   border-radius: 6px;
+  border: none;
+  background: #2a2a2a;
   color: #fff;
 }
 
-.top-icons img {
-  margin-left: 12px;
-}
-
 .balance-section {
-  padding: 20px 16px 0;
-  text-align: left;
+  text-align: center;
+  margin: 20px 0;
 }
 
-.balance-label {
-  font-size: 14px;
-  color: #aaa;
-}
-
-.balance-amount {
+.balance-value {
   font-size: 28px;
   font-weight: bold;
-  margin-top: 4px;
-}
-
-.balance-usd {
-  color: #999;
-  margin-bottom: 10px;
 }
 
 .add-funds {
-  float: right;
-  margin-top: -40px;
-  padding: 10px 16px;
-  background-color: #fcd535;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #f0b90b;
   color: #000;
-  font-weight: bold;
-  border-radius: 8px;
   border: none;
+  border-radius: 6px;
+  font-weight: bold;
 }
 
 .quick-actions {
   display: flex;
   justify-content: space-around;
-  padding: 20px 10px;
+  padding: 15px 0;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .action {
   text-align: center;
-  color: #ccc;
-  font-size: 12px;
 }
 
 .action img {
-  display: block;
-  margin: auto;
-  width: 34px;
-  height: 34px;
-  margin-bottom: 6px;
+  width: 30px;
+  height: 30px;
 }
 
 .tabs {
-  padding: 10px 16px 0;
+  padding: 10px 15px;
 }
 
-.scroll-tabs {
+.main-tabs span,
+.sub-tabs span {
+  margin-right: 15px;
+  color: #999;
+}
+
+.main-tabs .active,
+.sub-tabs .active {
+  color: #f0b90b;
+  border-bottom: 2px solid #f0b90b;
+  padding-bottom: 5px;
+}
+
+.table {
+  padding: 10px;
+}
+
+.table-header {
   display: flex;
-  overflow-x: auto;
-  gap: 12px;
-  font-size: 14px;
-  font-weight: 600;
+  justify-content: space-between;
+  padding: 5px 10px;
+  color: #888;
+  font-size: 13px;
 }
 
-.tab {
-  color: #999;
-  cursor: pointer;
+.coin-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  border-bottom: 1px solid #1f1f1f;
 }
 
-.tab.active {
-  color: #fff;
-  border-bottom: 2px solid #fcd535;
-}
-
-.toggle-tabs {
-  margin-top: 10px;
-}
-
-.toggle-tabs span {
-  padding: 4px 10px;
-  margin-right: 8px;
-  background-color: #1e2329;
-  border-radius: 8px;
-  font-size: 12px;
-  color: #999;
-}
-
-.toggle-tabs .active-toggle {
-  background-color: #333;
-  color: #fff;
-}
-
-.price-table {
-  width: 100%;
-  border-spacing: 0;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-.price-table th {
-  text-align: left;
-  padding: 8px 16px;
-  color: #aaa;
-}
-
-.price-table td {
-  padding: 10px 16px;
-  color: #fff;
-}
-
-.price-change {
-  display: inline-block;
+.coin-row .percent {
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 13px;
-  font-weight: bold;
+  color: white;
 }
 
-.price-change.positive {
-  background-color: #0ecb81;
+.coin-row .green {
+  background-color: #16c784;
 }
 
-.price-change.negative {
-  background-color: #f6465d;
+.coin-row .red {
+  background-color: #ea3943;
 }
 
-.price-change.neutral {
-  background-color: gray;
-}
-
-.small-icon {
-  width: 14px;
-  vertical-align: middle;
-  margin-right: 5px;
+.coin-row .gray {
+  background-color: #6e6e6e;
 }
 
 .bottom-nav {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #12161c;
   display: flex;
+  background-color: #1c1c1c;
   justify-content: space-around;
-  padding: 6px 0;
-  border-top: 1px solid #222;
+  padding: 8px 0;
 }
 
 .nav-item {
   text-align: center;
+  color: #999;
   font-size: 11px;
-  color: #888;
 }
 
 .nav-item img {
-  width: 22px;
-  height: 22px;
-  margin-bottom: 2px;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 3px;
 }
 
 .nav-item.active {
-  color: #fcd535;
-}
-
-.nav-item.active img {
-  filter: brightness(1.2) saturate(1.5);
+  color: #f0b90b;
 }
