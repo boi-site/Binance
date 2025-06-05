@@ -260,3 +260,23 @@ body {
   color: #000;
   font-weight: bold;
 }
+/* Second Tab Row (same scroll behavior) */
+.second-tab-row {
+  background-color: #0e0e0e;
+  padding-bottom: 10px;
+}
+
+/* Dot Indicator */
+.dot-tab {
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  top: 2px;
+  right: -6px;
+  height: 6px;
+  width: 6px;
+  background-color: #fcd535;
+  border-radius: 50%;
+}
