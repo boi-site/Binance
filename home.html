@@ -3,72 +3,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Binance Home</title>
+  <title>Binance Clone</title>
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <!-- System UI Time -->
+  <!-- Status Bar -->
   <div class="status-bar">
-    <span id="time"></span>
-  </div>
-<div class="header-top">
-  <div id="clock" class="clock">--:--</div>
-</div>
-
-<div class="header-bar">
-  <img src="ic_menu.svg" alt="Menu" class="menu-icon" />
-
-  <div class="search-bar">
-    <img src="ic_search.svg" alt="Search" />
-    <input type="text" placeholder="#MyCOSTrade" />
+    <span id="clock">--:--</span>
   </div>
 
-  <div class="header-icons">
-    <div class="icon-with-badge">
-      <img src="ic_notification.svg" alt="Notifications" />
-      <span class="badge">6</span>
+  <!-- Header Section -->
+  <div class="header">
+    <img src="assets/icons/binance-logo.svg" alt="Binance Logo" class="logo" />
+    <div class="search-bar">
+      <input type="text" placeholder="#RVN" />
+      <img src="assets/icons/ic_search.svg" alt="Search" class="search-icon" />
     </div>
-    <img src="ic_headset.svg" alt="Support" />
-    <img src="ic_coin_in_hand.svg" alt="Coin in hand" />
+    <div class="header-icons">
+      <div class="icon-badge">
+        <img src="assets/icons/ic_notification.svg" alt="Notifications" />
+        <span class="badge">8</span>
+      </div>
+      <img src="assets/icons/ic_headset.svg" alt="Support" />
+      <img src="assets/icons/ic_coin_in_hand.svg" alt="Rewards" />
+    </div>
   </div>
-</div>
+
   <!-- Balance Section -->
-  <section class="balance">
+  <div class="balance-section">
     <div class="balance-info">
-      <p class="label">Total Balance (BTC) ^</p>
-      <p class="amount">6,923.08</p>
-      <p class="fiat">≈ $450,000,000</p>
+      <span class="balance-title">Est. Total Value (USD) <span class="caret">^</span></span>
+      <span class="balance-amount">$1.36</span>
     </div>
     <button class="add-funds">Add Funds</button>
-  </section>
+  </div>
 
-  <!-- Token List -->
-  <section class="tokens">
-    <div class="token">
-      <div class="name">BTC/USDT</div>
-      <div class="price">$67,000.25</div>
-      <div class="change" data-change="up">+2.45%</div>
+  <!-- Quick Action Buttons -->
+  <div class="quick-actions">
+    <div class="action-button">
+      <img src="assets/icons/ic_earn.svg" alt="Earn" />
+      <span>Earn</span>
     </div>
-    <div class="token">
-      <div class="name">ETH/USDT</div>
-      <div class="price">$3,050.75</div>
-      <div class="change" data-change="down">-1.78%</div>
+    <div class="action-button">
+      <img src="assets/icons/ic_deposit.svg" alt="Deposit" />
+      <span>Deposit</span>
     </div>
-    <div class="token">
-      <div class="name">BNB/USDT</div>
-      <div class="price">$540.00</div>
-      <div class="change" data-change="same">0.00%</div>
+    <div class="action-button">
+      <img src="assets/icons/ic_transfer.svg" alt="Transfer" />
+      <span>Transfer</span>
     </div>
-  </section>
+    <div class="action-button">
+      <img src="assets/icons/ic_referral.svg" alt="Referral" />
+      <span>Referral</span>
+    </div>
+    <div class="action-button">
+      <img src="assets/icons/ic_more.svg" alt="More" />
+      <span>More</span>
+    </div>
+  </div>
 
-  <!-- Bottom Nav -->
-  <footer class="bottom-nav">
-    <img src="images/ic_home.svg" alt="Home" class="nav-icon active" id="home" />
-    <img src="images/ic_market.svg" alt="Market" class="nav-icon" />
-    <img src="images/ic_trade.svg" alt="Trade" class="nav-icon" />
-    <img src="images/ic_futures.svg" alt="Futures" class="nav-icon" />
-    <img src="images/ic_assets.svg" alt="Assets" class="nav-icon" />
-  </footer>
+  <!-- Category Tabs -->
+  <div class="category-tabs">
+    <div class="tabs-scroll">
+      <span class="tab">Favorites</span>
+      <span class="tab active">Hot</span>
+      <span class="tab">Alpha</span>
+      <span class="tab">New</span>
+      <span class="tab">Gainers</span>
+    </div>
+    <img src="assets/icons/ic_menu.svg" alt="Menu" class="menu-icon" />
+  </div>
+
+  <!-- Subcategory Tabs -->
+  <div class="subcategory-tabs">
+    <span class="sub-tab active">Crypto</span>
+    <span class="sub-tab">Futures</span>
+  </div>
+
+  <!-- Market Data Table -->
+  <div class="market-table">
+    <div class="table-header">
+      <span>Name</span>
+      <span>Last Price</span>
+      <span>24h chg%</span>
+    </div>
+    <div class="table-row">
+      <div class="token-info">
+        <img src="assets/icons/ic_flame.svg" alt="Hot" class="flame-icon" />
+        <span>BNB</span>
+      </div>
+      <div class="price-info">
+        <span class="price">$668.06</span>
+        <span class="price-usd">≈ $668.06</span>
+      </div>
+      <span class="change positive">+2.5%</span>
+    </div>
+    <!-- Repeat .table-row for other tokens -->
+  </div>
+
+  <!-- View More Button -->
+  <div class="view-more">
+    <button class="view-more-btn">View More</button>
+  </div>
+
+  <!-- Bottom Scroll Tabs -->
+  <div class="bottom-scroll-tabs">
+    <span class="scroll-tab">Discover</span>
+    <span class="scroll-tab">Following</span>
+    <span class="scroll-tab">News</span>
+    <span class="scroll-tab">Announcements</span>
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-nav">
+    <div class="nav-item active">
+      <img src="assets/icons/ic_home.svg" alt="Home" />
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <img src="assets/icons/ic_market.svg" alt="Markets" />
+      <span>Markets</span>
+    </div>
+    <div class="nav-item">
+      <img src="assets/icons/ic_trade.svg" alt="Trade" />
+      <span>Trade</span>
+    </div>
+    <div class="nav-item">
+      <img src="assets/icons/ic_futures.svg" alt="Futures" />
+      <span>Futures</span>
+    </div>
+    <div class="nav-item">
+      <img src="assets/icons/ic_assets.svg" alt="Assets" />
+      <span>Assets</span>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
