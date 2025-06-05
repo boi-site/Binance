@@ -1,35 +1,48 @@
-// Update time
-function updateTime() {
-  const now = new Date();
-  const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  document.getElementById("time").textContent = time;
+// ======== Live Clock at Top ========
+function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, "0");
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    document.getElementById("clock").innerText = `${hours}:${minutes}`;
 }
-setInterval(updateTime, 1000);
-updateTime();
+setInterval(updateClock, 1000);
+updateClock();
 
-// Toggle nav icon highlight
-const icons = document.querySelectorAll('.nav-icon');
-icons.forEach(icon => {
-  icon.addEventListener('click', () => {
-    icons.forEach(i => i.classList.remove('active'));
-    icon.classList.add('active');
-  });
+// ======== Simulate Token Price Changes ========
+function simulatePriceChanges() {
+    const rows = document.querySelectorAll(".token-row");
+    rows.forEach(row => {
+        const changeCell = row.querySelector(".change");
+        const box = row.querySelector(".change-box");
+        const random = (Math.random() * 4 - 2).toFixed(2); // -2% to +2%
+        const isPositive = random > 0;
+        const isZero = random == 0;
+
+        changeCell.innerText = (isZero ? "0.00%" : `${isPositive ? "+" : ""}${random}%`);
+        box.style.backgroundColor = isZero ? "#6c757d" : (isPositive ? "#28a745" : "#dc3545");
+    });
+}
+setInterval(simulatePriceChanges, 4000);
+simulatePriceChanges();
+
+// ======== Dummy Tab Switching (Crypto / Futures) ========
+document.querySelectorAll(".sub-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+        document.querySelectorAll(".sub-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+    });
 });
 
-// Simulate price updates
-function updatePrices() {
-  document.querySelectorAll('.token .change').forEach(el => {
-    const rand = Math.random();
-    if (rand > 0.66) {
-      el.textContent = "+" + (Math.random() * 5).toFixed(2) + "%";
-      el.dataset.change = "up";
-    } else if (rand > 0.33) {
-      el.textContent = "-" + (Math.random() * 5).toFixed(2) + "%";
-      el.dataset.change = "down";
-    } else {
-      el.textContent = "0.00%";
-      el.dataset.change = "same";
-    }
-  });
-}
-setInterval(updatePrices, 3000);
+// ======== Dummy View More Button ========
+document.getElementById("viewMore").addEventListener("click", () => {
+    alert("View More clicked (dummy)");
+});
+
+// ======== Dummy Bottom Nav Highlight ========
+const navItems = document.querySelectorAll(".bottom-nav-item");
+navItems.forEach(item => {
+    item.addEventListener("click", () => {
+        navItems.forEach(i => i.classList.remove("active"));
+        item.classList.add("active");
+    });
+});
