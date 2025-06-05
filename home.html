@@ -3,64 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Binance Clone - Home</title>
+  <title>Binance Home</title>
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <header class="top-bar">
-    <img src="ic_menu.svg" class="icon" />
-    <input type="text" placeholder="#MyCOSTrade" class="search-bar" />
+  <!-- System UI Time -->
+  <div class="status-bar">
+    <span id="time"></span>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <img src="images/ic_menu.svg" alt="Menu" class="icon menu-icon" />
+
+    <div class="search-bar">
+      <img src="images/ic_search.svg" alt="Search" class="icon search-icon" />
+      <input type="text" placeholder="#MyCOSTrade" />
+    </div>
+
     <div class="top-icons">
-      <img src="ic_notification.svg" class="icon" />
-      <img src="ic_headset.svg" class="icon" />
-      <img src="ic_coin_in_hand.svg" class="icon" />
+      <div class="icon-with-badge">
+        <img src="images/ic_notification.svg" alt="Notification" />
+        <span class="badge">6</span>
+      </div>
+      <img src="images/ic_headset.svg" alt="Support" class="icon" />
+      <img src="images/ic_coin_in_hand.svg" alt="Referral" class="icon" />
     </div>
   </header>
 
-  <section class="balance-section">
-    <div class="balance-text">Total Balance (BTC) ^</div>
-    <div class="balance-value">0.00001307</div>
-    <div class="balance-usd">≈ $1.37</div>
+  <!-- Balance Section -->
+  <section class="balance">
+    <div class="balance-info">
+      <p class="label">Total Balance (BTC) ^</p>
+      <p class="amount">6,923.08</p>
+      <p class="fiat">≈ $450,000,000</p>
+    </div>
     <button class="add-funds">Add Funds</button>
   </section>
 
-  <section class="quick-actions">
-    <div class="action"><img src="ic_deposit.svg"/><span>Deposit</span></div>
-    <div class="action"><img src="ic_transfer.svg"/><span>Transfer</span></div>
-    <div class="action"><img src="ic_referral.svg"/><span>Referral</span></div>
-    <div class="action"><img src="ic_more.svg"/><span>More</span></div>
-  </section>
-
-  <section class="tabs">
-    <div class="main-tabs">
-      <span>Favorites</span>
-      <span class="active">Hot</span>
-      <span>Alpha</span>
-      <span>New</span>
-      <span>Gainers</span>
-      <span>Losers</span>
+  <!-- Token List -->
+  <section class="tokens">
+    <div class="token">
+      <div class="name">BTC/USDT</div>
+      <div class="price">$67,000.25</div>
+      <div class="change" data-change="up">+2.45%</div>
     </div>
-    <div class="sub-tabs">
-      <span class="active">Crypto</span>
-      <span>Futures</span>
+    <div class="token">
+      <div class="name">ETH/USDT</div>
+      <div class="price">$3,050.75</div>
+      <div class="change" data-change="down">-1.78%</div>
+    </div>
+    <div class="token">
+      <div class="name">BNB/USDT</div>
+      <div class="price">$540.00</div>
+      <div class="change" data-change="same">0.00%</div>
     </div>
   </section>
 
-  <section class="table">
-    <div class="table-header">
-      <span>Name</span>
-      <span>Last Price</span>
-      <span>24h chg%</span>
-    </div>
-    <div class="coin-list" id="coinList"></div>
-  </section>
-
+  <!-- Bottom Nav -->
   <footer class="bottom-nav">
-    <div class="nav-item active"><img src="ic_home.svg"><span>Home</span></div>
-    <div class="nav-item"><img src="ic_market.svg"><span>Markets</span></div>
-    <div class="nav-item"><img src="ic_trade.svg"><span>Trade</span></div>
-    <div class="nav-item"><img src="ic_futures.svg"><span>Futures</span></div>
-    <div class="nav-item"><img src="ic_assets.svg"><span>Assets</span></div>
+    <img src="images/ic_home.svg" alt="Home" class="nav-icon active" id="home" />
+    <img src="images/ic_market.svg" alt="Market" class="nav-icon" />
+    <img src="images/ic_trade.svg" alt="Trade" class="nav-icon" />
+    <img src="images/ic_futures.svg" alt="Futures" class="nav-icon" />
+    <img src="images/ic_assets.svg" alt="Assets" class="nav-icon" />
   </footer>
 
   <script src="script.js"></script>
