@@ -1,175 +1,57 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #11161e;
-  color: white;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Binance - Home</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <img src="images/logo.svg" alt="Binance Logo" class="logo" />
+    <div class="top-icons">
+      <img src="images/message.png" alt="Message" />
+      <img src="images/support.png" alt="Support" />
+      <img src="images/hand.png" alt="Hand Coin" />
+    </div>
+  </div>
 
-.top-bar {
-  display: flex;
-  align-items: center;
-  padding: 12px 10px;
-}
+  <div class="balance-section">
+    <div class="balance-label">Est. Total Value (USD)</div>
+    <div class="balance-amount">$42,002.21</div>
+    <button class="add-funds">Add Funds</button>
+  </div>
 
-.menu-icon {
-  font-size: 24px;
-  margin-right: 10px;
-}
+  <div class="actions">
+    <button><img src="images/earn.png" /><span>Earn</span></button>
+    <button><img src="images/deposit.png" /><span>Deposit</span></button>
+    <button><img src="images/gift.png" /><span>My Gifts</span></button>
+    <button><img src="images/stake.png" /><span>ETH Staking</span></button>
+    <button><img src="images/more.png" /><span>More</span></button>
+  </div>
 
-.search {
-  flex: 1;
-  padding: 8px;
-  border-radius: 8px;
-  background-color: #2b3139;
-  border: none;
-  color: white;
-}
+  <div class="divider-line"></div>
 
-.top-icons {
-  display: flex;
-  gap: 10px;
-  margin-left: 10px;
-}
+  <div class="tab-row">
+    <button class="tab active">Favorites</button>
+    <button class="tab">Hot</button>
+    <button class="tab">Alpha</button>
+    <button class="tab">New</button>
+    <button class="tab">Gainers</button>
+  </div>
 
-.top-icons img {
-  width: 20px;
-  height: 20px;
-}
+  <div id="coin-container" class="coin-container">
+    <!-- Prices will be updated here via JS -->
+  </div>
 
-.balance-section {
-  text-align: center;
-  margin: 20px 0;
-}
+  <div class="bottom-nav">
+    <div class="nav-icon active"><img src="images/home.svg" /><span>Home</span></div>
+    <div class="nav-icon"><img src="images/market.svg" /><span>Market</span></div>
+    <div class="nav-icon"><img src="images/trade.svg" /><span>Trade</span></div>
+    <div class="nav-icon"><img src="images/futures.svg" /><span>Futures</span></div>
+    <div class="nav-icon"><img src="images/assets.svg" /><span>Assets</span></div>
+  </div>
 
-.balance-title {
-  font-size: 12px;
-  color: #aaa;
-}
-
-.balance-value {
-  font-size: 24px;
-  margin: 5px 0;
-}
-
-.usd-estimate {
-  color: #888;
-  margin-bottom: 10px;
-}
-
-.add-funds {
-  background-color: #fcd535;
-  color: black;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.quick-actions {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  margin: 20px 0;
-}
-
-.quick-actions div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-}
-
-.quick-actions img {
-  width: 32px;
-  height: 32px;
-  background-color: #2b3139;
-  padding: 10px;
-  border-radius: 50%;
-  margin-bottom: 4px;
-}
-
-.tab-row {
-  display: flex;
-  justify-content: space-around;
-  font-size: 14px;
-  margin: 10px 0;
-  color: #888;
-}
-
-.tab-row .active-tab {
-  color: white;
-  font-weight: bold;
-  border-bottom: 2px solid #fcd535;
-}
-
-.sub-tab-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.sub-tab {
-  background-color: #2b3139;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin: 0 5px;
-  font-size: 12px;
-}
-
-.token-list {
-  padding: 0 16px;
-}
-
-.token-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 12px 0;
-}
-
-.token-price {
-  text-align: right;
-  font-size: 14px;
-}
-
-.bold {
-  font-weight: bold;
-  display: block;
-}
-
-.gray {
-  color: #aaa;
-  font-size: 12px;
-}
-
-.green {
-  color: #0ecb81;
-  font-weight: bold;
-}
-
-.red {
-  color: #ff4d4f;
-  font-weight: bold;
-}
-
-.bottom-nav {
-  display: flex;
-  justify-content: space-around;
-  font-size: 12px;
-  background-color: #181a20;
-  padding: 8px 0;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
-
-.bottom-nav div {
-  text-align: center;
-  color: #aaa;
-}
-
-.bottom-nav .active {
-  color: #fcd535;
-}
+  <script src="script.js"></script>
+</body>
+</html>
