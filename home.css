@@ -280,3 +280,49 @@ body {
   background-color: #fcd535;
   border-radius: 50%;
 }
+.coin-list {
+  padding: 16px;
+  background-color: #000;
+}
+
+.coin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #111;
+}
+
+.coin-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.coin-price {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.coin-change {
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.green { background-color: #0f5132; color: #00ff88; }
+.red { background-color: #5c1a1a; color: #ff4d4f; }
+.gray { background-color: #444; color: #ccc; }
+
+.view-more {
+  width: 100%;
+  padding: 10px;
+  background-color: #1c1c1c;
+  border: none;
+  color: #fcd535;
+  font-weight: bold;
+  font-size: 0.85rem;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
