@@ -1,57 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Binance - Home</title>
-  <link rel="stylesheet" href="home.css" />
-</head>
-<body>
-  <div class="top-bar">
-    <img src="images/logo.svg" alt="Binance Logo" class="logo" />
-    <div class="top-icons">
-      <img src="images/message.png" alt="Message" />
-      <img src="images/support.png" alt="Support" />
-      <img src="images/hand.png" alt="Hand Coin" />
-    </div>
-  </div>
+body {
+  margin: 0;
+  background-color: #181a20;
+  font-family: Arial, sans-serif;
+  color: white;
+}
 
-  <div class="balance-section">
-    <div class="balance-label">Est. Total Value (USD)</div>
-    <div class="balance-amount">$42,002.21</div>
-    <button class="add-funds">Add Funds</button>
-  </div>
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+}
 
-  <div class="actions">
-    <button><img src="images/earn.png" /><span>Earn</span></button>
-    <button><img src="images/deposit.png" /><span>Deposit</span></button>
-    <button><img src="images/gift.png" /><span>My Gifts</span></button>
-    <button><img src="images/stake.png" /><span>ETH Staking</span></button>
-    <button><img src="images/more.png" /><span>More</span></button>
-  </div>
+.logo {
+  width: 100px;
+}
 
-  <div class="divider-line"></div>
+.top-icons img {
+  width: 20px;
+  margin-left: 16px;
+}
 
-  <div class="tab-row">
-    <button class="tab active">Favorites</button>
-    <button class="tab">Hot</button>
-    <button class="tab">Alpha</button>
-    <button class="tab">New</button>
-    <button class="tab">Gainers</button>
-  </div>
+.balance-section {
+  padding: 20px 16px 10px;
+  position: relative;
+}
 
-  <div id="coin-container" class="coin-container">
-    <!-- Prices will be updated here via JS -->
-  </div>
+.balance-label {
+  font-size: 13px;
+  color: #a5a5a5;
+}
 
-  <div class="bottom-nav">
-    <div class="nav-icon active"><img src="images/home.svg" /><span>Home</span></div>
-    <div class="nav-icon"><img src="images/market.svg" /><span>Market</span></div>
-    <div class="nav-icon"><img src="images/trade.svg" /><span>Trade</span></div>
-    <div class="nav-icon"><img src="images/futures.svg" /><span>Futures</span></div>
-    <div class="nav-icon"><img src="images/assets.svg" /><span>Assets</span></div>
-  </div>
+.balance-amount {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 6px 0;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.add-funds {
+  position: absolute;
+  right: 16px;
+  top: 20px;
+  background-color: #fcd535;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 8px;
+}
+
+.actions button {
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions button img {
+  width: 24px;
+  margin-bottom: 6px;
+}
+
+.divider-line {
+  height: 1px;
+  background-color: #2e3038;
+  margin: 8px 0;
+}
+
+.tab-row {
+  display: flex;
+  overflow-x: auto;
+  padding: 0 8px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #a5a5a5;
+  padding: 10px 14px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.tab.active {
+  color: #fcd535;
+  border-bottom: 2px solid #fcd535;
+}
+
+.coin-container {
+  padding: 0 16px;
+  margin-top: 10px;
+}
+
+.coin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2e3038;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.coin-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.coin-price {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.coin-change {
+  color: white;
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #181a20;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #2e3038;
+}
+
+.nav-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #a5a5a5;
+  font-size: 12px;
+}
+
+.nav-icon img {
+  width: 22px;
+  margin-bottom: 4px;
+  filter: grayscale(100%) brightness(0.6); /* gray */
+  transition: filter 0.3s;
+}
+
+.nav-icon.active img {
+  filter: none; /* yellow if original icon is yellow */
+}
+
+.nav-icon.active {
+  color: #fcd535;
+}
