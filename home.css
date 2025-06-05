@@ -1,118 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Binance Home</title>
-  <link rel="stylesheet" href="home.css" />
-</head>
-<body>
-  <div class="top-bar">
-    <img src="ic_menu.svg" alt="Menu" class="icon">
-    <input type="text" placeholder="#MyCOSTrade" class="search-box">
-    <div class="top-icons">
-      <img src="ic_message.svg" alt="Msg" class="icon">
-      <img src="ic_support.svg" alt="Support" class="icon">
-      <img src="ic_hand_coin.svg" alt="Help" class="icon">
-    </div>
-  </div>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #181a20;
+  color: white;
+}
 
-  <div class="balance-section">
-    <div>
-      <p class="label">Total Balance (BTC) ^</p>
-      <h1 id="btc-balance">0.00001307</h1>
-      <p class="sub-label">≈ $1.37</p>
-    </div>
-    <button class="add-funds">Add Funds</button>
-  </div>
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  align-items: center;
+}
 
-  <div class="quick-buttons">
-    <div><img src="ic_deposit.svg"><p>Deposit</p></div>
-    <div><img src="ic_transfer.svg"><p>Transfer</p></div>
-    <div><img src="ic_referral.svg"><p>Referral</p></div>
-    <div><img src="ic_more.svg"><p>More</p></div>
-  </div>
+.icon {
+  width: 20px;
+  margin: 0 4px;
+}
 
-  <div class="tabs">
-    <div class="main-tabs">
-      <span class="active">Hot</span>
-      <span>Favorites</span>
-      <span>Alpha</span>
-      <span>New</span>
-      <span>Gainers</span>
-      <span>Losers</span>
-    </div>
-    <div class="sub-tabs">
-      <span class="active">Crypto</span>
-      <span>Futures</span>
-    </div>
-  </div>
+.search-box {
+  flex: 1;
+  margin: 0 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2e3038;
+  color: white;
+}
 
-  <table class="price-table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Last Price</th>
-        <th>24h chg%</th>
-      </tr>
-    </thead>
-    <tbody id="price-table-body">
-      <tr>
-        <td>BNB 🔥</td>
-        <td>$668.06</td>
-        <td class="change-box">+0.34%</td>
-      </tr>
-      <tr>
-        <td>BTC 🔥</td>
-        <td>$105,354.82</td>
-        <td class="change-box">-0.56%</td>
-      </tr>
-      <tr>
-        <td>ETH 🔥</td>
-        <td>$2,650.61</td>
-        <td class="change-box">+1.36%</td>
-      </tr>
-      <tr>
-        <td>PEPE</td>
-        <td>$0.00001241</td>
-        <td class="change-box">-2.21%</td>
-      </tr>
-      <tr>
-        <td>SOL</td>
-        <td>$156.93</td>
-        <td class="change-box">-2.47%</td>
-      </tr>
-      <tr>
-        <td>XRP</td>
-        <td>$2.2354</td>
-        <td class="change-box">-0.69%</td>
-      </tr>
-    </tbody>
-  </table>
+.balance-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+}
 
-  <div class="bottom-nav">
-    <div class="nav-item active" onclick="setActive(this)">
-      <img src="ic_home.svg" class="nav-icon" alt="Home">
-      <span>Home</span>
-    </div>
-    <div class="nav-item" onclick="setActive(this)">
-      <img src="ic_market.svg" class="nav-icon" alt="Markets">
-      <span>Markets</span>
-    </div>
-    <div class="nav-item" onclick="setActive(this)">
-      <img src="ic_trade.svg" class="nav-icon" alt="Trade">
-      <span>Trade</span>
-    </div>
-    <div class="nav-item" onclick="setActive(this)">
-      <img src="ic_futures.svg" class="nav-icon" alt="Futures">
-      <span>Futures</span>
-    </div>
-    <div class="nav-item" onclick="setActive(this)">
-      <img src="ic_assets.svg" class="nav-icon" alt="Assets">
-      <span>Assets</span>
-    </div>
-  </div>
+.add-funds {
+  background-color: #fcd535;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: bold;
+}
 
-  <script src="home.js"></script>
-</body>
-</html>
+.quick-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 14px 0;
+}
+
+.quick-buttons div {
+  text-align: center;
+}
+
+.quick-buttons img {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 4px;
+}
+
+.tabs {
+  padding: 10px 16px;
+}
+
+.main-tabs span,
+.sub-tabs span {
+  margin-right: 16px;
+  color: #a5a5a5;
+}
+
+.main-tabs .active,
+.sub-tabs .active {
+  color: #fcd535;
+  font-weight: bold;
+  border-bottom: 2px solid #fcd535;
+}
+
+.price-table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 16px 10px;
+  padding: 0 16px;
+}
+
+.change-box {
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #1e2128;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 58px;
+}
+
+.nav-item {
+  text-align: center;
+  color: gray;
+  font-size: 12px;
+}
+
+.nav-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-item.active {
+  color: #fcd535;
+}
+
+.nav-item.active img {
+  filter: brightness(1.2) saturate(3);
+}
