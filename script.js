@@ -49,3 +49,34 @@ navItems.forEach(item => {
     item.classList.add("active");
   });
 });
+const coins = [
+  { name: "BTC/USDT", price: "67,204.17", faded: "$67,204.17", change: 2.15 },
+  { name: "ETH/USDT", price: "3,762.10", faded: "$3,762.10", change: -1.07 },
+  { name: "BNB/USDT", price: "593.20", faded: "$593.20", change: 0.00 },
+  { name: "SOL/USDT", price: "168.45", faded: "$168.45", change: 3.20 },
+];
+
+function renderCoins() {
+  const list = document.getElementById("coinList");
+  list.innerHTML = "";
+
+  coins.forEach(coin => {
+    let colorClass = "gray";
+    if (coin.change > 0) colorClass = "green";
+    else if (coin.change < 0) colorClass = "red";
+
+    const row = document.createElement("div");
+    row.className = "coin-row";
+    row.innerHTML = `
+      <div class="coin-name">${coin.name}</div>
+      <div>
+        <div class="coin-price"><b>${coin.price}</b></div>
+        <div class="coin-price">${coin.faded}</div>
+      </div>
+      <div class="coin-change ${colorClass}">${coin.change.toFixed(2)}%</div>
+    `;
+    list.appendChild(row);
+  });
+}
+
+renderCoins();
