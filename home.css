@@ -148,3 +148,51 @@ body {
 .green { background-color: #093; color: #fff; }
 .red { background-color: #900; color: #fff; }
 .gray { background-color: #555; color: #fff; }
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #222;
+  padding: 5px 0;
+  z-index: 1000;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.65rem;
+  color: #888;
+  flex: 1;
+  cursor: pointer;
+}
+
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.6);
+}
+
+.nav-item.active {
+  color: #fff;
+}
+
+.nav-item.active .nav-icon {
+  filter: none;
+}
+
+.trade-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 0;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 8px;
+}
