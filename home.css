@@ -224,3 +224,39 @@ body {
   padding: 6px;
   object-fit: contain;
 }
+/* Divider Line */
+.section-divider {
+  height: 1px;
+  background-color: #222;
+  margin: 0;
+}
+
+/* Scrollable Tabs */
+.scroll-tabs {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px;
+  background-color: #0a0a0a;
+  gap: 12px;
+  scrollbar-width: none;
+}
+
+.scroll-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  padding: 6px 14px;
+  background-color: #1c1c1c;
+  color: #bbb;
+  font-size: 0.8rem;
+  border-radius: 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tab.active {
+  background-color: #fcd535;
+  color: #000;
+  font-weight: bold;
+}
