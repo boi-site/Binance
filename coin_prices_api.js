@@ -1,49 +1,38 @@
 const coins = [
-  { name: "BNB", price: 643.32 },
-  { name: "BTC", price: 103576.88 },
-  { name: "ETH", price: 2461.3 },
-  { name: "PEPE", price: 0.00001107 },
-  { name: "SOL", price: 148.11 },
-  { name: "XRP", price: 2.1437 }
+  { name: 'BNB', price: 643.32, change: -4.03 },
+  { name: 'BTC', price: 103576.88, change: -1.12 },
+  { name: 'ETH', price: 2461.3, change: -5.64 },
+  { name: 'PEPE', price: 0.00001107, change: -6.11 },
+  { name: 'SOL', price: 148.11, change: -2.80 },
+  { name: 'XRP', price: 2.1437, change: -2.50 },
 ];
 
-function getRandomChange() {
-  const change = (Math.random() * 10 - 5).toFixed(2); // -5% to +5%
-  return parseFloat(change);
-}
-
-function updatePrices() {
-  const coinList = document.getElementById("coin-list");
-  coinList.innerHTML = "";
-
+function loadCoinPrices() {
+  const list = document.getElementById("coin-list");
+  list.innerHTML = "";
   coins.forEach(coin => {
-    const change = getRandomChange();
-    const price = coin.price + coin.price * (change / 100);
-    const percentChange = change.toFixed(2);
-    const bgClass =
-      change > 0
-        ? "percent-green"
-        : change < 0
-        ? "percent-red"
-        : "percent-gray";
-
     const row = document.createElement("div");
     row.className = "coin-row";
 
-    row.innerHTML = `
-      <div class="coin-name">${coin.name}</div>
-      <div class="price-stack">
-        <div>$${price.toLocaleString()}</div>
-        <div class="usd-price">$${price.toLocaleString()}</div>
-      </div>
-      <div class="percent-box ${bgClass}">${percentChange}%</div>
+    const name = document.createElement("div");
+    name.className = "coin-name";
+    name.textContent = coin.name;
+
+    const prices = document.createElement("div");
+    prices.className = "coin-price";
+    prices.innerHTML = `
+      <div class="primary">${coin.price.toLocaleString()}</div>
+      <div class="secondary">$${coin.price.toFixed(2)}</div>
     `;
 
-    coinList.appendChild(row);
+    const change = document.createElement("div");
+    change.className = "coin-change";
+    change.textContent = `${coin.change.toFixed(2)}%`;
+    change.style.backgroundColor = coin.change > 0 ? "#16c784" : coin.change < 0 ? "#ea3943" : "#666";
+
+    row.append(name, prices, change);
+    list.appendChild(row);
   });
 }
 
-// Initial run
-updatePrices();
-// Simulate real-time updates every 5 seconds
-setInterval(updatePrices, 5000);
+window.onload = loadCoinPrices;
