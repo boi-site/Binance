@@ -1,143 +1,72 @@
+<!-- home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Binance Clone</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home.css" />
+  <script src="script.js" defer></script>
+  <script src="coin_prices_api.js" defer></script>
 </head>
 <body>
   <div class="top-bar">
-    <img src="icons/binance_logo.svg" alt="Binance Logo" class="logo" />
-    <input type="text" class="search" placeholder="Search" />
-    <div class="top-icons">
-      <img src="icons/ic_message.svg" alt="Messages" />
-      <img src="icons/ic_support.svg" alt="Support" />
-      <img src="icons/ic_hand_coin.svg" alt="Coin" />
+    <img src="binance-logo.svg" class="logo" alt="Binance Logo" />
+    <div class="search-bar">
+      <input type="text" placeholder="Search" />
+    </div>
+    <div class="icons">
+      <img src="ic_notification.svg" alt="Messages" />
+      <img src="ic_headset.svg" alt="Support" />
+      <img src="ic_coin_in_hand.svg" alt="Coin" />
     </div>
   </div>
 
-  <div class="balance-area">
-    <div class="label">Est. Total Value (USD)</div>
-    <div class="amount">$23,348.45</div>
+  <div class="balance-section">
+    <div class="subtitle">Est. Total Value (USD)</div>
+    <div class="balance" id="totalBalance">$1.35</div>
     <button class="add-funds">Add Funds</button>
-  </div>
-
-  <div class="quick-actions">
-    <div class="action">
-      <img src="icons/ic_earn.svg" alt="Earn" />
-      <span>Earn</span>
-    </div>
-    <div class="action">
-      <img src="icons/ic_deposit.svg" alt="Deposit" />
-      <span>Deposit</span>
-    </div>
-    <div class="action">
-      <img src="icons/ic_referral.svg" alt="Gifts" />
-      <span>My Gifts</span>
-    </div>
-    <div class="action">
-      <img src="icons/ic_staking.svg" alt="Staking" />
-      <span>ETH Staking</span>
-    </div>
-    <div class="action">
-      <img src="icons/ic_more.svg" alt="More" />
-      <span>More</span>
+    <div class="quick-buttons">
+      <div><img src="ic_deposit.svg" /><span>Deposit</span></div>
+      <div><img src="ic_transfer.svg" /><span>Transfer</span></div>
+      <div><img src="ic_referral.svg" /><span>Referral</span></div>
+      <div><img src="ic_more.svg" /><span>More</span></div>
     </div>
   </div>
 
-  <hr class="divider" />
+  <div class="tab-row">
+    <span class="active">Favorites</span>
+    <span>Hot</span>
+    <span>Alpha</span>
+    <span>New</span>
+    <span>Gainers</span>
+    <span>Losers</span>
+    <span>24h Vol</span>
+    <span>Market Cap</span>
+  </div>
 
-  <script src="script.js"></script>
+  <div class="coin-table">
+    <div class="header-row">
+      <span>Name</span>
+      <span>Last Price</span>
+      <span>24h chg%</span>
+    </div>
+    <div id="coinList"></div>
+  </div>
+
+  <div class="sub-tabs">
+    <span class="active">Discover</span>
+    <span>Following</span>
+    <span>News</span>
+    <span>Announcement</span>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="active"><img src="ic_home.svg" /><span>Home</span></div>
+    <div><img src="ic_market.svg" /><span>Markets</span></div>
+    <div><img src="ic_trade.svg" /><span>Trade</span></div>
+    <div><img src="ic_futures.svg" /><span>Futures</span></div>
+    <div><img src="ic_assets.svg" /><span>Assets</span></div>
+  </div>
 </body>
 </html>
-<!-- Tabs Section -->
-<div class="tabs-container">
-  <div class="tab active">Favorites</div>
-  <div class="tab">Hot</div>
-  <div class="tab">Alpha</div>
-  <div class="tab">New</div>
-  <div class="tab">Gainers</div>
-  <div class="tab">Losers</div>
-  <div class="tab">24h Vol</div>
-  <div class="tab">Market Cap</div>
-</div>
-
-<!-- Coin List Section -->
-<div id="coin-list" class="coin-list">
-  <!-- Dynamic rows will be injected by JS -->
-</div>
-<!-- Bottom Navigation Bar -->
-<div class="bottom-nav">
-  <div class="nav-item active">
-    <img src="icons/ic_home.svg" class="nav-icon" />
-    <span>Home</span>
-  </div>
-  <div class="nav-item">
-    <img src="icons/ic_market.svg" class="nav-icon" />
-    <span>Markets</span>
-  </div>
-  <div class="nav-item">
-    <img src="icons/ic_trade.svg" class="nav-icon trade-icon" />
-  </div>
-  <div class="nav-item">
-    <img src="icons/ic_futures.svg" class="nav-icon" />
-    <span>Futures</span>
-  </div>
-  <div class="nav-item">
-    <img src="icons/ic_assets.svg" class="nav-icon" />
-    <span>Assets</span>
-  </div>
-</div>
-<!-- Dummy Button Row -->
-<div class="dummy-btn-row">
-  <div class="dummy-btn">
-    <img src="icons/ic_earn.svg" class="dummy-icon" />
-    <span>Earn</span>
-  </div>
-  <div class="dummy-btn">
-    <img src="icons/ic_deposit.svg" class="dummy-icon" />
-    <span>Deposit</span>
-  </div>
-  <div class="dummy-btn">
-    <img src="icons/ic_gift.svg" class="dummy-icon" />
-    <span>My Gifts</span>
-  </div>
-  <div class="dummy-btn">
-    <img src="icons/ic_eth.svg" class="dummy-icon" />
-    <span>ETH Staking</span>
-  </div>
-  <div class="dummy-btn">
-    <img src="icons/ic_more.svg" class="dummy-icon" />
-    <span>More</span>
-  </div>
-</div>
-<!-- Divider -->
-<div class="section-divider"></div>
-
-<!-- Scrollable Tab Row -->
-<div class="scroll-tabs">
-  <div class="tab active">Favorites</div>
-  <div class="tab">Hot</div>
-  <div class="tab">Alpha</div>
-  <div class="tab">New</div>
-  <div class="tab">Gainers</div>
-  <div class="tab">Losers</div>
-  <div class="tab">24h Vol</div>
-  <div class="tab">Market Cap</div>
-</div>
-<!-- Second Scrollable Tab Row -->
-<div class="scroll-tabs second-tab-row">
-  <div class="tab">Discover</div>
-  <div class="tab dot-tab">Following<span class="dot"></span></div>
-  <div class="tab">News</div>
-  <div class="tab">Announcement</div>
-  <div class="tab active dot-tab">Hot<span class="dot"></span></div>
-</div>
-<!-- Coin List -->
-<div class="coin-list" id="coinList">
-  <!-- Coin rows will be inserted by JavaScript -->
-</div>
-
-<!-- View More Button -->
-<button class="view-more">View More</button>
