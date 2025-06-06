@@ -71,6 +71,11 @@ body {
   line-height: 36px;
 }
 
+.balance-label {
+  display: block;
+  margin-left: 4px; 
+}
+
 .quick-actions {
   display: flex;
   justify-content: space-around;
