@@ -54,7 +54,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px 0;
-  margin-top: 12px; /* ✅ Add this line or increase existing value */
+  margin-top: 12px; 
 }
 
 .total-balance {
@@ -70,7 +70,7 @@ body {
   justify-content: space-around;
   margin: 14px 0 8px;
   padding: 0 12px;
-  gap: 12px;
+  gap: 20px;
 }
 
 .action {
