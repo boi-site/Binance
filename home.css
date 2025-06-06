@@ -1,8 +1,14 @@
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #0b0e11;
   color: white;
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 80px;
 }
 
 .header {
@@ -12,70 +18,63 @@ body {
   padding: 12px 16px 0;
 }
 
-.header-left {
+.search-bar {
+  flex: 1;
+  margin: 0 12px;
+  background-color: #1e1e1e;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  padding: 6px 12px;
 }
 
-.header-left img {
-  width: 28px;
-}
-
-.header-center {
-  flex: 1;
-  margin: 0 10px;
-}
-
-.header-center input {
-  width: 100%;
-  background-color: #1e1e1e;
+.search-bar input {
+  background: transparent;
   border: none;
-  border-radius: 6px;
-  padding: 10px 14px;
-  color: #ccc;
+  color: white;
+  width: 100%;
+  font-size: 14px;
+  outline: none;
 }
 
-.header-right {
-  display: flex;
-  gap: 12px;
+.header-icons img {
+  width: 20px;
+  margin-left: 12px;
 }
 
-.header-right img {
-  width: 18px;
-}
-
-.balance-container {
+.balance-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px 0;
 }
 
-.balance-info {
-  font-size: 14px;
-  color: #aaa;
+.balance-text {
+  font-size: 13px;
+  color: #c0c0c0;
 }
 
 .balance-amount {
   font-size: 26px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .add-funds {
   background-color: #fcd535;
-  color: #000;
-  font-weight: 600;
-  padding: 8px 12px;
-  border-radius: 8px;
+  color: black;
   border: none;
-  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .quick-actions {
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  align-items: flex-start;
+  padding: 14px 16px 0;
+  gap: 4px;
 }
 
 .quick-action {
@@ -86,10 +85,10 @@ body {
 }
 
 .quick-action-icon {
-  width: 48px;
-  height: 48px;
   background-color: #1e1e1e;
-  border-radius: 12px;
+  border-radius: 14px;
+  width: 52px;
+  height: 52px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,72 +102,75 @@ body {
 
 .quick-action span {
   font-size: 12px;
-  margin-top: 2px;
   color: white;
+}
+
+.divider {
+  border-top: 1px solid #1e1e1e;
+  margin: 14px 0 6px;
 }
 
 .tabs {
   display: flex;
-  align-items: center;
   overflow-x: auto;
-  gap: 18px;
   padding: 0 16px;
-  border-bottom: 1px solid #2c2c2c;
-  margin-top: -2px;
+  gap: 16px;
 }
 
 .tabs::-webkit-scrollbar {
   display: none;
 }
 
-.tabs span {
-  color: #ccc;
+.tab {
   font-size: 14px;
+  color: #ccc;
+  position: relative;
   padding-bottom: 10px;
   white-space: nowrap;
-  position: relative;
 }
 
-.tabs .active {
+.tab.active {
   color: #fcd535;
 }
 
-.tabs .active::after {
-  content: "";
+.tab.active::after {
+  content: '';
   position: absolute;
-  left: 0;
   bottom: 0;
-  height: 2px;
+  left: 0;
+  height: 3px;
   width: 100%;
   background-color: #fcd535;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
-.token-toggle {
+.crypto-selector {
   display: flex;
   gap: 8px;
-  padding: 14px 16px 6px;
+  margin: 14px 16px 6px;
 }
 
-.token-toggle div {
-  font-size: 13px;
+.crypto-selector span {
   padding: 4px 10px;
-  border-radius: 10px;
-  color: #aaa;
+  border-radius: 8px;
+  font-size: 13px;
 }
 
-.token-toggle .active {
-  background-color: #1e1e1e;
+.crypto-selector .active {
+  background-color: #323232;
   color: white;
 }
 
-.token-table-header {
+.crypto-selector .inactive {
+  color: #888;
+}
+
+.column-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
-  padding: 0 16px;
-  margin-top: 8px;
+  padding: 0 16px 8px;
 }
 
 .coin-row {
@@ -176,85 +178,101 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 16px;
-  border-bottom: 1px solid #1e1e1e;
+  border-bottom: 1px solid #1a1a1a;
 }
 
 .coin-name {
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
 }
 
 .coin-price {
+  display: flex;
+  flex-direction: column;
   text-align: right;
+  font-size: 14px;
 }
 
 .coin-price .primary {
-  font-size: 15px;
   font-weight: bold;
+  font-size: 15px;
   color: white;
 }
 
 .coin-price .secondary {
-  font-size: 13px;
-  color: #888;
+  font-size: 12px;
+  color: #aaa;
 }
 
 .coin-change {
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: bold;
   color: white;
   padding: 4px 8px;
-  border-radius: 12px;
-  background-color: #333;
-  font-weight: bold;
+  border-radius: 10px;
+  min-width: 54px;
+  text-align: center;
 }
 
-.bottom-scroll-tabs {
+.scroll-bottom-tabs {
   display: flex;
-  align-items: center;
   overflow-x: auto;
-  padding: 12px 16px;
-  border-top: 1px solid #2c2c2c;
-  border-bottom: 1px solid #2c2c2c;
+  gap: 18px;
+  padding: 14px 16px;
+  border-top: 1px solid #1c1c1c;
+  border-bottom: 1px solid #1c1c1c;
+  margin-top: 4px;
 }
 
-.bottom-scroll-tabs span {
-  color: #888;
+.scroll-bottom-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-bottom-tabs span {
+  color: #aaa;
   font-size: 13px;
-  margin-right: 18px;
   white-space: nowrap;
 }
 
-.bottom-scroll-tabs .active {
+.scroll-bottom-tabs .active {
   color: white;
   font-weight: 500;
+  position: relative;
 }
 
-.bottom-bar {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 16px;
-  border-top: 1px solid #222;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #0b0e11;
-}
-
-.bottom-bar div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 10px;
+.scroll-bottom-tabs .arrow {
+  margin-left: auto;
+  font-size: 18px;
   color: #999;
 }
 
-.bottom-bar .active {
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: #0b0e11;
+  display: flex;
+  justify-content: space-around;
+  padding: 6px 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+.bottom-nav .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.bottom-nav .nav-item.active {
   color: #fcd535;
 }
 
-.bottom-bar img {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 2px;
+.bottom-nav .nav-item img {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 4px;
 }
