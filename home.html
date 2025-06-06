@@ -5,75 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Binance Clone</title>
   <link rel="stylesheet" href="home.css" />
-  <script defer src="coin_prices_api.js"></script>
 </head>
 <body>
-  <header class="top-bar">
+  <!-- Header -->
+  <header class="top-header">
     <img src="binance-logo.svg" alt="Binance Logo" class="logo" />
     <input type="text" placeholder="Search" class="search-bar" />
-    <div class="icons">
-      <img src="ic_notification.svg" />
-      <img src="ic_headset.svg" />
-      <img src="ic_coin_in_hand.svg" />
+    <div class="top-icons">
+      <img src="ic_notification.svg" alt="Notification" />
+      <img src="ic_headset.svg" alt="Support" />
+      <img src="ic_coin_in_hand.svg" alt="Coin" />
     </div>
   </header>
 
+  <!-- Balance + Add Funds -->
   <div class="balance-section">
-    <div class="balance-label">Est. Total Value (USD) ^</div>
-    <div class="balance-row">
-      <div class="balance-value">$406,783,194.27</div>
-      <button class="add-funds">Add Funds</button>
+    <div>
+      <p class="balance-label">Est. Total Value (USD) ^</p>
+      <p class="balance-amount" onclick="location.href='assets.html'">$406,783,194.27</p>
+    </div>
+    <button class="add-funds">Add Funds</button>
+  </div>
+
+  <!-- Icon Buttons -->
+  <div class="icon-button-container">
+    <div class="icon-button">
+      <img src="ic_deposit.svg" />
+      <span>Deposit</span>
+    </div>
+    <div class="icon-button">
+      <img src="ic_transfer.svg" />
+      <span>Transfer</span>
+    </div>
+    <div class="icon-button">
+      <img src="ic_referral.svg" />
+      <span>Referral</span>
+    </div>
+    <div class="icon-button">
+      <img src="ic_more.svg" />
+      <span>More</span>
     </div>
   </div>
 
-  <div class="action-buttons">
-    <div class="action-icon"><img src="ic_deposit.svg" /><span>Deposit</span></div>
-    <div class="action-icon"><img src="ic_transfer.svg" /><span>Transfer</span></div>
-    <div class="action-icon"><img src="ic_referral.svg" /><span>Referral</span></div>
-    <div class="action-icon"><img src="ic_more.svg" /><span>More</span></div>
-  </div>
-
+  <!-- Divider -->
   <hr class="divider" />
 
-  <div class="tabs-row">
-    <div class="tab active">Favorites</div>
-    <div class="tab">Hot</div>
-    <div class="tab">Alpha</div>
-    <div class="tab">New</div>
-    <div class="tab">Gainers</div>
-    <div class="tab">Losers</div>
-    <div class="tab">24h Vol</div>
-    <div class="tab">Market Cap</div>
-    <img src="ic_more.svg" class="tab-icon" />
+  <!-- Tab Navigation -->
+  <div class="scroll-tabs">
+    <div class="tabs">
+      <span class="active-tab">Favorites</span>
+      <span>Hot</span>
+      <span>Alpha</span>
+      <span>New</span>
+      <span>Gainers</span>
+      <span>Losers</span>
+      <span>24h Vol</span>
+      <span>Market Cap</span>
+    </div>
+    <img src="ic_menu.svg" class="hamburger" />
   </div>
 
-  <div class="subtabs-row">
-    <div class="subtab active">Crypto</div>
-    <div class="subtab">Futures</div>
+  <!-- Sub-Tabs -->
+  <div class="sub-tab-row">
+    <div class="sub-tab active">Crypto</div>
+    <div class="sub-tab">Futures</div>
   </div>
 
+  <!-- Coin Table Header -->
   <div class="coin-header">
-    <div>Name</div>
-    <div>Last Price</div>
-    <div>24h chg%</div>
+    <span>Name</span>
+    <span>Last Price</span>
+    <span>24h chg%</span>
   </div>
 
+  <!-- Coin Price List -->
   <div id="coin-list" class="coin-list"></div>
 
-  <div class="subtabs-row lower-tabs">
-    <div class="subtab active">Discover</div>
-    <div class="subtab">Following</div>
-    <div class="subtab">News</div>
-    <div class="subtab">Announcement</div>
-    <div class="tab-up">⌃</div>
+  <!-- Discover Tabs -->
+  <div class="discover-tabs">
+    <span class="active">Discover</span>
+    <span>Following</span>
+    <span>News</span>
+    <span>Announcement</span>
+    <span class="arrow-up">^</span>
   </div>
 
+  <!-- Bottom Navigation -->
   <nav class="bottom-nav">
-    <div class="nav-item active"><img src="ic_home.svg" /><span>Home</span></div>
-    <div class="nav-item"><img src="ic_market.svg" /><span>Markets</span></div>
-    <div class="nav-item"><img src="ic_trade.svg" /><span>Trade</span></div>
-    <div class="nav-item"><img src="ic_futures.svg" /><span>Futures</span></div>
-    <div class="nav-item"><img src="ic_assets.svg" /><span>Assets</span></div>
+    <div class="nav-item active">
+      <img src="ic_home.svg" />
+      <span>Home</span>
+    </div>
+    <div class="nav-item">
+      <img src="ic_market.svg" />
+      <span>Markets</span>
+    </div>
+    <div class="nav-item">
+      <img src="ic_trade.svg" />
+      <span>Trade</span>
+    </div>
+    <div class="nav-item">
+      <img src="ic_futures.svg" />
+      <span>Futures</span>
+    </div>
+    <div class="nav-item" onclick="location.href='assets.html'">
+      <img src="ic_assets.svg" />
+      <span>Assets</span>
+    </div>
   </nav>
+
+  <script src="coin_prices_api.js"></script>
 </body>
 </html>
