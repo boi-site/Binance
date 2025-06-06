@@ -73,7 +73,9 @@ body {
 
 .balance-label {
   display: block;
-  margin-left: 4px; 
+  margin-left: 16px;
+  font-size: 13px;
+  color: #848e9c;
 }
 
 .quick-actions {
