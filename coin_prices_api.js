@@ -1,40 +1,22 @@
-const coins = ["bnb", "btc", "eth", "pepe", "sol", "xrp"];
+const coins = [
+  { name: 'BNB', price: 649.25, change: -2.16 },
+  { name: 'BTC', price: 103965, change: -1.81 },
+  { name: 'ETH', price: 2479.48, change: -5.84 },
+  { name: 'PEPE', price: 0.00001117, change: -6.83 },
+  { name: 'SOL', price: 151.24, change: -1.79 },
+  { name: 'XRP', price: 2.16, change: -2.83 },
+];
 
-async function fetchPrices() {
-  try {
-    const response = await fetch("https://api.binance.com/api/v3/ticker/24hr");
-    const data = await response.json();
-
-    const filtered = data.filter(item => 
-      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
-    );
-
-    const formatted = filtered.map(item => ({
-      name: item.symbol.replace("USDT", ""),
-      price: parseFloat(item.lastPrice),
-      change: parseFloat(item.priceChangePercent)
-    }));
-
-    return formatted;
-  } catch (e) {
-    console.error("Failed to fetch prices", e);
-    return [];
-  }
-}
-
-async function loadCoinPrices() {
+function loadCoinPrices() {
   const list = document.getElementById("coin-list");
   list.innerHTML = "";
-
-  const coinData = await fetchPrices();
-
-  coinData.forEach(coin => {
+  coins.forEach(coin => {
     const row = document.createElement("div");
     row.className = "coin-row";
 
     const name = document.createElement("div");
     name.className = "coin-name";
-    name.textContent = coin.name.toUpperCase();
+    name.textContent = coin.name;
 
     const prices = document.createElement("div");
     prices.className = "coin-price";
@@ -46,14 +28,15 @@ async function loadCoinPrices() {
     const change = document.createElement("div");
     change.className = "coin-change";
     change.textContent = `${coin.change.toFixed(2)}%`;
-    change.style.backgroundColor = coin.change > 0 ? "#16c784" : coin.change < 0 ? "#ea3943" : "#666";
+    change.style.backgroundColor =
+      coin.change > 0 ? "#16c784" :
+      coin.change < 0 ? "#ea3943" : "#848e9c";
 
-    row.append(name, prices, change);
+    row.appendChild(name);
+    row.appendChild(prices);
+    row.appendChild(change);
     list.appendChild(row);
   });
 }
 
-window.onload = () => {
-  loadCoinPrices();
-  setInterval(loadCoinPrices, 5000); // refresh every 5 seconds
-};
+window.onload = loadCoinPrices;
