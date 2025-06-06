@@ -74,7 +74,7 @@ body {
 .balance-label {
   display: block;
   margin-left: 16px;
-  margin-bottom: 2px;   
+  margin-bottom: 0px;   
   margin-top: 28px;    
   font-size: 13px;
   color: #848e9c;
