@@ -5,19 +5,15 @@ async function fetchPrices() {
     const response = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await response.json();
 
-    const filtered = data.filter(item => 
-      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
-    );
-
-    const formatted = filtered.map(item => ({
-      name: item.symbol.replace("USDT", ""),
-      price: parseFloat(item.lastPrice),
-      change: parseFloat(item.priceChangePercent)
-    }));
-
-    return formatted;
-  } catch (e) {
-    console.error("Failed to fetch prices", e);
+    return data
+      .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
+      .map(item => ({
+        name: item.symbol.replace("USDT", ""),
+        price: parseFloat(item.lastPrice),
+        change: parseFloat(item.priceChangePercent)
+      }));
+  } catch (err) {
+    console.error("Failed to fetch prices", err);
     return [];
   }
 }
@@ -36,9 +32,9 @@ async function loadCoinPrices() {
     name.className = "coin-name";
     name.textContent = coin.name.toUpperCase();
 
-    const prices = document.createElement("div");
-    prices.className = "coin-price";
-    prices.innerHTML = `
+    const price = document.createElement("div");
+    price.className = "coin-price";
+    price.innerHTML = `
       <div class="primary">${coin.price.toLocaleString()}</div>
       <div class="secondary">$${coin.price.toFixed(2)}</div>
     `;
@@ -48,12 +44,14 @@ async function loadCoinPrices() {
     change.textContent = `${coin.change.toFixed(2)}%`;
     change.style.backgroundColor = coin.change > 0 ? "#16c784" : coin.change < 0 ? "#ea3943" : "#666";
 
-    row.append(name, prices, change);
+    row.appendChild(name);
+    row.appendChild(price);
+    row.appendChild(change);
     list.appendChild(row);
   });
 }
 
 window.onload = () => {
   loadCoinPrices();
-  setInterval(loadCoinPrices, 5000); // refresh every 5 seconds
+  setInterval(loadCoinPrices, 6000);
 };
