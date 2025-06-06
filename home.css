@@ -21,12 +21,12 @@ body {
   margin: 0 12px;
   background: #1e2329;
   border-radius: 8px;
-  padding: 4px 12px;
+  padding: 4px 10px;
   font-size: 14px;
   color: #c5c5c5;
   display: flex;
   align-items: center;
-  height: 32px;
+  height: 28px;
 }
 
 .top-icons {
