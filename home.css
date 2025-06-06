@@ -20,16 +20,19 @@ header {
   flex: 1;
   margin: 0 12px;
   background: #1e2329;
-  border-radius: 8px;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  color: #7b8b9d;
+  border-radius: 12px;
+  padding: 8px 12px;
+  color: #848e9c;
+  font-size: 14px;
 }
 
 .icon-group {
   display: flex;
   gap: 12px;
+}
+
+.top-icon {
+  width: 20px;
 }
 
 .add-funds {
@@ -68,47 +71,47 @@ header {
 }
 
 .action {
-  flex: 1;
   text-align: center;
+  flex: 1;
 }
 
 .icon-box {
   background-color: #1e2329;
-  border-radius: 12px;
-  padding: 8px;
+  border-radius: 14px;
+  padding: 12px;
+  width: 52px;
+  height: 52px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  width: 44px;
-  height: 44px;
 }
 
 .action label {
-  display: block;
-  margin-top: 6px;
   font-size: 13px;
+  margin-top: 6px;
+  display: block;
 }
 
 .tabs {
   display: flex;
   overflow-x: auto;
   padding: 0 12px;
-  border-bottom: 1px solid #1e2329;
   gap: 16px;
   margin-top: 10px;
 }
 
 .tab {
   padding: 12px 0;
-  position: relative;
-  color: #848e9c;
   font-size: 14px;
+  color: #848e9c;
   white-space: nowrap;
+  position: relative;
 }
 
 .tab.active {
   color: #fcd535;
+  font-weight: 600;
 }
 
 .tab.active::after {
@@ -122,6 +125,12 @@ header {
   border-radius: 2px;
 }
 
+.hamburger-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
 .category-toggle {
   display: flex;
   gap: 12px;
@@ -130,7 +139,7 @@ header {
 
 .category-toggle button {
   border: none;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: transparent;
   padding: 4px 10px;
   color: #848e9c;
@@ -165,7 +174,7 @@ header {
 
 .coin-price {
   flex: 1;
-  text-align: right;
+  text-align: center;
 }
 
 .coin-price .primary {
@@ -210,5 +219,5 @@ header {
 }
 
 .nav-item.active img {
-  filter: brightness(1.8);
+  filter: brightness(2) sepia(1) hue-rotate(10deg) saturate(5);
 }
