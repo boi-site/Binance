@@ -54,6 +54,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px 0;
+  margin-top: 12px; /* ✅ Add this line or increase existing value */
 }
 
 .total-balance {
