@@ -26,7 +26,7 @@ body {
   color: #c5c5c5;
   display: flex;
   align-items: center;
-  height: 23px;
+  height: 28px;
 }
 
 .top-icons {
@@ -44,26 +44,21 @@ body {
   color: #0b0e11;
   border: none;
   border-radius: 10px;
-  padding: 4px 14px 6px;
   font-weight: bold;
   font-size: 14px;
-  height: auto;
-  display: flex;
-  align-items: center;
-}
-
-.balance-label {
+  height: 36px;
+  line-height: 36px;
   padding: 0 16px;
-  margin-top: 16px;
-  color: #848e9c;
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .balance-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 8px 16px 0;
   margin-top: 4px;
 }
 
@@ -73,6 +68,7 @@ body {
   margin: 0;
   color: white;
   cursor: pointer;
+  line-height: 36px;
 }
 
 .quick-actions {
