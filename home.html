@@ -8,11 +8,11 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Top Bar -->
   <header>
     <img src="binance-logo.svg" class="logo" />
     <div class="search-bar">
-      <span>🔥 SUI</span>
+      🔥SUI
     </div>
     <div class="icon-group">
       <img src="ic_notification.svg" class="top-icon" />
@@ -21,16 +21,15 @@
     </div>
   </header>
 
-  <!-- Balance Row -->
+  <!-- Balance and Add Funds -->
   <div class="balance-row">
     <div>
-      <small>Est. Total Value (USD)</small>
-      <div class="total-balance" onclick="window.location.href='assets.html'">$406,783,194.27</div>
+      <div class="total-balance"><small>Est. Total Value (USD)</small><br>$406,783,194.27</div>
     </div>
     <button class="add-funds">Add Funds</button>
   </div>
 
-  <!-- Quick Action Buttons -->
+  <!-- Dummy Buttons -->
   <div class="quick-actions">
     <div class="action">
       <div class="icon-box"><img src="ic_deposit.svg" /></div>
@@ -52,50 +51,50 @@
 
   <hr />
 
-  <!-- Top Scroll Tabs -->
+  <!-- Top Tabs -->
   <div class="tabs">
-    <div class="tab active">Favorites</div>
-    <div class="tab">Hot</div>
-    <div class="tab">Alpha</div>
-    <div class="tab">New</div>
-    <div class="tab">Gainers</div>
-    <div class="tab">Losers</div>
-    <div class="tab">24h Vol</div>
-    <div class="tab">Market Cap</div>
-    <div class="tab"><img src="ic_hamburger.svg" class="hamburger-icon" /></div>
+    <span class="tab">Favorites</span>
+    <span class="tab active">Hot</span>
+    <span class="tab">Alpha</span>
+    <span class="tab">New</span>
+    <span class="tab">Gainers</span>
+    <span class="tab">Losers</span>
+    <span class="tab">24h Vol</span>
+    <span class="tab">Market Cap</span>
+    <img src="ic_hamburger.svg" class="tab-icon" />
   </div>
 
-  <!-- Crypto/Futures Toggle -->
+  <!-- Crypto / Futures toggle -->
   <div class="category-toggle">
     <button class="active">Crypto</button>
     <button>Futures</button>
   </div>
 
-  <!-- Coin Table Header -->
+  <!-- Table Headers -->
   <div class="table-headers">
-    <div>Name</div>
-    <div>Last Price</div>
-    <div>24h chg%</div>
+    <span>Name</span>
+    <span>Last Price</span>
+    <span>24h chg%</span>
   </div>
 
-  <!-- Coin Rows -->
+  <!-- Coin list -->
   <div id="coin-list"></div>
 
   <hr />
 
-  <!-- Discover Scroll Tabs -->
-  <div class="tabs">
-    <div class="tab active">Discover</div>
-    <div class="tab">Following</div>
-    <div class="tab">News</div>
-    <div class="tab">Announcement</div>
-    <div class="tab">Hot</div>
-    <div class="tab">⌃</div>
+  <!-- Discover Tabs -->
+  <div class="tabs discover-tabs">
+    <span class="bottom-tab active">Discover</span>
+    <span class="bottom-tab">Following</span>
+    <span class="bottom-tab">News</span>
+    <span class="bottom-tab">Announcement</span>
+    <span class="bottom-tab">Hot</span>
+    <span class="tab-icon arrow-up">⌃</span>
   </div>
 
-  <!-- Bottom Navigation -->
+  <!-- Bottom Nav -->
   <div class="bottom-nav">
-    <div class="nav-item active" onclick="window.location.href='home.html'">
+    <div class="nav-item active">
       <img src="ic_home.svg" />
       <div>Home</div>
     </div>
