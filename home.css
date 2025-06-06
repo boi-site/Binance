@@ -1,193 +1,166 @@
 body {
   margin: 0;
-  background: #0b0e11;
-  color: white;
+  background-color: #0b0e11;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #eaecef;
 }
 
-.top-bar {
+header {
   display: flex;
   align-items: center;
-  padding: 15px;
   justify-content: space-between;
+  padding: 12px 16px;
 }
 
 .logo {
-  width: 28px;
-  height: 28px;
+  height: 24px;
 }
 
 .search-bar {
   flex: 1;
-  margin: 0 10px;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: none;
+  margin: 0 12px;
   background: #1e2329;
-  color: white;
-  font-size: 14px;
-}
-
-.top-icons {
-  display: flex;
-  gap: 10px;
-}
-
-.top-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.balance-section {
+  border-radius: 8px;
+  padding: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 15px 10px;
+  color: #7b8b9d;
 }
 
-.balance-info {
+.icon-group {
   display: flex;
-  flex-direction: column;
-}
-
-.balance-label {
-  color: #8f9193;
-  font-size: 12px;
-  margin: 0;
-}
-
-.total-balance {
-  font-size: 24px;
-  margin: 3px 0 0;
+  gap: 12px;
 }
 
 .add-funds {
-  background: #fcd535;
+  background-color: #fcd535;
+  color: #0b0e11;
   border: none;
-  color: black;
-  font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 14px;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: bold;
+  margin-left: 12px;
 }
 
-.dummy-buttons {
+.balance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 0;
+}
+
+.total-balance {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.total-balance small {
+  font-size: 12px;
+  color: #848e9c;
+}
+
+.quick-actions {
   display: flex;
   justify-content: space-around;
-  padding: 10px 10px 0;
+  margin: 12px 0;
+  gap: 4px;
 }
 
-.dummy-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 12px;
-  color: white;
-  width: 60px;
+.action {
+  flex: 1;
+  text-align: center;
 }
 
 .icon-box {
-  background: #1e2329;
-  padding: 12px;
-  border-radius: 14px;
-  margin-bottom: 6px;
-  width: 46px;
-  height: 46px;
+  background-color: #1e2329;
+  border-radius: 12px;
+  padding: 14px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
+  margin: auto;
+  width: 56px;
+  height: 56px;
 }
 
-.icon-box img {
-  width: 22px;
-  height: 22px;
+.action label {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
 }
 
-.tab-row {
+.tabs {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 12px;
-  margin-top: 12px;
-}
-
-.tabs-scroll {
   overflow-x: auto;
-  white-space: nowrap;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.tabs-scroll::-webkit-scrollbar {
-  display: none;
+  padding: 0 12px;
+  border-bottom: 1px solid #1e2329;
+  gap: 16px;
+  margin-top: 10px;
 }
 
 .tab {
-  display: inline-block;
-  padding: 8px 10px;
-  color: white;
-  font-size: 14px;
-  margin-right: 5px;
+  padding: 12px 0;
   position: relative;
+  color: #848e9c;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.tab.active {
+  color: #fcd535;
 }
 
 .tab.active::after {
-  content: "";
-  display: block;
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
   height: 3px;
-  width: 12px;
   background: #fcd535;
-  margin: 2px auto 0;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
-.tab-menu .hamburger {
-  width: 16px;
-  height: 16px;
-}
-
-.crypto-toggle {
-  padding: 8px 12px;
+.category-toggle {
   display: flex;
-  gap: 15px;
-  font-size: 14px;
+  gap: 12px;
+  padding: 12px 16px 4px;
 }
 
-.active-toggle {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2px 8px;
-  border-radius: 6px;
-  color: white;
+.category-toggle button {
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  padding: 4px 10px;
+  color: #848e9c;
 }
 
-.inactive-toggle {
-  color: #8f9193;
+.category-toggle .active {
+  background-color: #2b3139;
+  color: #fff;
 }
 
-.table-header {
+.table-headers {
   display: flex;
   justify-content: space-between;
-  padding: 6px 12px;
+  padding: 4px 16px;
   font-size: 12px;
-  color: #8f9193;
-  border-bottom: 1px solid #1e2329;
-}
-
-.coin-list {
-  padding: 5px 0;
+  color: #848e9c;
+  margin-top: 6px;
 }
 
 .coin-row {
   display: flex;
   justify-content: space-between;
+  padding: 12px 16px;
   align-items: center;
-  padding: 8px 12px;
-  border-bottom: 1px solid #1a1e23;
+  border-bottom: 1px solid #1e2329;
 }
 
 .coin-name {
-  width: 70px;
-  font-size: 14px;
+  font-weight: bold;
+  flex: 1;
 }
 
 .coin-price {
@@ -197,74 +170,45 @@ body {
 
 .coin-price .primary {
   font-weight: bold;
-  font-size: 14px;
-  color: white;
+  font-size: 15px;
 }
 
 .coin-price .secondary {
   font-size: 12px;
-  color: #8f9193;
+  color: #848e9c;
 }
 
 .coin-change {
-  margin-left: 10px;
-  padding: 4px 10px;
-  border-radius: 8px;
   font-size: 13px;
-  font-weight: 600;
-  color: white;
-}
-
-.bottom-scroll-tabs {
-  border-top: 1px solid #1e2329;
-  border-bottom: 1px solid #1e2329;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 12px;
-  margin-top: 8px;
-}
-
-.bottom-tab {
-  font-size: 14px;
-  margin-right: 14px;
-  color: #8f9193;
-}
-
-.bottom-tab.active {
-  color: white;
-}
-
-.tab-arrow {
-  font-size: 16px;
-  color: #8f9193;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  min-width: 60px;
 }
 
 .bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #0b0e11;
+  padding: 6px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: #0b0e11;
-  display: flex;
-  justify-content: space-around;
   border-top: 1px solid #1e2329;
-  padding: 5px 0;
 }
 
 .nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #8f9193;
-  font-size: 10px;
+  text-align: center;
+  flex: 1;
+}
+
+.nav-item img {
+  height: 24px;
+  margin-bottom: 4px;
 }
 
 .nav-item.active img {
-  filter: brightness(1.5) sepia(1) hue-rotate(20deg) saturate(5);
-}
-
-.nav-icon {
-  width: 22px;
-  height: 22px;
-  margin-bottom: 2px;
+  filter: brightness(1.8);
 }
