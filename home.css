@@ -1,215 +1,163 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #0b0e11;
-  color: #eaecef;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+  color: #fff;
 }
 
-header.top-bar {
+.top-bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 14px;
+  justify-content: space-between;
+  padding: 12px;
 }
 
 .logo {
-  width: 110px;
+  height: 24px;
 }
 
 .search-bar {
-  flex-grow: 1;
-  margin: 0 10px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  border: none;
   background-color: #1e2329;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  width: 45%;
   color: #fff;
-  font-size: 14px;
 }
 
-.icon-group img {
-  width: 20px;
-  margin-left: 14px;
+.top-icons img {
+  height: 20px;
+  margin-left: 10px;
 }
 
-.main-container {
-  padding: 14px;
-}
-
-.balance-row {
+.balance {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 20px;
+  align-items: center;
+  padding: 12px;
 }
 
-.balance-text .balance-label {
-  font-size: 12px;
-  color: #8b949e;
-  margin-bottom: 4px;
+.subtitle {
+  color: #999;
+  font-size: 0.85rem;
+  margin: 0;
 }
 
-.balance-text .balance-amount {
-  font-size: 24px;
-  font-weight: bold;
+.balance h2 {
+  font-size: 1.8rem;
+  margin: 0;
 }
 
 .add-funds {
   background-color: #fcd535;
   color: #000;
+  font-weight: bold;
   border: none;
-  padding: 10px 14px;
-  font-weight: bold;
-  border-radius: 6px;
-  font-size: 13px;
+  border-radius: 8px;
+  padding: 8px 12px;
 }
 
-.action-icons {
+.dummy-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  padding: 0 8px;
+  justify-content: space-around;
+  text-align: center;
+  padding: 16px 0;
 }
 
-.action-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  font-size: 12px;
+.dummy-buttons div img {
+  height: 24px;
+  display: block;
+  margin: 0 auto 4px;
 }
 
-.action-btn img {
-  width: 28px;
-  margin-bottom: 6px;
+.dummy-buttons span {
+  font-size: 0.8rem;
 }
 
-.tab-row {
-  display: flex;
+.divider {
+  height: 1px;
+  background-color: #333;
+  margin: 8px 0;
+}
+
+.filter-tabs {
   overflow-x: auto;
-  margin-bottom: 10px;
-  padding: 0 5px;
-}
-
-.tab {
-  margin-right: 16px;
-  color: #888;
-  font-size: 13px;
   white-space: nowrap;
-  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 10px;
+  font-size: 0.85rem;
+  color: #aaa;
 }
 
-.tab.active {
+.filter-tabs span.active {
   color: #fcd535;
-  font-weight: bold;
+  border-bottom: 2px solid #fcd535;
 }
 
-.tab.active::after {
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #fcd535;
-  border-radius: 1px;
-}
-
-.coin-table-header {
-  display: flex;
-  justify-content: space-between;
-  color: #8b949e;
-  font-size: 13px;
-  padding: 6px 4px;
-  margin-top: 14px;
-  margin-bottom: 4px;
-}
-
-#coin-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.coin-list {
+  padding: 0 12px;
 }
 
 .coin-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1e2329;
-  padding: 10px 12px;
-  border-radius: 10px;
+  margin: 12px 0;
 }
 
 .coin-name {
+  font-weight: 600;
+}
+
+.coin-price {
+  text-align: right;
+  font-size: 0.95rem;
+}
+
+.coin-price .primary {
   font-weight: bold;
 }
 
-.price-stack {
+.coin-price .secondary {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.coin-change {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.section-divider {
+  height: 1px;
+  background-color: #333;
+  margin: 12px 0;
+}
+
+.bottom-row {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-size: 13px;
+  justify-content: space-around;
+  padding: 12px;
+  background-color: #0b0e11;
+  font-size: 0.7rem;
+  color: #999;
 }
 
-.price-stack .usd-price {
-  color: #888;
-  font-size: 12px;
-}
-
-.percent-box {
-  padding: 4px 10px;
-  font-size: 12px;
-  border-radius: 6px;
-  font-weight: bold;
-  min-width: 55px;
+.bottom-row span {
+  display: inline-block;
   text-align: center;
 }
 
-.percent-green {
-  background-color: #0ecb81;
-  color: #fff;
-}
-
-.percent-red {
-  background-color: #f6465d;
-  color: #fff;
-}
-
-.percent-gray {
-  background-color: #666;
-  color: #fff;
-}
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #1e2329;
-  display: flex;
-  justify-content: space-around;
-  padding: 6px 0;
-  border-top: 1px solid #2a2e35;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #999;
-  font-size: 11px;
-}
-
-.nav-item.active {
+.bottom-row span.active {
   color: #fcd535;
 }
 
-.nav-item img {
-  width: 22px;
-  margin-bottom: 2px;
+.bottom-row img {
+  height: 20px;
+  display: block;
+  margin: 0 auto 4px;
 }
