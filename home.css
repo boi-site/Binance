@@ -50,6 +50,7 @@ body {
   height: 36px;        
   display: flex;
   align-items: center;
+  margin-top: 6px;  
 }
 
 .balance-row {
