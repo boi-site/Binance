@@ -9,7 +9,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px 0;
+  padding: 12px 16px 0;
 }
 
 .logo {
@@ -21,17 +21,17 @@ body {
   margin: 0 12px;
   background: #1e2329;
   border-radius: 8px;
-  padding: 4px 10px;
-  font-size: 13px;
+  padding: 4px 12px;
+  font-size: 14px;
   color: #c5c5c5;
   display: flex;
   align-items: center;
-  height: 28px;
+  height: 32px;
 }
 
 .top-icons {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .top-icons img {
@@ -44,36 +44,32 @@ body {
   color: #0b0e11;
   border: none;
   border-radius: 10px;
-  padding: 6px 14px;
+  padding: 10px 16px;
   font-weight: bold;
-  font-size: 13px;
-  height: 32px;
+  font-size: 14px;
 }
 
 .balance-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 16px 0;
+  padding: 8px 16px 0;
 }
 
 .total-balance {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   margin: 0;
   color: white;
   cursor: pointer;
 }
 
-.total-balance small {
-  font-size: 12px;
-  color: #848e9c;
-}
-
 .quick-actions {
   display: flex;
   justify-content: space-around;
-  margin: 14px 0 6px;
+  margin: 14px 0 8px;
+  padding: 0 12px;
+  gap: 12px;
 }
 
 .action {
@@ -83,10 +79,10 @@ body {
 
 .icon-box {
   background-color: #1e2329;
-  border-radius: 10px;
-  padding: 6px;
-  width: 38px;
-  height: 38px;
+  border-radius: 16px;
+  padding: 8px;
+  width: 44px;
+  height: 44px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -94,22 +90,22 @@ body {
 }
 
 .icon-box img {
-  height: 16px;
-  width: 16px;
+  height: 20px;
+  width: 20px;
 }
 
 .action label {
   display: block;
-  margin-top: 4px;
-  font-size: 11px;
-  color: #848e9c;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #eaecef;
 }
 
 .divider {
   border: none;
   height: 1px;
-  background-color: #1a1d21;
-  margin: 6px 0;
+  background-color: #1e2329;
+  margin: 8px 0;
 }
 
 .tab-row,
@@ -123,8 +119,8 @@ body {
 .scroll-tabs {
   display: flex;
   gap: 18px;
-  white-space: nowrap;
   overflow-x: auto;
+  white-space: nowrap;
   scrollbar-width: none;
 }
 
@@ -132,15 +128,11 @@ body {
   display: none;
 }
 
-.no-scrollbar {
-  overflow: hidden;
-}
-
 .tab,
 .bottom-tab {
   font-size: 14px;
   color: #848e9c;
-  padding: 10px 0;
+  padding: 12px 0;
   position: relative;
 }
 
@@ -164,22 +156,22 @@ body {
 .tab-fixed-icon,
 .tab-arrow {
   flex-shrink: 0;
-  padding-left: 10px;
+  padding-left: 12px;
 }
 
 .category-toggle {
   display: flex;
   gap: 10px;
-  padding: 6px 16px;
+  padding: 8px 16px;
 }
 
 .category-toggle button {
   background: transparent;
   border: none;
   color: #848e9c;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .category-toggle .active {
@@ -189,13 +181,11 @@ body {
 
 .table-headers {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 6px 16px 2px;
+  justify-content: space-between;
+  padding: 6px 16px 4px;
   font-size: 13px;
   color: #848e9c;
   font-weight: normal;
-  gap: 18px;
 }
 
 .coin-list {
@@ -207,6 +197,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
+  border-bottom: 1px solid #1e2329;
 }
 
 .coin-name {
@@ -245,12 +236,13 @@ body {
   display: flex;
   justify-content: space-around;
   background-color: #0b0e11;
-  padding: 6px 0;
+  padding: 4px 0;
   position: fixed;
   bottom: 0;
   width: 100%;
   border-top: 1px solid #1e2329;
   z-index: 10;
+  height: 54px;
 }
 
 .nav-item {
@@ -260,8 +252,8 @@ body {
 }
 
 .nav-item img {
-  height: 20px;
-  margin-bottom: 4px;
+  height: 18px;
+  margin-bottom: 2px;
   opacity: 0.7;
 }
 
@@ -270,12 +262,8 @@ body {
   opacity: 1;
 }
 
-.nav-item.active p {
-  color: #848e9c;
-}
-
 .nav-item p {
-  font-size: 12px;
+  font-size: 11px;
   margin: 0;
   color: #848e9c;
 }
