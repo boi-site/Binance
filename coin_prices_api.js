@@ -28,7 +28,14 @@ function loadCoinPrices() {
     const change = document.createElement("div");
     change.className = "coin-change";
     change.textContent = `${coin.change.toFixed(2)}%`;
-    change.style.backgroundColor = coin.change > 0 ? "#16c784" : coin.change < 0 ? "#ea3943" : "#666";
+
+    if (coin.change > 0) {
+      change.style.backgroundColor = "#16c784";
+    } else if (coin.change < 0) {
+      change.style.backgroundColor = "#ea3943";
+    } else {
+      change.style.backgroundColor = "#666";
+    }
 
     row.append(name, prices, change);
     list.appendChild(row);
