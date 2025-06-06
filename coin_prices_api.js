@@ -1,29 +1,42 @@
-const targetSymbols = ['BNBUSDT', 'BTCUSDT', 'ETHUSDT', 'PEPEUSDT', 'SOLUSDT', 'XRPUSDT'];
+const coinIds = {
+  BNB: 'binancecoin',
+  BTC: 'bitcoin',
+  ETH: 'ethereum',
+  PEPE: 'pepe',
+  SOL: 'solana',
+  XRP: 'ripple',
+};
 
-async function fetchRealTimePrices() {
+const coins = Object.keys(coinIds);
+
+async function fetchPrices() {
+  const ids = Object.values(coinIds).join(',');
+  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
+
   try {
-    const res = await fetch('https://api.binance.com/api/v3/ticker/24hr');
-    const data = await res.json();
+    const response = await fetch(url);
+    const data = await response.json();
 
-    const filtered = data.filter(item => targetSymbols.includes(item.symbol)).map(item => {
+    const updated = coins.map(symbol => {
+      const coinData = data[coinIds[symbol]];
       return {
-        name: item.symbol.replace('USDT', ''),
-        price: parseFloat(item.lastPrice),
-        change: parseFloat(item.priceChangePercent)
+        name: symbol,
+        price: coinData.usd,
+        change: coinData.usd_24h_change,
       };
     });
 
-    updateUI(filtered);
-  } catch (err) {
-    console.error("Failed to load Binance API:", err);
+    updateCoinList(updated);
+  } catch (error) {
+    console.error('Failed to fetch prices:', error);
   }
 }
 
-function updateUI(coins) {
+function updateCoinList(prices) {
   const list = document.getElementById("coin-list");
   list.innerHTML = "";
 
-  coins.forEach(coin => {
+  prices.forEach(coin => {
     const row = document.createElement("div");
     row.className = "coin-row";
 
@@ -31,10 +44,10 @@ function updateUI(coins) {
     name.className = "coin-name";
     name.textContent = coin.name;
 
-    const prices = document.createElement("div");
-    prices.className = "coin-price";
-    prices.innerHTML = `
-      <div class="primary">${coin.price.toLocaleString()}</div>
+    const pricesDiv = document.createElement("div");
+    pricesDiv.className = "coin-price";
+    pricesDiv.innerHTML = `
+      <div class="primary">${coin.price.toLocaleString(undefined, {maximumFractionDigits: 8})}</div>
       <div class="secondary">$${coin.price.toFixed(2)}</div>
     `;
 
@@ -43,18 +56,19 @@ function updateUI(coins) {
     change.textContent = `${coin.change.toFixed(2)}%`;
 
     if (coin.change > 0) {
-      change.style.backgroundColor = "#16c784";
+      change.style.backgroundColor = "#16c784"; // green
     } else if (coin.change < 0) {
-      change.style.backgroundColor = "#ea3943";
+      change.style.backgroundColor = "#ea3943"; // red
     } else {
-      change.style.backgroundColor = "#666";
+      change.style.backgroundColor = "#666"; // gray
     }
 
-    row.append(name, prices, change);
+    row.append(name, pricesDiv, change);
     list.appendChild(row);
   });
 }
 
-// Load once and refresh every 10 seconds
-fetchRealTimePrices();
-setInterval(fetchRealTimePrices, 10000);
+window.onload = () => {
+  fetchPrices();
+  setInterval(fetchPrices, 15000); // update every 15 seconds
+};
