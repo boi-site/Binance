@@ -1,15 +1,28 @@
-const coins = [
-  { name: 'BNB', price: 643.32, change: -4.03 },
-  { name: 'BTC', price: 103576.88, change: -1.12 },
-  { name: 'ETH', price: 2461.3, change: -5.64 },
-  { name: 'PEPE', price: 0.00001107, change: -6.11 },
-  { name: 'SOL', price: 148.11, change: -2.80 },
-  { name: 'XRP', price: 2.1437, change: -2.50 },
-];
+const targetSymbols = ['BNBUSDT', 'BTCUSDT', 'ETHUSDT', 'PEPEUSDT', 'SOLUSDT', 'XRPUSDT'];
 
-function loadCoinPrices() {
+async function fetchRealTimePrices() {
+  try {
+    const res = await fetch('https://api.binance.com/api/v3/ticker/24hr');
+    const data = await res.json();
+
+    const filtered = data.filter(item => targetSymbols.includes(item.symbol)).map(item => {
+      return {
+        name: item.symbol.replace('USDT', ''),
+        price: parseFloat(item.lastPrice),
+        change: parseFloat(item.priceChangePercent)
+      };
+    });
+
+    updateUI(filtered);
+  } catch (err) {
+    console.error("Failed to load Binance API:", err);
+  }
+}
+
+function updateUI(coins) {
   const list = document.getElementById("coin-list");
   list.innerHTML = "";
+
   coins.forEach(coin => {
     const row = document.createElement("div");
     row.className = "coin-row";
@@ -42,4 +55,6 @@ function loadCoinPrices() {
   });
 }
 
-window.onload = loadCoinPrices;
+// Load once and refresh every 10 seconds
+fetchRealTimePrices();
+setInterval(fetchRealTimePrices, 10000);
