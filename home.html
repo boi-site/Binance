@@ -9,27 +9,28 @@
 <body>
 
   <!-- Top Bar -->
-  <header>
+  <div class="top-bar">
     <img src="binance-logo.svg" class="logo" />
-    <div class="search-bar">
-      🔥SUI
+    <div class="search-container">
+      🔥<span>SUI</span>
     </div>
-    <div class="icon-group">
-      <img src="ic_notification.svg" class="top-icon" />
-      <img src="ic_headset.svg" class="top-icon" />
-      <img src="ic_coin_in_hand.svg" class="top-icon" />
+    <div class="top-icons">
+      <img src="ic_notification.svg" />
+      <img src="ic_headset.svg" />
+      <img src="ic_coin_in_hand.svg" />
     </div>
-  </header>
+  </div>
 
-  <!-- Balance and Add Funds -->
+  <!-- Balance Section -->
   <div class="balance-row">
     <div>
-      <div class="total-balance"><small>Est. Total Value (USD)</small><br>$406,783,194.27</div>
+      <small>Est. Total Value (USD)</small>
+      <h2 class="total-balance" onclick="window.location.href='assets.html'">$406,783,194.27</h2>
     </div>
     <button class="add-funds">Add Funds</button>
   </div>
 
-  <!-- Dummy Buttons -->
+  <!-- Quick Icons -->
   <div class="quick-actions">
     <div class="action">
       <div class="icon-box"><img src="ic_deposit.svg" /></div>
@@ -49,70 +50,78 @@
     </div>
   </div>
 
-  <hr />
+  <hr class="divider" />
 
-  <!-- Top Tabs -->
-  <div class="tabs">
-    <span class="tab">Favorites</span>
-    <span class="tab active">Hot</span>
-    <span class="tab">Alpha</span>
-    <span class="tab">New</span>
-    <span class="tab">Gainers</span>
-    <span class="tab">Losers</span>
-    <span class="tab">24h Vol</span>
-    <span class="tab">Market Cap</span>
-    <img src="ic_hamburger.svg" class="tab-icon" />
+  <!-- Scroll Tabs -->
+  <div class="tab-row">
+    <div class="scroll-tabs">
+      <span class="tab">Favorites</span>
+      <span class="tab active">Hot</span>
+      <span class="tab">Alpha</span>
+      <span class="tab">New</span>
+      <span class="tab">Gainers</span>
+      <span class="tab">Losers</span>
+      <span class="tab">24h Vol</span>
+      <span class="tab">Market Cap</span>
+    </div>
+    <div class="tab-fixed-icon">
+      <img src="ic_hamburger.svg" />
+    </div>
   </div>
 
-  <!-- Crypto / Futures toggle -->
+  <!-- Category Toggle -->
   <div class="category-toggle">
     <button class="active">Crypto</button>
     <button>Futures</button>
   </div>
 
-  <!-- Table Headers -->
+  <!-- Table Header -->
   <div class="table-headers">
     <span>Name</span>
-    <span>Last Price</span>
-    <span>24h chg%</span>
+    <span style="text-align: right;">Last Price</span>
+    <span style="text-align: right;">24h chg%</span>
   </div>
 
-  <!-- Coin list -->
-  <div id="coin-list"></div>
-
-  <hr />
+  <!-- Coin List -->
+  <div id="coin-list" class="coin-list"></div>
 
   <!-- Discover Tabs -->
-  <div class="tabs discover-tabs">
-    <span class="bottom-tab active">Discover</span>
-    <span class="bottom-tab">Following</span>
-    <span class="bottom-tab">News</span>
-    <span class="bottom-tab">Announcement</span>
-    <span class="bottom-tab">Hot</span>
-    <span class="tab-icon arrow-up">⌃</span>
+  <hr class="divider" />
+  <div class="bottom-scroll-tabs">
+    <div class="scroll-tabs">
+      <span class="bottom-tab active">Discover</span>
+      <span class="bottom-tab">Following</span>
+      <span class="bottom-tab">News</span>
+      <span class="bottom-tab">Announcement</span>
+      <span class="bottom-tab">Hot</span>
+    </div>
+    <div class="tab-fixed-icon">
+      <span class="tab-arrow">⌃</span>
+    </div>
   </div>
+  <hr class="divider" />
 
   <!-- Bottom Nav -->
   <div class="bottom-nav">
-    <div class="nav-item active">
+    <div class="nav-item active" onclick="window.location.href='home.html'">
       <img src="ic_home.svg" />
-      <div>Home</div>
+      <p>Home</p>
     </div>
     <div class="nav-item">
       <img src="ic_market.svg" />
-      <div>Markets</div>
+      <p>Markets</p>
     </div>
     <div class="nav-item">
       <img src="ic_trade.svg" />
-      <div>Trade</div>
+      <p>Trade</p>
     </div>
     <div class="nav-item">
       <img src="ic_futures.svg" />
-      <div>Futures</div>
+      <p>Futures</p>
     </div>
     <div class="nav-item" onclick="window.location.href='assets.html'">
       <img src="ic_assets.svg" />
-      <div>Assets</div>
+      <p>Assets</p>
     </div>
   </div>
 
