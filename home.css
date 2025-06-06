@@ -60,47 +60,36 @@ header {
   color: #848e9c;
 }
 
-/* ✅ Fixed layout for icon + label combo */
 .quick-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  gap: 10px;
+  justify-content: space-around;
+  margin: 12px 0;
+  gap: 4px;
 }
 
 .action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   flex: 1;
   text-align: center;
 }
 
 .icon-box {
   background-color: #1e2329;
-  border-radius: 14px;
-  padding: 12px;
-  width: 48px;
-  height: 48px;
+  border-radius: 12px;
+  padding: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 6px;
-}
-
-.icon-box img {
-  width: 20px;
-  height: 20px;
+  margin: auto;
+  width: 56px;
+  height: 56px;
 }
 
 .action label {
-  font-size: 12px;
-  color: #eaecef;
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
 }
 
-/* Tabs */
 .tabs {
   display: flex;
   overflow-x: auto;
@@ -133,7 +122,6 @@ header {
   border-radius: 2px;
 }
 
-/* Category toggle */
 .category-toggle {
   display: flex;
   gap: 12px;
@@ -153,7 +141,6 @@ header {
   color: #fff;
 }
 
-/* Table headers */
 .table-headers {
   display: flex;
   justify-content: space-between;
