@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #0b0e11;
+  color: white;
+}
+
+.top-toggle {
+  display: flex;
+  background-color: #1e2329;
+  padding: 8px;
+}
+
+.toggle {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background: #0b0e11;
+  color: #888;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.toggle.selected {
+  background: #2b3139;
+  color: #fff;
+}
+
+.sub-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.sub-tabs span {
+  color: #888;
+}
+
+.sub-tabs .active {
+  color: white;
+  font-weight: bold;
+}
+
+.balance-section {
+  padding: 16px;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons span {
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.balance-amount {
+  font-size: 28px;
+  margin: 6px 0;
+}
+
+.usd-tag {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.pnl {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.pnl-green {
+  color: #0ecb81;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2b3139;
+  color: white;
+  font-weight: bold;
+}
+
+button.add {
+  background-color: #fcd535;
+  color: black;
+}
+
+.asset-tabs {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  font-size: 14px;
+  background: #0e1115;
+  border-top: 1px solid #1c1f24;
+}
+
+.asset-tabs span.active {
+  color: #fcd535;
+}
+
+.asset-tabs .right-icons {
+  font-size: 18px;
+}
+
+.asset-list {
+  padding: 0 16px;
+}
+
+.asset-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #1c1f24;
+}
+
+.asset-left {
+  display: flex;
+  gap: 10px;
+}
+
+.asset-icon {
+  background: #1c1f24;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.asset-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.asset-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.asset-sub {
+  color: #aaa;
+}
+
+.asset-right {
+  text-align: right;
+  font-size: 12px;
+}
+
+.asset-amount {
+  font-size: 14px;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0b0e11;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  border-top: 1px solid #1c1f24;
+  font-size: 12px;
+  color: #888;
+}
+
+.bottom-nav .active {
+  color: #fcd535;
+  }
