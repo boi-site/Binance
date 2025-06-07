@@ -1,16 +1,24 @@
-const coins = ["bnb", "bitcoin", "ethereum", "pepe", "solana", "ripple"];
+const coinMap = {
+  BNB: "binancecoin",
+  BTC: "bitcoin",
+  ETH: "ethereum",
+  PEPE: "pepe",
+  SOL: "solana",
+  XRP: "ripple"
+};
 
 async function fetchPrices() {
   try {
-    const response = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=binancecoin,bitcoin,ethereum,pepe,solana,ripple&vs_currencies=usd&include_24hr_change=true"
-    );
+    const ids = Object.values(coinMap).join(",");
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
+
+    const response = await fetch(url);
     const data = await response.json();
 
-    return coins.map(id => ({
-      name: id.toUpperCase(),
-      price: data[id].usd,
-      change: data[id].usd_24h_change
+    return Object.entries(coinMap).map(([symbol, id]) => ({
+      name: symbol,
+      price: data[id]?.usd || 0,
+      change: data[id]?.usd_24h_change || 0
     }));
   } catch (e) {
     console.error("Failed to fetch prices:", e);
