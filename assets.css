@@ -26,7 +26,7 @@ body {
   color: #fff;
 }
 
-/* Overview / Earn / Funding / Spot Tabs */
+/* Top Tabs */
 .sub-tabs {
   display: flex;
   justify-content: space-around;
@@ -43,10 +43,9 @@ body {
   color: white;
 }
 
-/* Balance section */
+/* Balance Display */
 .balance-section {
   padding: 14px 16px 0;
-  border-bottom: 1px solid #1c1f24;
 }
 .title-row {
   display: flex;
@@ -69,28 +68,28 @@ body {
 .usd-tag {
   font-size: 11px;
   color: #888;
-  vertical-align: baseline;
+  vertical-align: middle;
 }
 .pnl {
   font-size: 11px;
   color: #aaa;
   margin-bottom: 14px;
-  border-bottom: 1px solid #1c1f24;
-  padding-bottom: 8px;
 }
 .pnl-green {
   color: #0ecb81;
 }
 
-/* Button area with bottom line */
+/* Buttons with border below */
 .action-buttons {
   display: flex;
   gap: 8px;
   margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1c1f24;
 }
 .action-buttons button {
   flex: 1;
-  padding: 8px;
+  padding: 10px;
   font-size: 12px;
   font-weight: 500;
   border-radius: 6px;
@@ -105,7 +104,7 @@ button.gray {
   color: white;
 }
 
-/* Crypto / Account toggle tabs */
+/* Crypto / Account Tabs */
 .asset-tabs {
   display: flex;
   justify-content: space-between;
@@ -113,7 +112,6 @@ button.gray {
   padding: 12px 16px 6px;
   font-size: 13px;
   border-top: 1px solid #1c1f24;
-  border-bottom: 1px solid #1c1f24;
   background: #0e1115;
 }
 .tab-labels span {
@@ -142,18 +140,17 @@ button.gray {
   gap: 8px;
 }
 
-/* Coin list section */
+/* Asset List Area with top border */
 .asset-list {
   padding: 0 16px;
   padding-bottom: 100px;
   border-top: 1px solid #1c1f24;
-  border-bottom: 1px solid #1c1f24;
 }
 .asset-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #1c1f24;
 }
 .asset-left {
@@ -197,7 +194,7 @@ button.gray {
   margin-top: 2px;
 }
 
-/* Bottom nav */
+/* Bottom Navigation Bar */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -221,8 +218,8 @@ button.gray {
 .nav-label {
   text-align: center;
   font-size: 11px;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 .bottom-nav .active {
   color: #fcd535;
-}
+  }
