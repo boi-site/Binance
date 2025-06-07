@@ -47,4 +47,7 @@ async function loadAssets() {
   });
 
   const pnl = coins.reduce((a, c) => a + c.change, 0) / coins.length;
-  document.getElementById("main-pnl").textContent = 
+  document.getElementById("main-pnl").textContent = `${pnl.toFixed(2)}% ▶`;
+}
+
+loadAssets();
