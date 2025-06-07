@@ -1,61 +1,174 @@
-const coins = ["btc", "eth", "bonk", "xrp"];
-const coinMap = {
-  btc: { name: "BTC", avg: 102493.39 },
-  eth: { name: "ETH", avg: 2456.12 },
-  bonk: { name: "BONK", avg: 0.00000 },
-  xrp: { name: "XRP", avg: 2.13 }
-};
-
-async function fetchAssets() {
-  try {
-    const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
-    const data = await res.json();
-
-    const filtered = data.filter(item =>
-      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
-    );
-
-    const totalPNL = filtered.reduce((acc, coin) => acc + parseFloat(coin.priceChangePercent), 0);
-    document.getElementById("total-pnl").innerHTML = `<span class="pnl-green">+0.00 (${(totalPNL / coins.length).toFixed(2)}%)</span>`;
-
-    const assetList = document.getElementById("asset-list");
-    assetList.innerHTML = "";
-
-    filtered.forEach(item => {
-      const symbol = item.symbol.replace("USDT", "").toLowerCase();
-      const coin = coinMap[symbol];
-      const price = parseFloat(item.lastPrice);
-      const change = parseFloat(item.priceChangePercent);
-      const cost = coin.avg;
-      const amount = (406783194.24 / coins.length / price).toFixed(6);
-      const value = (amount * price).toFixed(2);
-
-      const row = document.createElement("div");
-      row.className = "asset-row";
-
-      row.innerHTML = `
-        <div class="asset-left">
-          <img src="icons/${symbol}.svg" alt="${coin.name}" />
-          <div class="asset-info">
-            <div class="asset-name">${coin.name}</div>
-            <div class="asset-sub">
-              $${price.toFixed(5)}<br />
-              Today's PNL: $0.00 (${change.toFixed(2)}%)<br />
-              Average cost: $${cost.toFixed(2)}
-            </div>
-          </div>
-        </div>
-        <div class="asset-right">
-          <div class="bold">${amount}</div>
-          <div>$${value}</div>
-        </div>
-      `;
-
-      assetList.appendChild(row);
-    });
-  } catch (e) {
-    console.error("Price fetch failed", e);
-  }
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #0b0e11;
+  color: #fff;
 }
 
-fetchAssets();
+.top-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+.toggle-group {
+  display: flex;
+  background: #1c1f24;
+  border-radius: 999px;
+  padding: 2px;
+}
+.toggle-btn {
+  padding: 6px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #aaa;
+  background: transparent;
+}
+.toggle-btn.active {
+  background-color: #2b3139;
+  color: #fff;
+}
+
+.sub-tabs {
+  display: flex;
+  padding-left: 16px;
+  font-size: 13px;
+  color: #aaa;
+  margin-top: 8px;
+  border-bottom: 1px solid #1c1f24;
+}
+.tab {
+  margin-right: 20px;
+  padding-bottom: 8px;
+}
+.tab.active {
+  color: #fff;
+  border-bottom: 2px solid #fcd535;
+}
+
+.balance-section {
+  padding: 16px;
+  border-bottom: 1px solid #1c1f24;
+}
+.balance-header {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #888;
+  gap: 8px;
+}
+.dropdown {
+  color: #888;
+}
+.eye {
+  margin-left: auto;
+}
+.balance-amount {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+.balance-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 18px;
+  margin-top: 6px;
+}
+.pnl-row {
+  margin-top: 8px;
+}
+.pnl-label {
+  display: inline-block;
+  border-bottom: 1px solid #1c1f24;
+  margin-right: 6px;
+  color: #888;
+  font-size: 13px;
+}
+.pnl-value {
+  color: #0f0;
+  font-size: 13px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  border-bottom: 1px solid #1c1f24;
+}
+.btn {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+.btn.add {
+  background-color: #fcd535;
+  color: #000;
+}
+.btn.dark {
+  background-color: #2b3139;
+  color: #fff;
+}
+
+.type-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 13px;
+  margin-top: 8px;
+}
+.type-tab {
+  color: #aaa;
+  margin-right: 10px;
+  padding-bottom: 4px;
+  position: relative;
+}
+.type-tab.active {
+  color: #fff;
+}
+.type-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 2px;
+  background-color: #fcd535;
+  border-radius: 2px;
+}
+
+.asset-list {
+  padding: 16px;
+  border-top: 1px solid #1c1f24;
+}
+.asset-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #1c1f24;
+}
+.asset-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.asset-text {
+  font-size: 14px;
+}
+.asset-sub {
+  font-size: 12px;
+  color: #888;
+}
+.asset-right {
+  text-align: right;
+  font-size: 13px;
+}
+.asset-right .usd {
+  color: #888;
+}
+.asset-pnl, .asset-cost {
+  color: #0f0;
+  font-size: 12px;
+}
