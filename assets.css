@@ -10,7 +10,6 @@ body {
   background-color: #1e2329;
   padding: 6px;
 }
-
 .toggle {
   flex: 1;
   text-align: center;
@@ -20,7 +19,6 @@ body {
   border-radius: 6px;
   font-weight: bold;
 }
-
 .toggle.selected {
   background: #2b3139;
   color: #fff;
@@ -33,12 +31,10 @@ body {
   font-size: 14px;
   border-bottom: 1px solid #1c1f24;
 }
-
 .sub-tabs span {
   color: #888;
   padding: 10px 0;
 }
-
 .sub-tabs .active {
   color: white;
   font-weight: bold;
@@ -47,38 +43,31 @@ body {
 .balance-section {
   padding: 16px;
 }
-
 .title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .icons {
   display: flex;
   gap: 10px;
 }
-
 .icon-svg {
   width: 18px;
   height: 18px;
 }
-
 .balance-amount {
   font-size: 28px;
   margin: 6px 0;
 }
-
 .usd-tag {
   font-size: 14px;
   color: #aaa;
 }
-
 .pnl {
   font-size: 13px;
   margin-bottom: 12px;
 }
-
 .pnl-green {
   color: #0ecb81;
 }
@@ -87,7 +76,6 @@ body {
   display: flex;
   gap: 8px;
 }
-
 .action-buttons button {
   flex: 1;
   padding: 12px;
@@ -95,12 +83,10 @@ body {
   border-radius: 6px;
   font-weight: bold;
 }
-
 button.add {
   background-color: #fcd535;
   color: black;
 }
-
 button.gray {
   background-color: #2b3139;
   color: white;
@@ -115,17 +101,9 @@ button.gray {
   background: #0e1115;
   border-top: 1px solid #1c1f24;
 }
-
-.asset-tabs span {
-  color: #aaa;
-  margin-right: 12px;
-  position: relative;
-}
-
 .asset-tabs span.active {
   color: #fcd535;
 }
-
 .asset-tabs span.underline::after {
   content: '';
   position: absolute;
@@ -136,29 +114,25 @@ button.gray {
   background-color: #fcd535;
   border-radius: 1px;
 }
-
 .asset-tabs .right-icons {
-  font-size: 18px;
-  color: #aaa;
+  display: flex;
+  gap: 8px;
 }
 
 .asset-list {
   padding: 0 16px;
   padding-bottom: 100px;
 }
-
 .asset-row {
   display: flex;
   justify-content: space-between;
   padding: 14px 0;
   border-bottom: 1px solid #1c1f24;
 }
-
 .asset-left {
   display: flex;
   gap: 12px;
 }
-
 .asset-icon-img {
   width: 36px;
   height: 36px;
@@ -166,28 +140,23 @@ button.gray {
   background: #1c1f24;
   padding: 4px;
 }
-
 .asset-info {
   display: flex;
   flex-direction: column;
   font-size: 12px;
 }
-
 .asset-name {
   font-weight: bold;
   font-size: 14px;
 }
-
 .asset-sub {
   color: #aaa;
   font-size: 11px;
 }
-
 .asset-right {
   text-align: right;
   font-size: 12px;
 }
-
 .asset-amount {
   font-size: 14px;
   font-weight: bold;
@@ -207,7 +176,11 @@ button.gray {
   color: #888;
   z-index: 10;
 }
-
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 2px;
+}
 .bottom-nav .active {
   color: #fcd535;
-  }
+}
