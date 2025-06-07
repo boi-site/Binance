@@ -1,10 +1,11 @@
-const coins = ['btc', 'eth', 'xrp', 'bonk'];
+const coins = ['btc', 'eth', 'xrp', 'bonk', 'usdt'];
 
 const allocations = {
   BTC: 162713277.70,
   ETH: 81356638.85,
   XRP: 20339159.71,
-  BONK: 20339159.71
+  BONK: 20339159.71,
+  USDT: 100000000.00
 };
 
 async function fetchPrices() {
@@ -18,7 +19,7 @@ async function fetchPrices() {
         const name = item.symbol.replace("USDT", "");
         const price = parseFloat(item.lastPrice);
         const change = parseFloat(item.priceChangePercent);
-        const value = allocations[name];
+        const value = allocations[name.toUpperCase()];
         const amount = value / price;
         const avgCost = price / (1 + change / 100);
 
