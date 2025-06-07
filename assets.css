@@ -26,7 +26,7 @@ body {
   color: #fff;
 }
 
-/* Top Tab Row */
+/* Top Tabs */
 .sub-tabs {
   display: flex;
   justify-content: space-around;
@@ -40,10 +40,10 @@ body {
   padding: 10px 0;
 }
 .sub-tabs .active {
-  color: #fff;
+  color: white;
 }
 
-/* Balance Section */
+/* Balance Display */
 .balance-section {
   padding: 14px 16px 0;
 }
@@ -68,6 +68,7 @@ body {
 .usd-tag {
   font-size: 11px;
   color: #888;
+  vertical-align: middle;
 }
 .pnl {
   font-size: 11px;
@@ -78,11 +79,13 @@ body {
   color: #0ecb81;
 }
 
-/* Buttons */
+/* Buttons with border below */
 .action-buttons {
   display: flex;
   gap: 8px;
   margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1c1f24;
 }
 .action-buttons button {
   flex: 1;
@@ -101,7 +104,7 @@ button.gray {
   color: white;
 }
 
-/* Crypto / Account toggle row */
+/* Crypto / Account Tabs */
 .asset-tabs {
   display: flex;
   justify-content: space-between;
@@ -114,10 +117,10 @@ button.gray {
 .tab-labels span {
   margin-right: 14px;
   position: relative;
+  font-weight: 500;
 }
 .tab-labels .active {
   color: #fcd535;
-  font-weight: 500;
 }
 .tab-labels .inactive {
   color: #888;
@@ -137,16 +140,17 @@ button.gray {
   gap: 8px;
 }
 
-/* Coin List */
+/* Asset List Area with top border */
 .asset-list {
   padding: 0 16px;
   padding-bottom: 100px;
+  border-top: 1px solid #1c1f24;
 }
 .asset-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 12px 0;
+  padding: 10px 0;
   border-bottom: 1px solid #1c1f24;
 }
 .asset-left {
@@ -164,10 +168,8 @@ button.gray {
 .asset-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.4;
+  gap: 1px;
+  line-height: 1.3;
 }
 .asset-name {
   font-weight: 600;
@@ -184,7 +186,7 @@ button.gray {
 }
 .asset-amount {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .asset-usd {
   font-size: 11px;
@@ -192,7 +194,7 @@ button.gray {
   margin-top: 2px;
 }
 
-/* Bottom Navbar */
+/* Bottom Navigation Bar */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -211,7 +213,7 @@ button.gray {
   width: 20px;
   height: 20px;
   display: block;
-  margin: 0 auto 3px;
+  margin: 0 auto 2px;
 }
 .nav-label {
   text-align: center;
