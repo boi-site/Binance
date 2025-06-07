@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="assets.css" />
 </head>
 <body>
-  <!-- Exchange / Wallet toggle -->
-  <div class="top-toggle">
-    <div class="toggle selected">Exchange</div>
-    <div class="toggle">Wallet</div>
+
+  <!-- Exchange / Wallet section (centered and boxed) -->
+  <div class="toggle-box">
+    <div class="toggle-btn selected">Exchange</div>
+    <div class="toggle-btn">Wallet</div>
   </div>
 
-  <!-- Top Tab Row -->
+  <!-- Tab row -->
   <div class="sub-tabs">
     <span class="active">Overview</span>
     <span>Earn</span>
@@ -21,21 +22,27 @@
     <span>Spot</span>
   </div>
 
-  <!-- Balance Display -->
+  <!-- Balance area -->
   <div class="balance-section">
     <div class="title-row">
-      <span>Est. Total Value</span>
+      <div class="title-left">
+        <span>Est. Total Value</span>
+        <img src="icons/eye.svg" alt="eye" class="eye-icon" />
+      </div>
       <div class="icons">
         <img src="icons/chart.svg" class="icon-svg" alt="Chart" />
         <img src="icons/grid.svg" class="icon-svg" alt="Grid" />
       </div>
     </div>
+
     <div class="balance-amount">
       $406,783,194.24 <span class="usd-tag">USD ▼</span>
     </div>
-    <div class="pnl">Today's PNL <span class="pnl-green">+0.00695037 (+0.52%)</span> ›</div>
 
-    <!-- Action Buttons -->
+    <div class="pnl">
+      Today's PNL <span class="pnl-green">+0.00695037 (+0.52%)</span><span class="right-arrow">&#8250;</span>
+    </div>
+
     <div class="action-buttons">
       <button class="add">Add Funds</button>
       <button class="gray">Send</button>
@@ -43,7 +50,7 @@
     </div>
   </div>
 
-  <!-- Crypto / Account Switch -->
+  <!-- Tabs under asset list -->
   <div class="asset-tabs">
     <div class="tab-labels">
       <span class="active underline">Crypto</span>
@@ -55,10 +62,8 @@
     </div>
   </div>
 
-  <!-- Coin List Injected by JS -->
   <div id="asset-list" class="asset-list"></div>
 
-  <!-- Bottom Nav Bar -->
   <div class="bottom-nav">
     <div><img src="icons/ic_home.svg" class="nav-icon"/><div class="nav-label">Home</div></div>
     <div><img src="icons/ic_market.svg" class="nav-icon"/><div class="nav-label">Markets</div></div>
@@ -69,4 +74,4 @@
 
   <script src="coin_prices_assets.js"></script>
 </body>
-</html>
+    </html>
