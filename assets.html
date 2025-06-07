@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="assets.css" />
 </head>
 <body>
-  <!-- Exchange / Wallet toggle -->
-  <div class="top-toggle">
-    <div class="toggle selected">Exchange</div>
-    <div class="toggle">Wallet</div>
+
+  <!-- 🔲 Centered Toggle Box -->
+  <div class="toggle-box">
+    <div class="toggle-btn selected">Exchange</div>
+    <div class="toggle-btn">Wallet</div>
   </div>
 
-  <!-- Top navigation tabs -->
+  <!-- Tabs Row -->
   <div class="sub-tabs">
     <span class="active">Overview</span>
     <span>Earn</span>
@@ -21,10 +22,11 @@
     <span>Spot</span>
   </div>
 
-  <!-- Balance Section -->
+  <!-- 💰 Balance Section -->
   <div class="balance-section">
     <div class="title-row">
       <span>Est. Total Value</span>
+      <img src="icons/eye.svg" alt="eye" class="eye-icon" />
       <div class="icons">
         <img src="icons/chart.svg" class="icon-svg" alt="Chart" />
         <img src="icons/grid.svg" class="icon-svg" alt="Grid" />
@@ -44,7 +46,7 @@
     </div>
   </div>
 
-  <!-- Crypto / Account toggle -->
+  <!-- 📄 Asset Tabs -->
   <div class="asset-tabs">
     <div class="tab-labels">
       <span class="active underline">Crypto</span>
@@ -56,10 +58,10 @@
     </div>
   </div>
 
-  <!-- Coin list gets injected -->
+  <!-- 📈 Asset List -->
   <div id="asset-list" class="asset-list"></div>
 
-  <!-- Bottom Navigation -->
+  <!-- 🔚 Bottom Nav -->
   <div class="bottom-nav">
     <div><img src="icons/ic_home.svg" class="nav-icon"/><div class="nav-label">Home</div></div>
     <div><img src="icons/ic_market.svg" class="nav-icon"/><div class="nav-label">Markets</div></div>
@@ -70,4 +72,4 @@
 
   <script src="coin_prices_assets.js"></script>
 </body>
-</html>
+                                        </html>
