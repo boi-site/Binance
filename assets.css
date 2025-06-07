@@ -27,12 +27,11 @@ body {
 
 .sub-tabs {
   padding: 0 16px;
-  margin-top: 10px;
   font-size: 13px;
 }
 .sub-tab-group {
   display: flex;
-  gap: 16px;
+  gap: 12px;
 }
 .sub-tab-group .active {
   color: white;
@@ -61,7 +60,7 @@ body {
 .icon-svg {
   width: 16px;
   height: 16px;
-  margin-left: 6px;
+  margin-left: 8px;
 }
 .balance-amount {
   font-size: 22px;
@@ -71,7 +70,7 @@ body {
 .usd-tag {
   font-size: 11px;
   color: #888;
-  vertical-align: baseline;
+  vertical-align: middle;
 }
 .pnl-line {
   font-size: 11px;
@@ -79,6 +78,9 @@ body {
   border-bottom: 1px solid #1c1f24;
   padding-bottom: 8px;
   margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .pnl-green {
   color: #0ecb81;
@@ -107,7 +109,7 @@ button.add {
   color: #000;
 }
 button.gray {
-  background: #2e3136;
+  background: #2b3139;
   color: white;
 }
 
@@ -133,7 +135,7 @@ button.gray {
 .tab-labels .underline::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   right: 0;
   height: 2px;
@@ -174,6 +176,7 @@ button.gray {
 }
 .asset-sub {
   color: #aaa;
+  font-size: 11px;
 }
 .asset-right {
   text-align: right;
@@ -212,4 +215,4 @@ button.gray {
 }
 .bottom-nav .active {
   color: #fcd535;
-  }
+}
