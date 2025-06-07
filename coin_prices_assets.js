@@ -10,24 +10,21 @@ const allocations = {
 
 async function fetchPrices() {
   try {
-    console.log("Fetching prices from Binance...");
     const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await res.json();
-    console.log("Data fetched:", data);
 
     return data
       .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
       .map(item => {
         const name = item.symbol.replace("USDT", "");
-        const upperName = name.toUpperCase();
         const price = parseFloat(item.lastPrice);
         const change = parseFloat(item.priceChangePercent);
-        const value = allocations[upperName] || 0;
+        const value = allocations[name.toUpperCase()];
         const amount = value / price;
         const avgCost = price / (1 + change / 100);
 
         return {
-          name: upperName,
+          name,
           price,
           change,
           value: value.toFixed(2),
@@ -37,7 +34,7 @@ async function fetchPrices() {
         };
       });
   } catch (e) {
-    console.error("Failed to fetch prices", e);
+    console.error("🔴 Failed to fetch prices:", e);
     return [];
   }
 }
@@ -45,18 +42,19 @@ async function fetchPrices() {
 async function loadAssets() {
   const list = document.getElementById("asset-list");
   if (!list) {
-    console.error("Missing #asset-list element in HTML.");
+    console.error("❌ #asset-list not found in DOM");
     return;
   }
+
   list.innerHTML = "";
 
   const coinData = await fetchPrices();
+  let totalChange = 0;
+
   if (!coinData.length) {
-    console.warn("No coins matched or fetched.");
+    list.innerHTML = "<div style='color: #888; padding: 16px;'>⚠️ No coin data found.</div>";
     return;
   }
-
-  let totalChange = 0;
 
   coinData.forEach(coin => {
     totalChange += coin.change;
@@ -66,7 +64,7 @@ async function loadAssets() {
 
     row.innerHTML = `
       <div class="asset-left">
-        <img src="${coin.icon}" class="asset-icon-img" onerror="this.style.display='none';" />
+        <img src="${coin.icon}" class="asset-icon-img" alt="${coin.name}" />
         <div class="asset-info">
           <div class="asset-name">${coin.name}</div>
           <div class="asset-sub">$${coin.price.toFixed(5)}</div>
@@ -84,7 +82,7 @@ async function loadAssets() {
   });
 
   const pnl = document.getElementById("total-pnl");
-  if (pnl && coinData.length > 0) {
+  if (pnl) {
     const avgChange = totalChange / coinData.length;
     pnl.textContent = `+0.00 (${avgChange.toFixed(2)}%)`;
   }
