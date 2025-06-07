@@ -1,4 +1,4 @@
-const coins = ['usdt', 'btc', 'eth', 'bonk', 'xrp'];
+const coins = ['btc', 'eth', 'xrp', 'bonk', 'usdt'];
 const allocations = {
   BTC: 162713277.70,
   ETH: 81356638.85,
@@ -46,14 +46,14 @@ async function loadAssets() {
   let totalPNL = 0;
 
   coinData.forEach(coin => {
-    totalPNL += parseFloat(coin.change);
+    totalPNL += coin.change;
 
     const row = document.createElement("div");
     row.className = "asset-row";
 
     row.innerHTML = `
       <div class="asset-left">
-        <img src="${coin.icon}" alt="${coin.name}" class="asset-icon-img" />
+        <img src="${coin.icon}" class="asset-icon-img" />
         <div class="asset-info">
           <div class="asset-name">${coin.name}</div>
           <div class="asset-sub">$${coin.price.toFixed(5)}</div>
@@ -70,10 +70,10 @@ async function loadAssets() {
     list.appendChild(row);
   });
 
-  const avgPNL = (totalPNL / coinData.length).toFixed(2);
-  const pnlSpan = document.getElementById("total-pnl");
-  if (pnlSpan) {
-    pnlSpan.textContent = `+0.00 (${avgPNL}%)`;
+  const pnl = document.getElementById("total-pnl");
+  if (pnl && coinData.length > 0) {
+    const avgChange = totalPNL / coinData.length;
+    pnl.textContent = `+0.00 (${avgChange.toFixed(2)}%)`;
   }
 }
 
