@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assets</title>
+  <link rel="stylesheet" href="assets.css" />
+</head>
+<body>
+  <div class="top-toggle">
+    <div class="toggle selected">Exchange</div>
+    <div class="toggle">Wallet</div>
+  </div>
+
+  <div class="sub-tabs">
+    <span class="active">Overview</span>
+    <span>Earn</span>
+    <span>Funding</span>
+    <span>Spot</span>
+  </div>
+
+  <div class="balance-section">
+    <div class="title-row">
+      <span>Est. Total Value</span>
+      <div class="icons">
+        <span class="chart-icon">📈</span>
+        <span class="grid-icon">🔳</span>
+      </div>
+    </div>
+    <div class="balance-amount">$406,783,194.24 <span class="usd-tag">USD ▼</span></div>
+    <div class="pnl">Today's PNL <span class="pnl-green" id="total-pnl">+0.00695037 (+0.52%)</span> ›</div>
+    <div class="action-buttons">
+      <button class="add">Add Funds</button>
+      <button>Send</button>
+      <button>Transfer</button>
+    </div>
+  </div>
+
+  <div class="asset-tabs">
+    <span class="active">Crypto</span>
+    <span>Account</span>
+    <span class="right-icons">🔍 ⚙️</span>
+  </div>
+
+  <div id="asset-list" class="asset-list">
+    <!-- Injected by JS -->
+  </div>
+
+  <div class="bottom-nav">
+    <div>🏠<br>Home</div>
+    <div>📊<br>Markets</div>
+    <div>💱<br>Trade</div>
+    <div>📉<br>Futures</div>
+    <div class="active">💼<br>Assets</div>
+  </div>
+
+  <script src="coin_prices_api.js"></script>
+</body>
+</html>
