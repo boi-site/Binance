@@ -8,30 +8,32 @@
 </head>
 <body>
 
-  <!-- Exchange / Wallet section (centered and boxed) -->
+  <!-- Exchange / Wallet -->
   <div class="toggle-box">
     <div class="toggle-btn selected">Exchange</div>
     <div class="toggle-btn">Wallet</div>
   </div>
 
-  <!-- Tab row -->
+  <!-- Tabs (Left-aligned) -->
   <div class="sub-tabs">
-    <span class="active">Overview</span>
-    <span>Earn</span>
-    <span>Funding</span>
-    <span>Spot</span>
+    <div class="sub-tab-group">
+      <span class="active">Overview</span>
+      <span>Earn</span>
+      <span>Funding</span>
+      <span>Spot</span>
+    </div>
   </div>
 
-  <!-- Balance area -->
+  <!-- Balance Area -->
   <div class="balance-section">
     <div class="title-row">
       <div class="title-left">
         <span>Est. Total Value</span>
-        <img src="icons/eye.svg" alt="eye" class="eye-icon" />
+        <img src="icons/eye.svg" class="eye-icon" />
       </div>
       <div class="icons">
-        <img src="icons/chart.svg" class="icon-svg" alt="Chart" />
-        <img src="icons/grid.svg" class="icon-svg" alt="Grid" />
+        <img src="icons/chart.svg" class="icon-svg" />
+        <img src="icons/grid.svg" class="icon-svg" />
       </div>
     </div>
 
@@ -39,8 +41,10 @@
       $406,783,194.24 <span class="usd-tag">USD ▼</span>
     </div>
 
-    <div class="pnl">
-      Today's PNL <span class="pnl-green">+0.00695037 (+0.52%)</span><span class="right-arrow">&#8250;</span>
+    <div class="pnl-line">
+      <span class="pnl-label">Today's PNL</span>
+      <span id="total-pnl" class="pnl-green">+0.00 (+0.00%)</span>
+      <span class="right-arrow">&#8250;</span>
     </div>
 
     <div class="action-buttons">
@@ -50,20 +54,22 @@
     </div>
   </div>
 
-  <!-- Tabs under asset list -->
+  <!-- Tab Selector -->
   <div class="asset-tabs">
     <div class="tab-labels">
       <span class="active underline">Crypto</span>
       <span class="inactive">Account</span>
     </div>
     <div class="right-icons">
-      <img src="icons/search.svg" class="icon-svg" alt="Search" />
-      <img src="icons/settings.svg" class="icon-svg" alt="Settings" />
+      <img src="icons/search.svg" class="icon-svg" />
+      <img src="icons/settings.svg" class="icon-svg" />
     </div>
   </div>
 
+  <!-- Coin List -->
   <div id="asset-list" class="asset-list"></div>
 
+  <!-- Bottom Navigation -->
   <div class="bottom-nav">
     <div><img src="icons/ic_home.svg" class="nav-icon"/><div class="nav-label">Home</div></div>
     <div><img src="icons/ic_market.svg" class="nav-icon"/><div class="nav-label">Markets</div></div>
@@ -74,4 +80,4 @@
 
   <script src="coin_prices_assets.js"></script>
 </body>
-</html>
+  </html>
