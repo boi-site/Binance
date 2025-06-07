@@ -8,18 +8,20 @@
 </head>
 <body>
 
-  <!-- Exchange / Wallet section (centered and boxed) -->
+  <!-- Exchange / Wallet section -->
   <div class="toggle-box">
     <div class="toggle-btn selected">Exchange</div>
     <div class="toggle-btn">Wallet</div>
   </div>
 
-  <!-- Tab row -->
+  <!-- Left-aligned Tabs -->
   <div class="sub-tabs">
-    <span class="active">Overview</span>
-    <span>Earn</span>
-    <span>Funding</span>
-    <span>Spot</span>
+    <div class="sub-tab-group">
+      <span class="active">Overview</span>
+      <span>Earn</span>
+      <span>Funding</span>
+      <span>Spot</span>
+    </div>
   </div>
 
   <!-- Balance area -->
@@ -40,7 +42,9 @@
     </div>
 
     <div class="pnl">
-      Today's PNL <span class="pnl-green">+0.00695037 (+0.52%)</span><span class="right-arrow">&#8250;</span>
+      <span class="pnl-label">Today's PNL</span>
+      <span id="total-pnl" class="pnl-green">+0.00695037 (+0.52%)</span>
+      <span class="right-arrow">&#8250;</span>
     </div>
 
     <div class="action-buttons">
@@ -50,7 +54,7 @@
     </div>
   </div>
 
-  <!-- Tabs under asset list -->
+  <!-- Crypto tab (only underline for active tab) -->
   <div class="asset-tabs">
     <div class="tab-labels">
       <span class="active underline">Crypto</span>
@@ -74,4 +78,4 @@
 
   <script src="coin_prices_assets.js"></script>
 </body>
-    </html>
+</html>
