@@ -1,313 +1,61 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0b0e11;
-  color: #ffffff;
-}
-
-.toggle-box {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 12px;
-}
-
-.toggle-btn {
-  background-color: #1e2329;
-  color: #888;
-  padding: 6px 18px;
-  font-size: 13px;
-  border-radius: 20px;
-}
-
-.toggle-btn.selected {
-  background-color: #2b3139;
-  color: white;
-}
-
-.sub-tabs {
-  padding: 0 16px;
-  font-size: 13px;
-  margin-top: 16px;
-}
-
-.sub-tab-group {
-  display: flex;
-  gap: 18px;
-  color: #888;
-}
-
-.sub-tab-group .active {
-  color: white;
-}
-
-.sub-tab-divider {
-  height: 1px;
-  background-color: #1c1f24;
-  margin-top: 8px;
-}
-
-.balance-section {
-  padding: 16px;
-}
-
-.title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.title-left {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #888;
-  font-size: 13px;
-}
-
-.eye-icon {
-  width: 14px;
-}
-
-.icon-svg {
-  width: 16px;
-  margin-left: 8px;
-}
-
-.balance-amount {
-  font-size: 24px;
-  font-weight: 600;
-  margin-top: 6px;
-}
-
-.usd-tag {
-  font-size: 12px;
-  color: #888;
-  margin-left: 6px;
-}
-
-.pnl-inline {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 6px;
-  margin-bottom: 16px;
-}
-
-.pnl-label {
-  font-size: 12px;
-  color: #888;
-  border-bottom: 1px solid #1c1f24;
-}
-
-.pnl-green {
-  font-size: 12px;
-  color: #0ecb81;
-}
-
-.right-arrow {
-  font-size: 13px;
-  color: #888;
-}
-
-.action-buttons {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.action-buttons button {
-  flex: 1;
-  font-size: 13px;
-  padding: 10px 0;
-  border-radius: 6px;
-  font-weight: 500;
-  border: none;
-}
-
-.add {
-  background-color: #fcd535;
-  color: #0b0e11;
-}
-
-.gray {
-  background-color: #2b3139;
-  color: white;
-}
-
-.asset-tabs {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 16px;
-  margin-bottom: 8px;
-}
-
-.tab-labels {
-  display: flex;
-  gap: 16px;
-}
-
-.tab-labels .active {
-  color: #fcd535;
-  font-weight: 500;
-  position: relative;
-}
-
-.tab-labels .active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  height: 2px;
-  width: 20px;
-  background-color: #fcd535;
-  border-radius: 1px;
-}
-
-.tab-labels .inactive {
-  color: #888;
-}
-
-.right-icons {
-  display: flex;
-  gap: 10px;
-}
-
-.asset-list {
-  padding: 0 16px 80px;
-}
-
-.asset-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid #1c1f24;
-}
-
-.asset-left {
-  display: flex;
-  gap: 10px;
-}
-
-.asset-icon-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-.asset-info {
-  font-size: 11px;
-}
-
-.asset-name {
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.asset-sub {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.5;
-}
-
-.asset-right {
-  text-align: right;
-}
-
-.asset-amount {
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.asset-usd {
-  font-size: 11px;
-  color: #aaa;
-}
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  background: #0b0e11;
-  padding: 6px 0 4px;
-  border-top: 1px solid #1c1f24;
-}
-
-.nav-icon {
-  width: 20px;
-  height: 20px;
-  margin: 0 auto 2px;
-}
-
-.nav-label {
-  font-size: 11px;
-  text-align: center;
-  color: #888;
-}
-
-.bottom-nav .active .nav-label {
-  color: #fcd535;
-  }
 const coins = ["btc", "eth", "bonk", "xrp"];
+const coinMap = {
+  btc: { name: "BTC", avg: 102493.39 },
+  eth: { name: "ETH", avg: 2456.12 },
+  bonk: { name: "BONK", avg: 0.00000 },
+  xrp: { name: "XRP", avg: 2.13 }
+};
 
-async function fetchPrices() { try { const response = await fetch("https://api.binance.com/api/v3/ticker/24hr"); const data = await response.json();
+async function fetchAssets() {
+  try {
+    const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
+    const data = await res.json();
 
-const filtered = data.filter(item =>
-  coins.includes(item.symbol.replace("USDT", "").toLowerCase())
-);
+    const filtered = data.filter(item =>
+      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
+    );
 
-return filtered.map(item => ({
-  name: item.symbol.replace("USDT", ""),
-  price: parseFloat(item.lastPrice),
-  change: parseFloat(item.priceChangePercent),
-  avgCost: parseFloat(item.prevClosePrice)
-}));
+    const totalPNL = filtered.reduce((acc, coin) => acc + parseFloat(coin.priceChangePercent), 0);
+    document.getElementById("total-pnl").innerHTML = `<span class="pnl-green">+0.00 (${(totalPNL / coins.length).toFixed(2)}%)</span>`;
 
-} catch (e) { console.error("Failed to fetch prices:", e); return []; } }
+    const assetList = document.getElementById("asset-list");
+    assetList.innerHTML = "";
 
-async function loadAssets() { const list = document.getElementById("asset-list"); list.innerHTML = "";
+    filtered.forEach(item => {
+      const symbol = item.symbol.replace("USDT", "").toLowerCase();
+      const coin = coinMap[symbol];
+      const price = parseFloat(item.lastPrice);
+      const change = parseFloat(item.priceChangePercent);
+      const cost = coin.avg;
+      const amount = (406783194.24 / coins.length / price).toFixed(6);
+      const value = (amount * price).toFixed(2);
 
-const coinData = await fetchPrices(); let totalPNL = 0;
+      const row = document.createElement("div");
+      row.className = "asset-row";
 
-coinData.forEach(coin => { const row = document.createElement("div"); row.className = "asset-row";
+      row.innerHTML = `
+        <div class="asset-left">
+          <img src="icons/${symbol}.svg" alt="${coin.name}" />
+          <div class="asset-info">
+            <div class="asset-name">${coin.name}</div>
+            <div class="asset-sub">
+              $${price.toFixed(5)}<br />
+              Today's PNL: $0.00 (${change.toFixed(2)}%)<br />
+              Average cost: $${cost.toFixed(2)}
+            </div>
+          </div>
+        </div>
+        <div class="asset-right">
+          <div class="bold">${amount}</div>
+          <div>$${value}</div>
+        </div>
+      `;
 
-const left = document.createElement("div");
-left.className = "asset-left";
-const icon = document.createElement("img");
-icon.src = `icons/${coin.name.toLowerCase()}.svg`;
-icon.alt = coin.name;
-const info = document.createElement("div");
-info.className = "asset-info";
-info.innerHTML = `<div class="asset-name">${coin.name.toUpperCase()}</div>
-  <div class="asset-sub">
-    $${coin.price.toFixed(5)}<br>
-    Today's PNL: $0.00 (${coin.change.toFixed(2)}%)<br>
-    Average cost: $${coin.avgCost.toFixed(2)}
-  </div>`;
-left.appendChild(icon);
-left.appendChild(info);
+      assetList.appendChild(row);
+    });
+  } catch (e) {
+    console.error("Price fetch failed", e);
+  }
+}
 
-const right = document.createElement("div");
-right.className = "asset-right";
-const amount = (406783194.24 / coin.price / coinData.length);
-right.innerHTML = `<div class="bold">${amount.toFixed(8)}</div>
-  <div class="asset-sub">$${(amount * coin.price).toFixed(2)}</div>`;
-
-row.appendChild(left);
-row.appendChild(right);
-list.appendChild(row);
-
-totalPNL += coin.change;
-
-});
-
-const avgPNL = totalPNL / coinData.length; const totalPNLSpan = document.getElementById("total-pnl"); totalPNLSpan.textContent = +0.00 (${avgPNL.toFixed(2)}%); totalPNLSpan.style.color = avgPNL >= 0 ? "#00c292" : "#f6465d"; }
-
-loadAssets();
-
-  
+fetchAssets();
