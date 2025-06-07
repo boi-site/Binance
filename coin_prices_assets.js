@@ -82,3 +82,4 @@ async function loadAssets() {
 
 // Run on load
 loadAssets();
+console.log("Coins loaded:", coinData);
