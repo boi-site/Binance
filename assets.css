@@ -22,6 +22,7 @@ body {
   font-size: 13px;
   border-radius: 999px;
   font-weight: 500;
+  border: none;
 }
 .toggle-btn.selected {
   background-color: #2b3139;
@@ -38,7 +39,6 @@ body {
   gap: 18px;
   color: #888;
   font-size: 13px;
-  padding-left: 16px;
 }
 .sub-tab-group .active {
   color: #fff;
@@ -165,11 +165,11 @@ body {
   display: flex;
   gap: 10px;
 }
+
+/* Coin List */
 .asset-list {
   padding: 0 16px 80px;
 }
-
-/* Coin Rows */
 .asset-row {
   display: flex;
   justify-content: space-between;
