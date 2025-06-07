@@ -1,18 +1,16 @@
-const coins = ["bnb", "btc", "eth", "pepe", "sol", "xrp"];
+const coins = ["bnb", "bitcoin", "ethereum", "pepe", "solana", "ripple"];
 
 async function fetchPrices() {
   try {
-    const response = await fetch("https://api.binance.com/api/v3/ticker/24hr");
+    const response = await fetch(
+      "https://api.coingecko.com/api/v3/simple/price?ids=binancecoin,bitcoin,ethereum,pepe,solana,ripple&vs_currencies=usd&include_24hr_change=true"
+    );
     const data = await response.json();
 
-    const filtered = data.filter(item =>
-      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
-    );
-
-    return filtered.map(item => ({
-      name: item.symbol.replace("USDT", ""),
-      price: parseFloat(item.lastPrice),
-      change: parseFloat(item.priceChangePercent)
+    return coins.map(id => ({
+      name: id.toUpperCase(),
+      price: data[id].usd,
+      change: data[id].usd_24h_change
     }));
   } catch (e) {
     console.error("Failed to fetch prices:", e);
@@ -61,5 +59,5 @@ async function loadCoinPrices() {
 
 window.onload = () => {
   loadCoinPrices();
-  setInterval(loadCoinPrices, 5000); // Refresh every 5 seconds
+  setInterval(loadCoinPrices, 5000);
 };
