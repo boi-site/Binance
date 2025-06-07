@@ -70,6 +70,7 @@ async function fetchPrices() {
 async function loadAssets() {
   const list = document.getElementById("asset-list");
   list.innerHTML = "";
+
   const coins = await fetchPrices();
 
   coins.forEach(coin => {
