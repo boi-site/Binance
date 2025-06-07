@@ -1,10 +1,10 @@
 const coins = ['usdt', 'btc', 'eth', 'bonk', 'xrp'];
 const allocations = {
-  USDT: 122034958.27,
   BTC: 162713277.70,
   ETH: 81356638.85,
+  XRP: 20339159.71,
   BONK: 20339159.71,
-  XRP: 20339159.71
+  USDT: 122034958.27
 };
 
 async function fetchPrices() {
@@ -43,7 +43,6 @@ async function loadAssets() {
   list.innerHTML = "";
 
   const coinData = await fetchPrices();
-
   let totalPNL = 0;
 
   coinData.forEach(coin => {
@@ -67,13 +66,14 @@ async function loadAssets() {
         <div class="asset-usd">$${coin.value}</div>
       </div>
     `;
+
     list.appendChild(row);
   });
 
-  const avgTotalPNL = (totalPNL / coinData.length).toFixed(2);
-  const totalPNLSpan = document.getElementById("total-pnl");
-  if (totalPNLSpan) {
-    totalPNLSpan.textContent = `+0.00 (${avgTotalPNL}%)`;
+  const avgPNL = (totalPNL / coinData.length).toFixed(2);
+  const pnlSpan = document.getElementById("total-pnl");
+  if (pnlSpan) {
+    pnlSpan.textContent = `+0.00 (${avgPNL}%)`;
   }
 }
 
