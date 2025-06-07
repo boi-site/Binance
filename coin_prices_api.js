@@ -1,5 +1,5 @@
 const coins = [
-  { id: "binancecoin", symbol: "BNB" },
+  { id: "binance-coin", symbol: "BNB" },
   { id: "bitcoin", symbol: "BTC" },
   { id: "ethereum", symbol: "ETH" },
   { id: "pepe", symbol: "PEPE" },
@@ -10,18 +10,18 @@ const coins = [
 async function fetchPrices() {
   try {
     const ids = coins.map(c => c.id).join(",");
-    const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
+    const url = `https://api.coincap.io/v2/assets?ids=${ids}`;
+    const response = await fetch(url);
+    const result = await response.json();
+    const data = result.data;
 
-    const res = await fetch(url);
-    const data = await res.json();
-
-    return coins.map(coin => ({
-      name: coin.symbol,
-      price: data[coin.id]?.usd ?? 0,
-      change: data[coin.id]?.usd_24h_change ?? 0
+    return data.map(item => ({
+      name: item.symbol,
+      price: parseFloat(item.priceUsd),
+      change: parseFloat(item.changePercent24Hr)
     }));
-  } catch (err) {
-    console.error("Failed to fetch prices", err);
+  } catch (e) {
+    console.error("Failed to fetch CoinCap prices:", e);
     return [];
   }
 }
@@ -43,7 +43,10 @@ async function loadCoinPrices() {
     const prices = document.createElement("div");
     prices.className = "coin-price";
     prices.innerHTML = `
-      <div class="primary">${coin.price.toLocaleString()}</div>
+      <div class="primary">${coin.price.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })}</div>
       <div class="secondary">$${coin.price.toFixed(2)}</div>
     `;
 
@@ -51,13 +54,12 @@ async function loadCoinPrices() {
     change.className = "coin-change";
     change.textContent = `${coin.change.toFixed(2)}%`;
 
-    // Dynamic color
     if (coin.change > 0) {
-      change.style.backgroundColor = "#16c784"; // Green
+      change.style.backgroundColor = "#16c784";
     } else if (coin.change < 0) {
-      change.style.backgroundColor = "#ea3943"; // Red
+      change.style.backgroundColor = "#ea3943";
     } else {
-      change.style.backgroundColor = "#848e9c"; // Gray
+      change.style.backgroundColor = "#848e9c";
     }
 
     row.append(name, prices, change);
@@ -67,5 +69,5 @@ async function loadCoinPrices() {
 
 window.onload = () => {
   loadCoinPrices();
-  setInterval(loadCoinPrices, 5000);
+  setInterval(loadCoinPrices, 5000); // Refresh every 5 seconds
 };
