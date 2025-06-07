@@ -10,21 +10,24 @@ const allocations = {
 
 async function fetchPrices() {
   try {
+    console.log("Fetching prices from Binance...");
     const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await res.json();
+    console.log("Data fetched:", data);
 
     return data
       .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
       .map(item => {
         const name = item.symbol.replace("USDT", "");
+        const upperName = name.toUpperCase();
         const price = parseFloat(item.lastPrice);
         const change = parseFloat(item.priceChangePercent);
-        const value = allocations[name.toUpperCase()];
+        const value = allocations[upperName] || 0;
         const amount = value / price;
         const avgCost = price / (1 + change / 100);
 
         return {
-          name,
+          name: upperName,
           price,
           change,
           value: value.toFixed(2),
@@ -41,9 +44,18 @@ async function fetchPrices() {
 
 async function loadAssets() {
   const list = document.getElementById("asset-list");
+  if (!list) {
+    console.error("Missing #asset-list element in HTML.");
+    return;
+  }
   list.innerHTML = "";
 
   const coinData = await fetchPrices();
+  if (!coinData.length) {
+    console.warn("No coins matched or fetched.");
+    return;
+  }
+
   let totalChange = 0;
 
   coinData.forEach(coin => {
@@ -54,7 +66,7 @@ async function loadAssets() {
 
     row.innerHTML = `
       <div class="asset-left">
-        <img src="${coin.icon}" class="asset-icon-img" />
+        <img src="${coin.icon}" class="asset-icon-img" onerror="this.style.display='none';" />
         <div class="asset-info">
           <div class="asset-name">${coin.name}</div>
           <div class="asset-sub">$${coin.price.toFixed(5)}</div>
@@ -78,4 +90,4 @@ async function loadAssets() {
   }
 }
 
-loadAssets();
+document.addEventListener("DOMContentLoaded", loadAssets);
