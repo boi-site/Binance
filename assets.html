@@ -1,82 +1,58 @@
+<!-- assets.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Binance Assets</title>
-  <link rel="stylesheet" href="assets.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assets - Binance Clone</title>
+  <link rel="stylesheet" href="assets.css">
 </head>
 <body>
-  <div class="toggle-box">
-    <button class="toggle-btn selected">Exchange</button>
-    <button class="toggle-btn">Wallet</button>
+  <div class="top-toggle">
+    <div class="toggle-group">
+      <div class="toggle-btn active">Exchange</div>
+      <div class="toggle-btn">Wallet</div>
+    </div>
   </div>
 
   <div class="sub-tabs">
-    <div class="sub-tab-group">
-      <div class="active">Overview</div>
-      <div>Earn</div>
-      <div>Funding</div>
-      <div>Spot</div>
-    </div>
-    <div class="sub-tab-divider"></div>
+    <span class="tab active">Overview</span>
+    <span class="tab">Earn</span>
+    <span class="tab">Funding</span>
+    <span class="tab">Spot</span>
   </div>
 
   <div class="balance-section">
-    <div class="title-row">
-      <div class="title-left">
-        <span>Est. Total Value</span>
-        <img src="icons/eye.svg" class="eye-icon" alt="eye" />
-      </div>
-      <div class="right-icons">
-        <img src="icons/chart.svg" class="icon-svg" alt="Chart" />
-        <img src="icons/grid.svg" class="icon-svg" alt="Grid" />
-      </div>
+    <div class="balance-header">
+      <span>Est. Total Value</span>
+      <span class="dropdown">USD ▼</span>
+      <span class="eye">👁️</span>
     </div>
-    <div class="balance-amount">
-      $406,783,194.24 <span class="usd-tag">USD ▼</span>
+    <div class="balance-amount">$406,783,194.24</div>
+    <div class="balance-icons">
+      <span>📈</span>
+      <span>🔲</span>
     </div>
-    <div class="pnl-inline">
+    <div class="pnl-row">
       <span class="pnl-label">Today's PNL</span>
-      <span id="total-pnl" class="pnl-green">+0.00 (+0.00%)</span>
-      <span class="right-arrow">›</span>
-    </div>
-    <div class="action-buttons">
-      <button class="add">Add Funds</button>
-      <button class="gray">Send</button>
-      <button class="gray">Transfer</button>
+      <span id="main-pnl" class="pnl-value">+0.00% ▶</span>
     </div>
   </div>
 
-  <div class="asset-tabs">
-    <div class="tab-labels">
-      <div class="active">Crypto</div>
-      <div class="inactive">Account</div>
-    </div>
-    <div class="right-icons">
-      <img src="icons/search.svg" alt="Search" />
-      <img src="icons/settings.svg" alt="Settings" />
-    </div>
+  <div class="action-buttons">
+    <button class="btn add">Add Funds</button>
+    <button class="btn dark">Send</button>
+    <button class="btn dark">Transfer</button>
   </div>
 
-  <div class="asset-list" id="asset-list"></div>
+  <div class="type-toggle">
+    <span class="type-tab active">Crypto</span>
+    <span class="type-tab">Account</span>
+    <span class="icons">🔍 ⚙️</span>
+  </div>
 
-  <div class="bottom-nav">
-    <div>
-      <img src="icons/home.svg" class="nav-icon" /><div class="nav-label">Home</div>
-    </div>
-    <div>
-      <img src="icons/markets.svg" class="nav-icon" /><div class="nav-label">Markets</div>
-    </div>
-    <div>
-      <img src="icons/trade.svg" class="nav-icon" /><div class="nav-label">Trade</div>
-    </div>
-    <div>
-      <img src="icons/futures.svg" class="nav-icon" /><div class="nav-label">Futures</div>
-    </div>
-    <div class="active">
-      <img src="icons/assets.svg" class="nav-icon" /><div class="nav-label">Assets</div>
-    </div>
+  <div class="asset-list" id="asset-list">
+    <!-- JS will load coins here -->
   </div>
 
   <script src="coin_prices_assets.js"></script>
