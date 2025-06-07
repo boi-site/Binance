@@ -1,4 +1,5 @@
 const coins = ['btc', 'eth', 'xrp', 'bonk'];
+
 const allocations = {
   BTC: 162713277.70,
   ETH: 81356638.85,
@@ -32,7 +33,7 @@ async function fetchPrices() {
         };
       });
   } catch (e) {
-    console.error("Price fetch error", e);
+    console.error("Failed to fetch prices", e);
     return [];
   }
 }
