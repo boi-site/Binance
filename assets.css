@@ -1,3 +1,27 @@
+/* Exchange / Wallet toggle */
+.toggle-box {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  background: #1e2329;
+  padding: 4px;
+  margin: 12px auto 8px;
+  width: fit-content;
+  border-radius: 12px;
+}
+.toggle-btn {
+  font-size: 13px;
+  padding: 6px 16px;
+  color: #888;
+  border-radius: 8px;
+  background-color: transparent;
+}
+.toggle-btn.selected {
+  background-color: #2b3139;
+  color: #fff;
+}
+
+/* Main layout & reset */
 body {
   margin: 0;
   font-family: "Segoe UI", "Roboto", sans-serif;
@@ -5,28 +29,7 @@ body {
   color: white;
 }
 
-/* Exchange / Wallet toggle */
-.top-toggle {
-  display: flex;
-  background-color: #1e2329;
-  padding: 4px 4px 0;
-}
-.toggle {
-  flex: 1;
-  text-align: center;
-  padding: 8px 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: #888;
-  border-radius: 6px;
-  background: #0b0e11;
-}
-.toggle.selected {
-  background: #2b3139;
-  color: #fff;
-}
-
-/* Top Tabs */
+/* Tabs */
 .sub-tabs {
   display: flex;
   justify-content: space-around;
@@ -43,14 +46,24 @@ body {
   color: white;
 }
 
-/* Balance Display */
+/* Balance section */
 .balance-section {
   padding: 14px 16px 0;
+  border-bottom: 1px solid #1c1f24;
 }
 .title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.title-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.eye-icon {
+  width: 14px;
+  height: 14px;
 }
 .icons {
   display: flex;
@@ -68,28 +81,33 @@ body {
 .usd-tag {
   font-size: 11px;
   color: #888;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 .pnl {
   font-size: 11px;
   color: #aaa;
   margin-bottom: 14px;
+  border-bottom: 1px solid #1c1f24;
+  padding-bottom: 8px;
 }
 .pnl-green {
   color: #0ecb81;
 }
+.right-arrow {
+  font-size: 13px;
+  color: #aaa;
+  margin-left: 2px;
+}
 
-/* Buttons with border below */
+/* Buttons */
 .action-buttons {
   display: flex;
   gap: 8px;
   margin-bottom: 14px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #1c1f24;
 }
 .action-buttons button {
   flex: 1;
-  padding: 10px;
+  padding: 8px;
   font-size: 12px;
   font-weight: 500;
   border-radius: 6px;
@@ -104,7 +122,7 @@ button.gray {
   color: white;
 }
 
-/* Crypto / Account Tabs */
+/* Tabs below balance */
 .asset-tabs {
   display: flex;
   justify-content: space-between;
@@ -112,6 +130,7 @@ button.gray {
   padding: 12px 16px 6px;
   font-size: 13px;
   border-top: 1px solid #1c1f24;
+  border-bottom: 1px solid #1c1f24;
   background: #0e1115;
 }
 .tab-labels span {
@@ -126,7 +145,7 @@ button.gray {
   color: #888;
 }
 .tab-labels .underline::after {
-  content: "";
+  content: \"\";
   position: absolute;
   bottom: -4px;
   left: 0;
@@ -140,17 +159,18 @@ button.gray {
   gap: 8px;
 }
 
-/* Asset List Area with top border */
+/* Coin list */
 .asset-list {
   padding: 0 16px;
   padding-bottom: 100px;
   border-top: 1px solid #1c1f24;
+  border-bottom: 1px solid #1c1f24;
 }
 .asset-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 10px 0;
+  padding: 8px 0;
   border-bottom: 1px solid #1c1f24;
 }
 .asset-left {
@@ -180,7 +200,6 @@ button.gray {
   font-size: 11px;
   color: #aaa;
 }
-
 .asset-right {
   text-align: right;
 }
@@ -194,7 +213,7 @@ button.gray {
   margin-top: 2px;
 }
 
-/* Bottom Navigation Bar */
+/* Bottom nav */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -218,7 +237,7 @@ button.gray {
 .nav-label {
   text-align: center;
   font-size: 11px;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 .bottom-nav .active {
   color: #fcd535;
