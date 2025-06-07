@@ -9,61 +9,32 @@ const allocations = {
 
 async function fetchPrices() {
   try {
-    const response = await fetch("https://api.binance.com/api/v3/ticker/24hr");
-    const data = await response.json();
-    const filtered = data.filter(item =>
-      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
-    );
+    const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
+    const data = await res.json();
 
-    return filtered.map(item => {
-      const name = item.symbol.replace("USDT", "");
-      const price = parseFloat(item.lastPrice);
-      const change = parseFloat(item.priceChangePercent);
-      const value = allocations[name];
-      const amount = value / price;
+    return data
+      .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
+      .map(item => {
+        const name = item.symbol.replace("USDT", "");
+        const price = parseFloat(item.lastPrice);
+        const change = parseFloat(item.priceChangePercent);
+        const value = allocations[name];
+        const amount = value / price;
+        const avgCost = price / (1 + change / 100);
 
-      return {
-        name,
-        price,
-        change,
-        value: value.toFixed(2),
-        amount: amount.toFixed(8),
-        icon: `icons/${name.toLowerCase()}.svg`
-      };
-    });
-  } catch (error) {
-    return [
-      {
-        name: "USDT", price: 1.03, change: 0.52,
-        value: allocations.USDT.toFixed(2),
-        amount: (allocations.USDT / 1.03).toFixed(8),
-        icon: "icons/usdt.svg"
-      },
-      {
-        name: "BONK", price: 0.00001483, change: 1.99,
-        value: allocations.BONK.toFixed(2),
-        amount: (allocations.BONK / 0.00001483).toFixed(8),
-        icon: "icons/bonk.svg"
-      },
-      {
-        name: "ETH", price: 0.14025567, change: 2.54,
-        value: allocations.ETH.toFixed(2),
-        amount: (allocations.ETH / 0.14025567).toFixed(8),
-        icon: "icons/eth.svg"
-      },
-      {
-        name: "BTC", price: 68473.24, change: 3.12,
-        value: allocations.BTC.toFixed(2),
-        amount: (allocations.BTC / 68473.24).toFixed(8),
-        icon: "icons/btc.svg"
-      },
-      {
-        name: "XRP", price: 0.52, change: 0.85,
-        value: allocations.XRP.toFixed(2),
-        amount: (allocations.XRP / 0.52).toFixed(8),
-        icon: "icons/xrp.svg"
-      }
-    ];
+        return {
+          name,
+          price,
+          change,
+          value: value.toFixed(2),
+          amount: amount.toFixed(8),
+          avgCost: avgCost.toFixed(2),
+          icon: `icons/${name.toLowerCase()}.svg`
+        };
+      });
+  } catch (e) {
+    console.error("Price fetch error", e);
+    return [];
   }
 }
 
@@ -71,9 +42,13 @@ async function loadAssets() {
   const list = document.getElementById("asset-list");
   list.innerHTML = "";
 
-  const coins = await fetchPrices();
+  const coinData = await fetchPrices();
 
-  coins.forEach(coin => {
+  let totalPNL = 0;
+
+  coinData.forEach(coin => {
+    totalPNL += parseFloat(coin.change);
+
     const row = document.createElement("div");
     row.className = "asset-row";
 
@@ -84,7 +59,7 @@ async function loadAssets() {
           <div class="asset-name">${coin.name}</div>
           <div class="asset-sub">$${coin.price.toFixed(5)}</div>
           <div class="asset-sub">Today’s PNL: $0.00 (${coin.change.toFixed(2)}%)</div>
-          ${coin.name === "ETH" ? `<div class="asset-sub">Average cost: $2,642.77</div>` : ""}
+          <div class="asset-sub">Average cost: $${coin.avgCost}</div>
         </div>
       </div>
       <div class="asset-right">
@@ -94,6 +69,12 @@ async function loadAssets() {
     `;
     list.appendChild(row);
   });
+
+  const avgTotalPNL = (totalPNL / coinData.length).toFixed(2);
+  const totalPNLSpan = document.getElementById("total-pnl");
+  if (totalPNLSpan) {
+    totalPNLSpan.textContent = `+0.00 (${avgTotalPNL}%)`;
+  }
 }
 
 loadAssets();
