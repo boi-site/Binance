@@ -11,7 +11,6 @@ async function fetchPrices() {
   try {
     const response = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await response.json();
-
     const filtered = data.filter(item =>
       coins.includes(item.symbol.replace("USDT", "").toLowerCase())
     );
@@ -33,46 +32,35 @@ async function fetchPrices() {
       };
     });
   } catch (error) {
-    console.error("API failed. Loading dummy fallback data.", error);
     return [
       {
-        name: "USDT",
-        price: 1.03,
-        change: 0.52,
-        value: allocations["USDT"].toFixed(2),
-        amount: (allocations["USDT"] / 1.03).toFixed(8),
+        name: "USDT", price: 1.03, change: 0.52,
+        value: allocations.USDT.toFixed(2),
+        amount: (allocations.USDT / 1.03).toFixed(8),
         icon: "icons/usdt.svg"
       },
       {
-        name: "BONK",
-        price: 0.00001483,
-        change: 1.99,
-        value: allocations["BONK"].toFixed(2),
-        amount: (allocations["BONK"] / 0.00001483).toFixed(8),
+        name: "BONK", price: 0.00001483, change: 1.99,
+        value: allocations.BONK.toFixed(2),
+        amount: (allocations.BONK / 0.00001483).toFixed(8),
         icon: "icons/bonk.svg"
       },
       {
-        name: "ETH",
-        price: 0.14025567,
-        change: 2.54,
-        value: allocations["ETH"].toFixed(2),
-        amount: (allocations["ETH"] / 0.14025567).toFixed(8),
+        name: "ETH", price: 0.14025567, change: 2.54,
+        value: allocations.ETH.toFixed(2),
+        amount: (allocations.ETH / 0.14025567).toFixed(8),
         icon: "icons/eth.svg"
       },
       {
-        name: "BTC",
-        price: 68473.24,
-        change: 3.12,
-        value: allocations["BTC"].toFixed(2),
-        amount: (allocations["BTC"] / 68473.24).toFixed(8),
+        name: "BTC", price: 68473.24, change: 3.12,
+        value: allocations.BTC.toFixed(2),
+        amount: (allocations.BTC / 68473.24).toFixed(8),
         icon: "icons/btc.svg"
       },
       {
-        name: "XRP",
-        price: 0.52,
-        change: 0.85,
-        value: allocations["XRP"].toFixed(2),
-        amount: (allocations["XRP"] / 0.52).toFixed(8),
+        name: "XRP", price: 0.52, change: 0.85,
+        value: allocations.XRP.toFixed(2),
+        amount: (allocations.XRP / 0.52).toFixed(8),
         icon: "icons/xrp.svg"
       }
     ];
@@ -82,7 +70,6 @@ async function fetchPrices() {
 async function loadAssets() {
   const list = document.getElementById("asset-list");
   list.innerHTML = "";
-
   const coins = await fetchPrices();
 
   coins.forEach(coin => {
