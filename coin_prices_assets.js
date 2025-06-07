@@ -40,7 +40,6 @@ async function fetchPrices() {
 
 async function loadAssets() {
   const list = document.getElementById("asset-list");
-  if (!list) return;
   list.innerHTML = "";
 
   const coinData = await fetchPrices();
@@ -54,7 +53,7 @@ async function loadAssets() {
 
     row.innerHTML = `
       <div class="asset-left">
-        <img src="${coin.icon}" class="asset-icon-img" onerror="this.src='icons/default.svg'" />
+        <img src="${coin.icon}" class="asset-icon-img" />
         <div class="asset-info">
           <div class="asset-name">${coin.name}</div>
           <div class="asset-sub">$${coin.price.toFixed(5)}</div>
@@ -74,12 +73,8 @@ async function loadAssets() {
   const pnl = document.getElementById("total-pnl");
   if (pnl && coinData.length > 0) {
     const avgChange = totalChange / coinData.length;
-    const formatted = `+0.00 (${avgChange.toFixed(2)}%)`;
-    pnl.textContent = formatted;
-    pnl.className = avgChange >= 0 ? "pnl-green" : "pnl-red";
+    pnl.textContent = `+0.00 (${avgChange.toFixed(2)}%)`;
   }
 }
 
-// Run on load
 loadAssets();
-console.log("Coins loaded:", coinData);
