@@ -1,28 +1,26 @@
 body {
   margin: 0;
-  background: #0b0e11;
   font-family: 'Segoe UI', sans-serif;
-  color: white;
+  background-color: #0b0e11;
+  color: #ffffff;
 }
 
 .toggle-box {
   display: flex;
   justify-content: center;
-  background: #1e2329;
-  padding: 4px;
-  margin: 12px auto;
-  width: fit-content;
-  border-radius: 12px;
+  margin: 12px 0;
+  gap: 12px;
 }
 .toggle-btn {
+  padding: 6px 18px;
   font-size: 13px;
-  padding: 6px 16px;
+  border-radius: 20px;
+  background: #1e2329;
   color: #888;
-  border-radius: 8px;
 }
 .toggle-btn.selected {
   background: #2b3139;
-  color: #fff;
+  color: white;
 }
 
 .sub-tabs {
@@ -31,13 +29,16 @@ body {
 }
 .sub-tab-group {
   display: flex;
-  gap: 12px;
+  gap: 14px;
+  color: #888;
 }
 .sub-tab-group .active {
   color: white;
 }
-.sub-tab-group span {
-  color: #888;
+.sub-tab-divider {
+  height: 1px;
+  background-color: #1c1f24;
+  margin-top: 6px;
 }
 
 .balance-section {
@@ -52,108 +53,119 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-size: 13px;
+  color: #888;
 }
 .eye-icon {
   width: 14px;
-  height: 14px;
 }
 .icon-svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
   margin-left: 8px;
 }
 .balance-amount {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
-  margin: 6px 0 4px;
+  margin-top: 8px;
 }
 .usd-tag {
-  font-size: 11px;
+  font-size: 12px;
   color: #888;
+  margin-left: 6px;
   vertical-align: middle;
 }
-.pnl-line {
-  font-size: 11px;
-  color: #aaa;
-  border-bottom: 1px solid #1c1f24;
-  padding-bottom: 8px;
-  margin-bottom: 14px;
+.pnl-inline {
+  margin-top: 8px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 4px;
 }
+.pnl-label {
+  font-size: 12px;
+  color: #888;
+  position: relative;
+}
+.pnl-label::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #1c1f24;
+}
 .pnl-green {
+  font-size: 12px;
   color: #0ecb81;
 }
 .right-arrow {
   font-size: 13px;
-  color: #aaa;
-  margin-left: 2px;
+  color: #888;
 }
 
 .action-buttons {
   display: flex;
   gap: 8px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .action-buttons button {
   flex: 1;
-  padding: 8px;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 13px;
+  padding: 10px 0;
   border-radius: 6px;
+  font-weight: 500;
   border: none;
 }
-button.add {
-  background: #fcd535;
-  color: #000;
+.add {
+  background-color: #fcd535;
+  color: #0b0e11;
 }
-button.gray {
-  background: #2b3139;
+.gray {
+  background-color: #2b3139;
   color: white;
 }
 
 .asset-tabs {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px 6px;
-  font-size: 13px;
-  background: #0e1115;
+  padding: 12px 16px 8px;
 }
 .tab-labels span {
-  margin-right: 14px;
-  position: relative;
+  margin-right: 16px;
+  font-size: 13px;
   font-weight: 500;
 }
 .tab-labels .active {
   color: #fcd535;
+  position: relative;
+}
+.tab-labels .active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #fcd535;
+  border-radius: 1px;
 }
 .tab-labels .inactive {
   color: #888;
 }
-.tab-labels .underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #fcd535;
-  border-radius: 2px;
-}
 .right-icons {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
+
 .asset-list {
-  padding: 0 16px;
-  padding-bottom: 100px;
+  padding: 0 16px 100px;
 }
+
 .asset-row {
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 14px 0;
   border-bottom: 1px solid #1c1f24;
 }
 .asset-left {
@@ -164,8 +176,6 @@ button.gray {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: #1c1f24;
-  padding: 4px;
 }
 .asset-info {
   font-size: 11px;
@@ -175,15 +185,15 @@ button.gray {
   font-size: 13px;
 }
 .asset-sub {
-  color: #aaa;
   font-size: 11px;
+  color: #aaa;
 }
 .asset-right {
   text-align: right;
 }
 .asset-amount {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .asset-usd {
   font-size: 11px;
@@ -195,24 +205,22 @@ button.gray {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #0b0e11;
   display: flex;
   justify-content: space-around;
-  padding: 6px 0;
+  background: #0b0e11;
+  padding: 6px 0 4px;
   border-top: 1px solid #1c1f24;
-  font-size: 11px;
-  color: #888;
 }
 .nav-icon {
   width: 20px;
   height: 20px;
   margin: 0 auto 2px;
-  display: block;
 }
 .nav-label {
-  text-align: center;
   font-size: 11px;
+  text-align: center;
+  color: #888;
 }
-.bottom-nav .active {
+.bottom-nav .active .nav-label {
   color: #fcd535;
-}
+  }
