@@ -23,27 +23,27 @@
     <div class="title-row">
       <span>Est. Total Value</span>
       <div class="icons">
-        <span class="chart-icon">📈</span>
-        <span class="grid-icon">🔳</span>
+        <img src="icons/chart.svg" class="icon-svg">
+        <img src="icons/grid.svg" class="icon-svg">
       </div>
     </div>
     <div class="balance-amount">$406,783,194.24 <span class="usd-tag">USD ▼</span></div>
     <div class="pnl">Today's PNL <span class="pnl-green" id="total-pnl">+0.00695037 (+0.52%)</span> ›</div>
     <div class="action-buttons">
       <button class="add">Add Funds</button>
-      <button>Send</button>
-      <button>Transfer</button>
+      <button class="gray">Send</button>
+      <button class="gray">Transfer</button>
     </div>
   </div>
 
   <div class="asset-tabs">
-    <span class="active">Crypto</span>
+    <span class="active underline">Crypto</span>
     <span>Account</span>
-    <span class="right-icons">🔍 ⚙️</span>
+    <div class="right-icons">🔍 ⚙️</div>
   </div>
 
   <div id="asset-list" class="asset-list">
-    <!-- Injected by JS -->
+    <!-- Coin rows injected by JS -->
   </div>
 
   <div class="bottom-nav">
@@ -54,6 +54,6 @@
     <div class="active">💼<br>Assets</div>
   </div>
 
-  <script src="coin_prices_api.js"></script>
+  <script src="coin_prices_assets.js"></script>
 </body>
 </html>
