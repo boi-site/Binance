@@ -11,17 +11,21 @@ body {
   justify-content: center;
   margin-top: 12px;
 }
+
 .toggle-box {
   display: flex;
   gap: 8px;
 }
+
 .toggle-btn {
   background-color: #1e2329;
   color: #888;
   padding: 6px 20px;
   font-size: 13px;
+  font-weight: 500;
   border-radius: 999px;
 }
+
 .toggle-btn.selected {
   background-color: #2b3139;
   color: #fff;
@@ -32,15 +36,18 @@ body {
   padding: 0 16px;
   margin-top: 16px;
 }
+
 .sub-tab-group {
   display: flex;
   gap: 18px;
   color: #888;
   font-size: 13px;
 }
+
 .sub-tab-group .active {
   color: #fff;
 }
+
 .sub-tab-divider {
   height: 1px;
   background-color: #1c1f24;
@@ -51,11 +58,13 @@ body {
 .balance-section {
   padding: 16px;
 }
+
 .title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .title-left {
   display: flex;
   align-items: center;
@@ -63,23 +72,28 @@ body {
   color: #888;
   font-size: 13px;
 }
+
 .eye-icon {
   width: 14px;
 }
+
 .icon-svg {
   width: 16px;
   margin-left: 8px;
 }
+
 .balance-amount {
   font-size: 24px;
   font-weight: 600;
   margin-top: 6px;
 }
+
 .usd-tag {
   font-size: 12px;
   color: #888;
   margin-left: 6px;
 }
+
 .pnl-inline {
   display: flex;
   align-items: center;
@@ -87,16 +101,19 @@ body {
   margin-top: 6px;
   margin-bottom: 16px;
 }
+
 .pnl-label {
   font-size: 12px;
   color: #888;
   border-bottom: 1px solid #1c1f24;
   display: inline-block;
 }
+
 .pnl-green {
   font-size: 12px;
   color: #0ecb81;
 }
+
 .right-arrow {
   font-size: 13px;
   color: #888;
@@ -108,6 +125,7 @@ body {
   gap: 8px;
   margin-bottom: 16px;
 }
+
 .action-buttons button {
   flex: 1;
   font-size: 13px;
@@ -116,10 +134,12 @@ body {
   font-weight: 500;
   border: none;
 }
+
 .add {
   background-color: #fcd535;
   color: #0b0e11;
 }
+
 .gray {
   background-color: #2b3139;
   color: white;
@@ -133,18 +153,22 @@ body {
   padding: 0 16px;
   margin-bottom: 8px;
 }
+
 .tab-labels {
   display: flex;
   gap: 16px;
 }
+
 .tab-labels span {
   font-size: 13px;
 }
+
 .tab-labels .tab-active {
   color: #fcd535;
   font-weight: 500;
   position: relative;
 }
+
 .tab-labels .tab-active::after {
   content: '';
   position: absolute;
@@ -156,13 +180,16 @@ body {
   background-color: #fcd535;
   border-radius: 1px;
 }
+
 .tab-labels .inactive {
   color: #888;
 }
+
 .right-icons {
   display: flex;
   gap: 10px;
 }
+
 .asset-list {
   padding: 0 16px 80px;
 }
@@ -175,34 +202,42 @@ body {
   padding: 14px 0;
   border-bottom: 1px solid #1c1f24;
 }
+
 .asset-left {
   display: flex;
   gap: 10px;
 }
+
 .asset-icon-img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
 }
+
 .asset-info {
   font-size: 11px;
 }
+
 .asset-name {
   font-weight: 600;
   font-size: 13px;
 }
+
 .asset-sub {
   font-size: 11px;
   color: #aaa;
   line-height: 1.5;
 }
+
 .asset-right {
   text-align: right;
 }
+
 .asset-amount {
   font-size: 13px;
   font-weight: 600;
 }
+
 .asset-usd {
   font-size: 11px;
   color: #aaa;
@@ -220,16 +255,19 @@ body {
   padding: 6px 0 4px;
   border-top: 1px solid #1c1f24;
 }
+
 .nav-icon {
   width: 20px;
   height: 20px;
   margin: 0 auto 2px;
 }
+
 .nav-label {
   font-size: 11px;
   text-align: center;
   color: #888;
 }
+
 .bottom-nav .active .nav-label {
   color: #fcd535;
 }
