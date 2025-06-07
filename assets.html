@@ -1,31 +1,31 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Binance Assets</title>
-  <link rel="stylesheet" href="assets.css">
+  <link rel="stylesheet" href="assets.css" />
 </head>
 <body>
   <div class="toggle-box">
-    <div class="toggle-btn selected">Exchange</div>
-    <div class="toggle-btn">Wallet</div>
+    <button class="toggle-btn selected">Exchange</button>
+    <button class="toggle-btn">Wallet</button>
   </div>  <div class="sub-tabs">
     <div class="sub-tab-group">
-      <span class="active">Overview</span>
-      <span>Earn</span>
-      <span>Funding</span>
-      <span>Spot</span>
+      <div class="active">Overview</div>
+      <div>Earn</div>
+      <div>Funding</div>
+      <div>Spot</div>
     </div>
     <div class="sub-tab-divider"></div>
   </div>  <div class="balance-section">
     <div class="title-row">
       <div class="title-left">
         <span>Est. Total Value</span>
-        <img src="icons/eye.svg" alt="eye" class="eye-icon">
+        <img src="icons/eye.svg" class="eye-icon" alt="eye" />
       </div>
-      <div class="icons">
-        <img src="icons/chart.svg" class="icon-svg" alt="Chart">
-        <img src="icons/grid.svg" class="icon-svg" alt="Grid">
+      <div class="right-icons">
+        <img src="icons/chart.svg" class="icon-svg" alt="Chart" />
+        <img src="icons/grid.svg" class="icon-svg" alt="Grid" />
       </div>
     </div>
     <div class="balance-amount">
@@ -34,7 +34,7 @@
     <div class="pnl-inline">
       <span class="pnl-label">Today's PNL</span>
       <span id="total-pnl" class="pnl-green">+0.00 (+0.00%)</span>
-      <span class="right-arrow">&#8250;</span>
+      <span class="right-arrow">›</span>
     </div>
     <div class="action-buttons">
       <button class="add">Add Funds</button>
@@ -43,18 +43,28 @@
     </div>
   </div>  <div class="asset-tabs">
     <div class="tab-labels">
-      <span class="active underline">Crypto</span>
-      <span class="inactive">Account</span>
+      <div class="active">Crypto</div>
+      <div class="inactive">Account</div>
     </div>
     <div class="right-icons">
-      <img src="icons/search.svg" class="icon-svg" alt="Search">
-      <img src="icons/settings.svg" class="icon-svg" alt="Settings">
+      <img src="icons/search.svg" alt="Search" />
+      <img src="icons/settings.svg" alt="Settings" />
     </div>
-  </div>  <div id="asset-list" class="asset-list"></div>  <div class="bottom-nav">
-    <div><img src="icons/ic_home.svg" class="nav-icon"><div class="nav-label">Home</div></div>
-    <div><img src="icons/ic_market.svg" class="nav-icon"><div class="nav-label">Markets</div></div>
-    <div><img src="icons/ic_trade.svg" class="nav-icon"><div class="nav-label">Trade</div></div>
-    <div><img src="icons/ic_futures.svg" class="nav-icon"><div class="nav-label">Futures</div></div>
-    <div class="active"><img src="icons/ic_assets.svg" class="nav-icon"><div class="nav-label">Assets</div></div>
+  </div>  <div class="asset-list" id="asset-list"></div>  <div class="bottom-nav">
+    <div>
+      <img src="icons/home.svg" class="nav-icon" /><div class="nav-label">Home</div>
+    </div>
+    <div>
+      <img src="icons/markets.svg" class="nav-icon" /><div class="nav-label">Markets</div>
+    </div>
+    <div>
+      <img src="icons/trade.svg" class="nav-icon" /><div class="nav-label">Trade</div>
+    </div>
+    <div>
+      <img src="icons/futures.svg" class="nav-icon" /><div class="nav-label">Futures</div>
+    </div>
+    <div class="active">
+      <img src="icons/assets.svg" class="nav-icon" /><div class="nav-label">Assets</div>
+    </div>
   </div>  <script src="coin_prices_assets.js"></script></body>
-           </html>
+                                                                                      </html>
