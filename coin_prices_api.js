@@ -10,19 +10,19 @@ const coins = [
 async function fetchPrices() {
   try {
     const response = await fetch("https://api.coincap.io/v2/assets");
-    const { data } = await response.json();
+    const json = await response.json();
+    const data = json.data;
 
     return coins.map(({ id, symbol }) => {
-      const coinData = data.find(item => item.id === id);
-      if (!coinData) return null;
-      return {
+      const found = data.find(item => item.id === id);
+      return found ? {
         name: symbol,
-        price: parseFloat(coinData.priceUsd),
-        change: parseFloat(coinData.changePercent24Hr)
-      };
+        price: parseFloat(found.priceUsd),
+        change: parseFloat(found.changePercent24Hr)
+      } : null;
     }).filter(Boolean);
-  } catch (e) {
-    console.error("Failed to fetch prices:", e);
+  } catch (err) {
+    console.error("Error fetching prices:", err);
     return [];
   }
 }
@@ -31,36 +31,26 @@ async function loadCoinPrices() {
   const list = document.getElementById("coin-list");
   list.innerHTML = "";
 
-  const coinData = await fetchPrices();
+  const data = await fetchPrices();
 
-  if (coinData.length === 0) {
+  if (data.length === 0) {
     coins.forEach(({ symbol }) => {
       const row = document.createElement("div");
       row.className = "coin-row";
-
-      const name = document.createElement("div");
-      name.className = "coin-name";
-      name.textContent = symbol;
-
-      const prices = document.createElement("div");
-      prices.className = "coin-price";
-      prices.innerHTML = `
-        <div class="primary">–</div>
-        <div class="secondary">–</div>
+      row.innerHTML = `
+        <div class="coin-name">${symbol}</div>
+        <div class="coin-price">
+          <div class="primary">–</div>
+          <div class="secondary">–</div>
+        </div>
+        <div class="coin-change" style="background:#848e9c;">–</div>
       `;
-
-      const change = document.createElement("div");
-      change.className = "coin-change";
-      change.textContent = "–";
-      change.style.backgroundColor = "#848e9c";
-
-      row.append(name, prices, change);
       list.appendChild(row);
     });
     return;
   }
 
-  coinData.forEach(coin => {
+  data.forEach(coin => {
     const row = document.createElement("div");
     row.className = "coin-row";
 
@@ -71,9 +61,7 @@ async function loadCoinPrices() {
     const prices = document.createElement("div");
     prices.className = "coin-price";
     prices.innerHTML = `
-      <div class="primary">${coin.price.toLocaleString(undefined, {
-        maximumFractionDigits: 2
-      })}</div>
+      <div class="primary">${coin.price.toLocaleString(undefined, { maximumFractionDigits: 2 })}</div>
       <div class="secondary">$${coin.price.toFixed(2)}</div>
     `;
 
@@ -96,5 +84,5 @@ async function loadCoinPrices() {
 
 window.onload = () => {
   loadCoinPrices();
-  setInterval(loadCoinPrices, 10000); // every 10 seconds
+  setInterval(loadCoinPrices, 10000);
 };
