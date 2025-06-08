@@ -283,3 +283,24 @@ body {
   margin: 0;
   color: #848e9c;
 }
+.coin-change.green {
+  background-color: #16c784;
+}
+
+.coin-change.red {
+  background-color: #ea3943;
+}
+
+.coin-change.gray {
+  background-color: #848e9c;
+}
+
+.flash {
+  animation: flash-effect 0.3s ease-in-out;
+}
+
+@keyframes flash-effect {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
