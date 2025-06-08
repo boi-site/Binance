@@ -310,9 +310,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* directly under the coin list, no extra margin or border */
-  margin-top: 0;
-  border-top: none;
+
+  /* pull up into that coin-list padding so it hugs the XRP divider */
+  margin-top: -64px;
+
   padding: 8px 12px;
   background-color: #0b0e11;
   z-index: 5;
