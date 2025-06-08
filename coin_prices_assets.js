@@ -92,3 +92,8 @@ async function loadAssets() {
 }
 
 loadAssets();
+fetch("https://api.binance.com/api/v3/ticker/24hr")
+  .then(res => res.json())
+  .then(data => {
+    console.log("🔍 Binance symbols:", data.slice(0, 10).map(c => c.symbol));
+  });
