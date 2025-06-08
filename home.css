@@ -313,15 +313,14 @@ body {
   display: flex;
   justify-content: space-around;
   background-color: #0b0e11;
-  padding: 4px 0;
+  padding: 0 0 2px;  
   position: fixed;
   bottom: 0;
   width: 100%;
   border-top: 1px solid #1e2329;
   z-index: 10;
-  height: 54px;
+  height: 48px; 
 }
-
 .nav-item {
   text-align: center;
   flex: 1;
