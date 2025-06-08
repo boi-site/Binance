@@ -209,6 +209,7 @@ body {
 }
 .table-headers > div:nth-child(2) {
   text-align: right;
+  padding-right: 8px; /* aligned with prices */
 }
 
 .coin-list {
@@ -220,7 +221,11 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: 1px solid #1e2329;
+  border-bottom: none !important;
+}
+
+.coin-row:last-child {
+  border-bottom: 1px solid #1e2329 !important;
 }
 
 .coin-name {
@@ -233,8 +238,6 @@ body {
   flex: 1;
   text-align: right;
 }
-
-/* ─── UPDATED PRICE STYLES ───────────────────────────────────────────── */
 
 .coin-price .primary {
   font-size: 17px;
@@ -282,8 +285,6 @@ body {
   50%  { transform: translateY(-2px) scale(1.05); opacity: 0.8; }
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
-
-/* ─── bottom nav ────────────────────────────────────────────────────── */
 
 .bottom-nav {
   display: flex;
