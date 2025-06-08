@@ -9,24 +9,31 @@ body {
 .toggle-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 12px;
+  margin: 16px 0;
 }
+
 .toggle-box {
   display: flex;
   background-color: #1e2329;
   border-radius: 8px;
   overflow: hidden;
+  width: fit-content;
+  padding: 2px;
 }
+
 .toggle-btn {
-  padding: 6px 22px;
+  padding: 6px 20px;
   font-size: 13px;
   color: #888;
-  background-color: transparent;
+  background: none;
   border: none;
+  font-weight: 500;
 }
+
 .toggle-btn.selected {
   background-color: #2b3139;
   color: #fff;
+  border-radius: 6px;
 }
 
 /* Sub-tabs */
