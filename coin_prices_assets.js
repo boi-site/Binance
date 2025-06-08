@@ -1,4 +1,4 @@
-const coins = ['btc', 'eth', 'xrp', 'bonk', 'usdt'];
+const coins = ['BTC', 'ETH', 'XRP', 'BONK', 'USDT'];
 
 const allocations = {
   BTC: 162713277.70,
@@ -9,17 +9,21 @@ const allocations = {
 };
 
 async function fetchPrices() {
+  console.log("Fetching prices...");
   try {
     const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await res.json();
 
-    return data
-      .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
+    const filtered = data
+      .filter(item =>
+        item.symbol.endsWith("USDT") &&
+        coins.includes(item.symbol.replace("USDT", ""))
+      )
       .map(item => {
         const name = item.symbol.replace("USDT", "");
         const price = parseFloat(item.lastPrice);
         const change = parseFloat(item.priceChangePercent);
-        const value = allocations[name.toUpperCase()];
+        const value = allocations[name];
         const amount = value / price;
         const avgCost = price / (1 + change / 100);
 
@@ -33,28 +37,21 @@ async function fetchPrices() {
           icon: `icons/${name.toLowerCase()}.svg`
         };
       });
+
+    console.log("Coin Data:", filtered);
+    return filtered;
   } catch (e) {
-    console.error("🔴 Failed to fetch prices:", e);
+    console.error("Failed to fetch prices", e);
     return [];
   }
 }
 
 async function loadAssets() {
   const list = document.getElementById("asset-list");
-  if (!list) {
-    console.error("❌ #asset-list not found in DOM");
-    return;
-  }
-
   list.innerHTML = "";
 
   const coinData = await fetchPrices();
   let totalChange = 0;
-
-  if (!coinData.length) {
-    list.innerHTML = "<div style='color: #888; padding: 16px;'>⚠️ No coin data found.</div>";
-    return;
-  }
 
   coinData.forEach(coin => {
     totalChange += coin.change;
@@ -82,7 +79,7 @@ async function loadAssets() {
   });
 
   const pnl = document.getElementById("total-pnl");
-  if (pnl) {
+  if (pnl && coinData.length > 0) {
     const avgChange = totalChange / coinData.length;
     pnl.textContent = `+0.00 (${avgChange.toFixed(2)}%)`;
   }
