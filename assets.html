@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets.css" />
 </head>
 <body>
+
   <!-- Exchange / Wallet Toggle -->
   <div class="toggle-wrapper">
     <div class="toggle-box">
@@ -31,7 +32,7 @@
     <div class="title-row">
       <div class="title-left">
         <span>Est. Total Value</span>
-        <img src="eye.svg" class="eye-icon" alt="eye" />
+        <img src="eye.svg" alt="eye" class="eye-icon" />
       </div>
       <div class="icons">
         <img src="chart.svg" class="icon-svg" alt="Chart" />
@@ -71,15 +72,26 @@
 
   <!-- Bottom Navigation -->
   <div class="bottom-nav">
-    <div onclick="location.href='home.html'">
-      <img src="ic_home.svg" class="nav-icon" /><div class="nav-label">Home</div>
-    </div>
+    <a href="home.html"><img src="ic_home.svg" class="nav-icon" /><div class="nav-label">Home</div></a>
     <div><img src="ic_market.svg" class="nav-icon" /><div class="nav-label">Markets</div></div>
     <div><img src="ic_trade.svg" class="nav-icon" /><div class="nav-label">Trade</div></div>
     <div><img src="ic_futures.svg" class="nav-icon" /><div class="nav-label">Futures</div></div>
     <div class="active"><img src="ic_assets.svg" class="nav-icon" /><div class="nav-label">Assets</div></div>
   </div>
 
+  <!-- Scripts -->
   <script src="coin_prices_assets.js"></script>
+
+  <!-- Debugging block (TEMPORARY) -->
+  <script>
+    fetch("https://api.binance.com/api/v3/ticker/24hr")
+      .then(res => res.json())
+      .then(data => {
+        const filtered = data.filter(item =>
+          ['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BONKUSDT', 'USDTUSDT'].includes(item.symbol)
+        );
+        console.log("Filtered coins:", filtered);
+      });
+  </script>
 </body>
 </html>
