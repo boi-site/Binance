@@ -208,8 +208,9 @@ body {
   flex: 1;
 }
 .table-headers > div:nth-child(2) {
-  text-align: right;
-  padding-right: 26px !important; /* nudged left so “e” lines up under the final “9” */
+  text-align: right !important;
+  position: relative;
+  left: -20px;   /* move left by 20px—tweak this number until it lines up */
 }
 
 .coin-list {
