@@ -1,25 +1,26 @@
-const coins = ["bnb", "bitcoin", "ethereum", "pepe", "solana", "ripple"];
-const coinSymbols = {
-  bnb: "BNB",
-  bitcoin: "BTC",
-  ethereum: "ETH",
-  pepe: "PEPE",
-  solana: "SOL",
-  ripple: "XRP"
-};
+const coins = [
+  { id: "binance-coin", symbol: "BNB" },
+  { id: "bitcoin", symbol: "BTC" },
+  { id: "ethereum", symbol: "ETH" },
+  { id: "pepe", symbol: "PEPE" },
+  { id: "solana", symbol: "SOL" },
+  { id: "xrp", symbol: "XRP" }
+];
 
 async function fetchPrices() {
   try {
     const response = await fetch("https://api.coincap.io/v2/assets");
     const { data } = await response.json();
 
-    return data
-      .filter(item => coins.includes(item.id))
-      .map(item => ({
-        name: coinSymbols[item.id],
-        price: parseFloat(item.priceUsd),
-        change: parseFloat(item.changePercent24Hr)
-      }));
+    return coins.map(({ id, symbol }) => {
+      const coinData = data.find(item => item.id === id);
+      if (!coinData) return null;
+      return {
+        name: symbol,
+        price: parseFloat(coinData.priceUsd),
+        change: parseFloat(coinData.changePercent24Hr)
+      };
+    }).filter(Boolean);
   } catch (e) {
     console.error("Failed to fetch prices:", e);
     return [];
@@ -33,13 +34,13 @@ async function loadCoinPrices() {
   const coinData = await fetchPrices();
 
   if (coinData.length === 0) {
-    coins.forEach(name => {
+    coins.forEach(({ symbol }) => {
       const row = document.createElement("div");
       row.className = "coin-row";
 
-      const coinName = document.createElement("div");
-      coinName.className = "coin-name";
-      coinName.textContent = coinSymbols[name];
+      const name = document.createElement("div");
+      name.className = "coin-name";
+      name.textContent = symbol;
 
       const prices = document.createElement("div");
       prices.className = "coin-price";
@@ -53,7 +54,7 @@ async function loadCoinPrices() {
       change.textContent = "–";
       change.style.backgroundColor = "#848e9c";
 
-      row.append(coinName, prices, change);
+      row.append(name, prices, change);
       list.appendChild(row);
     });
     return;
@@ -80,7 +81,6 @@ async function loadCoinPrices() {
     change.className = "coin-change";
     change.textContent = `${coin.change.toFixed(2)}%`;
 
-    // Color logic
     if (coin.change > 0) {
       change.style.backgroundColor = "#16c784";
     } else if (coin.change < 0) {
@@ -96,5 +96,5 @@ async function loadCoinPrices() {
 
 window.onload = () => {
   loadCoinPrices();
-  setInterval(loadCoinPrices, 10000); // update every 10 seconds
+  setInterval(loadCoinPrices, 10000); // every 10 seconds
 };
