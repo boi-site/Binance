@@ -43,12 +43,14 @@ body {
   background-color: #fcd535;
   color: #0b0e11;
   border: none;
-  border-radius: 12px;
-  font-weight: bold;
-  font-size: 14px;
-  height: 40px;
-  line-height: 36px;
-  padding: 0 16px;
+  border-radius: 14px; /* smoother corners */
+  font-weight: 600; /* slightly lighter than bold */
+  font-size: 15px;
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  letter-spacing: 0.3px;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
