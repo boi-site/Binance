@@ -2,95 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assets - Binance Clone</title>
   <link rel="stylesheet" href="assets.css" />
 </head>
 <body>
 
-  <!-- Exchange / Wallet Toggle -->
-  <div class="toggle-wrapper">
-    <div class="toggle-box">
-      <div class="toggle-btn selected">Exchange</div>
-      <div class="toggle-btn">Wallet</div>
+  <!-- Top Navigation -->
+  <div class="top-bar">
+    <img src="binance-logo.svg" class="logo" />
+    <div class="top-icons">
+      <img src="search.svg" />
+      <img src="grid.svg" />
+      <img src="settings.svg" />
     </div>
   </div>
 
-  <!-- Sub Navigation Tabs -->
+  <!-- Total Balance -->
+  <div class="total-balance-box">
+    <div class="total-label">Est. Total Value (USD)</div>
+    <div class="total-amount">$406,783,194.27</div>
+    <div class="total-pnl" id="total-pnl">+0.00 (0.00%)</div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <div class="action-box">
+      <img src="deposit.svg" />
+      <span>Deposit</span>
+    </div>
+    <div class="action-box">
+      <img src="transfer.svg" />
+      <span>Send</span>
+    </div>
+    <div class="action-box">
+      <img src="referral.svg" />
+      <span>Transfer</span>
+    </div>
+    <div class="action-box">
+      <img src="more.svg" />
+      <span>More</span>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider-below-actions"></div>
+
+  <!-- Toggle Tabs -->
+  <div class="tab-toggle">
+    <div class="tab active">Exchange</div>
+    <div class="tab">Wallet</div>
+  </div>
+
+  <!-- Sub Tabs -->
   <div class="sub-tabs">
-    <div class="sub-tab-group">
-      <span class="active">Overview</span>
-      <span>Earn</span>
-      <span>Funding</span>
-      <span>Spot</span>
-    </div>
-    <div class="sub-tab-divider"></div>
+    <div class="sub-tab active">Crypto<div class="underline"></div></div>
+    <div class="sub-tab">Fiat</div>
+    <div class="sub-tab">Earn</div>
+    <div class="sub-tab">NFT</div>
+    <div class="sub-tab">Others</div>
   </div>
 
-  <!-- Balance Section -->
-  <div class="balance-section">
-    <div class="title-row">
-      <div class="title-left">
-        <span>Est. Total Value</span>
-        <img src="icons/eye.svg" alt="eye" class="eye-icon" />
-      </div>
-      <div class="icons">
-        <img src="icons/ic_notification.svg" class="icon-svg" alt="Chart" />
-        <img src="icons/ic_grid.svg" class="icon-svg" alt="Grid" />
-      </div>
-    </div>
-    <div class="balance-amount">
-      $406,783,194.24 <span class="usd-tag">USD ▼</span>
-    </div>
-    <div class="pnl-inline">
-      <span class="pnl-label">Today's PNL</span>
-      <span id="total-pnl" class="pnl-green">+0.00 (+0.00%)</span>
-      <span class="right-arrow">&#8250;</span>
-    </div>
-    <div class="action-buttons">
-      <button class="add">Add Funds</button>
-      <button class="gray">Send</button>
-      <button class="gray">Transfer</button>
-    </div>
-    <div class="divider-below-actions"></div>
-  </div>
-
-  <!-- Asset Tabs -->
-  <div class="asset-tabs">
-    <div class="tab-labels">
-      <span class="tab-active">Crypto</span>
-      <span class="inactive">Account</span>
-    </div>
-    <div class="right-icons">
-      <img src="icons/ic_search.svg" class="icon-svg" alt="Search" />
-      <img src="icons/ic_settings.svg" class="icon-svg" alt="Settings" />
-    </div>
-  </div>
-
-  <!-- Coin List -->
+  <!-- Asset List -->
   <div id="asset-list" class="asset-list"></div>
 
   <!-- Bottom Navigation -->
   <div class="bottom-nav">
-    <a href="home.html">
-      <img src="icons/ic_home.svg" class="nav-icon" alt="Home" />
-      <div class="nav-label">Home</div>
-    </a>
-    <div>
-      <img src="icons/ic_market.svg" class="nav-icon" alt="Markets" />
-      <div class="nav-label">Markets</div>
+    <div class="nav-item" onclick="location.href='home.html'">
+      <img src="ic_home.svg" />
+      <span>Home</span>
     </div>
-    <div>
-      <img src="icons/ic_trade.svg" class="nav-icon" alt="Trade" />
-      <div class="nav-label">Trade</div>
+    <div class="nav-item">
+      <img src="ic_market.svg" />
+      <span>Markets</span>
     </div>
-    <div>
-      <img src="icons/ic_futures.svg" class="nav-icon" alt="Futures" />
-      <div class="nav-label">Futures</div>
+    <div class="nav-item">
+      <img src="ic_trade.svg" />
+      <span>Trade</span>
     </div>
-    <div class="active">
-      <img src="icons/ic_assets.svg" class="nav-icon" alt="Assets" />
-      <div class="nav-label">Assets</div>
+    <div class="nav-item">
+      <img src="ic_futures.svg" />
+      <span>Futures</span>
+    </div>
+    <div class="nav-item active">
+      <img src="ic_assets.svg" />
+      <span>Assets</span>
     </div>
   </div>
 
