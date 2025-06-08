@@ -226,7 +226,6 @@ body {
 
 /* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
-  /* no extra bottom padding */
   margin: 0;
   padding: 0;
 }
@@ -254,7 +253,6 @@ body {
   text-align: right;
 }
 
-/* ─── BINANCE-EXACT PRICE FONT ─────────────────────────────────────── */
 .coin-price .primary {
   font-size: 17px;
   font-weight: 600;
@@ -318,6 +316,29 @@ body {
   border-top: 1px solid #1e2329;
   background-color: #0b0e11;
   z-index: 5;
+}
+
+/* → New: style bottom-tabs exactly like top .tab ← */
+.bottom-scroll-tabs .bottom-tab {
+  font-size: 14px;
+  color: #848e9c;
+  padding: 12px 0;
+  position: relative;
+}
+
+.bottom-scroll-tabs .bottom-tab.active {
+  color: white;
+}
+
+.bottom-scroll-tabs .bottom-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #fcd535;
+  border-radius: 2px;
 }
 
 /* ─── Bottom Nav (fixed) ───────────────────────────────────────────── */
