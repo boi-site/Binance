@@ -227,7 +227,7 @@ body {
 /* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
   margin: 0;
-  padding: 0;
+  padding: 0 0 64px; /* keep room so last rows aren’t hidden behind nav */
 }
 
 .coin-row {
@@ -265,7 +265,7 @@ body {
   color: #8a8a93;
 }
 
-/* ─── BINANCE-EXACT PILL STYLES ───────────────────────────────────── */
+/* ─── BINANCE‐EXACT PILL STYLES ────────────────────────────────────── */
 .coin-change {
   display: inline-flex;
   align-items: center;
@@ -305,10 +305,9 @@ body {
  100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── Discover Strip (STICKY) ───────────────────────────────────────── */
+/* ─── Discover Strip (now in normal flow) ─────────────────────────── */
 .bottom-scroll-tabs {
-  position: sticky;
-  bottom: 48px;                 /* sticks just above the fixed bottom-nav */
+  /* no sticky or fixed positioning */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -318,7 +317,6 @@ body {
   z-index: 5;
 }
 
-/* → New: style bottom-tabs exactly like top .tab ← */
 .bottom-scroll-tabs .bottom-tab {
   font-size: 14px;
   color: #848e9c;
