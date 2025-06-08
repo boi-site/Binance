@@ -226,7 +226,7 @@ body {
 
 /* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
-  padding: 0 0 64px; /* allow space for bottom-nav */
+  padding: 0 0 64px; /* ensure bottom-nav doesn’t cover last rows */
 }
 
 .coin-row {
