@@ -1,4 +1,3 @@
-/* ─── home.css ────────────────────────────────────────────────────────── */
 body {
   margin: 0;
   background-color: #0b0e11;
@@ -125,7 +124,6 @@ body {
   margin: 8px 0;
 }
 
-/* ─── Top Tabs ───────────────────────────────────────────────────────── */
 .tab-row {
   display: flex;
   align-items: center;
@@ -172,7 +170,6 @@ body {
   padding-left: 12px;
 }
 
-/* ─── Crypto / Futures Toggle ───────────────────────────────────────── */
 .category-toggle {
   display: flex;
   gap: 10px;
@@ -193,7 +190,6 @@ body {
   color: white;
 }
 
-/* ─── Unified Header Styles ─────────────────────────────────────────── */
 .table-headers {
   display: flex;
   align-items: center;
@@ -217,14 +213,6 @@ body {
   text-align: right;
 }
 
-.table-headers .coin-name,
-.table-headers .coin-price,
-.table-headers .coin-change {
-  color: #848e9c !important;
-  font-weight: normal !important;
-}
-
-/* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
   margin: 0;
   padding: 0;
@@ -235,11 +223,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  border-bottom: none !important;
-}
-
-.coin-row:last-child {
-  border-bottom: 1px solid #1e2329 !important;
 }
 
 .coin-name {
@@ -265,7 +248,6 @@ body {
   color: #8a8a93;
 }
 
-/* ─── BINANCE-EXACT PILL STYLES ───────────────────────────────────── */
 .coin-change {
   display: inline-flex;
   align-items: center;
@@ -278,9 +260,7 @@ body {
   font-weight: 600;
   color: #ffffff;
   margin-left: 16px;
-  transition: background-color 0.3s ease,
-              transform 0.3s ease,
-              opacity 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
 .coin-change.green {
@@ -305,10 +285,9 @@ body {
  100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── Discover Strip (STICKY) ───────────────────────────────────────── */
 .bottom-scroll-tabs {
   position: sticky;
-  bottom: 48px;                 /* sticks just above the fixed bottom-nav */
+  bottom: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -318,7 +297,6 @@ body {
   z-index: 5;
 }
 
-/* → New: style bottom-tabs exactly like top .tab ← */
 .bottom-scroll-tabs .bottom-tab {
   font-size: 14px;
   color: #848e9c;
@@ -341,7 +319,6 @@ body {
   border-radius: 2px;
 }
 
-/* ─── Bottom Nav (fixed) ───────────────────────────────────────────── */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
