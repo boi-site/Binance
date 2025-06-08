@@ -1,4 +1,4 @@
-const coins = ['BTC', 'ETH', 'XRP', 'BONK', 'USDT'];
+const coins = ['btc', 'eth', 'xrp', 'bonk', 'usdt'];
 
 const allocations = {
   BTC: 162713277.70,
@@ -9,21 +9,17 @@ const allocations = {
 };
 
 async function fetchPrices() {
-  console.log("Fetching prices...");
   try {
     const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await res.json();
 
-    const filtered = data
-      .filter(item =>
-        item.symbol.endsWith("USDT") &&
-        coins.includes(item.symbol.replace("USDT", ""))
-      )
+    return data
+      .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
       .map(item => {
         const name = item.symbol.replace("USDT", "");
         const price = parseFloat(item.lastPrice);
         const change = parseFloat(item.priceChangePercent);
-        const value = allocations[name];
+        const value = allocations[name.toUpperCase()];
         const amount = value / price;
         const avgCost = price / (1 + change / 100);
 
@@ -34,12 +30,9 @@ async function fetchPrices() {
           value: value.toFixed(2),
           amount: amount.toFixed(8),
           avgCost: avgCost.toFixed(2),
-          icon: `icons/${name.toLowerCase()}.svg`
+          icon: `${name.toLowerCase()}.svg` // Corrected path
         };
       });
-
-    console.log("Coin Data:", filtered);
-    return filtered;
   } catch (e) {
     console.error("Failed to fetch prices", e);
     return [];
@@ -61,7 +54,7 @@ async function loadAssets() {
 
     row.innerHTML = `
       <div class="asset-left">
-        <img src="${coin.icon}" class="asset-icon-img" alt="${coin.name}" />
+        <img src="${coin.icon}" class="asset-icon-img" />
         <div class="asset-info">
           <div class="asset-name">${coin.name}</div>
           <div class="asset-sub">$${coin.price.toFixed(5)}</div>
@@ -85,4 +78,4 @@ async function loadAssets() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", loadAssets);
+loadAssets();
