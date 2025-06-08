@@ -228,6 +228,7 @@ body {
   font-weight: normal !important;
 }
 
+/* ─── Coin Rows ────────────────────────────────────────────────────── */
 .coin-list {
   padding: 0 0 80px;
 }
@@ -266,6 +267,7 @@ body {
   color: #8a8a93;
 }
 
+/* ─── Pill Styles ──────────────────────────────────────────────────── */
 .coin-change {
   min-width: 60px;
   font-size: 13px;
@@ -281,11 +283,11 @@ body {
 }
 
 .coin-change.green {
-  background-color: #2EC55D;
+  background-color: #16c784 !important;
 }
 
 .coin-change.red {
-  background-color: #f6465d;
+  background-color: #ea3943 !important;
 }
 
 .coin-change.gray {
