@@ -1,4 +1,4 @@
-/* ─── base styles ────────────────────────────────────────── */
+/* ─── home.css ────────────────────────────────────────────────────────── */
 body {
   margin: 0;
   background-color: #0b0e11;
@@ -198,11 +198,17 @@ body {
 
 .table-headers {
   display: flex;
-  justify-content: space-between;
   padding: 6px 16px 4px;
   font-size: 13px;
   color: #848e9c;
   font-weight: normal;
+}
+.table-headers > div:nth-child(1),
+.table-headers > div:nth-child(2) {
+  flex: 1;
+}
+.table-headers > div:nth-child(2) {
+  text-align: right;
 }
 
 .coin-list {
@@ -228,7 +234,7 @@ body {
   text-align: right;
 }
 
-/* ─── UPDATED PRICE STYLES ─────────────────────────────── */
+/* ─── UPDATED PRICE STYLES ───────────────────────────────────────────── */
 
 .coin-price .primary {
   font-size: 17px;
@@ -244,8 +250,8 @@ body {
 .coin-change {
   min-width: 60px;
   font-size: 13px;
-  padding: 6px 12px;
-  border-radius: 14px;
+  padding: 4px 10px;
+  border-radius: 12px;
   text-align: center;
   font-weight: bold;
   color: #ffffff;
@@ -277,7 +283,7 @@ body {
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── bottom nav ────────────────────────────────────────── */
+/* ─── bottom nav ────────────────────────────────────────────────────── */
 
 .bottom-nav {
   display: flex;
