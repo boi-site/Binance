@@ -196,26 +196,23 @@ body {
   color: white;
 }
 
-/* ─── UPDATED HEADER PADDING ───────────────────────────────────────────── */
+/* ─── UPDATED HEADER ALIGNMENT ───────────────────────────────────────── */
 .table-headers {
   display: flex;
-  padding: 6px 12px 4px;   /* reduced right padding from 16px to 12px */
+  padding: 6px 16px 4px;
   font-size: 13px;
   color: #848e9c;
   font-weight: normal;
 }
-
 .table-headers > div:nth-child(1),
 .table-headers > div:nth-child(2) {
   flex: 1;
 }
-
 .table-headers > div:nth-child(2) {
   text-align: right !important;
-  margin-right: 16px;      /* pulls header left; tweak this value */
+  transform: translateX(-22px) !important; /* pull left by 22px; tweak up/down */
 }
 
-/* ─── COIN LIST & ROWS ────────────────────────────────────────────────── */
 .coin-list {
   padding: 0 0 80px;
 }
@@ -290,7 +287,6 @@ body {
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── bottom nav ────────────────────────────────────────────────────── */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
