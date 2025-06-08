@@ -1,56 +1,40 @@
-const coins = [
-  { id: "binance-coin", symbol: "BNB" },
-  { id: "bitcoin", symbol: "BTC" },
-  { id: "ethereum", symbol: "ETH" },
-  { id: "pepe", symbol: "PEPE" },
-  { id: "solana", symbol: "SOL" },
-  { id: "xrp", symbol: "XRP" }
-];
+const coins = ["bnb", "btc", "eth", "pepe", "sol", "xrp"];
+const coinMap = {
+  bnb: "binancecoin",
+  btc: "bitcoin",
+  eth: "ethereum",
+  pepe: "pepe",
+  sol: "solana",
+  xrp: "ripple"
+};
 
 async function fetchPrices() {
   try {
-    const response = await fetch("https://api.coincap.io/v2/assets");
-    const json = await response.json();
-    const data = json.data;
+    const ids = coins.map(symbol => coinMap[symbol]).join(",");
+    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`);
+    const data = await res.json();
 
-    return coins.map(({ id, symbol }) => {
-      const found = data.find(item => item.id === id);
-      return found ? {
-        name: symbol,
-        price: parseFloat(found.priceUsd),
-        change: parseFloat(found.changePercent24Hr)
-      } : null;
-    }).filter(Boolean);
-  } catch (err) {
-    console.error("Error fetching prices:", err);
+    return coins.map(symbol => {
+      const coinData = data[coinMap[symbol]];
+      return {
+        name: symbol.toUpperCase(),
+        price: coinData?.usd ?? 0,
+        change: coinData?.usd_24h_change ?? 0
+      };
+    });
+  } catch (e) {
+    console.error("Error fetching prices", e);
     return [];
   }
 }
 
 async function loadCoinPrices() {
   const list = document.getElementById("coin-list");
-  list.innerHTML = "";
+  list.innerHTML = ""; // Clear only once to avoid flicker
 
-  const data = await fetchPrices();
+  const coinData = await fetchPrices();
 
-  if (data.length === 0) {
-    coins.forEach(({ symbol }) => {
-      const row = document.createElement("div");
-      row.className = "coin-row";
-      row.innerHTML = `
-        <div class="coin-name">${symbol}</div>
-        <div class="coin-price">
-          <div class="primary">–</div>
-          <div class="secondary">–</div>
-        </div>
-        <div class="coin-change" style="background:#848e9c;">–</div>
-      `;
-      list.appendChild(row);
-    });
-    return;
-  }
-
-  data.forEach(coin => {
+  coinData.forEach(coin => {
     const row = document.createElement("div");
     row.className = "coin-row";
 
@@ -61,7 +45,7 @@ async function loadCoinPrices() {
     const prices = document.createElement("div");
     prices.className = "coin-price";
     prices.innerHTML = `
-      <div class="primary">${coin.price.toLocaleString(undefined, { maximumFractionDigits: 2 })}</div>
+      <div class="primary">${coin.price.toLocaleString()}</div>
       <div class="secondary">$${coin.price.toFixed(2)}</div>
     `;
 
@@ -69,6 +53,7 @@ async function loadCoinPrices() {
     change.className = "coin-change";
     change.textContent = `${coin.change.toFixed(2)}%`;
 
+    // Color styling
     if (coin.change > 0) {
       change.style.backgroundColor = "#16c784";
     } else if (coin.change < 0) {
@@ -82,7 +67,8 @@ async function loadCoinPrices() {
   });
 }
 
+// Initial load and interval update
 window.onload = () => {
   loadCoinPrices();
-  setInterval(loadCoinPrices, 10000);
+  setInterval(loadCoinPrices, 15000); // every 15 secs to avoid flicker
 };
