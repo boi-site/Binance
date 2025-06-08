@@ -22,9 +22,7 @@
   <!-- Balance -->
   <div class="balance-label">Est. Total Value (USD)</div>
   <div class="balance-row">
-    <h2 class="total-balance" onclick="location='assets.html'">
-      $406,783,194.27
-    </h2>
+    <h2 class="total-balance" onclick="location='assets.html'">$406,783,194.27</h2>
     <button class="add-funds">Add Funds</button>
   </div>
 
@@ -78,24 +76,26 @@
     <div class="coin-change">24h chg%</div>
   </div>
 
-  <!-- Coin List -->
-  <div id="coin-list" class="coin-list"></div>
+  <!-- Coin List + Discover Strip -->
+  <div id="coin-list" class="coin-list">
+    <!-- JS will inject .coin-row items here -->
 
-  <!-- Discover Strip (will stick under the list) -->
-  <div class="bottom-scroll-tabs">
-    <div class="scroll-tabs no-scrollbar">
-      <span class="bottom-tab active">Discover</span>
-      <span class="bottom-tab">Following</span>
-      <span class="bottom-tab">News</span>
-      <span class="bottom-tab">Announcement</span>
-      <span class="bottom-tab">Hot</span>
-    </div>
-    <div class="tab-fixed-icon">
-      <span class="tab-arrow">⌃</span>
+    <!-- ← NOW MOVED INSIDE coin-list, so it scrolls right under XRP → -->
+    <div class="bottom-scroll-tabs">
+      <div class="scroll-tabs no-scrollbar">
+        <span class="bottom-tab active">Discover</span>
+        <span class="bottom-tab">Following</span>
+        <span class="bottom-tab">News</span>
+        <span class="bottom-tab">Announcement</span>
+        <span class="bottom-tab">Hot</span>
+      </div>
+      <div class="tab-fixed-icon">
+        <span class="tab-arrow">⌃</span>
+      </div>
     </div>
   </div>
 
-  <!-- Bottom Nav -->
+  <!-- Bottom Nav (fixed) -->
   <div class="bottom-nav">
     <div class="nav-item active" onclick="location='home.html'">
       <img src="ic_home.svg" /><p>Home</p>
