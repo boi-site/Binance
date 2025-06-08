@@ -220,6 +220,14 @@ body {
   text-align: right;
 }
 
+/* ─── Header Overrides ─────────────────────────────────────────────── */
+.table-headers .coin-name,
+.table-headers .coin-price,
+.table-headers .coin-change {
+  color: #848e9c !important;
+  font-weight: normal !important;
+}
+
 .coin-list {
   padding: 0 0 80px;
 }
