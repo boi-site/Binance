@@ -6,17 +6,16 @@ body {
   color: #eaecef;
 }
 
+/* ─── Top Bar ─────────────────────────────────────────────────────────── */
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px 0;
 }
-
 .logo {
   height: 24px;
 }
-
 .search-container {
   flex: 1;
   margin: 0 12px;
@@ -29,17 +28,39 @@ body {
   align-items: center;
   height: 28px;
 }
-
 .top-icons {
   display: flex;
   gap: 12px;
 }
-
 .top-icons img {
   height: 20px;
   width: 20px;
 }
 
+/* ─── Balance ─────────────────────────────────────────────────────────── */
+.balance-label {
+  display: block;
+  margin-left: 16px;
+  margin-top: 28px;
+  margin-bottom: -6px;
+  font-size: 13px;
+  color: #848e9c;
+}
+.balance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 0;
+  margin-top: 4px;
+}
+.total-balance {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+  cursor: pointer;
+  line-height: 36px;
+}
 .add-funds {
   background-color: #fcd535;
   color: #0b0e11;
@@ -55,32 +76,7 @@ body {
   justify-content: center;
 }
 
-.balance-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px 0;
-  margin-top: 4px;
-}
-
-.total-balance {
-  font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-  color: white;
-  cursor: pointer;
-  line-height: 36px;
-}
-
-.balance-label {
-  display: block;
-  margin-left: 16px;
-  margin-top: 28px;
-  margin-bottom: -6px;
-  font-size: 13px;
-  color: #848e9c;
-}
-
+/* ─── Quick Actions ──────────────────────────────────────────────────── */
 .quick-actions {
   display: flex;
   justify-content: space-around;
@@ -88,12 +84,10 @@ body {
   padding: 0 12px;
   gap: 20px;
 }
-
 .action {
   flex: 1;
   text-align: center;
 }
-
 .icon-box {
   background-color: #1e2329;
   border-radius: 14px;
@@ -105,24 +99,15 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .icon-box img {
   height: 24px;
   width: 24px;
 }
-
 .action label {
   display: block;
   margin-top: 6px;
   font-size: 12px;
   color: #eaecef;
-}
-
-.divider {
-  border: none;
-  height: 1px;
-  background-color: #1e2329;
-  margin: 8px 0;
 }
 
 /* ─── Top Tabs ───────────────────────────────────────────────────────── */
@@ -132,7 +117,6 @@ body {
   justify-content: space-between;
   padding: 0 12px;
 }
-
 .scroll-tabs {
   display: flex;
   gap: 18px;
@@ -140,23 +124,22 @@ body {
   white-space: nowrap;
   scrollbar-width: none;
 }
-
 .scroll-tabs::-webkit-scrollbar {
   display: none;
 }
-
-.tab {
+.tab,
+.bottom-tab {
   font-size: 14px;
   color: #848e9c;
   padding: 12px 0;
   position: relative;
 }
-
-.tab.active {
+.tab.active,
+.bottom-tab.active {
   color: white;
 }
-
-.tab.active::after {
+.tab.active::after,
+.bottom-tab.active::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -166,8 +149,8 @@ body {
   background-color: #fcd535;
   border-radius: 2px;
 }
-
-.tab-fixed-icon {
+.tab-fixed-icon,
+.tab-arrow {
   flex-shrink: 0;
   padding-left: 12px;
 }
@@ -178,7 +161,6 @@ body {
   gap: 10px;
   padding: 8px 16px;
 }
-
 .category-toggle button {
   background: transparent;
   border: none;
@@ -187,13 +169,12 @@ body {
   border-radius: 20px;
   font-size: 14px;
 }
-
 .category-toggle .active {
   background-color: #2b3139;
   color: white;
 }
 
-/* ─── Unified Header Styles ─────────────────────────────────────────── */
+/* ─── Table Headers ─────────────────────────────────────────────────── */
 .table-headers {
   display: flex;
   align-items: center;
@@ -202,21 +183,17 @@ body {
   color: #848e9c;
   font-weight: normal;
 }
-
 .table-headers .coin-name {
   flex: 1;
 }
-
 .table-headers .coin-price {
   flex: 1;
   text-align: right;
 }
-
 .table-headers .coin-change {
   margin-left: 16px;
   text-align: right;
 }
-
 .table-headers .coin-name,
 .table-headers .coin-price,
 .table-headers .coin-change {
@@ -227,9 +204,8 @@ body {
 /* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
   margin: 0;
-  padding: 0 0 64px; /* room for bottom-nav */
+  padding: 0 0 64px; /* leave space for bottom nav */
 }
-
 .coin-row {
   display: flex;
   justify-content: space-between;
@@ -237,35 +213,30 @@ body {
   padding: 12px 16px;
   border-bottom: none !important;
 }
-
 .coin-row:last-child {
   border-bottom: 1px solid #1e2329 !important;
 }
-
 .coin-name {
   flex: 1;
   font-weight: bold;
   color: white;
 }
-
 .coin-price {
   flex: 1;
   text-align: right;
 }
-
 .coin-price .primary {
   font-size: 17px;
   font-weight: 600;
   color: #f0f0f0;
   line-height: 1;
 }
-
 .coin-price .secondary {
   font-size: 13px;
   color: #8a8a93;
 }
 
-/* ─── BINANCE‐EXACT PILL STYLES ────────────────────────────────────── */
+/* ─── Change Pill ───────────────────────────────────────────────────── */
 .coin-change {
   display: inline-flex;
   align-items: center;
@@ -282,54 +253,47 @@ body {
               transform 0.3s ease,
               opacity 0.3s ease;
 }
-
 .coin-change.green {
   background-color: #16c784 !important;
 }
-
 .coin-change.red {
   background-color: #ea3943 !important;
 }
-
 .coin-change.gray {
   background-color: #848e9c;
 }
-
 .flash {
   animation: flash-effect 0.3s ease-in-out;
 }
-
 @keyframes flash-effect {
   0%   { transform: translateY(0) scale(1); opacity: 1; }
   50%  { transform: translateY(-2px) scale(1.05); opacity: 0.8; }
  100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── Discover Strip (normal flow) ─────────────────────────────────── */
+/* ─── Discover Strip ───────────────────────────────────────────────── */
 .bottom-scroll-tabs {
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  /* pull up into that coin-list padding so it hugs the XRP divider */
-  margin-top: -64px;
+  /* Sit directly after the XRP divider */
+  margin-top: 12px;
+  border-top: 1px solid #1e2329;
 
   padding: 8px 12px;
   background-color: #0b0e11;
-  z-index: 5;
+  /* normal flow, not fixed */
 }
-
 .bottom-scroll-tabs .bottom-tab {
   font-size: 14px;
   color: #848e9c;
   padding: 12px 0;
   position: relative;
 }
-
 .bottom-scroll-tabs .bottom-tab.active {
   color: white;
 }
-
 .bottom-scroll-tabs .bottom-tab.active::after {
   content: '';
   position: absolute;
@@ -355,28 +319,23 @@ body {
   z-index: 10;
   height: 48px;
 }
-
 .nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   flex: 1;
   color: #848e9c;
 }
-
 .nav-item img {
   height: 18px;
   margin-bottom: 2px;
   opacity: 0.7;
 }
-
 .nav-item.active img {
   filter: brightness(1.7);
   opacity: 1;
 }
-
 .nav-item p {
   font-size: 11px;
   margin: 0;
