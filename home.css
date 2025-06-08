@@ -43,7 +43,7 @@ body {
   background-color: #fcd535;
   color: #0b0e11;
   border: none;
-  border-radius: 24px;        /* More rounded corners */
+  border-radius: 4px;        /* More rounded corners */
   font-weight: bold;
   font-size: 14px;
   height: 36px;
