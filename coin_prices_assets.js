@@ -14,17 +14,14 @@ async function fetchPrices() {
     const data = await res.json();
 
     const filtered = data.filter(item =>
-      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
+      ['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'BONKUSDT', 'USDTUSDT'].includes(item.symbol)
     );
-
-    // Debugging log to confirm what's being returned
-    console.log("Coin data:", filtered);
 
     return filtered.map(item => {
       const name = item.symbol.replace("USDT", "");
       const price = parseFloat(item.lastPrice);
       const change = parseFloat(item.priceChangePercent);
-      const value = allocations[name.toUpperCase()];
+      const value = allocations[name.toUpperCase()] || 0;
       const amount = value / price;
       const avgCost = price / (1 + change / 100);
 
@@ -35,11 +32,11 @@ async function fetchPrices() {
         value: value.toFixed(2),
         amount: amount.toFixed(8),
         avgCost: avgCost.toFixed(2),
-        icon: `${name.toLowerCase()}.svg` // adjusted path: SVGs should be in root
+        icon: `${name.toLowerCase()}.svg`
       };
     });
   } catch (e) {
-    console.error("Failed to fetch prices:", e);
+    console.error("Failed to fetch prices", e);
     return [];
   }
 }
@@ -47,7 +44,6 @@ async function fetchPrices() {
 async function loadAssets() {
   const list = document.getElementById("asset-list");
   if (!list) return;
-
   list.innerHTML = "";
 
   const coinData = await fetchPrices();
