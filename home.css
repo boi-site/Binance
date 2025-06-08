@@ -1,3 +1,4 @@
+/* ─── base styles ────────────────────────────────────────── */
 body {
   margin: 0;
   background-color: #0b0e11;
@@ -227,26 +228,56 @@ body {
   text-align: right;
 }
 
+/* ─── UPDATED PRICE STYLES ─────────────────────────────── */
+
 .coin-price .primary {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: bold;
-  color: white;
+  color: #f0f0f0;
 }
 
 .coin-price .secondary {
-  font-size: 12px;
-  color: #848e9c;
+  font-size: 13px;
+  color: #8a8a93;
 }
 
 .coin-change {
   min-width: 60px;
   font-size: 13px;
-  padding: 4px 10px;
-  border-radius: 12px;
+  padding: 6px 12px;
+  border-radius: 14px;
   text-align: center;
   font-weight: bold;
-  color: white;
+  color: #ffffff;
+  margin-left: 16px;
+  transition: background-color 0.3s ease,
+              transform 0.3s ease,
+              opacity 0.3s ease;
 }
+
+.coin-change.green {
+  background-color: #2EC55D;
+}
+
+.coin-change.red {
+  background-color: #f6465d;
+}
+
+.coin-change.gray {
+  background-color: #848e9c;
+}
+
+.flash {
+  animation: flash-effect 0.3s ease-in-out;
+}
+
+@keyframes flash-effect {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  50%  { transform: translateY(-2px) scale(1.05); opacity: 0.8; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ─── bottom nav ────────────────────────────────────────── */
 
 .bottom-nav {
   display: flex;
@@ -282,25 +313,4 @@ body {
   font-size: 11px;
   margin: 0;
   color: #848e9c;
-}
-.coin-change.green {
-  background-color: #16c784;
-}
-
-.coin-change.red {
-  background-color: #ea3943;
-}
-
-.coin-change.gray {
-  background-color: #848e9c;
-}
-
-.flash {
-  animation: flash-effect 0.3s ease-in-out;
-}
-
-@keyframes flash-effect {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
 }
