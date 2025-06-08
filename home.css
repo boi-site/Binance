@@ -224,10 +224,10 @@ body {
   font-weight: normal !important;
 }
 
-/* ─── Coin List & Rows ─────────────────────────────────────────────── */
+/* ─── Coin List ─────────────────────────────────────────────────────── */
 .coin-list {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .coin-row {
@@ -265,7 +265,7 @@ body {
   color: #8a8a93;
 }
 
-/* ─── BINANCE-EXACT PILL STYLES ───────────────────────────────────── */
+/* ─── Price Change Pills ────────────────────────────────────────────── */
 .coin-change {
   display: inline-flex;
   align-items: center;
@@ -305,20 +305,17 @@ body {
  100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── Discover Strip (STICKY) ───────────────────────────────────────── */
+/* ─── Discover Tabs (scrollable below coin list) ───────────────────── */
 .bottom-scroll-tabs {
-  position: sticky;
-  bottom: 48px;                 /* sticks just above the fixed bottom-nav */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
   border-top: 1px solid #1e2329;
   background-color: #0b0e11;
-  z-index: 5;
+  margin-bottom: 60px;
 }
 
-/* → New: style bottom-tabs exactly like top .tab ← */
 .bottom-scroll-tabs .bottom-tab {
   font-size: 14px;
   color: #848e9c;
