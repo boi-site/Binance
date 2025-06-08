@@ -227,7 +227,7 @@ body {
 /* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
   margin: 0;
-  padding: 0 0 64px; /* keep room so last rows aren’t hidden behind nav */
+  padding: 0 0 64px; /* room for bottom-nav */
 }
 
 .coin-row {
@@ -305,14 +305,15 @@ body {
  100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── Discover Strip (now in normal flow) ─────────────────────────── */
+/* ─── Discover Strip (normal flow) ─────────────────────────────────── */
 .bottom-scroll-tabs {
-  /* no sticky or fixed positioning */
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* directly under the coin list, no extra margin or border */
+  margin-top: 0;
+  border-top: none;
   padding: 8px 12px;
-  border-top: 1px solid #1e2329;
   background-color: #0b0e11;
   z-index: 5;
 }
