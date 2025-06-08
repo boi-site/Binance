@@ -10,16 +10,17 @@ const allocations = {
 
 async function fetchPrices() {
   try {
+    console.log('Fetching prices...');
     const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await res.json();
 
-    return data
+    const filtered = data
       .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
       .map(item => {
-        const name = item.symbol.replace("USDT", "");
+        const name = item.symbol.replace("USDT", "").toUpperCase();
         const price = parseFloat(item.lastPrice);
         const change = parseFloat(item.priceChangePercent);
-        const value = allocations[name.toUpperCase()];
+        const value = allocations[name];
         const amount = value / price;
         const avgCost = price / (1 + change / 100);
 
@@ -30,9 +31,12 @@ async function fetchPrices() {
           value: value.toFixed(2),
           amount: amount.toFixed(8),
           avgCost: avgCost.toFixed(2),
-          icon: `${name.toLowerCase()}.svg` // Corrected path
+          icon: `${name.toLowerCase()}.svg`
         };
       });
+
+    console.log(filtered);
+    return filtered;
   } catch (e) {
     console.error("Failed to fetch prices", e);
     return [];
