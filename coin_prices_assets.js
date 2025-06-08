@@ -74,3 +74,12 @@ async function loadAssets() {
 }
 
 loadAssets();
+// VISUAL DEBUG
+const debug = document.createElement('div');
+debug.textContent = '✅ JS Loaded and Running';
+debug.style.color = 'lime';
+debug.style.padding = '10px';
+debug.style.fontSize = '16px';
+debug.style.fontWeight = 'bold';
+debug.style.background = '#111';
+document.body.prepend(debug);
