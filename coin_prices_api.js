@@ -75,7 +75,7 @@ async function loadCoinPrices() {
     priceDiv.className = "coin-price";
     priceDiv.innerHTML = `
       <div class="primary">${formatPrice(price)}</div>
-      <div class="secondary">$${price.toFixed(2)}</div>
+      <div class="secondary">$${formatPrice(price)}</div>
     `;
 
     const changeDiv = document.createElement("div");
