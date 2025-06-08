@@ -210,7 +210,7 @@ body {
 .table-headers > div:nth-child(2) {
   text-align: right !important;
   position: relative;
-  left: -20px;   /* move left by 20px—tweak this number until it lines up */
+  left: -24px;   /* move left by 20px—tweak this number until it lines up */
 }
 
 .coin-list {
