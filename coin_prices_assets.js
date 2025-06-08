@@ -10,41 +10,44 @@ const allocations = {
 
 async function fetchPrices() {
   try {
-    console.log('Fetching prices...');
     const res = await fetch("https://api.binance.com/api/v3/ticker/24hr");
     const data = await res.json();
 
-    const filtered = data
-      .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
-      .map(item => {
-        const name = item.symbol.replace("USDT", "").toUpperCase();
-        const price = parseFloat(item.lastPrice);
-        const change = parseFloat(item.priceChangePercent);
-        const value = allocations[name];
-        const amount = value / price;
-        const avgCost = price / (1 + change / 100);
+    const filtered = data.filter(item =>
+      coins.includes(item.symbol.replace("USDT", "").toLowerCase())
+    );
 
-        return {
-          name,
-          price,
-          change,
-          value: value.toFixed(2),
-          amount: amount.toFixed(8),
-          avgCost: avgCost.toFixed(2),
-          icon: `${name.toLowerCase()}.svg`
-        };
-      });
+    // Debugging log to confirm what's being returned
+    console.log("Coin data:", filtered);
 
-    console.log(filtered);
-    return filtered;
+    return filtered.map(item => {
+      const name = item.symbol.replace("USDT", "");
+      const price = parseFloat(item.lastPrice);
+      const change = parseFloat(item.priceChangePercent);
+      const value = allocations[name.toUpperCase()];
+      const amount = value / price;
+      const avgCost = price / (1 + change / 100);
+
+      return {
+        name,
+        price,
+        change,
+        value: value.toFixed(2),
+        amount: amount.toFixed(8),
+        avgCost: avgCost.toFixed(2),
+        icon: `${name.toLowerCase()}.svg` // adjusted path: SVGs should be in root
+      };
+    });
   } catch (e) {
-    console.error("Failed to fetch prices", e);
+    console.error("Failed to fetch prices:", e);
     return [];
   }
 }
 
 async function loadAssets() {
   const list = document.getElementById("asset-list");
+  if (!list) return;
+
   list.innerHTML = "";
 
   const coinData = await fetchPrices();
