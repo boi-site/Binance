@@ -81,8 +81,8 @@
   <!-- Coin List -->
   <div id="coin-list" class="coin-list"></div>
 
-  <!-- Discover Strip (will stick under the list) -->
-  <div class="bottom-scroll-tabs">
+  <!-- Discover Strip -->
+  <div id="discover-strip" class="bottom-scroll-tabs">
     <div class="scroll-tabs no-scrollbar">
       <span class="bottom-tab active">Discover</span>
       <span class="bottom-tab">Following</span>
@@ -115,5 +115,29 @@
   </div>
 
   <script src="coin_prices_api.js"></script>
+  <script>
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const bar = document.getElementById('discover-strip');
+          if (!entry.isIntersecting) {
+            bar.style.position = 'static';
+          } else {
+            bar.style.position = 'sticky';
+            bar.style.bottom = '48px';
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0,
+      }
+    );
+
+    const xrpRow = document.querySelector(".coin-row:last-child");
+    if (xrpRow) {
+      observer.observe(xrpRow);
+    }
+  </script>
 </body>
 </html>
