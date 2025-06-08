@@ -226,7 +226,9 @@ body {
 
 /* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
-  padding: 0 0 64px; /* ensure bottom-nav doesn’t cover last rows */
+  /* no extra bottom padding */
+  margin: 0;
+  padding: 0;
 }
 
 .coin-row {
@@ -302,18 +304,20 @@ body {
 @keyframes flash-effect {
   0%   { transform: translateY(0) scale(1); opacity: 1; }
   50%  { transform: translateY(-2px) scale(1.05); opacity: 0.8; }
-  100% { transform: translateY(0) scale(1); opacity: 1; }
+ 100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── Discover Strip ───────────────────────────────────────────────── */
+/* ─── Discover Strip (STICKY) ───────────────────────────────────────── */
 .bottom-scroll-tabs {
+  position: sticky;
+  bottom: 48px;                 /* sticks just above the fixed bottom-nav */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  margin-top: 12px;
   border-top: 1px solid #1e2329;
   background-color: #0b0e11;
+  z-index: 5;
 }
 
 /* ─── Bottom Nav (fixed) ───────────────────────────────────────────── */
