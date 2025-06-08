@@ -200,7 +200,7 @@ body {
 .table-headers {
   display: flex;
   align-items: center;
-  padding: 12px 16px;      /* matches coin-row padding */
+  padding: 12px 16px;
   font-size: 13px;
   color: #848e9c;
   font-weight: normal;
@@ -256,10 +256,12 @@ body {
   text-align: right;
 }
 
+/* ─── BINANCE-EXACT PRICE FONT ────────────────────────────── */
 .coin-price .primary {
   font-size: 17px;
-  font-weight: bold;
+  font-weight: 600;
   color: #f0f0f0;
+  line-height: 1;
 }
 
 .coin-price .secondary {
@@ -267,14 +269,17 @@ body {
   color: #8a8a93;
 }
 
-/* ─── Pill Styles ──────────────────────────────────────────────────── */
+/* ─── BINANCE-EXACT PILL STYLES ───────────────────────────── */
 .coin-change {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 60px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 14px;
   font-size: 13px;
-  padding: 4px 10px;
-  border-radius: 12px;
-  text-align: center;
-  font-weight: bold;
+  font-weight: 600;
   color: #ffffff;
   margin-left: 16px;
   transition: background-color 0.3s ease,
