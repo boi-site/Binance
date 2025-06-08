@@ -8,6 +8,8 @@ const coinMap = {
   xrp: "ripple"
 };
 
+let previousPrices = {}; // Track last price
+
 async function fetchPrices() {
   try {
     const ids = coins.map(symbol => coinMap[symbol]).join(",");
@@ -18,6 +20,7 @@ async function fetchPrices() {
       const coinData = data[coinMap[symbol]];
       return {
         name: symbol.toUpperCase(),
+        symbol,
         price: coinData?.usd ?? 0,
         change: coinData?.usd_24h_change ?? 0
       };
@@ -28,13 +31,22 @@ async function fetchPrices() {
   }
 }
 
+function getColorClass(change) {
+  if (change > 0) return "green";
+  if (change < 0) return "red";
+  return "gray";
+}
+
 async function loadCoinPrices() {
   const list = document.getElementById("coin-list");
-  list.innerHTML = ""; // Clear only once to avoid flicker
+  list.innerHTML = ""; // Clear only once
 
   const coinData = await fetchPrices();
 
   coinData.forEach(coin => {
+    const oldPrice = previousPrices[coin.symbol] ?? coin.price;
+    const priceDiff = coin.price - oldPrice;
+
     const row = document.createElement("div");
     row.className = "coin-row";
 
@@ -50,25 +62,24 @@ async function loadCoinPrices() {
     `;
 
     const change = document.createElement("div");
-    change.className = "coin-change";
+    change.className = `coin-change ${getColorClass(coin.change)}`;
     change.textContent = `${coin.change.toFixed(2)}%`;
 
-    // Color styling
-    if (coin.change > 0) {
-      change.style.backgroundColor = "#16c784";
-    } else if (coin.change < 0) {
-      change.style.backgroundColor = "#ea3943";
-    } else {
-      change.style.backgroundColor = "#848e9c";
+    // Animation class if price changed
+    if (priceDiff !== 0) {
+      change.classList.add("flash");
+      setTimeout(() => change.classList.remove("flash"), 500);
     }
 
     row.append(name, prices, change);
     list.appendChild(row);
+
+    // Save new price
+    previousPrices[coin.symbol] = coin.price;
   });
 }
 
-// Initial load and interval update
 window.onload = () => {
   loadCoinPrices();
-  setInterval(loadCoinPrices, 15000); // every 15 secs to avoid flicker
+  setInterval(loadCoinPrices, 15000); // every 15 secs
 };
