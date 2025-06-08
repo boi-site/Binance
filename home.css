@@ -145,21 +145,18 @@ body {
   display: none;
 }
 
-.tab,
-.bottom-tab {
+.tab {
   font-size: 14px;
   color: #848e9c;
   padding: 12px 0;
   position: relative;
 }
 
-.tab.active,
-.bottom-tab.active {
+.tab.active {
   color: white;
 }
 
-.tab.active::after,
-.bottom-tab.active::after {
+.tab.active::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -170,12 +167,12 @@ body {
   border-radius: 2px;
 }
 
-.tab-fixed-icon,
-.tab-arrow {
+.tab-fixed-icon {
   flex-shrink: 0;
   padding-left: 12px;
 }
 
+/* ─── Crypto / Futures Toggle ───────────────────────────────────────── */
 .category-toggle {
   display: flex;
   gap: 10px;
@@ -227,9 +224,9 @@ body {
   font-weight: normal !important;
 }
 
-/* ─── Coin Rows ────────────────────────────────────────────────────── */
+/* ─── Coin List & Rows ─────────────────────────────────────────────── */
 .coin-list {
-  padding: 0 0 64px;  /* ensure bottom-nav doesn’t cover last rows */
+  padding: 0 0 64px; /* allow space for bottom-nav */
 }
 
 .coin-row {
@@ -255,7 +252,7 @@ body {
   text-align: right;
 }
 
-/* ─── BINANCE-EXACT PRICE FONT ────────────────────────────── */
+/* ─── BINANCE-EXACT PRICE FONT ─────────────────────────────────────── */
 .coin-price .primary {
   font-size: 17px;
   font-weight: 600;
@@ -268,7 +265,7 @@ body {
   color: #8a8a93;
 }
 
-/* ─── BINANCE-EXACT PILL STYLES ───────────────────────────── */
+/* ─── BINANCE-EXACT PILL STYLES ───────────────────────────────────── */
 .coin-change {
   display: inline-flex;
   align-items: center;
@@ -308,7 +305,7 @@ body {
   100% { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* ─── Discover Strip ───────────────────────────────────────────── */
+/* ─── Discover Strip ───────────────────────────────────────────────── */
 .bottom-scroll-tabs {
   display: flex;
   align-items: center;
@@ -319,7 +316,7 @@ body {
   background-color: #0b0e11;
 }
 
-/* ─── BOTTOM NAV FIXED ───────────────────────────────────────────── */
+/* ─── Bottom Nav (fixed) ───────────────────────────────────────────── */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
