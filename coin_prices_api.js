@@ -1,3 +1,5 @@
+// ─── coin_prices_api.js ──────────────────────────────────────────────────
+
 const coins = ["bnb", "btc", "eth", "pepe", "sol", "xrp"];
 const coinMap = {
   bnb: "binancecoin",
@@ -10,7 +12,7 @@ const coinMap = {
 
 let previousPrices = {};
 
-// ─── helper: format sub-$1 coins and 2-decimals otherwise ─────────────────
+// format sub-$1 coins to 8 decimals, others to 2
 function formatPrice(value) {
   if (value < 1) {
     return value.toFixed(8);
@@ -62,7 +64,6 @@ async function loadCoinPrices() {
     const old = previousPrices[symbol] ?? price;
     const diff = price - old;
 
-    // ─ build row structure ─────────────────────────────────────────────────
     const row = document.createElement("div");
     row.className = "coin-row";
 
@@ -83,7 +84,6 @@ async function loadCoinPrices() {
     const sign = change > 0 ? "+" : "";
     changeDiv.textContent = `${sign}${change.toFixed(2)}%`;
 
-    // ─ trigger flash if changed ────────────────────────────────────────────
     if (diff !== 0) {
       changeDiv.classList.add("flash");
       setTimeout(() => changeDiv.classList.remove("flash"), 500);
