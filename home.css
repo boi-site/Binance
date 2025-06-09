@@ -39,10 +39,41 @@ body {
   width: 20px;
 }
 
-/* ─── Add Funds Button ───────────────────────────────────────────────── */
+/* ─── Balance + Button Row ───────────────────────────────────────────── */
+
+.balance-label {
+  display: block;
+  margin-left: 16px;
+  margin-top: 28px;
+  margin-bottom: -6px;
+  font-size: 13px;
+  color: #848e9c;
+}
+
+.balance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 0;
+  margin-top: 4px;
+  flex-wrap: nowrap;      /* don’t wrap the button onto a new line */
+}
+
+.total-balance {
+  flex: 1 1 auto;         /* allow this to shrink if needed */
+  min-width: 0;           /* actually let it shrink below its full width */
+  white-space: nowrap;    /* prevent internal wrapping of the number */
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+  cursor: pointer;
+  line-height: 36px;
+}
 
 .add-funds {
-  flex: 0 0 auto;
+  flex: 0 0 auto;         /* keep this at its natural size */
+  margin-left: 16px;      /* a bit of breathing room from the number */
   background-color: #fcd535;
   color: #0b0e11;
   border: none;
@@ -58,46 +89,7 @@ body {
   white-space: nowrap;
 }
 
-.balance-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 16px 0;
-  margin-top: 4px;
-  gap: 10px;
-}
-
-/* keep the h2 left-aligned under the label, even on narrow phones */
-@media (max-width: 420px) {
-  .balance-row {
-    justify-content: flex-start;
-  }
-
-  .add-funds {
-    margin-top: 4px;
-  }
-}
-
-.total-balance {
-  flex: 1 1 auto;
-  min-width: 0;
-  font-size: 28px;
-  font-weight: bold;
-  margin: 0;
-  color: white;
-  cursor: pointer;
-  line-height: 36px;
-}
-
-.balance-label {
-  display: block;
-  margin-left: 16px;
-  margin-top: 28px;
-  margin-bottom: -6px;
-  font-size: 13px;
-  color: #848e9c;
-}
+/* ─── Quick Actions ──────────────────────────────────────────────────── */
 
 .quick-actions {
   display: flex;
@@ -142,6 +134,8 @@ body {
   background-color: #1e2329;
   margin: 8px 0;
 }
+
+/* ─── Top Tabs ───────────────────────────────────────────────────────── */
 
 .tab-row {
   display: flex;
@@ -198,6 +192,8 @@ body {
   opacity: 0.6;
 }
 
+/* ─── Category Toggle ───────────────────────────────────────────────── */
+
 .category-toggle {
   display: flex;
   gap: 10px;
@@ -218,6 +214,8 @@ body {
   color: white;
 }
 
+/* ─── Table Headers ─────────────────────────────────────────────────── */
+
 .table-headers {
   display: flex;
   align-items: center;
@@ -227,25 +225,18 @@ body {
   font-weight: normal;
 }
 
-.table-headers .coin-name {
-  flex: 1;
-  color: #848e9c;
-  font-weight: normal;
-}
-
-.table-headers .coin-price {
-  flex: 1;
-  text-align: right;
-  color: #848e9c;
-  font-weight: normal;
-}
-
+.table-headers .coin-name,
+.table-headers .coin-price,
 .table-headers .coin-change {
-  margin-left: 16px;
-  text-align: right;
   color: #848e9c;
   font-weight: normal;
 }
+
+.table-headers .coin-name { flex: 1; }
+.table-headers .coin-price { flex: 1; text-align: right; }
+.table-headers .coin-change { margin-left: 16px; text-align: right; }
+
+/* ─── Coin List ──────────────────────────────────────────────────────── */
 
 .coin-list {
   margin: 0;
@@ -297,27 +288,21 @@ body {
   transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
-.coin-change.green {
-  background-color: #16c784 !important;
-}
-
-.coin-change.red {
-  background-color: #ea3943 !important;
-}
-
-.coin-change.gray {
-  background-color: #848e9c;
-}
-
-.flash {
-  animation: flash-effect 0.3s ease-in-out;
-}
+.coin-change.green { background-color: #16c784 !important; }
+.coin-change.red   { background-color: #ea3943 !important; }
+.coin-change.gray  { background-color: #848e9c; }
 
 @keyframes flash-effect {
   0%   { transform: translateY(0) scale(1); opacity: 1; }
   50%  { transform: translateY(-2px) scale(1.05); opacity: 0.8; }
  100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
+
+.flash {
+  animation: flash-effect 0.3s ease-in-out;
+}
+
+/* ─── Discover Strip (STICKY) ───────────────────────────────────────── */
 
 .bottom-scroll-tabs {
   position: sticky;
@@ -338,10 +323,7 @@ body {
   position: relative;
 }
 
-.bottom-scroll-tabs .bottom-tab.active {
-  color: white;
-}
-
+.bottom-scroll-tabs .bottom-tab.active { color: white; }
 .bottom-scroll-tabs .bottom-tab.active::after {
   content: '';
   position: absolute;
@@ -353,6 +335,8 @@ body {
   background-color: #fcd535;
   border-radius: 2px;
 }
+
+/* ─── Bottom Nav ─────────────────────────────────────────────────────── */
 
 .bottom-nav {
   display: flex;
