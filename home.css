@@ -317,8 +317,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 8px 12px;
-  border-top: 1px solid #1e2329;
-  background-color: #0b0e11;
+  border-top: 1px solid #2a2b31;
+  background-color: #181a20;
   z-index: 5;
 }
 
@@ -349,7 +349,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #0b0e11;
+  background-color: #181a20;
   padding: 0 0 2px;
   position: fixed;
   bottom: 0;
