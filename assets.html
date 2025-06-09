@@ -4,155 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Binance Clone Wallet</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Inter',sans-serif; background:#0d0f1a; color:#fff; }
-    .header{padding:1rem;display:flex;justify-content:space-between;align-items:center;font-size:.9rem;}
-    .nav-tabs{display:flex;gap:1rem;justify-content:center;padding:0 1rem;}
-    .nav-tabs button{background:none;border:none;color:#888;font-weight:600;padding:.5rem;}
-    .nav-tabs button.active{color:#fff;border-bottom:2px solid #fff;}
-    .content{padding-bottom:80px;overflow-y:auto;height:calc(100vh-80px);}
-    .wallet-value{padding:1rem;}
-    .wallet-value p{font-size:.9rem;color:#888;}
-    .wallet-value h1{font-size:2rem;margin:.5rem 0;}
-    .wallet-value .pnl{color:#00c292;font-size:.9rem;}
-    .actions{display:flex;gap:.5rem;padding:0 1rem; margin-bottom:1rem;}
-    .actions button{flex:1;padding:.8rem;border:none;border-radius:8px;font-weight:600;}
-    .add-funds{background:#f0b90b;color:#000;}
-    .send,.transfer{background:#1a1c26;color:#fff;}
-    .crypto-list{padding:0 1rem;}
-    .crypto{display:grid;grid-template-columns:1fr auto;padding:1rem;background:#1a1c26;border-radius:8px;margin-bottom:1rem;}
-    .crypto .info{display:flex;align-items:center;gap:.5rem;}
-    .crypto img.icon{width:24px;height:24px;}
-    .crypto-details{text-align:right;}
-    .crypto-details .price,.crypto-details .pnl-cost{font-size:.9rem;color:#888;}
-    .pnl-cost{display:flex;justify-content:space-between;margin-top:.3rem;font-size:.8rem;}
-    .bottom-nav{position:fixed;bottom:0;left:0;right:0;background:#0d0f1a;border-top:1px solid #222;display:flex;justify-content:space-around;padding:.8rem 0;}
-    .bottom-nav div{display:flex;flex-direction:column;align-items:center;font-size:.7rem;color:#aaa;}
-    .bottom-nav div.active{color:#f0b90b;}
-    .bottom-nav img{width:24px;height:24px;margin-bottom:.2rem;}
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="header">
-  <div>00:58 🔔</div>
-  <div>Exchange</div>
-  <div>📶 🔋</div>
-</div>
-
-<div class="nav-tabs">
-  <button class="active" data-target="overview">Overview</button>
-  <button data-target="earn">Earn</button>
-  <button data-target="funding">Funding</button>
-  <button data-target="spot">Spot</button>
-</div>
-
-<div class="content">
-  <div id="overview" class="page">
-    <div class="wallet-value">
-      <p>Est. Total Value</p>
-      <h1 id="totalValue">$406,783,194.24</h1>
-      <div class="pnl" id="overallPnl">Today's PNL: —</div>
-    </div>
-
-    <div class="actions">
-      <button class="add-funds">Add Funds</button>
-      <button class="send">Send</button>
-      <button class="transfer">Transfer</button>
-    </div>
-
-    <div class="crypto-list" id="cryptoList">
-      <!-- JS injects coins here -->
-    </div>
+  <div class="top-toggle">
+    <button class="active">Exchange</button>
+    <button>Wallet</button>
   </div>
 
-  <div id="earn" class="page" style="display:none;padding:1rem;">Earn (dummy)</div>
-  <div id="funding" class="page" style="display:none;padding:1rem;">Funding (real)</div>
-  <div id="spot" class="page" style="display:none;padding:1rem;">Spot (dummy)</div>
-</div>
+  <div class="nav-tabs">
+    <button class="active" data-target="overview">Overview</button>
+    <button data-target="earn">Earn</button>
+    <button data-target="funding">Funding</button>
+    <button data-target="spot">Spot</button>
+  </div>
 
-<div class="bottom-nav">
-  <div id="nav-home" class="active" data-page="home"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_home.svg" /><span>Home</span></div>
-  <div data-page="markets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_market.svg" /><span>Markets</span></div>
-  <div data-page="trade"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_trade.svg" /><span>Trade</span></div>
-  <div data-page="futures"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_futures.svg" /><span>Futures</span></div>
-  <div data-page="assets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/assets.svg" /><span>Assets</span></div>
-</div>
+  <div class="content">
+    <div id="overview" class="page">
 
-<script>
-const coins = [
-  {symbol:'BTC', icon:'btc.svg', amount: 2534.56, avgCost: 60000},
-  {symbol:'ETH', icon:'eth.svg', amount: 17234.12, avgCost: 4000},
-  {symbol:'BONK', icon:'btc.svg', amount: 9999999, avgCost: 0.05},
-  {symbol:'XRP', icon:'xrp.svg', amount: 2000000, avgCost: 0.5},
-  {symbol:'USDT', icon:'usdt.svg', amount: 300000, avgCost:1}
-];
-
-function format(n){return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
-function simulatePrice(base){ return base*(1 + (Math.random()-0.5)*0.02); }
-
-function updateUI() {
-  let totalPnl = 0;
-  const cryptoList = document.getElementById('cryptoList');
-  cryptoList.innerHTML = '';
-
-  coins.forEach(c => {
-    const price = simulatePrice(c.avgCost);
-    const value = price*c.amount;
-    const cost = c.avgCost * c.amount;
-    const pnl = value - cost;
-    totalPnl += pnl;
-
-    const div = document.createElement('div');
-    div.className = 'crypto';
-    div.innerHTML = `
-      <div class="info">
-        <img class="icon" src="https://raw.githubusercontent.com/boi-site/Binance/main/${c.icon}" />
-        <div><strong>${c.symbol}</strong><br><span>${c.symbol==='USDT'?'TetherUS':c.symbol}</span></div>
+      <div class="wallet-value">
+        <p>Est. Total Value <img src="https://raw.githubusercontent.com/boi-site/Binance/main/eye.svg" alt="eye" class="icon-sm"></p>
+        <h1><span class="currency">$</span>406,783,194.24 <span class="usd">USD</span> <img src="https://raw.githubusercontent.com/boi-site/Binance/main/chart.svg" alt="chart" class="icon-sm"></h1>
+        <div class="pnl-overall">Today's PNL: <span id="overallPnl">‑$1,395,527.82 (-0.34%)</span> <span class="arrow">›</span></div>
       </div>
-      <div class="crypto-details">
-        <div><strong>${format(c.amount)}</strong></div>
-        <div class="price">$${format(price)}</div>
-        <div class="pnl-cost"><span>PNL: $${format(pnl)}</span><span>Cost: $${format(cost)}</span></div>
-      </div>`;
-    cryptoList.appendChild(div);
-  });
 
-  document.getElementById('overallPnl').textContent = `Today's PNL: $${format(totalPnl)}`;
-}
+      <div class="actions">
+        <button class="add-funds">Add Funds</button>
+        <button class="send">Send</button>
+        <button class="transfer">Transfer</button>
+      </div>
 
-updateUI();
-setInterval(updateUI, 5000);
+      <div class="crypto-account-tabs">
+        <button class="active">Crypto</button>
+        <button>Account</button>
+        <div class="icons">
+          <img src="https://raw.githubusercontent.com/boi-site/Binance/main/search.svg" alt="search" class="icon-md">
+          <img src="https://raw.githubusercontent.com/boi-site/Binance/main/settings.svg" alt="settings" class="icon-md">
+        </div>
+      </div>
 
-// Tab navigation
-document.querySelectorAll('.nav-tabs button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.nav-tabs button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.page').forEach(p=>p.style.display = 'none');
-    document.getElementById(btn.dataset.target).style.display = 'block';
-  });
-});
+      <div class="crypto-list" id="cryptoList"></div>
+    </div>
 
-// Bottom nav clickable
-document.querySelectorAll('.bottom-nav div').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.bottom-nav div').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    if(btn.dataset.page === 'home'){
-      document.querySelector('.nav-tabs button[data-target="overview"]').click();
-    }
-    else if(btn.dataset.page === 'assets'){
-      document.querySelector('.nav-tabs button[data-target="funding"]').click();
-    }
-    else {
-      alert(`${btn.dataset.page.charAt(0).toUpperCase() + btn.dataset.page.slice(1)} dummy`);
-    }
-  });
-});
-</script>
+    <div id="earn" class="page" style="display:none; padding:1rem;">Earn (dummy)</div>
+    <div id="funding" class="page" style="display:none; padding:1rem;">Funding (real)</div>
+    <div id="spot" class="page" style="display:none; padding:1rem;">Spot (dummy)</div>
+  </div>
 
+  <div class="bottom-nav">
+    <div class="active" data-page="home"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_home.svg"><span>Home</span></div>
+    <div data-page="markets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_market.svg"><span>Markets</span></div>
+    <div data-page="trade"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_trade.svg"><span>Trade</span></div>
+    <div data-page="futures"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_futures.svg"><span>Futures</span></div>
+    <div data-page="assets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/assets.svg"><span>Assets</span></div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
