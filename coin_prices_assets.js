@@ -8,73 +8,86 @@ const coins = [
 ];
 
 const fmt = n => n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
-const sim = avg => avg*(1 + (Math.random()-0.5)*0.02);
+const sim = avg => avg * (1 + (Math.random() - 0.5) * 0.02);
 
 function updateUI(){
   let totalPnl = 0;
   const list = document.getElementById('cryptoList');
   list.innerHTML = '';
+
   coins.forEach(c => {
     const price = sim(c.avgCost);
     let amount, value, cost;
 
-    if(c.amount){
+    if (c.amount !== undefined) {
       amount = c.amount;
-      value = amount*price;
-      cost = c.avgCost*amount;
+      value = price * amount;
+      cost = c.avgCost * amount;
     } else {
-      value = totalValue*c.allocation;
-      amount = value/price;
-      cost = amount*c.avgCost;
+      value = totalValue * c.allocation;
+      amount = value / price;
+      cost = amount * c.avgCost;
     }
 
-    const pnl = value-cost;
+    const pnl = value - cost;
     totalPnl += pnl;
 
     const div = document.createElement('div');
     div.className = 'crypto';
     div.innerHTML = `
       <div class="info">
-        <img class="icon" src="https://raw.githubusercontent.com/boi-site/Binance/main/${c.icon}" alt="${c.symbol}">
-        <div><strong>${c.symbol}</strong><div class="details">${c.symbol==='USDT'?'TetherUS':c.symbol}</div></div>
+        <img class="icon" src="https://raw.githubusercontent.com/boi-site/Binance/main/${c.icon}" alt="${c.symbol}"/>
+        <div>
+          <strong>${c.symbol}</strong>
+          <div class="details">${c.symbol === 'USDT' ? 'TetherUS' : c.symbol}</div>
+        </div>
       </div>
       <div class="crypto-right">
         <div class="amount">${fmt(amount)}</div>
         <div class="price">$${fmt(price)}</div>
-        <div class="stats">PNL: $${fmt(pnl)}<br>Cost: $${fmt(cost)}</div>
+        <div class="stats">
+          PNL: $${fmt(pnl)}<br>Cost: $${fmt(cost)}
+        </div>
       </div>`;
     list.appendChild(div);
   });
 
-  const pct = (totalPnl/totalValue)*100;
+  const percent = (totalPnl / totalValue) * 100;
   document.getElementById('overallPnl').textContent =
-    `${totalPnl<0?'‑':'+'}$${fmt(Math.abs(totalPnl))} (${pct.toFixed(2)}%) ›`;
+    `${totalPnl < 0 ? '‑' : '+'}$${fmt(Math.abs(totalPnl))} (${percent.toFixed(2)}%) ›`;
 }
 
-updateUI(); setInterval(updateUI,5000);
+updateUI();
+setInterval(updateUI, 5000);
 
-document.querySelectorAll('.nav-tabs button').forEach(btn =>{
-  btn.addEventListener('click',()=>{
+document.querySelectorAll('.nav-tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
     const tgt = btn.dataset.page;
-    document.querySelectorAll('.nav-tabs button').forEach(b=>b.classList.remove('active'));
+
+    document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+
+    document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
     document.getElementById(tgt).classList.remove('hidden');
-    if(['earn','spot'].includes(tgt)) alert(`${tgt.charAt(0).toUpperCase()+tgt.slice(1)} Page (dummy)`);
+
+    if (['earn','spot'].includes(tgt)) {
+      alert(`${tgt.charAt(0).toUpperCase() + tgt.slice(1)} Page (dummy)`);
+    }
   });
 });
 
-document.querySelectorAll('.bottom-nav div').forEach(btn =>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.bottom-nav div').forEach(b=>b.classList.remove('active'));
+document.querySelectorAll('.bottom-nav div').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.bottom-nav div').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+
     const p = btn.dataset.page;
-    if(p==='home'){
+    if (p === 'home') {
       document.querySelector('.nav-tabs button[data-page="overview"]').click();
-    } else if(p==='assets'){
+    } else if (p === 'assets') {
       document.querySelector('.nav-tabs button[data-page="funding"]').click();
     } else {
-      alert(`${p.charAt(0).toUpperCase()+p.slice(1)} (dummy)`);
+      alert(`${p.charAt(0).toUpperCase() + p.slice(1)} (dummy)`);
     }
   });
 });
