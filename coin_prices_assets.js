@@ -1,102 +1,80 @@
 const totalValue = 406783194.24;
-
 const coins = [
-  { symbol: 'BTC', icon: 'btc.svg', allocation: 0.35, avgCost: 60000 },
-  { symbol: 'ETH', icon: 'eth.svg', allocation: 0.30, avgCost: 4000 },
-  { symbol: 'XRP', icon: 'xrp.svg', allocation: 0.20, avgCost: 0.5 },
-  { symbol: 'BONK', icon: 'btc.svg', allocation: 0.05, avgCost: 0.00002 },
-  { symbol: 'USDT', icon: 'usdt.svg', amount: 300000, avgCost: 1 }
+  { symbol:'BTC', icon:'btc.svg', allocation:0.35, avgCost:60000 },
+  { symbol:'ETH', icon:'eth.svg', allocation:0.30, avgCost:4000 },
+  { symbol:'XRP', icon:'xrp.svg', allocation:0.20, avgCost:0.5 },
+  { symbol:'BONK', icon:'btc.svg', allocation:0.05, avgCost:0.00002 },
+  { symbol:'USDT', icon:'usdt.svg', amount:300000, avgCost:1 }
 ];
 
-function formatNumber(n) {
-  return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
+const fmt = n => n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const sim = avg => avg*(1 + (Math.random()-0.5)*0.02);
 
-function simulatePrice(avg) {
-  return avg * (1 + (Math.random() - 0.5) * 0.02); // ±1%
-}
-
-function updateUI() {
-  let overallPnl = 0;
+function updateUI(){
+  let totalPnl = 0;
   const list = document.getElementById('cryptoList');
   list.innerHTML = '';
-
   coins.forEach(c => {
-    const price = simulatePrice(c.avgCost);
+    const price = sim(c.avgCost);
     let amount, value, cost;
 
-    if (c.amount !== undefined) {
+    if(c.amount){
       amount = c.amount;
-      value = price * amount;
-      cost = c.avgCost * amount;
+      value = amount*price;
+      cost = c.avgCost*amount;
     } else {
-      value = totalValue * c.allocation;
-      amount = value / price;
-      cost = c.avgCost * amount;
+      value = totalValue*c.allocation;
+      amount = value/price;
+      cost = amount*c.avgCost;
     }
 
-    const pnl = value - cost;
-    overallPnl += pnl;
+    const pnl = value-cost;
+    totalPnl += pnl;
 
-    const item = document.createElement('div');
-    item.className = 'crypto';
-    item.innerHTML = `
+    const div = document.createElement('div');
+    div.className = 'crypto';
+    div.innerHTML = `
       <div class="info">
         <img class="icon" src="https://raw.githubusercontent.com/boi-site/Binance/main/${c.icon}" alt="${c.symbol}">
-        <div>
-          <strong>${c.symbol}</strong><br>
-          <span class="details">${c.symbol === 'USDT' ? 'TetherUS' : c.symbol}</span>
-        </div>
+        <div><strong>${c.symbol}</strong><div class="details">${c.symbol==='USDT'?'TetherUS':c.symbol}</div></div>
       </div>
-      <div>
-        <div><strong>${formatNumber(amount)}</strong></div>
-        <div class="details">$${formatNumber(price)}</div>
-        <div class="pnl-cost">
-          <span>PNL: $${formatNumber(pnl)}</span>
-          <span>Cost: $${formatNumber(cost)}</span>
-        </div>
+      <div class="crypto-right">
+        <div class="amount">${fmt(amount)}</div>
+        <div class="price">$${fmt(price)}</div>
+        <div class="stats">PNL: $${fmt(pnl)}<br>Cost: $${fmt(cost)}</div>
       </div>`;
-    list.appendChild(item);
+    list.appendChild(div);
   });
 
-  const percent = (overallPnl / totalValue) * 100;
+  const pct = (totalPnl/totalValue)*100;
   document.getElementById('overallPnl').textContent =
-    `Today's PNL: $${formatNumber(overallPnl)} (${percent.toFixed(2)}%) ›`;
+    `${totalPnl<0?'‑':'+'}$${fmt(Math.abs(totalPnl))} (${pct.toFixed(2)}%) ›`;
 }
 
-updateUI();
-setInterval(updateUI, 5000);
+updateUI(); setInterval(updateUI,5000);
 
-// Top tabs
-document.querySelectorAll('.nav-tabs button').forEach(btn => {
-  btn.onclick = () => {
-    const target = btn.dataset.page;
-    document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('.nav-tabs button').forEach(btn =>{
+  btn.addEventListener('click',()=>{
+    const tgt = btn.dataset.page;
+    document.querySelectorAll('.nav-tabs button').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-
-    document.querySelectorAll('#overview-page, #earn-page, #funding-page, #spot-page')
-      .forEach(pg => pg.style.display = 'none');
-    document.getElementById(`${target}-page`).style.display = 'block';
-
-    if (['earn', 'spot'].includes(target)) {
-      alert(`${target.charAt(0).toUpperCase() + target.slice(1)} Page (dummy)`);
-    }
-  };
+    document.querySelectorAll('.page').forEach(p=>p.classList.add('hidden'));
+    document.getElementById(tgt).classList.remove('hidden');
+    if(['earn','spot'].includes(tgt)) alert(`${tgt.charAt(0).toUpperCase()+tgt.slice(1)} Page (dummy)`);
+  });
 });
 
-// Bottom nav
-document.querySelectorAll('.bottom-nav div').forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll('.bottom-nav div').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('.bottom-nav div').forEach(btn =>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.bottom-nav div').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-
-    const page = btn.dataset.page;
-    if (page === 'home') {
+    const p = btn.dataset.page;
+    if(p==='home'){
       document.querySelector('.nav-tabs button[data-page="overview"]').click();
-    } else if (page === 'assets') {
+    } else if(p==='assets'){
       document.querySelector('.nav-tabs button[data-page="funding"]').click();
     } else {
-      alert(`${page.charAt(0).toUpperCase() + page.slice(1)} Page (dummy)`);
+      alert(`${p.charAt(0).toUpperCase()+p.slice(1)} (dummy)`);
     }
-  };
+  });
 });
