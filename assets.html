@@ -1,96 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Binance Clone Wallet</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-</head>
-<body>
+<script>
+const totalValue = 406783194.24;
 
-  <!-- Exchange / Wallet toggle -->
-  <div class="top-toggle">
-    <button class="active">Exchange</button>
-    <button>Wallet</button>
-  </div>
+// Estimated value distribution: BTC > ETH > XRP > BONK
+const coins = [
+  { symbol: 'BTC', icon: 'btc.svg', allocation: 0.35, avgCost: 60000 },
+  { symbol: 'ETH', icon: 'eth.svg', allocation: 0.30, avgCost: 4000 },
+  { symbol: 'XRP', icon: 'xrp.svg', allocation: 0.20, avgCost: 0.5 },
+  { symbol: 'BONK', icon: 'btc.svg', allocation: 0.05, avgCost: 0.00002 },
+  { symbol: 'USDT', icon: 'usdt.svg', amount: 300000, avgCost: 1 }
+];
 
-  <!-- Main Navigation -->
-  <div class="nav-tabs">
-    <button class="active" data-target="overview">Overview</button>
-    <button data-target="earn">Earn</button>
-    <button data-target="funding">Funding</button>
-    <button data-target="spot">Spot</button>
-  </div>
+function formatNumber(n) {
+  return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
-  <!-- Scrollable main content -->
-  <div class="content">
-    
-    <!-- Overview Screen -->
-    <div id="overview" class="page">
-      
-      <!-- Total Value Section -->
-      <div class="wallet-value">
-        <p>Est. Total Value <img class="icon-sm" src="https://raw.githubusercontent.com/boi-site/Binance/main/eye.svg" alt="eye" /></p>
-        <h1>
-          <span class="currency">$</span>406,783,194.24
-          <span class="usd">USD</span>
-          <img class="icon-sm" src="https://raw.githubusercontent.com/boi-site/Binance/main/chart.svg" alt="chart" />
-        </h1>
-        <div class="pnl-overall">
-          Today's PNL:
-          <span id="overallPnl">‑$1,395,527.82 (-0.34%)</span>
-          <span class="arrow">›</span>
+function simulatePrice(avg) {
+  const variation = (Math.random() - 0.5) * 0.02; // ±1%
+  return avg * (1 + variation);
+}
+
+function updateUI() {
+  let overallPnl = 0;
+  const list = document.getElementById('cryptoList');
+  list.innerHTML = '';
+
+  coins.forEach(c => {
+    let price = simulatePrice(c.avgCost);
+    let amount, value, cost;
+
+    if (c.amount !== undefined) {
+      amount = c.amount;
+      value = amount * price;
+      cost = c.amount * c.avgCost;
+    } else {
+      value = totalValue * c.allocation;
+      amount = value / price;
+      cost = amount * c.avgCost;
+    }
+
+    const pnl = value - cost;
+    overallPnl += pnl;
+
+    const item = document.createElement('div');
+    item.className = 'crypto';
+    item.innerHTML = `
+      <div class="info">
+        <img class="icon" src="https://raw.githubusercontent.com/boi-site/Binance/main/${c.icon}" alt="${c.symbol}">
+        <div>
+          <strong>${c.symbol}</strong><br>
+          <span class="details">${c.symbol === 'USDT' ? 'TetherUS' : c.symbol}</span>
         </div>
       </div>
-
-      <!-- Buttons -->
-      <div class="actions">
-        <button class="add-funds">Add Funds</button>
-        <button class="send">Send</button>
-        <button class="transfer">Transfer</button>
-      </div>
-
-      <!-- Crypto/Account Toggle & Icons -->
-      <div class="crypto-account-tabs">
-        <button class="active">Crypto</button>
-        <button>Account</button>
-        <div class="icons">
-          <img class="icon-md" src="https://raw.githubusercontent.com/boi-site/Binance/main/search.svg" alt="search" />
-          <img class="icon-md" src="https://raw.githubusercontent.com/boi-site/Binance/main/settings.svg" alt="settings" />
+      <div>
+        <div><strong>${formatNumber(amount)}</strong></div>
+        <div class="details">$${formatNumber(price)}</div>
+        <div class="pnl-cost">
+          <span>PNL: $${formatNumber(pnl)}</span>
+          <span>Cost: $${formatNumber(cost)}</span>
         </div>
-      </div>
+      </div>`;
+    list.appendChild(item);
+  });
 
-      <!-- Crypto List -->
-      <div class="crypto-list" id="cryptoList"></div>
-    </div>
+  document.getElementById('overallPnl').textContent =
+    `Today's PNL: $${formatNumber(overallPnl)} (${(overallPnl / totalValue * 100).toFixed(2)}%) ›`;
+}
 
-    <!-- Dummy Pages -->
-    <div id="earn" class="page hidden">Earn (dummy)</div>
-    <div id="funding" class="page hidden">Funding (real)</div>
-    <div id="spot" class="page hidden">Spot (dummy)</div>
+updateUI();
+setInterval(updateUI, 5000);
 
-  </div>
+// Tab switching logic
+document.querySelectorAll('.nav-tabs button').forEach(btn => {
+  btn.onclick = () => {
+    const target = btn.dataset.page;
+    document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('#overview-page, #earn-page, #funding-page, #spot-page')
+      .forEach(pg => pg.style.display = 'none');
+    document.getElementById(`${target}-page`).style.display = 'block';
 
-  <!-- Persistent Bottom Nav -->
-  <div class="bottom-nav">
-    <div class="active" data-page="home">
-      <img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_home.svg" alt="Home" /><span>Home</span>
-    </div>
-    <div data-page="markets">
-      <img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_market.svg" alt="Markets" /><span>Markets</span>
-    </div>
-    <div data-page="trade">
-      <img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_trade.svg" alt="Trade" /><span>Trade</span>
-    </div>
-    <div data-page="futures">
-      <img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_futures.svg" alt="Futures" /><span>Futures</span>
-    </div>
-    <div data-page="assets">
-      <img src="https://raw.githubusercontent.com/boi-site/Binance/main/assets.svg" alt="Assets" /><span>Assets</span>
-    </div>
-  </div>
+    // Alert for dummy tabs
+    if (['earn', 'spot'].includes(target)) {
+      alert(`${target.charAt(0).toUpperCase() + target.slice(1)} Page (dummy)`);
+    }
+  };
+});
 
-  <script src="app.js"></script>
-</body>
-</html>
+// Bottom nav switching
+document.querySelectorAll('.bottom-nav div').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.bottom-nav div').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const page = btn.dataset.page;
+    if (page === 'home') {
+      document.querySelector('.nav-tabs button[data-page="overview"]').click();
+    } else if (page === 'assets') {
+      document.querySelector('.nav-tabs button[data-page="funding"]').click();
+    } else {
+      alert(`${page.charAt(0).toUpperCase() + page.slice(1)} Page (dummy)`);
+    }
+  };
+};
+</script>
