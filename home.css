@@ -43,16 +43,16 @@ body {
   background-color: #fcd535;
   color: #0b0e11;
   border: none;
-  border-radius: 12px;        /* More rounded corners */
+  border-radius: 12px;
   font-weight: bold;
   font-size: 14px;
   height: 36px;
   line-height: 36px;
-  padding: 0 20px;            /* Wider padding to avoid text wrap */
+  padding: 0 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;        /* Prevents wrapping on all devices */
+  white-space: nowrap;
 }
 
 .balance-row {
@@ -168,7 +168,16 @@ body {
 
 .tab-fixed-icon {
   flex-shrink: 0;
-  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 8px;
+}
+
+.tab-fixed-icon img {
+  height: 20px;
+  width: 20px;
+  opacity: 0.7;
 }
 
 .category-toggle {
