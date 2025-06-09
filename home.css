@@ -1,3 +1,5 @@
+/* ─── home.css ────────────────────────────────────────────────────────── */
+
 body {
   margin: 0;
   background-color: #0b0e11;
@@ -39,7 +41,10 @@ body {
   width: 20px;
 }
 
+/* ─── ADD-FUNDS BUTTON ───────────────────────────────────────────────── */
+/* Make sure it never shrinks or wraps out of view */
 .add-funds {
+  flex: 0 0 auto;
   background-color: #fcd535;
   color: #0b0e11;
   border: none;
@@ -75,7 +80,11 @@ body {
   }
 }
 
+/* ─── TOTAL BALANCE ──────────────────────────────────────────────────── */
+/* Allow it to shrink under very long numbers */
 .total-balance {
+  flex: 1 1 auto;
+  min-width: 0;
   font-size: 28px;
   font-weight: bold;
   margin: 0;
