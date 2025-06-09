@@ -13,15 +13,16 @@ body {
   color: #eaecef;
 }
 
+/* ─── Top Bar ───────────────────────────────────────────────────────────── */
 .top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px 0;
 }
-
 .logo { height: 24px; }
 
+/* ─── Search / Icons ────────────────────────────────────────────────────── */
 .search-container {
   flex: 1;
   margin: 0 12px;
@@ -34,17 +35,16 @@ body {
   align-items: center;
   height: 28px;
 }
-
 .top-icons {
   display: flex;
   gap: 12px;
 }
-
 .top-icons img {
   height: 20px;
   width: 20px;
 }
 
+/* ─── Add Funds Button (now absolutely positioned) ──────────────────────── */
 .add-funds {
   background-color: #fcd535;
   color: #0b0e11;
@@ -55,15 +55,22 @@ body {
   height: 36px;
   line-height: 36px;
   padding: 0 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   white-space: nowrap;
+  /* these three are the only new rules for positioning: */
+  position: absolute !important;
+  top: 50% !important;
+  right: calc(16px + var(--safe-area-inset-right)) !important;
+  transform: translateY(-50%) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
+/* ─── Balance Row (container for absolute “Add Funds”) ─────────────────── */
 .balance-row {
+  position: relative;             /* container for our absolute button */
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;              /* never wrap */
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px 0;
@@ -72,12 +79,8 @@ body {
 }
 
 @media (max-width: 420px) {
-  .balance-row {
-    justify-content: center;
-  }
-  .add-funds {
-    margin-top: 4px;
-  }
+  .balance-row { justify-content: center; }
+  .add-funds { margin-top: 4px; }
 }
 
 .total-balance {
@@ -87,17 +90,12 @@ body {
   color: white;
   cursor: pointer;
   line-height: 36px;
+  flex: 1 1 auto;                 /* fill remaining space */
+  min-width: 0;                   /* allow it to shrink on narrow screens */
+  white-space: nowrap;            /* keep it on a single line */
 }
 
-.balance-label {
-  display: block;
-  margin-left: 16px;
-  margin-top: 28px;
-  margin-bottom: -6px;
-  font-size: 13px;
-  color: #848e9c;
-}
-
+/* ─── Quick Actions ─────────────────────────────────────────────────────── */
 .quick-actions {
   display: flex;
   justify-content: space-around;
@@ -105,9 +103,7 @@ body {
   padding: 0 12px;
   gap: 20px;
 }
-
 .action { flex: 1; text-align: center; }
-
 .icon-box {
   background-color: #1e2329;
   border-radius: 14px;
@@ -119,12 +115,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .icon-box img {
   height: 24px;
   width: 24px;
 }
-
 .action label {
   display: block;
   margin-top: 6px;
@@ -132,6 +126,7 @@ body {
   color: #eaecef;
 }
 
+/* ─── Divider ───────────────────────────────────────────────────────────── */
 .divider {
   border: none;
   height: 1px;
@@ -139,13 +134,13 @@ body {
   margin: 8px 0;
 }
 
+/* ─── Top Tabs ─────────────────────────────────────────────────────────── */
 .tab-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
 }
-
 .scroll-tabs {
   display: flex;
   gap: 18px;
@@ -153,20 +148,14 @@ body {
   white-space: nowrap;
   scrollbar-width: none;
 }
-
 .scroll-tabs::-webkit-scrollbar { display: none; }
-
 .tab {
   font-size: 14px;
   color: #848e9c;
   padding: 12px 0;
   position: relative;
 }
-
-.tab.active {
-  color: white;
-}
-
+.tab.active { color: white; }
 .tab.active::after {
   content: '';
   position: absolute;
@@ -177,7 +166,6 @@ body {
   background-color: #fcd535;
   border-radius: 2px;
 }
-
 .tab-fixed-icon {
   flex-shrink: 0;
   display: flex;
@@ -185,19 +173,18 @@ body {
   justify-content: center;
   padding-left: 8px;
 }
-
 .tab-fixed-icon img {
   height: 18px;
   width: 18px;
   opacity: 0.6;
 }
 
+/* ─── Category Toggle ──────────────────────────────────────────────────── */
 .category-toggle {
   display: flex;
   gap: 10px;
   padding: 8px 16px;
 }
-
 .category-toggle button {
   background: transparent;
   border: none;
@@ -206,12 +193,12 @@ body {
   border-radius: 20px;
   font-size: 14px;
 }
-
 .category-toggle .active {
   background-color: #2b3139;
   color: white;
 }
 
+/* ─── Table Headers ────────────────────────────────────────────────────── */
 .table-headers {
   display: flex;
   align-items: center;
@@ -220,59 +207,27 @@ body {
   color: #848e9c;
   font-weight: normal;
 }
+.table-headers .coin-name { flex: 1; color: #848e9c; }
+.table-headers .coin-price { flex: 1; text-align: right; color: #848e9c; }
+.table-headers .coin-change { margin-left: 16px; text-align: right; color: #848e9c; }
 
-.table-headers .coin-name {
-  flex: 1;
-  color: #848e9c;
-  font-weight: normal;
-}
-
-.table-headers .coin-price {
-  flex: 1;
-  text-align: right;
-  color: #848e9c;
-  font-weight: normal;
-}
-
-.table-headers .coin-change {
-  margin-left: 16px;
-  text-align: right;
-  color: #848e9c;
-  font-weight: normal;
-}
-
+/* ─── Coin Rows ────────────────────────────────────────────────────────── */
 .coin-list { margin: 0; padding: 0; }
-
 .coin-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
 }
-
-.coin-name {
-  flex: 1;
-  font-weight: bold;
-  color: white;
-}
-
-.coin-price {
-  flex: 1;
-  text-align: right;
-}
-
+.coin-name { flex: 1; font-weight: bold; color: white; }
+.coin-price { flex: 1; text-align: right; }
 .coin-price .primary {
   font-size: 17px;
   font-weight: 600;
   color: #f0f0f0;
   line-height: 1;
 }
-
-.coin-price .secondary {
-  font-size: 13px;
-  color: #8a8a93;
-}
-
+.coin-price .secondary { font-size: 13px; color: #8a8a93; }
 .coin-change {
   display: inline-flex;
   align-items: center;
@@ -289,27 +244,19 @@ body {
               transform 0.3s ease,
               opacity 0.3s ease;
 }
-
-.coin-change.green {
-  background-color: #16c784 !important;
-}
-
-.coin-change.red {
-  background-color: #ea3943 !important;
-}
-
-.coin-change.gray { background-color: #848e9c; }
-
+.coin-change.green { background-color: #16c784 !important; }
+.coin-change.red   { background-color: #ea3943 !important; }
+.coin-change.gray  { background-color: #848e9c; }
 .flash {
   animation: flash-effect 0.3s ease-in-out;
 }
-
 @keyframes flash-effect {
   0%   { transform: translateY(0) scale(1); opacity: 1; }
   50%  { transform: translateY(-2px) scale(1.05); opacity: 0.8; }
  100%  { transform: translateY(0) scale(1); opacity: 1; }
 }
 
+/* ─── Discover Strip ───────────────────────────────────────────────────── */
 .bottom-scroll-tabs {
   position: sticky;
   bottom: 48px;
@@ -321,18 +268,15 @@ body {
   background-color: #0b0e11;
   z-index: 5;
 }
-
 .bottom-scroll-tabs .bottom-tab {
   font-size: 14px;
   color: #848e9c;
   padding: 12px 0;
   position: relative;
 }
-
 .bottom-scroll-tabs .bottom-tab.active {
   color: white;
 }
-
 .bottom-scroll-tabs .bottom-tab.active::after {
   content: '';
   position: absolute;
@@ -345,6 +289,7 @@ body {
   border-radius: 2px;
 }
 
+/* ─── Bottom Nav (fixed) ─────────────────────────────────────────────── */
 .bottom-nav {
   display: flex;
   justify-content: space-around;
@@ -358,7 +303,6 @@ body {
   z-index: 10;
   height: 48px;
 }
-
 .nav-item {
   display: flex;
   flex-direction: column;
@@ -368,39 +312,17 @@ body {
   flex: 1;
   color: #848e9c;
 }
-
 .nav-item img {
   height: 18px;
   margin-bottom: 2px;
   opacity: 0.7;
 }
-
 .nav-item.active img {
   filter: brightness(1.7);
   opacity: 1;
 }
-
 .nav-item p {
   font-size: 11px;
   margin: 0;
   color: #848e9c;
-}
-
-/* ─── FORCE “ADD FUNDS” INLINE WITH BALANCE ────────────────────────── */
-.balance-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px calc(16px + var(--safe-area-inset-left)) 0 calc(16px + var(--safe-area-inset-right));
-  margin-top: 4px;
-  flex-wrap: nowrap !important;    /* never wrap */
-}
-.total-balance {
-  flex: 1 1 auto !important;       /* take remaining but shrink */
-  min-width: 0 !important;         /* allow true shrink */
-  white-space: nowrap !important;  /* keep number on one line */
-}
-.add-funds {
-  flex: 0 0 auto !important;       /* natural size */
-  margin-left: 16px !important;    /* gap from balance */
 }
