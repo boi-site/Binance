@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Binance Wallet UI Clone</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Binance Clone Wallet UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <header class="top-toggle">
+    <button class="active">Exchange</button>
+    <button>Wallet</button>
+  </header>
 
-  <div class="header">
-    <div>Exchange</div>
-  </div>
-
-  <div class="nav-tabs">
+  <nav class="nav-tabs">
     <button class="active" data-page="overview">Overview</button>
     <button data-page="earn">Earn</button>
     <button data-page="funding">Funding</button>
     <button data-page="spot">Spot</button>
-  </div>
+  </nav>
 
-  <div class="content">
-    <div id="overview-page">
+  <main class="content">
+    <section id="overview" class="page">
       <div class="wallet-value">
-        <p>Est. Total Value</p>
-        <h1 id="totalValue">$406,783,194.24</h1>
-        <div class="pnl" id="overallPnl">Today's PNL: —</div>
+        <p>Est. Total Value <img src="https://raw.githubusercontent.com/boi-site/Binance/main/eye.svg" class="icon-sm" alt="Toggle visibility"/></p>
+        <h1>
+          <span>$</span>406,783,194.24
+          <span class="usd">USD</span>
+          <img src="https://raw.githubusercontent.com/boi-site/Binance/main/chart.svg" class="icon-sm" alt="Chart"/>
+        </h1>
+        <div class="pnl-overall">
+          Today's PNL: <span id="overallPnl">‑$1,395,527.82 (-0.34%)</span> <span class="arrow">›</span>
+        </div>
       </div>
 
       <div class="actions">
@@ -34,21 +40,32 @@
         <button class="transfer">Transfer</button>
       </div>
 
-      <div class="crypto-list" id="cryptoList"></div>
+      <div class="crypto-account-tabs">
+        <button class="active">Crypto</button>
+        <button>Account</button>
+        <div class="icons">
+          <img src="https://raw.githubusercontent.com/boi-site/Binance/main/search.svg" class="icon-md" alt="Search"/>
+          <img src="https://raw.githubusercontent.com/boi-site/Binance/main/settings.svg" class="icon-md" alt="Settings"/>
+        </div>
+      </div>
+
+      <div id="cryptoList" class="crypto-list"></div>
+    </section>
+
+    <section id="earn" class="page hidden">Earn (dummy)</section>
+    <section id="funding" class="page hidden">Funding (real)</section>
+    <section id="spot" class="page hidden">Spot (dummy)</section>
+  </main>
+
+  <footer class="bottom-nav">
+    <div class="active" data-page="home">
+      <img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_home.svg" alt="Home"/><span>Home</span>
     </div>
-
-    <div id="earn-page" style="display:none; padding:1rem;">Earn Page (dummy)</div>
-    <div id="funding-page" style="display:none; padding:1rem;">Funding Page</div>
-    <div id="spot-page" style="display:none; padding:1rem;">Spot Page (dummy)</div>
-  </div>
-
-  <div class="bottom-nav">
-    <div class="active" data-page="home"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_home.svg"><span>Home</span></div>
-    <div data-page="markets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_market.svg"><span>Markets</span></div>
-    <div data-page="trade"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_trade.svg"><span>Trade</span></div>
-    <div data-page="futures"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_futures.svg"><span>Futures</span></div>
-    <div data-page="assets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/assets.svg"><span>Assets</span></div>
-  </div>
+    <div data-page="markets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_market.svg" alt="Markets"/><span>Markets</span></div>
+    <div data-page="trade"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_trade.svg" alt="Trade"/><span>Trade</span></div>
+    <div data-page="futures"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/ic_futures.svg" alt="Futures"/><span>Futures</span></div>
+    <div data-page="assets"><img src="https://raw.githubusercontent.com/boi-site/Binance/main/assets.svg" alt="Assets"/><span>Assets</span></div>
+  </footer>
 
   <script src="app.js"></script>
 </body>
