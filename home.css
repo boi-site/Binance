@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding-left: var(--safe-area-inset-left);
   padding-right: var(--safe-area-inset-right);
-  background-color: #0b0e11;
+  background-color: #181a20;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #eaecef;
 }
