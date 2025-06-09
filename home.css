@@ -1,5 +1,13 @@
+/* ─── SAFE-AREA INSETS FOR IOS NOTCH ───────────────────────────────── */
+:root {
+  --safe-area-inset-left: env(safe-area-inset-left);
+  --safe-area-inset-right: env(safe-area-inset-right);
+}
+
 body {
   margin: 0;
+  padding-left: var(--safe-area-inset-left);
+  padding-right: var(--safe-area-inset-right);
   background-color: #0b0e11;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #eaecef;
@@ -12,9 +20,7 @@ body {
   padding: 12px 16px 0;
 }
 
-.logo {
-  height: 24px;
-}
+.logo { height: 24px; }
 
 .search-container {
   flex: 1;
@@ -69,7 +75,6 @@ body {
   .balance-row {
     justify-content: center;
   }
-
   .add-funds {
     margin-top: 4px;
   }
@@ -101,10 +106,7 @@ body {
   gap: 20px;
 }
 
-.action {
-  flex: 1;
-  text-align: center;
-}
+.action { flex: 1; text-align: center; }
 
 .icon-box {
   background-color: #1e2329;
@@ -152,9 +154,7 @@ body {
   scrollbar-width: none;
 }
 
-.scroll-tabs::-webkit-scrollbar {
-  display: none;
-}
+.scroll-tabs::-webkit-scrollbar { display: none; }
 
 .tab {
   font-size: 14px;
@@ -241,10 +241,7 @@ body {
   font-weight: normal;
 }
 
-.coin-list {
-  margin: 0;
-  padding: 0;
-}
+.coin-list { margin: 0; padding: 0; }
 
 .coin-row {
   display: flex;
@@ -288,7 +285,9 @@ body {
   font-weight: 600;
   color: #ffffff;
   margin-left: 16px;
-  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  transition: background-color 0.3s ease,
+              transform 0.3s ease,
+              opacity 0.3s ease;
 }
 
 .coin-change.green {
@@ -299,9 +298,7 @@ body {
   background-color: #ea3943 !important;
 }
 
-.coin-change.gray {
-  background-color: #848e9c;
-}
+.coin-change.gray { background-color: #848e9c; }
 
 .flash {
   animation: flash-effect 0.3s ease-in-out;
@@ -389,13 +386,12 @@ body {
   color: #848e9c;
 }
 
-
 /* ─── FORCE “ADD FUNDS” INLINE WITH BALANCE ────────────────────────── */
 .balance-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 16px 0;
+  padding: 8px calc(16px + var(--safe-area-inset-left)) 0 calc(16px + var(--safe-area-inset-right));
   margin-top: 4px;
   flex-wrap: nowrap !important;    /* never wrap */
 }
