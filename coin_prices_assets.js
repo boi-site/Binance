@@ -1,10 +1,8 @@
 const totalValue = 406783194.24;
 const coins = [
-  { symbol: 'BTC', icon: 'btc.svg', allocation: 0.35, avgCost: 60000 },
-  { symbol: 'ETH', icon: 'eth.svg', allocation: 0.30, avgCost: 4000 },
-  { symbol: 'XRP', icon: 'xrp.svg', allocation: 0.20, avgCost: 0.5 },
-  { symbol: 'BONK', icon: 'bonk.svg', allocation: 0.05, avgCost: 0.00002 },
-  { symbol: 'USDT', icon: 'usdt.svg', amount: 300000, avgCost: 1 }
+  { symbol: 'USDT', icon: 'usdt.svg', amount: 1.03117068, avgCost: 1 },
+  { symbol: 'BONK', icon: 'bonk.svg', amount: 12000, avgCost: 0.00001483 },
+  { symbol: 'ETH', icon: 'eth.svg', amount: 0.00005666, avgCost: 2642.77 }
 ];
 
 const fmt = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -17,18 +15,8 @@ function updateUI() {
 
   coins.forEach(c => {
     const price = sim(c.avgCost);
-    let amount, value, cost;
-
-    if (c.amount !== undefined) {
-      amount = c.amount;
-      value = price * amount;
-      cost = c.avgCost * amount;
-    } else {
-      value = totalValue * c.allocation;
-      amount = value / price;
-      cost = amount * c.avgCost;
-    }
-
+    const value = price * c.amount;
+    const cost = c.avgCost * c.amount;
     const pnl = value - cost;
     totalPnl += pnl;
 
@@ -43,11 +31,10 @@ function updateUI() {
         </div>
       </div>
       <div class="crypto-right">
-        <div class="amount">${fmt(amount)}</div>
+        <div class="amount">${c.amount}</div>
         <div class="price">$${fmt(price)}</div>
-        <div class="stats">
-          PNL: $${fmt(pnl)}<br>Cost: $${fmt(cost)}
-        </div>
+        <div class="stats">Today's PNL: $${fmt(pnl)} (${(pnl / cost * 100).toFixed(2)}%)</div>
+        ${c.symbol === 'ETH' ? `<div class="avg-cost">Average cost: $${fmt(c.avgCost)}</div>` : ''}
       </div>`;
     list.appendChild(item);
   });
@@ -60,20 +47,19 @@ function updateUI() {
 updateUI();
 setInterval(updateUI, 5000);
 
-// Top navigation (Overview, Earn, Funding, Spot)
+// Top navigation
 document.querySelectorAll('.nav-tabs button').forEach(btn => {
   btn.onclick = () => {
-    if (btn.classList.contains('active')) return; // Don't reapply
+    if (btn.classList.contains('active')) return;
     document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const pageId = btn.dataset.page;
     document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
     document.getElementById(pageId).classList.remove('hidden');
   };
 });
 
-// Bottom navigation (Home, Assets, etc.)
+// Bottom navigation
 document.querySelectorAll('.bottom-nav div').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('.bottom-nav div').forEach(b => b.classList.remove('active'));
