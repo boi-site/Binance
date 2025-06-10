@@ -1,7 +1,3 @@
-:root {
-  --muted-color: #d1d4dc;    /* Gray color for inactive icons/text */
-  --active-color: #fcd535;   /* Binance yellow for active */
-}
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -242,18 +238,9 @@ body {
 .nav-label {
   font-size: 11px;
   text-align: center;
-  color: #888;
-}
-.bottom-nav .active .nav-label {
-  color: #fcd535;
-}
-.bottom-nav img {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 4px;
-  filter: grayscale(100%) brightness(0.9); /* Makes inactive icons grayish */
+  color: #5e6673; /* updated from #888 to match Binance UI */
 }
 
-.bottom-nav .active img {
-  filter: none; /* Makes the active icon show original color (yellow/white) */
+.bottom-nav .active .nav-label {
+  color: #fcd535; /* this stays the same */
 }
