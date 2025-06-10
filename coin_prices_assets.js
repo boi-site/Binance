@@ -60,18 +60,20 @@ function updateUI() {
 updateUI();
 setInterval(updateUI, 5000);
 
-// Navigation Tabs (Overview, Funding, etc.)
+// Top navigation (Overview, Earn, Funding, Spot)
 document.querySelectorAll('.nav-tabs button').forEach(btn => {
   btn.onclick = () => {
+    if (btn.classList.contains('active')) return; // Don't reapply
     document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+
     const pageId = btn.dataset.page;
     document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
     document.getElementById(pageId).classList.remove('hidden');
   };
 });
 
-// Bottom Nav (Home → Overview, Assets → Funding)
+// Bottom navigation (Home, Assets, etc.)
 document.querySelectorAll('.bottom-nav div').forEach(btn => {
   btn.onclick = () => {
     document.querySelectorAll('.bottom-nav div').forEach(b => b.classList.remove('active'));
