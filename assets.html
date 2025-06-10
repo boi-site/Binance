@@ -72,14 +72,25 @@
   <div id="asset-list" class="asset-list"></div>
 
   <!-- Bottom Nav -->
-  <div class="bottom-nav">
-    <div onclick="location.href='home.html'"><img src="ic_home.svg" class="nav-icon" /><div class="nav-label">Home</div></div>
-    <div><img src="ic_market.svg" class="nav-icon" /><div class="nav-label">Markets</div></div>
-    <div><img src="ic_trade.svg" class="nav-icon" /><div class="nav-label">Trade</div></div>
-    <div><img src="ic_futures.svg" class="nav-icon" /><div class="nav-label">Futures</div></div>
-    <div class="active"><img src="ic_assets.svg" class="nav-icon" /><div class="nav-label">Assets</div></div>
+ <div class="bottom-nav">
+  <div class="nav-item" onclick="location.href='home.html'">
+    <img src="ic_home.svg" />
+    <div class="nav-label">Home</div>
   </div>
-
-  <script src="coin_prices_assets.js"></script>
-</body>
-</html>
+  <div class="nav-item">
+    <img src="ic_market.svg" />
+    <div class="nav-label">Markets</div>
+  </div>
+  <div class="nav-item">
+    <img src="ic_trade.svg" />
+    <div class="nav-label">Trade</div>
+  </div>
+  <div class="nav-item">
+    <img src="ic_futures.svg" />
+    <div class="nav-label">Futures</div>
+  </div>
+  <div class="nav-item active">
+    <img src="ic_assets.svg" />
+    <div class="nav-label">Assets</div>
+  </div>
+</div>
