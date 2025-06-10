@@ -1,14 +1,10 @@
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  background: #090c10; /* ✅ More accurate background for Binance UI */
-  padding: 6px 0 4px;
-  border-top: 1px solid #1c1f24;
+bodya {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0b0e11;
+  color: #fff;
 }
+
 /* Toggle: Exchange/Wallet */
 .toggle-wrapper {
   display: flex;
@@ -221,7 +217,8 @@
   font-size: 11px;
   color: #aaa;
 }
-/* Bottom Navigation Bar */
+
+/* Bottom Navigation */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -232,32 +229,17 @@
   background: #0b0e11;
   padding: 6px 0 4px;
   border-top: 1px solid #1c1f24;
-  z-index: 1000;
 }
-
-/* Icon style */
 .nav-icon {
   width: 20px;
   height: 20px;
   margin: 0 auto 2px;
-  filter: brightness(0.8) grayscale(100%) contrast(90%);
-  opacity: 0.9;
 }
-
-/* Active icon stays white (or normal) */
-.bottom-nav .active .nav-icon {
-  filter: none;
-  opacity: 1;
-}
-
-/* Label text */
 .nav-label {
   font-size: 11px;
   text-align: center;
   color: #888;
 }
-
-/* Active label in Binance yellow */
 .bottom-nav .active .nav-label {
   color: #fcd535;
-}
+} 
