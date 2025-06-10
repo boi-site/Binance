@@ -12,8 +12,8 @@
     <!-- Toggle -->
     <div class="toggle-wrapper">
       <div class="toggle-box">
-        <button class="toggle-btn selected">Exchange</button>
-        <button class="toggle-btn">Wallet</button>
+        <button class="toggle-btn selected" aria-pressed="true">Exchange</button>
+        <button class="toggle-btn" aria-pressed="false">Wallet</button>
       </div>
     </div>
 
@@ -21,16 +21,15 @@
     <div class="sub-tabs">
       <div class="sub-tab-group">
         <span class="active">Overview</span>
-        <span>Earn</span>
-        <span>Funding</span>
-        <span>Spot</span>
+        <span onclick="location.href='earn.html'">Earn</span>
+        <span onclick="location.href='funding.html'">Funding</span>
+        <span onclick="location.href='spot.html'">Spot</span>
       </div>
       <div class="sub-tab-divider"></div>
     </div>
   </header>
 
   <main>
-    <!-- Balance Section -->
     <section class="balance-section">
       <div class="title-row">
         <div class="title-left">
@@ -43,7 +42,7 @@
         </div>
       </div>
 
-      <div class="balance-amount">$406,783,194.24 <span class="usd-tag">USD ▼</span></div>
+      <div class="balance-amount" id="balance-total">$0.00 <span class="usd-tag">USD ▼</span></div>
       <div class="pnl-inline">
         <span class="pnl-label">Today's PNL</span>
         <span id="total-pnl" class="pnl-green">Loading...</span>
@@ -77,7 +76,6 @@
     </section>
   </main>
 
-  <!-- Bottom Nav -->
   <footer class="bottom-nav">
     <div class="nav-item" onclick="location.href='home.html'">
       <img src="ic_home.svg" class="nav-icon" alt="Home" />
