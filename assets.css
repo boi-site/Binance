@@ -1,3 +1,4 @@
+/* Global Reset */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -6,6 +7,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Loading placeholder */
 .loading {
   padding: 16px;
   text-align: center;
@@ -22,7 +25,6 @@ body {
   display: flex;
   background-color: #1e2329;
   border-radius: 8px;
-  overflow: hidden;
 }
 .toggle-btn {
   padding: 6px 22px;
@@ -45,7 +47,6 @@ body {
 /* Sub-tabs */
 .sub-tabs {
   padding: 0 16px;
-  margin-top: 8px;
 }
 .sub-tab-group {
   display: flex;
@@ -63,7 +64,7 @@ body {
   margin: 8px 0;
 }
 
-/* Balance section */
+/* Balance Section */
 .balance-section {
   padding: 16px;
 }
@@ -76,8 +77,8 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #888;
   font-size: 13px;
+  color: #888;
 }
 .icon-svg {
   width: 16px;
@@ -86,7 +87,7 @@ body {
 .balance-amount {
   font-size: 20px;
   font-weight: 600;
-  margin-top: 6px;
+  margin: 6px 0;
 }
 .usd-tag {
   font-size: 12px;
@@ -97,12 +98,15 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-top: 6px;
   font-size: 12px;
   color: #888;
+  margin-bottom: 16px;
 }
 .pnl-green {
   color: #0ecb81;
+}
+.pnl-red {
+  color: #e74c3c;
 }
 .right-arrow {
   font-size: 11px;
@@ -114,6 +118,7 @@ body {
 .action-buttons {
   display: flex;
   gap: 8px;
+  margin-bottom: 16px;
 }
 .action-buttons button {
   flex: 1;
@@ -142,14 +147,12 @@ body {
 .divider-below-actions {
   height: 1px;
   background-color: #1c1f24;
-  margin: 16px 0 8px;
 }
 
 /* Asset Tabs */
 .asset-tabs {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 0 16px;
   margin-bottom: 8px;
 }
@@ -163,15 +166,12 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
 }
+.tab-labels span:active {
+  opacity: 0.8;
+}
 .tab-labels .tab-active {
   color: #fff;
   position: relative;
-}
-.tab-labels .inactive {
-  color: #888;
-}
-.tab-labels span:active {
-  opacity: 0.8;
 }
 .tab-labels .tab-active::after {
   content: '';
@@ -181,16 +181,11 @@ body {
   transform: translateX(-50%);
   width: 18px;
   height: 2px;
-  background-color: #fcd535;
+  background: #fcd535;
   border-radius: 1px;
 }
-.right-icons {
-  display: flex;
-  gap: 10px;
-}
-.right-icons img {
-  width: 16px;
-  height: 16px;
+.tab-labels .inactive {
+  color: #888;
 }
 
 /* Asset List */
@@ -200,7 +195,6 @@ body {
 .asset-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 14px 0;
   border-bottom: 1px solid #1c1f24;
 }
@@ -219,12 +213,11 @@ body {
 .asset-name {
   font-weight: 600;
   font-size: 13px;
-  color: #fff;
 }
 .asset-sub {
   font-size: 11px;
   color: #aaa;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 .asset-right {
   text-align: right;
@@ -232,7 +225,6 @@ body {
 .asset-amount {
   font-size: 13px;
   font-weight: 600;
-  color: #fff;
 }
 .asset-usd {
   font-size: 11px;
@@ -243,11 +235,10 @@ body {
 .bottom-nav {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: #0b0e11;
+  background: #0b0e11;
   padding: 6px 0 4px;
   border-top: 1px solid #1c1f24;
 }
@@ -262,7 +253,7 @@ body {
   height: 20px;
   margin-bottom: 2px;
   filter: brightness(0.8);
-  transition: filter 0.2s ease;
+  transition: filter 0.2s;
 }
 .nav-item.active .nav-icon {
   filter: brightness(1.4);
@@ -275,7 +266,7 @@ body {
   color: #fcd535;
 }
 
-/* Responsive Tweaks */
+/* Responsive */
 @media (min-width: 768px) {
   .balance-amount {
     font-size: 26px;
