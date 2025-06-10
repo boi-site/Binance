@@ -1,3 +1,4 @@
+/* home.css */
 /* ─── SAFE-AREA INSETS FOR IOS NOTCH ───────────────────────────────── */
 :root {
   --safe-area-inset-left: env(safe-area-inset-left);
@@ -359,48 +360,15 @@ body {
   height: 48px;
 }
 
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex: 1;
-  color: #848e9c;
+/* ─── Bottom Nav Icon Swap ─────────────────────────────────────────── */
+.nav-item .icon-active {
+  display: none;
 }
 
-.nav-item img {
-  height: 18px;
-  margin-bottom: 2px;
-  opacity: 0.7;
+.nav-item.active .icon-default {
+  display: none;
 }
 
-.nav-item.active img {
-  filter: brightness(1.7);
-  opacity: 1;
-}
-
-.nav-item p {
-  font-size: 11px;
-  margin: 0;
-  color: #848e9c;
-}
-
-/* ─── FORCE “ADD FUNDS” INLINE WITH BALANCE ────────────────────────── */
-.balance-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px calc(16px + var(--safe-area-inset-left)) 0 calc(16px + var(--safe-area-inset-right));
-  margin-top: 4px;
-  flex-wrap: nowrap !important;    /* never wrap */
-}
-.total-balance {
-  flex: 1 1 auto !important;       /* take remaining but shrink */
-  min-width: 0 !important;         /* allow true shrink */
-  white-space: nowrap !important;  /* keep number on one line */
-}
-.add-funds {
-  flex: 0 0 auto !important;       /* natural size */
-  margin-left: 16px !important;    /* gap from balance */
+.nav-item.active .icon-active {
+  display: inline-block;
 }
