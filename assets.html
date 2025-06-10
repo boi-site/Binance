@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b0e11">
   <title>Assets</title>
   <link rel="stylesheet" href="assets.css">
@@ -30,20 +30,33 @@
   </header>
 
   <main>
-    <!-- Balance section -->
     <section class="balance-section">
       <div class="title-row">
         <div class="title-left">
           <span>Est. Total Value</span>
-          <img src="eye.svg" class="icon-svg" alt="Toggle visibility" onerror="this.style.visibility='hidden'">
+          <!-- inline eye.svg -->
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 4.5C7 4.5 2.7 7.6 1 12c1.7 4.4 6 7.5 11 7.5s9.3-3.1 11-7.5C21.3 7.6 17 4.5 12 4.5zm0 12.5a5 5 0 1 1 0-10a5 5 0 0 1 0 10z"/>
+            <circle cx="12" cy="12" r="2"/>
+          </svg>
         </div>
         <div class="icons">
-          <img src="chart.svg" class="icon-svg" alt="Chart view" onerror="this.style.visibility='hidden'">
-          <img src="grid.svg" class="icon-svg" alt="Grid view" onerror="this.style.visibility='hidden'">
+          <!-- inline chart.svg -->
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M5 12h2v7H5zm4-5h2v12H9zm4 3h2v9h-2zm4-6h2v15h-2z"/>
+          </svg>
+          <!-- inline grid.svg -->
+          <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
         </div>
       </div>
 
       <div class="balance-amount" id="balance-total">$0.00 <span class="usd-tag">USD ▼</span></div>
+
       <div class="pnl-inline">
         <span class="pnl-label">Today's PNL</span>
         <span id="total-pnl" class="pnl-green">Loading...</span>
@@ -66,12 +79,19 @@
         <span class="inactive">Account</span>
       </div>
       <div class="right-icons">
-        <img src="search.svg" class="icon-svg" alt="Search" onerror="this.style.visibility='hidden'">
-        <img src="settings.svg" class="icon-svg" alt="Settings" onerror="this.style.visibility='hidden'">
+        <!-- inline search.svg -->
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <!-- inline settings.svg -->
+        <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.77 1.77 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.82l-.06-.06a1.77 1.77 0 0 0-1.82-.33 1.77 1.77 0 0 0-1 1.53V21a2 2 0 0 1-4 0v-.09a1.77 1.77 0 0 0-1-1.53 1.77 1.77 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.82l.06-.06a1.77 1.77 0 0 0 .33-1.82 1.77 1.77 0 0 0-1.53-1H3a2 2 0 0 1 0-4h.09a1.77 1.77 0 0 0 1.53-1 1.77 1.77 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.82-2.83l.06.06a1.77 1.77 0 0 0 1.82.33h.09a1.77 1.77 0 0 0 1-1.53V3a2 2 0 0 1 4 0v.09c.46.15.87.43 1 .82h.09a1.77 1.77 0 0 0 1.53 1 1.77 1.77 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.82l-.06.06a1.77 1.77 0 0 0-.33 1.82v.09a1.77 1.77 0 0 0 1.53 1H21a2 2 0 0 1 0 4h-.09a1.77 1.77 0 0 0-1.53 1z"/>
+        </svg>
       </div>
     </section>
 
-    <!-- Asset list -->
     <section id="asset-list" class="asset-list">
       <div class="loading">Loading assets…</div>
     </section>
