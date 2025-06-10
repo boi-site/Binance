@@ -217,8 +217,7 @@ body {
   font-size: 11px;
   color: #aaa;
 }
-
-/* Bottom Navigation */
+/* Bottom Navigation Bar */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -229,18 +228,32 @@ body {
   background: #0b0e11;
   padding: 6px 0 4px;
   border-top: 1px solid #1c1f24;
+  z-index: 1000;
 }
+
+/* Icon style */
 .nav-icon {
   width: 20px;
   height: 20px;
   margin: 0 auto 2px;
+  filter: brightness(0.8) grayscale(100%) contrast(90%);
+  opacity: 0.9;
 }
+
+/* Active icon stays white (or normal) */
+.bottom-nav .active .nav-icon {
+  filter: none;
+  opacity: 1;
+}
+
+/* Label text */
 .nav-label {
   font-size: 11px;
   text-align: center;
-  color: #5e6673; /* updated from #888 to match Binance UI */
+  color: #888;
 }
 
+/* Active label in Binance yellow */
 .bottom-nav .active .nav-label {
-  color: #fcd535; /* this stays the same */
+  color: #fcd535;
 }
