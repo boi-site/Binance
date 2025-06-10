@@ -1,8 +1,8 @@
 :root {
   --bg-color: #0b0e11;
   --text-color: #eaecef;
-  --muted-color: #848e9c;
-  --active-color: #f0b90b;
+  --muted-color: #d1d4dc;     /* Inactive icon text color - soft gray */
+  --active-color: #fcd535;    /* Binance yellow for active tab */
   --card-bg: #1e2329;
   --button-bg: #1e2329;
   --input-bg: #131517;
@@ -246,21 +246,13 @@ nav.bottom-bar {
   border-top: 1px solid var(--divider);
   padding: 6px 0 10px;
 }
-
-nav.bottom-bar .nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 11px;
-  color: var(--muted-color);
-}
-
-nav.bottom-bar .nav-item.active {
-  color: var(--active-color);
-}
-
 nav.bottom-bar img {
   width: 20px;
   height: 20px;
   margin-bottom: 4px;
+  filter: grayscale(100%) brightness(0.9);
+}
+
+nav.bottom-bar .nav-item.active img {
+  filter: none; /* Remove gray filter on active tab */
 }
