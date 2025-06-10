@@ -30,7 +30,7 @@ async function fetchPrices() {
           value: value.toFixed(2),
           amount: amount.toFixed(8),
           avgCost: avgCost.toFixed(2),
-          icon: `${name.toLowerCase()}.svg` // e.g., btc.svg, eth.svg
+          icon: `${name.toLowerCase()}.svg`
         };
       });
   } catch (e) {
@@ -45,9 +45,19 @@ async function loadAssets() {
 
   const coinData = await fetchPrices();
   let totalChange = 0;
+  let totalValue = 0;
+  let totalPNL = 0;
+
+  // Sort assets by USD value descending
+  coinData.sort((a, b) => parseFloat(b.value) - parseFloat(a.value));
 
   coinData.forEach(coin => {
+    const value = parseFloat(coin.value);
+    const pnlUSD = value * (coin.change / 100);
+
     totalChange += coin.change;
+    totalValue += value;
+    totalPNL += pnlUSD;
 
     const row = document.createElement("div");
     row.className = "asset-row";
@@ -59,12 +69,12 @@ async function loadAssets() {
           <div class="asset-name">${coin.name}</div>
           <div class="asset-sub">$${coin.price.toFixed(5)}</div>
           <div class="asset-sub">Today's PNL: $0.00 (${coin.change.toFixed(2)}%)</div>
-          <div class="asset-sub">Average cost: $${coin.avgCost}</div>
+          ${coin.name === 'eth' ? `<div class="asset-sub">Average cost: $${coin.avgCost}</div>` : ''}
         </div>
       </div>
       <div class="asset-right">
         <div class="asset-amount">${coin.amount}</div>
-        <div class="asset-usd">$${coin.value}</div>
+        <div class="asset-usd">$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
       </div>
     `;
 
@@ -72,10 +82,18 @@ async function loadAssets() {
   });
 
   const pnl = document.getElementById("total-pnl");
-  if (pnl && coinData.length > 0) {
+  if (pnl && coinData.length > 0 && totalValue > 0) {
     const avgChange = totalChange / coinData.length;
-    pnl.textContent = `+0.00 (${avgChange.toFixed(2)}%)`;
+    const pnlPercent = (totalPNL / totalValue) * 100;
+
+    pnl.innerHTML = `
+      $${totalPNL.toFixed(8)} 
+      (<span style="color:#0ecb81">${pnlPercent.toFixed(2)}%</span>)
+    `;
   }
+
+  // OPTIONAL: Do NOT overwrite hardcoded balance amount
+  // document.querySelector(".balance-amount").innerHTML = `$${totalValue.toFixed(2)} <span class="usd-tag">USD ▼</span>`;
 }
 
 loadAssets();
