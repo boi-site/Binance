@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b0e11" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0e11">
   <title>Assets</title>
-  <link rel="stylesheet" href="assets.css" />
+  <link rel="stylesheet" href="assets.css">
 </head>
 <body>
   <header>
@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <!-- Sub Tabs -->
+    <!-- Sub-tabs -->
     <div class="sub-tabs">
       <div class="sub-tab-group">
         <span class="active">Overview</span>
@@ -30,19 +30,20 @@
   </header>
 
   <main>
+    <!-- Balance section -->
     <section class="balance-section">
       <div class="title-row">
         <div class="title-left">
           <span>Est. Total Value</span>
-          <img src="eye.svg" class="icon-svg" alt="Toggle Visibility" />
+          <img src="eye.svg" class="icon-svg" alt="Toggle visibility" onerror="this.style.visibility='hidden'">
         </div>
         <div class="icons">
-          <img src="chart.svg" class="icon-svg" alt="Chart View" />
-          <img src="grid.svg" class="icon-svg" alt="Grid View" />
+          <img src="chart.svg" class="icon-svg" alt="Chart view" onerror="this.style.visibility='hidden'">
+          <img src="grid.svg" class="icon-svg" alt="Grid view" onerror="this.style.visibility='hidden'">
         </div>
       </div>
 
-      <div class="balance-amount" id="balance-total">$406,783,194.24 <span class="usd-tag">USD ▼</span></div>
+      <div class="balance-amount" id="balance-total">$0.00 <span class="usd-tag">USD ▼</span></div>
       <div class="pnl-inline">
         <span class="pnl-label">Today's PNL</span>
         <span id="total-pnl" class="pnl-green">Loading...</span>
@@ -58,19 +59,19 @@
       <div class="divider-below-actions"></div>
     </section>
 
-    <!-- Asset Tabs -->
+    <!-- Asset tabs -->
     <section class="asset-tabs">
       <div class="tab-labels">
         <span class="tab-active">Crypto</span>
         <span class="inactive">Account</span>
       </div>
       <div class="right-icons">
-        <img src="search.svg" class="icon-svg" alt="Search" />
-        <img src="settings.svg" class="icon-svg" alt="Settings" />
+        <img src="search.svg" class="icon-svg" alt="Search" onerror="this.style.visibility='hidden'">
+        <img src="settings.svg" class="icon-svg" alt="Settings" onerror="this.style.visibility='hidden'">
       </div>
     </section>
 
-    <!-- Asset List -->
+    <!-- Asset list -->
     <section id="asset-list" class="asset-list">
       <div class="loading">Loading assets…</div>
     </section>
@@ -78,23 +79,23 @@
 
   <footer class="bottom-nav">
     <div class="nav-item" onclick="location.href='home.html'">
-      <img src="ic_home.svg" class="nav-icon" alt="Home" />
+      <img src="ic_home.svg" class="nav-icon" alt="Home">
       <div class="nav-label">Home</div>
     </div>
     <div class="nav-item">
-      <img src="ic_market.svg" class="nav-icon" alt="Markets" />
+      <img src="ic_market.svg" class="nav-icon" alt="Markets">
       <div class="nav-label">Markets</div>
     </div>
     <div class="nav-item">
-      <img src="ic_trade.svg" class="nav-icon" alt="Trade" />
+      <img src="ic_trade.svg" class="nav-icon" alt="Trade">
       <div class="nav-label">Trade</div>
     </div>
     <div class="nav-item">
-      <img src="ic_futures.svg" class="nav-icon" alt="Futures" />
+      <img src="ic_futures.svg" class="nav-icon" alt="Futures">
       <div class="nav-label">Futures</div>
     </div>
     <div class="nav-item active">
-      <img src="ic_assets.svg" class="nav-icon" alt="Assets" />
+      <img src="ic_assets.svg" class="nav-icon" alt="Assets">
       <div class="nav-label">Assets</div>
     </div>
   </footer>
