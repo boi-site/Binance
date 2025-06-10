@@ -1,15 +1,23 @@
-bodya {
+/* Global */
+body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #0b0e11;
   color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.loading {
+  padding: 16px;
+  text-align: center;
+  color: #888;
 }
 
-/* Toggle: Exchange/Wallet */
+/* Toggle */
 .toggle-wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 12px;
+  margin: 12px 0;
 }
 .toggle-box {
   display: flex;
@@ -21,18 +29,24 @@ bodya {
   padding: 6px 22px;
   font-size: 13px;
   color: #888;
-  background-color: transparent;
+  background: none;
   border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 .toggle-btn.selected {
   background-color: #2b3139;
   color: #fff;
 }
+.toggle-btn:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
 
 /* Sub-tabs */
 .sub-tabs {
   padding: 0 16px;
-  margin-top: 16px;
+  margin-top: 8px;
 }
 .sub-tab-group {
   display: flex;
@@ -47,10 +61,10 @@ bodya {
 .sub-tab-divider {
   height: 1px;
   background-color: #1c1f24;
-  margin-top: 8px;
+  margin: 8px 0;
 }
 
-/* Balance Section */
+/* Balance section */
 .balance-section {
   padding: 16px;
 }
@@ -66,15 +80,12 @@ bodya {
   color: #888;
   font-size: 13px;
 }
-.eye-icon {
-  width: 14px;
-}
 .icon-svg {
   width: 16px;
-  margin-left: 8px;
+  vertical-align: middle;
 }
 .balance-amount {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   margin-top: 6px;
 }
@@ -90,7 +101,6 @@ bodya {
   margin-top: 6px;
   font-size: 12px;
   color: #888;
-  margin-bottom: 16px;
 }
 .pnl-green {
   color: #0ecb81;
@@ -113,6 +123,12 @@ bodya {
   border-radius: 6px;
   font-weight: 500;
   border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.action-buttons button:active {
+  opacity: 0.8;
+  transform: scale(0.98);
 }
 .add {
   background-color: #fcd535;
@@ -120,15 +136,14 @@ bodya {
 }
 .gray {
   background-color: #2b3139;
-  color: white;
+  color: #fff;
 }
 
-/* Divider under buttons */
+/* Divider */
 .divider-below-actions {
   height: 1px;
   background-color: #1c1f24;
-  margin-top: 16px;
-  margin-bottom: 8px;
+  margin: 16px 0 8px;
 }
 
 /* Asset Tabs */
@@ -146,10 +161,18 @@ bodya {
 .tab-labels span {
   font-size: 13px;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 .tab-labels .tab-active {
-  color: #ffffff;
+  color: #fff;
   position: relative;
+}
+.tab-labels .inactive {
+  color: #888;
+}
+.tab-labels span:active {
+  opacity: 0.8;
 }
 .tab-labels .tab-active::after {
   content: '';
@@ -157,13 +180,10 @@ bodya {
   bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
-  height: 2px;
   width: 18px;
+  height: 2px;
   background-color: #fcd535;
   border-radius: 1px;
-}
-.tab-labels .inactive {
-  color: #888;
 }
 .right-icons {
   display: flex;
@@ -174,7 +194,7 @@ bodya {
   height: 16px;
 }
 
-/* Coin List Area */
+/* Asset List */
 .asset-list {
   padding: 0 16px 80px;
 }
@@ -200,6 +220,7 @@ bodya {
 .asset-name {
   font-weight: 600;
   font-size: 13px;
+  color: #fff;
 }
 .asset-sub {
   font-size: 11px;
@@ -212,13 +233,14 @@ bodya {
 .asset-amount {
   font-size: 13px;
   font-weight: 600;
+  color: #fff;
 }
 .asset-usd {
   font-size: 11px;
   color: #aaa;
 }
 
-/* Bottom Navigation */
+/* Bottom Nav */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -226,20 +248,40 @@ bodya {
   right: 0;
   display: flex;
   justify-content: space-around;
-  background: #0b0e11;
+  background-color: #0b0e11;
   padding: 6px 0 4px;
   border-top: 1px solid #1c1f24;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 .nav-icon {
   width: 20px;
   height: 20px;
-  margin: 0 auto 2px;
+  margin-bottom: 2px;
+  filter: brightness(0.8);
+  transition: filter 0.2s ease;
+}
+.nav-item.active .nav-icon {
+  filter: brightness(1.4);
 }
 .nav-label {
   font-size: 11px;
-  text-align: center;
   color: #888;
 }
-.bottom-nav .active .nav-label {
+.nav-item.active .nav-label {
   color: #fcd535;
-} 
+}
+
+/* Responsive Tweaks */
+@media (min-width: 768px) {
+  .balance-amount {
+    font-size: 26px;
+  }
+  .asset-row {
+    padding: 18px 0;
+  }
+}
