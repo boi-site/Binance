@@ -95,7 +95,7 @@ body {
   font-size: 13px;
   color: #848e9c;
   align-self: flex-end;
-  transform: translateY(4px);
+  transform: translateY(8px);
 }
 
 .quick-actions {
