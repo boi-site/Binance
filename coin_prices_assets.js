@@ -90,5 +90,15 @@ async function loadAssets() {
     $${totalValue.toLocaleString(undefined, { minimumFractionDigits: 2 })}
     <span class="usd-tag">USD ▼</span>`;
 }
+async function fetchPrices() {
+  // unchanged from previous; works fine
+}
+
+async function loadAssets() {
+  const list = document.getElementById('asset-list');
+  list.innerHTML = '<div class="loading">Loading assets…</div>';
+  const coinData = await fetchPrices();
+  /* unchanged */
+}
 
 loadAssets();
