@@ -14,8 +14,8 @@ async function fetchPrices() {
 
     return data
       .filter(item =>
-        item.symbol.endsWith("USDT")
-        && coins.includes(item.symbol.replace("USDT", "").toLowerCase())
+        item.symbol.endsWith("USDT") &&
+        coins.includes(item.symbol.replace("USDT", "").toLowerCase())
       )
       .map(item => {
         const name = item.symbol.replace("USDT", "");
@@ -35,8 +35,7 @@ async function fetchPrices() {
           avgCost,
           icon: `${name.toLowerCase()}.svg`
         };
-      })
-      .filter(Boolean);
+      }).filter(Boolean);
   } catch (e) {
     console.error("Failed to fetch prices", e);
     return [];
@@ -55,14 +54,13 @@ async function loadAssets() {
     return;
   }
 
-  let totalValue = 0, totalCost = 0;
-  let totalChangePercentSum = 0;
+  let totalValue = 0, totalCost = 0, totalChange = 0;
 
   coinData.forEach(coin => {
     const { name, price, change, value, amount, avgCost, icon } = coin;
     totalValue += value;
     totalCost += avgCost * amount;
-    totalChangePercentSum += change;
+    totalChange += change;
 
     const row = document.createElement("div");
     row.className = "asset-row";
@@ -71,7 +69,7 @@ async function loadAssets() {
         <img src="${icon}" class="asset-icon-img" onerror="this.src='default.svg'" />
         <div class="asset-info">
           <div class="asset-name">${name.toUpperCase()}</div>
-          <div class="asset-sub">$${price.toFixed(name.toLowerCase() === 'usdt' ? 2 : 5)}</div>
+          <div class="asset-sub">$${price.toFixed(name === 'usdt' ? 2 : 5)}</div>
           <div class="asset-sub">Today's PNL: $${(price * amount - avgCost * amount).toFixed(2)} (${change.toFixed(2)}%)</div>
           <div class="asset-sub">Average cost: $${avgCost.toFixed(2)}</div>
         </div>
@@ -86,9 +84,11 @@ async function loadAssets() {
 
   const pnlEl = document.getElementById("total-pnl");
   const netPNL = totalValue - totalCost;
-  const avgChange = (totalChangePercentSum / coinData.length).toFixed(2);
-  pnlEl.textContent = `$${netPNL.toFixed(2)} (${avgChange}%)`;
+  const avgChange = totalChange / coinData.length;
+  pnlEl.textContent = `$${netPNL.toFixed(8)} (${avgChange.toFixed(2)}%)`;
   pnlEl.className = netPNL >= 0 ? 'pnl-green' : 'pnl-red';
+
+  document.getElementById("balance-total").innerHTML = `$${totalValue.toLocaleString(undefined, { minimumFractionDigits: 2 })} <span class="usd-tag">USD ▼</span>`;
 }
 
 loadAssets();
