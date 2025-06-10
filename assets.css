@@ -1,8 +1,9 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0b0e11;
-  color: #fff;
+  background-color: #090c10; /* ✅ Exact Binance dark background */
+  color: #eaecef;
+}
 }
 
 /* Toggle: Exchange/Wallet */
