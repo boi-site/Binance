@@ -2,62 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Binance Assets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assets</title>
   <link rel="stylesheet" href="assets.css" />
 </head>
 <body>
 
-  <div class="top-toggle-container">
+  <!-- Toggle -->
+  <div class="toggle-wrapper">
     <div class="toggle-box">
-      <button class="toggle-button active">Exchange</button>
-      <button class="toggle-button">Wallet</button>
+      <div class="toggle-btn selected">Exchange</div>
+      <div class="toggle-btn">Wallet</div>
     </div>
   </div>
 
-  <nav class="overview-tabs">
-    <span>Overview</span><span>Earn</span><span>Funding</span><span>Spot</span>
-  </nav>
+  <!-- Sub Tabs -->
+  <div class="sub-tabs">
+    <div class="sub-tab-group">
+      <span class="active">Overview</span>
+      <span>Earn</span>
+      <span>Funding</span>
+      <span>Spot</span>
+    </div>
+    <div class="sub-tab-divider"></div>
+  </div>
 
-  <div class="value-section">
-    <div class="value-label">
-      <span>Est. Total Value</span>
-      <img src="eye.svg" alt="eye" class="icon-small">
+  <!-- Balance -->
+  <div class="balance-section">
+    <div class="title-row">
+      <div class="title-left">
+        <span>Est. Total Value</span>
+        <img src="eye.svg" class="icon-svg" />
+      </div>
+      <div class="icons">
+        <img src="chart.svg" class="icon-svg" />
+        <img src="grid.svg" class="icon-svg" />
+      </div>
     </div>
-    <div class="value-amount">
-      <span class="amount">$406,783,194.24</span>
-      <span class="currency">USD ▼</span>
+
+    <div class="balance-amount">$406,783,194.24 <span class="usd-tag">USD ▼</span></div>
+    <div class="pnl-inline">
+      <span class="pnl-label">Today's PNL</span>
+      <span id="total-pnl" class="pnl-green">+0.00 (+0.00%)</span>
+      <span class="right-arrow">&#8250;</span>
     </div>
-    <div class="pnl-line">
-      <span>Today's PNL</span>
-      <span id="total-pnl" class="pnl-positive">+0.00 (+0.00%)</span>
-      <span class="arrow-symbol">›</span>
-    </div>
+
     <div class="action-buttons">
-      <button class="btn-yellow">Add Funds</button>
-      <button class="btn-dark">Send</button>
-      <button class="btn-dark">Transfer</button>
+      <button class="add">Add Funds</button>
+      <button class="gray">Send</button>
+      <button class="gray">Transfer</button>
     </div>
-    <div class="divider-line"></div>
+
+    <div class="divider-below-actions"></div>
   </div>
 
+  <!-- Tabs -->
   <div class="asset-tabs">
-    <span class="active">Crypto</span><span>Account</span>
-    <img src="search.svg" class="icon-small" />
-    <img src="settings.svg" class="icon-small" />
+    <div class="tab-labels">
+      <span class="tab-active">Crypto</span>
+      <span class="inactive">Account</span>
+    </div>
+    <div class="right-icons">
+      <img src="search.svg" class="icon-svg" />
+      <img src="settings.svg" class="icon-svg" />
+    </div>
   </div>
 
-  <div id="asset-list" class="asset-list-container">
-    <!-- JS renders coin rows here -->
-  </div>
+  <!-- List -->
+  <div id="asset-list" class="asset-list"></div>
 
-  <footer class="bottom-nav">
-    <a href="home.html" class="nav-item"><img src="ic_home.svg"/><span>Home</span></a>
-    <a href="#" class="nav-item"><img src="ic_market.svg"/><span>Markets</span></a>
-    <a href="#" class="nav-item"><img src="ic_trade.svg"/><span>Trade</span></a>
-    <a href="#" class="nav-item"><img src="ic_futures.svg"/><span>Futures</span></a>
-    <a href="#" class="nav-item active"><img src="ic_assets.svg"/><span>Assets</span></a>
-  </footer>
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <div onclick="location.href='home.html'"><img src="ic_home.svg" class="nav-icon" /><div class="nav-label">Home</div></div>
+    <div><img src="ic_market.svg" class="nav-icon" /><div class="nav-label">Markets</div></div>
+    <div><img src="ic_trade.svg" class="nav-icon" /><div class="nav-label">Trade</div></div>
+    <div><img src="ic_futures.svg" class="nav-icon" /><div class="nav-label">Futures</div></div>
+    <div class="active"><img src="ic_assets.svg" class="nav-icon" /><div class="nav-label">Assets</div></div>
+  </div>
 
   <script src="coin_prices_assets.js"></script>
 </body>
