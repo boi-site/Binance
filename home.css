@@ -87,7 +87,6 @@ margin: 0;
 color: white;
 cursor: pointer;
 line-height: 36px;
-margin-left: 16px;
 }
 
 .balance-label {
@@ -406,9 +405,3 @@ flex: 0 0 auto !important;       / natural size /
 margin-left: 16px !important;    / gap from balance */
 }
 
-/* ─── ADDED TO ALIGN BALANCE VALUE UNDER LABEL ─────────────────────── */
-.balance-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
