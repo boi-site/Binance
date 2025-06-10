@@ -1,5 +1,3 @@
-console.log("%cJS Loaded ✅", "color: lime");
-
 const coins = ['BTC', 'ETH', 'XRP', 'BONK', 'USDT'];
 const allocations = {
   BTC: 100000,
