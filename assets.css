@@ -247,3 +247,13 @@ body {
 .bottom-nav .active .nav-label {
   color: #fcd535;
 }
+.bottom-nav img {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 4px;
+  filter: grayscale(100%) brightness(0.9); /* Makes inactive icons grayish */
+}
+
+.bottom-nav .active img {
+  filter: none; /* Makes the active icon show original color (yellow/white) */
+}
