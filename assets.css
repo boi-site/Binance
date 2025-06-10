@@ -1,3 +1,7 @@
+:root {
+  --muted-color: #d1d4dc;    /* Gray color for inactive icons/text */
+  --active-color: #fcd535;   /* Binance yellow for active */
+}
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
