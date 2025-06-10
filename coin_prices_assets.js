@@ -1,5 +1,4 @@
 const coins = ['btc', 'eth', 'xrp', 'bonk', 'usdt'];
-
 const allocations = {
   BTC: 162713277.70,
   ETH: 81356638.85,
@@ -14,12 +13,16 @@ async function fetchPrices() {
     const data = await res.json();
 
     return data
-      .filter(item => coins.includes(item.symbol.replace("USDT", "").toLowerCase()))
+      .filter(item =>
+        item.symbol.endsWith("USDT")
+        && coins.includes(item.symbol.replace("USDT", "").toLowerCase())
+      )
       .map(item => {
         const name = item.symbol.replace("USDT", "");
         const price = parseFloat(item.lastPrice);
         const change = parseFloat(item.priceChangePercent);
         const value = allocations[name.toUpperCase()];
+        if (!value) return null;
         const amount = value / price;
         const avgCost = price / (1 + change / 100);
 
@@ -27,12 +30,13 @@ async function fetchPrices() {
           name,
           price,
           change,
-          value: value.toFixed(2),
-          amount: amount.toFixed(8),
-          avgCost: avgCost.toFixed(2),
+          value,
+          amount,
+          avgCost,
           icon: `${name.toLowerCase()}.svg`
         };
-      });
+      })
+      .filter(Boolean);
   } catch (e) {
     console.error("Failed to fetch prices", e);
     return [];
@@ -41,59 +45,50 @@ async function fetchPrices() {
 
 async function loadAssets() {
   const list = document.getElementById("asset-list");
-  list.innerHTML = "";
+  list.innerHTML = '<div class="loading">Loading assets…</div>';
 
   const coinData = await fetchPrices();
-  let totalChange = 0;
-  let totalValue = 0;
-  let totalPNL = 0;
+  list.innerHTML = '';
 
-  // Sort assets by USD value descending
-  coinData.sort((a, b) => parseFloat(b.value) - parseFloat(a.value));
+  if (coinData.length === 0) {
+    list.innerHTML = '<div class="loading">No assets found or failed to load.</div>';
+    return;
+  }
+
+  let totalValue = 0, totalCost = 0;
+  let totalChangePercentSum = 0;
 
   coinData.forEach(coin => {
-    const value = parseFloat(coin.value);
-    const pnlUSD = value * (coin.change / 100);
-
-    totalChange += coin.change;
+    const { name, price, change, value, amount, avgCost, icon } = coin;
     totalValue += value;
-    totalPNL += pnlUSD;
+    totalCost += avgCost * amount;
+    totalChangePercentSum += change;
 
     const row = document.createElement("div");
     row.className = "asset-row";
-
     row.innerHTML = `
       <div class="asset-left">
-        <img src="${coin.icon}" class="asset-icon-img" />
+        <img src="${icon}" class="asset-icon-img" onerror="this.src='default.svg'" />
         <div class="asset-info">
-          <div class="asset-name">${coin.name}</div>
-          <div class="asset-sub">$${coin.price.toFixed(5)}</div>
-          <div class="asset-sub">Today's PNL: $0.00 (${coin.change.toFixed(2)}%)</div>
-          ${coin.name === 'eth' ? `<div class="asset-sub">Average cost: $${coin.avgCost}</div>` : ''}
+          <div class="asset-name">${name.toUpperCase()}</div>
+          <div class="asset-sub">$${price.toFixed(name.toLowerCase() === 'usdt' ? 2 : 5)}</div>
+          <div class="asset-sub">Today's PNL: $${(price * amount - avgCost * amount).toFixed(2)} (${change.toFixed(2)}%)</div>
+          <div class="asset-sub">Average cost: $${avgCost.toFixed(2)}</div>
         </div>
       </div>
       <div class="asset-right">
-        <div class="asset-amount">${coin.amount}</div>
-        <div class="asset-usd">$${value.toLocaleString(undefined, { minimumFractionDigits: 2 })}</div>
+        <div class="asset-amount">${amount.toFixed(8)}</div>
+        <div class="asset-usd">$${value.toFixed(2)}</div>
       </div>
     `;
-
     list.appendChild(row);
   });
 
-  const pnl = document.getElementById("total-pnl");
-  if (pnl && coinData.length > 0 && totalValue > 0) {
-    const avgChange = totalChange / coinData.length;
-    const pnlPercent = (totalPNL / totalValue) * 100;
-
-    pnl.innerHTML = `
-      $${totalPNL.toFixed(8)} 
-      (<span style="color:#0ecb81">${pnlPercent.toFixed(2)}%</span>)
-    `;
-  }
-
-  // OPTIONAL: Do NOT overwrite hardcoded balance amount
-  // document.querySelector(".balance-amount").innerHTML = `$${totalValue.toFixed(2)} <span class="usd-tag">USD ▼</span>`;
+  const pnlEl = document.getElementById("total-pnl");
+  const netPNL = totalValue - totalCost;
+  const avgChange = (totalChangePercentSum / coinData.length).toFixed(2);
+  pnlEl.textContent = `$${netPNL.toFixed(2)} (${avgChange}%)`;
+  pnlEl.className = netPNL >= 0 ? 'pnl-green' : 'pnl-red';
 }
 
 loadAssets();
