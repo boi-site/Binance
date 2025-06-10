@@ -81,12 +81,14 @@ margin-top: 4px;
 }
 
 .total-balance {
-font-size: 28px;
-font-weight: bold;
-margin: 0;
-color: white;
-cursor: pointer;
-line-height: 36px;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: white;
+  cursor: pointer;
+  line-height: 36px;
+  margin-left: 0px;         /* remove any old margin */
+  transform: translateX(-16px); /* nudge left, try -16px or tweak as needed */
 }
 
 .balance-label {
