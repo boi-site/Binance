@@ -8,12 +8,12 @@ body {
   padding-top: 18px;
   padding-left: var(--safe-area-inset-left);
   padding-right: var(--safe-area-inset-right);
-  background-color: #0b0e11;
+  background-color: #181a20;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #eaecef;
 }
 
-/* ─── Toggle: Exchange | Wallet (updated) ─────────────── */
+/* ─── Toggle: Exchange | Wallet (updated again) ───────── */
 .toggle-container {
   display: flex;
   justify-content: center;
@@ -43,11 +43,9 @@ body {
 }
 
 .toggle-btn.selected {
-  background-color: #181a20; /* match home.css */
+  background-color: #181a20; /* exact match with home.css */
   color: #fff;
 }
-
-/* (unchanged styles below this line — all from previous version) */
 
 /* ─── Sub Tabs ─────────────────────────────────────────── */
 .sub-tabs {
@@ -88,6 +86,7 @@ body {
 /* ─── Balance Section ──────────────────────────────────── */
 .balance-section {
   padding: 16px;
+  background-color: transparent; /* enforce bg inheritance */
 }
 
 .balance-label {
@@ -137,6 +136,7 @@ body {
   display: flex;
   gap: 10px;
   margin: 16px;
+  background-color: transparent;
 }
 
 .btn {
@@ -187,6 +187,7 @@ body {
 /* ─── Coin List Items ──────────────────────────────────── */
 .coin-list {
   padding: 0 16px 80px;
+  background-color: transparent;
 }
 
 .coin-item {
@@ -251,7 +252,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #0b0e11;
+  background: #181a20;
   display: flex;
   justify-content: space-around;
   padding: 6px 0;
