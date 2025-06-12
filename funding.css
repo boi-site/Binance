@@ -13,7 +13,7 @@ body {
   color: #eaecef;
 }
 
-/* ─── Toggle: Exchange | Wallet (updated again) ───────── */
+/* ─── Toggle: Exchange | Wallet ───────────────────────── */
 .toggle-container {
   display: flex;
   justify-content: center;
@@ -43,50 +43,42 @@ body {
 }
 
 .toggle-btn.selected {
-  background-color: #181a20; /* exact match with home.css */
+  background-color: #181a20;
   color: #fff;
 }
 
-/* ─── Sub Tabs ─────────────────────────────────────────── */
+/* ─── Sub Tabs (yellow underline removed) ─────────────── */
 .sub-tabs {
   padding: 0 16px;
 }
 
 .sub-tab-group {
   display: flex;
-  gap: 18px;
-  font-size: 13px;
-  color: #888;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.sub-tab-group span {
+  color: #848e9c;
+  padding-bottom: 6px;
 }
 
 .sub-tab-group .active {
   color: #fff;
-  font-weight: 500;
-  position: relative;
-}
-
-.sub-tab-group .active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 18px;
-  height: 2px;
-  background: #fcd535;
-  border-radius: 1px;
+  font-weight: 600;
 }
 
 .sub-tab-divider {
   height: 1px;
   background-color: #1c1f24;
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
-/* ─── Balance Section ──────────────────────────────────── */
+/* ─── Balance Section ───────────────────────────────── */
 .balance-section {
   padding: 16px;
-  background-color: transparent; /* enforce bg inheritance */
+  background-color: transparent;
 }
 
 .balance-label {
@@ -131,7 +123,7 @@ body {
   color: #f6465d;
 }
 
-/* ─── Action Buttons ───────────────────────────────────── */
+/* ─── Action Buttons ─────────────────────────────────── */
 .button-row {
   display: flex;
   gap: 10px;
@@ -163,7 +155,7 @@ body {
   font-weight: bold;
 }
 
-/* ─── Coin Header (Checkbox + Search) ─────────────────── */
+/* ─── Coin Header ────────────────────────────────────── */
 .balances-header {
   display: flex;
   justify-content: space-between;
@@ -184,7 +176,7 @@ body {
   opacity: 0.7;
 }
 
-/* ─── Coin List Items ──────────────────────────────────── */
+/* ─── Coin List ──────────────────────────────────────── */
 .coin-list {
   padding: 0 16px 80px;
   background-color: transparent;
@@ -246,7 +238,7 @@ body {
   margin-top: 2px;
 }
 
-/* ─── Bottom Navigation ────────────────────────────────── */
+/* ─── Bottom Nav ─────────────────────────────────────── */
 .bottom-nav {
   position: fixed;
   bottom: 0;
