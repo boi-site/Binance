@@ -13,37 +13,38 @@ body {
   color: #eaecef;
 }
 
-/* ─── Toggle Section ───────────────────────────────────── */
-.toggle-wrapper {
+/* ─── Toggle: Exchange | Wallet ─────────────────────────── */
+.toggle-container {
   display: flex;
   justify-content: center;
   margin: 12px 0;
+  padding: 2px;
+  background-color: #1e2329;
+  border-radius: 20px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .toggle-box {
   display: flex;
-  background-color: #1e2329;
-  border-radius: 8px;
 }
 
 .toggle-btn {
-  padding: 6px 22px;
+  padding: 6px 20px;
   font-size: 13px;
-  color: #888;
-  background: none;
+  font-weight: 500;
+  color: #848e9c;
+  background: transparent;
   border: none;
+  border-radius: 16px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .toggle-btn.selected {
-  background-color: #2b3139;
+  background-color: #0b0e11;
   color: #fff;
-}
-
-.toggle-btn:active {
-  opacity: 0.8;
-  transform: scale(0.98);
 }
 
 /* ─── Sub Tabs ─────────────────────────────────────────── */
