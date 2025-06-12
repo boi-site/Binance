@@ -13,7 +13,7 @@ body {
   color: #eaecef;
 }
 
-/* ─── Toggle: Exchange | Wallet ───────────────────────── */
+/* ─── Toggle ─────────────────────────── */
 .toggle-container {
   display: flex;
   justify-content: center;
@@ -47,7 +47,7 @@ body {
   color: #fff;
 }
 
-/* ─── Sub Tabs (yellow underline removed) ─────────────── */
+/* ─── Sub Tabs ───────────────────────── */
 .sub-tabs {
   padding: 0 16px;
 }
@@ -75,30 +75,31 @@ body {
   margin: 6px 0;
 }
 
-/* ─── Balance Section ───────────────────────────────── */
-.balance-section {
-  padding: 16px;
-  background-color: transparent;
-}
-
-.balance-label {
-  font-size: 13px;
-  color: #848e9c;
+/* ─── Title Row + Eye ─────────────────── */
+.eye-title-row {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-size: 13px;
+  color: #848e9c;
 }
 
-.eye-icon {
+.icon-svg {
   width: 16px;
   height: 16px;
   opacity: 0.7;
+  vertical-align: middle;
+}
+
+/* ─── Balance Area ─────────────────────── */
+.balance-section {
+  padding: 16px;
 }
 
 .balance-amount {
   font-size: 26px;
   font-weight: bold;
-  margin-top: 4px;
+  margin-top: 6px;
   color: white;
   white-space: nowrap;
 }
@@ -123,12 +124,11 @@ body {
   color: #f6465d;
 }
 
-/* ─── Action Buttons ─────────────────────────────────── */
+/* ─── Action Buttons ───────────────────── */
 .button-row {
   display: flex;
   gap: 10px;
   margin: 16px;
-  background-color: transparent;
 }
 
 .btn {
@@ -155,7 +155,7 @@ body {
   font-weight: bold;
 }
 
-/* ─── Coin Header ────────────────────────────────────── */
+/* ─── Header Row ─────────────────────── */
 .balances-header {
   display: flex;
   justify-content: space-between;
@@ -166,20 +166,15 @@ body {
   margin-top: 20px;
 }
 
-.balances-header input[type="checkbox"] {
-  accent-color: #fcd535;
-}
-
 .search-icon {
   width: 18px;
   height: 18px;
   opacity: 0.7;
 }
 
-/* ─── Coin List ──────────────────────────────────────── */
+/* ─── Coin List ───────────────────────── */
 .coin-list {
   padding: 0 16px 80px;
-  background-color: transparent;
 }
 
 .coin-item {
@@ -211,7 +206,6 @@ body {
 .coin-name .sub {
   font-size: 12px;
   color: #aaa;
-  display: block;
 }
 
 .coin-right {
@@ -238,7 +232,7 @@ body {
   margin-top: 2px;
 }
 
-/* ─── Bottom Nav ─────────────────────────────────────── */
+/* ─── Bottom Nav ─────────────────────── */
 .bottom-nav {
   position: fixed;
   bottom: 0;
