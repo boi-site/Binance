@@ -87,6 +87,10 @@ body {
   color: #f6465d;
 }
 
+.pnl .green {
+  color: #0ecb81;
+}
+
 .button-row {
   display: flex;
   gap: 10px;
