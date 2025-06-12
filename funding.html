@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funding</title>
+  <link rel="stylesheet" href="funding.css" />
+</head>
+<body>
+
+  <!-- Toggle -->
+  <div class="toggle-wrapper">
+    <div class="toggle-box">
+      <button class="toggle-btn selected">Exchange</button>
+      <button class="toggle-btn">Wallet</button>
+    </div>
+  </div>
+
+  <!-- Sub Tabs -->
+  <div class="sub-tabs">
+    <div class="sub-tab-group">
+      <span onclick="location.href='assets.html'">Overview</span>
+      <span>Earn</span>
+      <span class="active">Funding</span>
+      <span>Spot</span>
+    </div>
+    <div class="sub-tab-divider"></div>
+  </div>
+
+  <!-- Balance Section -->
+  <div class="balance-section">
+    <div class="balance-label">Est. Total Value <img src="eye-icon.svg" class="eye-icon" /></div>
+    <div class="balance-amount">$406,783,194.27 <span class="usd-tag">USD ▼</span></div>
+    <div class="pnl">Today's PNL <span class="red">- $0.01 (-6.91%)</span></div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="button-row">
+    <button class="btn yellow">Add Funds</button>
+    <button class="btn">Send</button>
+    <button class="btn">Transfer</button>
+  </div>
+
+  <!-- Balances -->
+  <div class="balances-header">
+    <label><input type="checkbox"> Hide assets &lt; 1 USD</label>
+    <img src="search-icon.svg" class="search-icon" />
+  </div>
+
+  <div class="coin-list">
+    <div class="coin-item">
+      <div class="coin-left">
+        <img src="bonk.svg" class="coin-icon" />
+        <div class="coin-name">
+          <strong>BONK</strong>
+          <span class="sub">Bonk</span>
+        </div>
+      </div>
+      <div class="coin-right">
+        <strong>12,000.00</strong>
+        <div class="usd-sub">$0.18504</div>
+        <div class="avail">Available: 12,000.00</div>
+        <div class="freeze">Freeze: 0.00</div>
+      </div>
+    </div>
+
+    <div class="coin-item">
+      <div class="coin-left">
+        <img src="usdt.svg" class="coin-icon" />
+        <div class="coin-name">
+          <strong>USDT</strong>
+          <span class="sub">TetherUS</span>
+        </div>
+      </div>
+      <div class="coin-right">
+        <strong>0.02799625</strong>
+        <div class="usd-sub">$0.02799625</div>
+        <div class="avail">Available: 0.02799625</div>
+        <div class="freeze">Freeze: 0.00</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <a href="home.html" class="nav-item">
+      <img src="ic_home.svg" />
+      <span>Home</span>
+    </a>
+    <a href="#" class="nav-item">
+      <img src="ic_market.svg" />
+      <span>Markets</span>
+    </a>
+    <a href="#" class="nav-item">
+      <img src="ic_trade.svg" />
+    </a>
+    <a href="#" class="nav-item">
+      <img src="ic_futures.svg" />
+      <span>Futures</span>
+    </a>
+    <a href="assets.html" class="nav-item active">
+      <img src="ic_assets.svg" />
+      <span>Assets</span>
+    </a>
+  </nav>
+
+</body>
+</html>
