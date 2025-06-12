@@ -13,7 +13,6 @@ body {
   color: #eaecef;
 }
 
-/* ─── Toggle ─────────────────────────── */
 .toggle-container {
   display: flex;
   justify-content: center;
@@ -47,7 +46,6 @@ body {
   color: #fff;
 }
 
-/* ─── Sub Tabs ───────────────────────── */
 .sub-tabs {
   padding: 0 16px;
 }
@@ -71,11 +69,10 @@ body {
 
 .sub-tab-divider {
   height: 1px;
-  background-color: #1c1f24;
+  background-color: #2a2e35;
   margin: 6px 0;
 }
 
-/* ─── Title Row + Eye ─────────────────── */
 .eye-title-row {
   display: flex;
   align-items: center;
@@ -91,7 +88,6 @@ body {
   vertical-align: middle;
 }
 
-/* ─── Balance Area ─────────────────────── */
 .balance-section {
   padding: 16px;
 }
@@ -124,7 +120,6 @@ body {
   color: #f6465d;
 }
 
-/* ─── Action Buttons ───────────────────── */
 .button-row {
   display: flex;
   gap: 10px;
@@ -155,7 +150,6 @@ body {
   font-weight: bold;
 }
 
-/* ─── Header Row ─────────────────────── */
 .balances-header {
   display: flex;
   justify-content: space-between;
@@ -172,7 +166,6 @@ body {
   opacity: 0.7;
 }
 
-/* ─── Coin List ───────────────────────── */
 .coin-list {
   padding: 0 16px 80px;
 }
@@ -232,7 +225,6 @@ body {
   margin-top: 2px;
 }
 
-/* ─── Bottom Nav ─────────────────────── */
 .bottom-nav {
   position: fixed;
   bottom: 0;
