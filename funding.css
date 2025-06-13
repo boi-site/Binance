@@ -1,313 +1,77 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #181a20;
-  color: #eaecef;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0e11" />
+  <title>Funding</title>
+  <link rel="stylesheet" href="funding.css" />
+</head>
+<body>
 
-.loading {
-  padding: 16px;
-  text-align: center;
-  color: #888;
-}
+  <!-- Toggle -->
+  <div class="toggle-container">
+    <div class="toggle-box">
+      <button class="toggle-btn selected">Exchange</button>
+      <button class="toggle-btn">Wallet</button>
+    </div>
+  </div>
 
-.toggle-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 12px 0;
-}
+  <!-- Tabs -->
+  <div class="sub-tabs">
+    <div class="sub-tab-group">
+      <span>Overview</span>
+      <span>Earn</span>
+      <span class="active">Funding</span>
+      <span>Spot</span>
+    </div>
+    <div class="sub-tab-divider"></div>
+  </div>
 
-.toggle-box {
-  display: flex;
-  background-color: #1e2329;
-  border-radius: 6px; /* sharper than before */
-}
+  <!-- Balance -->
+  <section class="balance-section">
+    <div class="eye-title-row">
+      <span>Est. Total Value</span>
+      <img src="eye.svg" class="icon-svg" alt="eye" />
+    </div>
 
-.toggle-btn {
-  padding: 6px 22px;
-  font-size: 13px;
-  color: #888;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 6px;
-}
+    <div class="balance-amount" id="balance-total">$0.00 <span class="usd-tag">USD ▼</span></div>
 
-.toggle-btn.selected {
-  background-color: #2b3139;
-  color: #fff;
-}
+    <div class="pnl">
+      <span>Today's PNL</span>
+      <span class="green">+0.00</span>
+    </div>
 
-.toggle-btn:active {
-  opacity: 0.8;
-  transform: scale(0.98);
-}
+    <div class="button-row">
+      <button class="btn yellow">Add Funds</button>
+      <button class="btn">Send</button>
+      <button class="btn">Transfer</button>
+    </div>
+  </section>
 
-/* Sub-tabs */
-.sub-tabs {
-  padding: 0 16px;
-}
+  <footer class="bottom-nav">
+    <div class="nav-item" onclick="location.href='home.html'">
+      <img src="ic_home.svg" alt="home" />
+      <p>Home</p>
+    </div>
+    <div class="nav-item">
+      <img src="ic_market.svg" alt="market" />
+      <p>Markets</p>
+    </div>
+    <div class="nav-item">
+      <img src="ic_trade.svg" alt="trade" />
+      <p>Trade</p>
+    </div>
+    <div class="nav-item">
+      <img src="ic_futures.svg" alt="futures" />
+      <p>Futures</p>
+    </div>
+    <div class="nav-item active">
+      <img src="ic_assets.svg" alt="assets" />
+      <p>Assets</p>
+    </div>
+  </footer>
 
-.sub-tab-group {
-  display: flex;
-  gap: 18px;
-  font-size: 14px;
-  color: #888;
-  font-weight: 500;
-}
-
-.sub-tab-group span {
-  cursor: pointer;
-}
-
-.sub-tab-group .active {
-  color: #eaecef;
-}
-
-.sub-tab-divider {
-  height: 1px;
-  background-color: #2a2b31;
-  margin: 10px 0; /* divider better centered */
-}
-
-/* Balance Section */
-.balance-section {
-  padding: 0; /* remove excess space */
-}
-
-.title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 16px 0;
-  margin-top: 4px;
-}
-
-.title-left {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: #888;
-}
-
-.icon-svg,
-.title-left img {
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  opacity: 0.6;
-}
-
-.balance-amount {
-  font-size: 20px;
-  font-weight: 600;
-  margin: 6px 16px;
-}
-
-.usd-tag {
-  font-size: 12px;
-  color: #888;
-  margin-left: 6px;
-}
-
-.pnl-inline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #888;
-  margin: 6px 16px 16px;
-}
-
-.pnl-green {
-  color: #0ecb81;
-}
-
-.pnl-red {
-  color: #e74c3c;
-}
-
-.right-arrow {
-  font-size: 11px;
-  color: #888;
-  transform: translateY(-1px);
-}
-
-/* Action Buttons */
-.action-buttons {
-  display: flex;
-  gap: 8px;
-  margin: 0 16px 16px;
-}
-
-.action-buttons button {
-  flex: 1;
-  font-size: 13px;
-  padding: 10px 0;
-  border-radius: 6px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.action-buttons button:active {
-  opacity: 0.8;
-  transform: scale(0.98);
-}
-
-.add {
-  background-color: #fcd535;
-  color: #0b0e11;
-}
-
-.gray {
-  background-color: #2b3139;
-  color: #fff;
-}
-
-/* Divider */
-.divider-below-actions {
-  height: 1px;
-  background-color: #1c1f24;
-  margin-top: 4px;
-}
-
-/* Asset Tabs */
-.asset-tabs {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  margin: 12px 0 8px;
-}
-
-.tab-labels {
-  display: flex;
-  gap: 16px;
-}
-
-.tab-labels span {
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tab-labels span:active {
-  opacity: 0.8;
-}
-
-.tab-labels .tab-active {
-  color: #fff;
-}
-
-.tab-labels .inactive {
-  color: #888;
-}
-
-/* Asset List */
-.asset-list {
-  padding: 0 16px 80px;
-}
-
-.asset-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid #1c1f24;
-}
-
-.asset-left {
-  display: flex;
-  gap: 10px;
-}
-
-.asset-icon-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-.asset-info {
-  font-size: 11px;
-}
-
-.asset-name {
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.asset-sub {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.4;
-}
-
-.asset-right {
-  text-align: right;
-}
-
-.asset-amount {
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.asset-usd {
-  font-size: 11px;
-  color: #aaa;
-}
-
-/* Bottom Nav */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background: #181a20;
-  padding: 6px 0 4px;
-  border-top: 1px solid #1c1f24;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-
-.nav-icon {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 2px;
-  filter: brightness(0.8);
-  transition: filter 0.2s;
-}
-
-.nav-item.active .nav-icon {
-  filter: brightness(1.4);
-}
-
-.nav-label {
-  font-size: 11px;
-  color: #888;
-}
-
-.nav-item.active .nav-label {
-  color: #fcd535;
-}
-
-/* Responsive */
-@media (min-width: 768px) {
-  .balance-amount {
-    font-size: 26px;
-  }
-
-  .asset-row {
-    padding: 18px 0;
-  }
-}
+  <script src="coin_prices_funding.js"></script>
+</body>
+</html>
