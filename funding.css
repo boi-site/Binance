@@ -5,6 +5,7 @@ body {
   color: #eaecef;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 18px; /* Added for safe status bar space */
 }
 
 .loading {
@@ -22,7 +23,7 @@ body {
 .toggle-box {
   display: flex;
   background-color: #1e2329;
-  border-radius: 6px; /* sharper than before */
+  border-radius: 6px;
 }
 
 .toggle-btn {
@@ -70,12 +71,12 @@ body {
 .sub-tab-divider {
   height: 1px;
   background-color: #2a2b31;
-  margin: 10px 0; /* divider better centered */
+  margin: 10px 0;
 }
 
 /* Balance Section */
 .balance-section {
-  padding: 0; /* remove excess space */
+  padding: 0;
 }
 
 .title-row {
