@@ -22,7 +22,7 @@ body {
 .toggle-box {
   display: flex;
   background-color: #1e2329;
-  border-radius: 6px;
+  border-radius: 6px; /* sharper than before */
 }
 
 .toggle-btn {
@@ -70,20 +70,20 @@ body {
 .sub-tab-divider {
   height: 1px;
   background-color: #2a2b31;
-  margin: 10px 0;
+  margin: 10px 0; /* divider better centered */
 }
 
 /* Balance Section */
 .balance-section {
-  padding: 4px 0 0; /* reduced top padding to move closer to divider */
+  padding: 0; /* remove excess space */
 }
 
 .title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px; /* removed top padding */
-  margin-top: 0;   /* removed top margin */
+  padding: 4px 16px 0;
+  margin-top: 4px;
 }
 
 .title-left {
