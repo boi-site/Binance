@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b0e11" />
   <title>Assets</title>
   <link rel="stylesheet" href="assets.css" />
 </head>
@@ -12,17 +11,17 @@
   <!-- Toggle -->
   <div class="toggle-wrapper">
     <div class="toggle-box">
-      <button class="toggle-btn selected">Exchange</button>
-      <button class="toggle-btn">Wallet</button>
+      <div class="toggle-btn selected">Exchange</div>
+      <div class="toggle-btn">Wallet</div>
     </div>
   </div>
 
-  <!-- Tabs -->
+  <!-- Sub Tabs -->
   <div class="sub-tabs">
     <div class="sub-tab-group">
       <span class="active">Overview</span>
       <span>Earn</span>
-      <span>Funding</span>
+      <span onclick="location.href='funding.html'">Funding</span>
       <span>Spot</span>
     </div>
     <div class="sub-tab-divider"></div>
@@ -33,19 +32,20 @@
     <div class="title-row">
       <div class="title-left">
         <span>Est. Total Value</span>
-        <img src="eye.svg" class="icon-svg" alt="eye icon" />
+        <img src="eye.svg" class="icon-svg gray-icon" />
       </div>
       <div class="icons">
-        <img src="chart.svg" class="icon-svg" alt="chart icon" />
-        <img src="grid.svg" class="icon-svg" alt="grid icon" />
+        <img src="chart.svg" class="icon-svg gray-icon" />
+        <a href="history.html">
+          <img src="ic_history.svg" class="icon-svg gray-icon" />
+        </a>
       </div>
     </div>
 
-    <div class="balance-amount" id="balance-total">$406,783,194.27 <span class="usd-tag">USD ▼</span></div>
-
+    <div class="balance-amount">$406,783,194.24 <span class="usd-tag">USD ▼</span></div>
     <div class="pnl-inline">
       <span class="pnl-label">Today's PNL</span>
-      <span id="total-pnl" class="pnl-green">+0.00</span>
+      <span id="total-pnl" class="pnl-green">+0.00 (+0.00%)</span>
       <span class="right-arrow">&#8250;</span>
     </div>
 
@@ -58,15 +58,15 @@
     <div class="divider-below-actions"></div>
   </div>
 
-  <!-- Asset Tabs -->
+  <!-- Tabs -->
   <div class="asset-tabs">
     <div class="tab-labels">
       <span class="tab-active">Crypto</span>
       <span class="inactive">Account</span>
     </div>
     <div class="right-icons">
-      <img src="search.svg" class="icon-svg" alt="search" />
-      <img src="settings.svg" class="icon-svg" alt="settings" />
+      <img src="search.svg" class="icon-svg gray-icon" />
+      <img src="settings.svg" class="icon-svg gray-icon" />
     </div>
   </div>
 
@@ -74,28 +74,13 @@
   <div id="asset-list" class="asset-list"></div>
 
   <!-- Bottom Nav -->
-  <footer class="bottom-nav">
-    <div class="nav-item" onclick="location.href='home.html'">
-      <img src="ic_home.svg" class="nav-icon" alt="Home" />
-      <div class="nav-label">Home</div>
-    </div>
-    <div class="nav-item">
-      <img src="ic_market.svg" class="nav-icon" alt="Markets" />
-      <div class="nav-label">Markets</div>
-    </div>
-    <div class="nav-item">
-      <img src="ic_trade.svg" class="nav-icon" alt="Trade" />
-      <div class="nav-label">Trade</div>
-    </div>
-    <div class="nav-item">
-      <img src="ic_futures.svg" class="nav-icon" alt="Futures" />
-      <div class="nav-label">Futures</div>
-    </div>
-    <div class="nav-item active">
-      <img src="ic_assets.svg" class="nav-icon" alt="Assets" />
-      <div class="nav-label">Assets</div>
-    </div>
-  </footer>
+  <div class="bottom-nav">
+    <div onclick="location.href='home.html'"><img src="ic_home.svg" class="nav-icon" /><div class="nav-label">Home</div></div>
+    <div><img src="ic_market.svg" class="nav-icon" /><div class="nav-label">Markets</div></div>
+    <div><img src="ic_trade.svg" class="nav-icon" /><div class="nav-label">Trade</div></div>
+    <div><img src="ic_futures.svg" class="nav-icon" /><div class="nav-label">Futures</div></div>
+    <div class="active"><img src="ic_assets.svg" class="nav-icon" /><div class="nav-label">Assets</div></div>
+  </div>
 
   <script src="coin_prices_assets.js"></script>
 </body>
