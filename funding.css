@@ -178,8 +178,10 @@ body {
 /* Divider */
 .divider-below-actions {
   height: 1px;
-  background-color: #2a2b31;
+  background-color: #2a2b31; 
   margin-top: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 /* Asset Tabs */
