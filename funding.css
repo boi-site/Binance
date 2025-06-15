@@ -47,7 +47,6 @@ body {
   transform: scale(0.98);
 }
 
-/* Sub-tabs */
 .sub-tabs {
   padding: 0 16px;
 }
@@ -100,6 +99,12 @@ body {
   width: 16px;
   height: 16px;
   vertical-align: middle;
+  opacity: 0.6;
+}
+
+.title-row img[alt="history icon"] {
+  width: 18px;
+  height: 18px;
   opacity: 0.6;
 }
 
