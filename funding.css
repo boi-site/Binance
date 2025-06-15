@@ -92,7 +92,7 @@ body {
   align-items: center;
   gap: 6px;
   font-size: 13px;
-  color: #888;
+  color: #bfc2c7;
 }
 
 .icon-svg,
@@ -123,6 +123,9 @@ body {
   font-size: 12px;
   color: #888;
   margin: 10px 16px 16px;
+}
+.pnl-label {
+  color: #bfc2c7;
 }
 
 .pnl-green {
