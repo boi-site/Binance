@@ -12,7 +12,7 @@ body {
   width: 16px;
   height: 16px;
   opacity: 0.6;
-  filter: grayscale(1);
+  filter: grayscale(1) brightness(0.9); /* Apply uniform grey color */
 }
 
 .title-row .icon-svg:last-child {
@@ -21,8 +21,10 @@ body {
 }
 
 .right-icons img {
-  filter: grayscale(1);
+  width: 16px;
+  height: 16px;
   opacity: 0.6;
+  filter: grayscale(1) brightness(0.9); /* Match grey style with ic_history.svg */
 }
 
 /* Bottom Nav */
