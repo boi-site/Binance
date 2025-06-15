@@ -82,8 +82,9 @@ body {
 .title-left img {
   width: 16px;
   height: 16px;
-  vertical-align: middle;
   opacity: 0.6;
+  filter: brightness(0.8);
+  vertical-align: middle;
 }
 
 .title-row img[alt="history icon"] {
