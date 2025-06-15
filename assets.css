@@ -1,320 +1,87 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #181a20;
-  color: #eaecef;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 18px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assets</title>
+  <link rel="stylesheet" href="assets.css" />
+</head>
+<body>
 
-.toggle-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 12px 0;
-}
+  <!-- Toggle -->
+  <div class="toggle-wrapper">
+    <div class="toggle-box">
+      <div class="toggle-btn selected">Exchange</div>
+      <div class="toggle-btn">Wallet</div>
+    </div>
+  </div>
 
-.toggle-box {
-  display: flex;
-  background-color: #1e2329;
-  border-radius: 6px;
-}
+  <!-- Sub Tabs -->
+  <div class="sub-tabs">
+    <div class="sub-tab-group">
+      <span class="active">Overview</span>
+      <span>Earn</span>
+      <span onclick="location.href='funding.html'">Funding</span>
+      <span>Spot</span>
+    </div>
+    <div class="sub-tab-divider"></div>
+  </div>
 
-.toggle-btn {
-  padding: 6px 22px;
-  font-size: 13px;
-  color: #888;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 6px;
-}
+  <!-- Balance -->
+  <div class="balance-section">
+    <div class="title-row">
+      <div class="title-left">
+        <span>Est. Total Value</span>
+        <img src="eye.svg" class="icon-svg gray-icon" />
+      </div>
+      <div class="icons">
+        <img src="chart.svg" class="icon-svg gray-icon" />
+        <a href="history.html">
+          <img src="ic_history.svg" class="icon-svg gray-icon" />
+        </a>
+      </div>
+    </div>
 
-.toggle-btn.selected {
-  background-color: #2b3139;
-  color: #fff;
-}
+    <div class="balance-amount">$406,783,194.24 <span class="usd-tag">USD ▼</span></div>
+    <div class="pnl-inline">
+      <span class="pnl-label">Today's PNL</span>
+      <span id="total-pnl" class="pnl-green">+0.00 (+0.00%)</span>
+      <span class="right-arrow">&#8250;</span>
+    </div>
 
-.sub-tabs {
-  padding: 0 16px;
-}
+    <div class="action-buttons">
+      <button class="add">Add Funds</button>
+      <button class="gray">Send</button>
+      <button class="gray">Transfer</button>
+    </div>
 
-.sub-tab-group {
-  display: flex;
-  gap: 18px;
-  font-size: 14px;
-  color: #888;
-  font-weight: 500;
-}
+    <div class="divider-below-actions"></div>
+  </div>
 
-.sub-tab-group .active {
-  color: #eaecef;
-}
+  <!-- Tabs -->
+  <div class="asset-tabs">
+    <div class="tab-labels">
+      <span class="tab-active">Crypto</span>
+      <span class="inactive">Account</span>
+    </div>
+    <div class="right-icons">
+      <img src="search.svg" class="icon-svg gray-icon" />
+      <img src="settings.svg" class="icon-svg gray-icon" />
+    </div>
+  </div>
 
-.sub-tab-divider {
-  height: 1px;
-  background-color: #2a2b31;
-  margin: 10px 0 14px;
-}
+  <!-- List -->
+  <div id="asset-list" class="asset-list"></div>
 
-.balance-section {
-  padding: 0;
-}
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <div onclick="location.href='home.html'"><img src="ic_home.svg" class="nav-icon" /><div class="nav-label">Home</div></div>
+    <div><img src="ic_market.svg" class="nav-icon" /><div class="nav-label">Markets</div></div>
+    <div><img src="ic_trade.svg" class="nav-icon" /><div class="nav-label">Trade</div></div>
+    <div><img src="ic_futures.svg" class="nav-icon" /><div class="nav-label">Futures</div></div>
+    <div class="active"><img src="ic_assets.svg" class="nav-icon" /><div class="nav-label">Assets</div></div>
+  </div>
 
-.title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 16px 0;
-  margin-top: 4px;
-}
-
-.title-left {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: #bfc2c7;
-}
-
-.icon-svg,
-.title-left img {
-  width: 16px;
-  height: 16px;
-  opacity: 0.6;
-  filter: brightness(0.8);
-  vertical-align: middle;
-}
-
-.title-row img[alt="history icon"] {
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-}
-
-.balance-amount {
-  font-size: 26px;
-  font-weight: 700;
-  margin: 10px 16px 6px;
-}
-
-.usd-tag {
-  font-size: 12px;
-  color: #bfc2c7;
-  font-weight: 500;
-  margin-left: 6px;
-}
-
-.pnl-inline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #888;
-  margin: 10px 16px 16px;
-}
-
-.pnl-label {
-  color: #bfc2c7;
-}
-
-.pnl-green {
-  color: #0ecb81;
-}
-
-.pnl-red {
-  color: #e74c3c;
-}
-
-.right-arrow {
-  font-size: 11px;
-  color: #888;
-  transform: translateY(-1px);
-}
-
-.action-buttons {
-  display: flex;
-  gap: 8px;
-  margin: 0 16px 16px;
-}
-
-.action-buttons button {
-  flex: 1;
-  font-size: 13px;
-  padding: 10px 0;
-  border-radius: 6px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.add {
-  background-color: #fcd535;
-  color: #0b0e11;
-}
-
-.gray {
-  background-color: #2b3139;
-  color: white;
-}
-
-.divider-below-actions {
-  height: 1px;
-  background-color: #2a2b31;
-  margin-top: 8px;
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
-.asset-tabs {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 16px;
-  margin: 12px 0 8px;
-}
-
-.tab-labels {
-  display: flex;
-  gap: 16px;
-}
-
-.tab-labels span {
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tab-labels .tab-active {
-  color: #fff;
-  position: relative;
-}
-
-.tab-labels .tab-active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 2px;
-  width: 18px;
-  background-color: #fcd535;
-  border-radius: 1px;
-}
-
-.tab-labels .inactive {
-  color: #888;
-}
-
-.right-icons {
-  display: flex;
-  gap: 10px;
-}
-
-.right-icons img {
-  width: 16px;
-  height: 16px;
-  opacity: 0.6;
-}
-
-.asset-list {
-  padding: 0 16px 80px;
-}
-
-.asset-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid #1c1f24;
-}
-
-.asset-left {
-  display: flex;
-  gap: 10px;
-}
-
-.asset-icon-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-.asset-info {
-  font-size: 11px;
-}
-
-.asset-name {
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.asset-sub {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.4;
-}
-
-.asset-right {
-  text-align: right;
-}
-
-.asset-amount {
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.asset-usd {
-  font-size: 11px;
-  color: #aaa;
-}
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background: #181a20;
-  padding: 6px 0 4px;
-  border-top: 1px solid #1c1f24;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-
-.nav-icon {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 2px;
-  filter: brightness(0.8);
-  transition: filter 0.2s;
-}
-
-.nav-item.active .nav-icon {
-  filter: brightness(1.4);
-}
-
-.nav-label {
-  font-size: 11px;
-  color: #888;
-}
-
-.nav-item.active .nav-label {
-  color: #fcd535;
-}
-
-@media (min-width: 768px) {
-  .balance-amount {
-    font-size: 26px;
-  }
-
-  .asset-row {
-    padding: 18px 0;
-  }
-}
+  <script src="coin_prices_assets.js"></script>
+</body>
+</html>
