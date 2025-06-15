@@ -5,7 +5,7 @@ body {
   color: #eaecef;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 18px; /* Added for safe status bar space */
+  padding-top: 18px;
 }
 
 .loading {
@@ -124,6 +124,7 @@ body {
   color: #888;
   margin: 10px 16px 16px;
 }
+
 .pnl-label {
   color: #bfc2c7;
 }
@@ -178,7 +179,7 @@ body {
 /* Divider */
 .divider-below-actions {
   height: 1px;
-  background-color: #2a2b31; 
+  background-color: #2a2b31;
   margin-top: 8px;
   margin-left: 16px;
   margin-right: 16px;
