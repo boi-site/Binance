@@ -47,6 +47,7 @@ body {
   transform: scale(0.98);
 }
 
+/* Sub-tabs */
 .sub-tabs {
   padding: 0 16px;
 }
@@ -190,41 +191,39 @@ body {
   margin-right: 16px;
 }
 
-/* Asset Tabs */
-.asset-tabs {
+/* Balances Section */
+.balances-section {
+  padding: 0 16px;
+}
+
+.balances-header {
   display: flex;
   justify-content: space-between;
-  padding: 0 16px;
-  margin: 12px 0 8px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 16px;
+  color: #eaecef;
 }
 
-.tab-labels {
+.search-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+.checkbox-row {
   display: flex;
-  gap: 16px;
-}
-
-.tab-labels span {
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 4px;
   font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.tab-labels span:active {
-  opacity: 0.8;
-}
-
-.tab-labels .tab-active {
-  color: #fff;
-}
-
-.tab-labels .inactive {
   color: #888;
 }
 
 /* Asset List */
 .asset-list {
-  padding: 0 16px 80px;
+  padding: 0 0 80px;
 }
 
 .asset-row {
