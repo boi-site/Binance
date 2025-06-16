@@ -291,7 +291,9 @@ body {
 }
 
 .asset-sub-pair {
-  margin-top: 6px;
+  margin-top: 12px; /* Increased spacing below coin name */
+  display: flex;
+  justify-content: space-between;
 }
 
 .asset-sub-label {
@@ -301,12 +303,13 @@ body {
   text-align: right;
 }
 
-/* ✅ FIXED: Move Available and Freeze labels to the left */
-.asset-left .asset-sub-label {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.4;
-  margin-top: 4px;
+/* New left/right separation for Available / Freeze labels */
+.asset-sub-pair > div:first-child {
+  text-align: left;
+}
+
+.asset-sub-pair > div:last-child {
+  text-align: right;
 }
 
 /* Bottom Nav */
