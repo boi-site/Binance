@@ -273,10 +273,7 @@ body {
   font-size: 11px;
   color: #aaa;
   line-height: 1.4;
-}
-
-.asset-sub .right-align {
-  float: right;
+  text-align: right;
 }
 
 .asset-right {
