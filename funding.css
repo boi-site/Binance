@@ -1,3 +1,4 @@
+/* funding.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -275,7 +276,6 @@ body {
   line-height: 1.4;
 }
 
-/* Right-column values */
 .asset-right {
   text-align: right;
 }
@@ -291,7 +291,7 @@ body {
 }
 
 .asset-sub-pair {
-  margin-top: 6px; /* Adjust this to increase/decrease spacing */
+  margin-top: 6px;
 }
 
 .asset-sub-label {
@@ -299,6 +299,14 @@ body {
   color: #aaa;
   line-height: 1.4;
   text-align: right;
+}
+
+/* ✅ FIXED: Move Available and Freeze labels to the left */
+.asset-left .asset-sub-label {
+  font-size: 11px;
+  color: #aaa;
+  line-height: 1.4;
+  margin-top: 4px;
 }
 
 /* Bottom Nav */
