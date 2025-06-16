@@ -283,16 +283,19 @@ body {
   color: #aaa;
 }
 
+/* ✅ Corrected layout for Available/Freeze */
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  margin-top: 6px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .asset-sub-label-left {
   font-size: 11px;
   color: #aaa;
+  min-width: 68px;
+  text-align: left;
 }
 
 .asset-sub-label-right {
