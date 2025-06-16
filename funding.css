@@ -221,7 +221,7 @@ body {
   font-weight: 400;
   color: #bfc2c7;
   margin: 8px 0 12px;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .checkbox-row input[type="checkbox"] {
@@ -295,6 +295,11 @@ body {
   font-size: 11px;
   color: #aaa;
   line-height: 1.4;
+}
+
+/* NEW: Add space above Available */
+.asset-right .asset-sub:first-of-type {
+  margin-top: 4px;
 }
 
 /* Bottom Nav */
