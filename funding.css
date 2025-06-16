@@ -1,3 +1,4 @@
+/* funding.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -275,12 +276,7 @@ body {
   line-height: 1.4;
 }
 
-.asset-inline-value {
-  float: right;
-  font-weight: 500;
-  margin-left: 8px;
-}
-
+/* Right-column values (including moved Available/Freeze) */
 .asset-right {
   text-align: right;
 }
@@ -293,6 +289,12 @@ body {
 .asset-usd {
   font-size: 11px;
   color: #aaa;
+}
+
+.asset-right .asset-sub {
+  font-size: 11px;
+  color: #aaa;
+  line-height: 1.4;
 }
 
 /* Bottom Nav */
