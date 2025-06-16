@@ -299,7 +299,7 @@ body {
 
 /* NEW: Add space above Available */
 .asset-right .asset-sub:first-of-type {
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 /* Bottom Nav */
