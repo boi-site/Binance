@@ -100,6 +100,24 @@
     </div>
   </footer>
 
-  <script src="coin_prices_assets.js"></script>
+<script>
+  function simulatePNL() {
+    const pnlSpan = document.getElementById('total-pnl');
+
+    if (!pnlSpan) return;
+
+    const isProfit = Math.random() > 0.5;
+    const amount = (Math.random() * 5).toFixed(2);
+    const percent = (Math.random() * 10).toFixed(2);
+
+    const formatted = `$${amount} (${isProfit ? '+' : '-'}${percent}%)`;
+
+    pnlSpan.textContent = formatted;
+    pnlSpan.className = isProfit ? 'pnl-green' : 'pnl-red';
+  }
+
+  setInterval(simulatePNL, 5000);
+  simulatePNL();
+</script>
 </body>
 </html>
