@@ -200,10 +200,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 15px;
-  font-weight: 600;
-  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
   color: #eaecef;
+  margin-top: 14px;
 }
 
 .search-icon {
@@ -216,9 +216,20 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin: 10px 0 4px;
-  font-size: 13px;
-  color: #888;
+  font-size: 12px;
+  font-weight: 400;
+  color: #aaa;
+  margin: 8px 0 12px;
+}
+
+.checkbox-row input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #888;
+  background: transparent;
+  appearance: none;
+  outline: none;
+  border-radius: 2px;
 }
 
 /* Asset List */
