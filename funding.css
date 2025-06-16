@@ -17,7 +17,7 @@ body {
 .toggle-wrapper {
   display: flex;
   justify-content: center;
-  margin: 12px 0;
+  margin: 12px 0 20px;
 }
 
 .toggle-box {
