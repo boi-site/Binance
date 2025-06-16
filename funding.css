@@ -1,4 +1,3 @@
-/* funding.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -221,7 +220,7 @@ body {
   font-weight: 400;
   color: #bfc2c7;
   margin: 8px 0 12px;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .checkbox-row input[type="checkbox"] {
@@ -265,6 +264,12 @@ body {
   font-size: 11px;
 }
 
+/* **these two rules split the “Available”/“Freeze” text and push the numbers into the right column** */
+.asset-info .asset-sub {
+  display: flex;
+  justify-content: space-between;
+}
+
 .asset-name {
   font-weight: 600;
   font-size: 13px;
@@ -276,7 +281,6 @@ body {
   line-height: 1.4;
 }
 
-/* Right-column values (including moved Available/Freeze) */
 .asset-right {
   text-align: right;
 }
@@ -289,12 +293,6 @@ body {
 .asset-usd {
   font-size: 11px;
   color: #aaa;
-}
-
-.asset-right .asset-sub {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.4;
 }
 
 /* Bottom Nav */
