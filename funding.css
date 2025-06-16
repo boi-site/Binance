@@ -226,10 +226,14 @@ body {
   width: 14px;
   height: 14px;
   border: 1px solid #888;
-  background: transparent;
+  background-color: transparent;
   appearance: none;
   outline: none;
   border-radius: 2px;
+}
+
+.checkbox-row input[type="checkbox"]:checked {
+  background-color: transparent;
 }
 
 /* Asset List */
