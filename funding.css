@@ -1,3 +1,4 @@
+/* funding.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -275,9 +276,10 @@ body {
   line-height: 1.4;
 }
 
-/* Right-column values */
+/* ADDED FIX: create extra space between coin name and availability block */
 .asset-right {
   text-align: right;
+  margin-top: 6px; /* This is the key fix */
 }
 
 .asset-amount {
@@ -290,15 +292,10 @@ body {
   color: #aaa;
 }
 
-.asset-sub-pair {
-  margin-top: 6px; /* Adjust this to increase/decrease spacing */
-}
-
-.asset-sub-label {
+.asset-right .asset-sub {
   font-size: 11px;
   color: #aaa;
   line-height: 1.4;
-  text-align: right;
 }
 
 /* Bottom Nav */
