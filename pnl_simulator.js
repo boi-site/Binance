@@ -5,11 +5,10 @@ function simulatePNL() {
   const amount = (Math.random() * 5).toFixed(2);
   const percent = (Math.random() * 10).toFixed(2);
 
-  const formatted = `${isProfit ? '+' : '-'} $${amount} (${isProfit ? '+' : '-'}${percent}%)`;
+  const formatted = `$${amount} (${isProfit ? '+' : '-'}${percent}%)`;
 
   pnlSpan.textContent = formatted;
-  pnlSpan.classList.remove('pnl-green', 'pnl-red');
-  pnlSpan.classList.add(isProfit ? 'pnl-green' : 'pnl-red');
+  pnlSpan.className = isProfit ? 'pnl-green' : 'pnl-red';
 }
 
 // Update every 5 seconds
