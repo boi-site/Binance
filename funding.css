@@ -278,21 +278,21 @@ body {
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-size: 11px;
   color: #aaa;
   margin-top: 6px;
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .asset-sub-label-left {
   text-align: left;
-  width: 50%;
+  padding-left: 0;
 }
 
 .asset-sub-label-right {
   text-align: right;
-  width: 50%;
+  min-width: 70px;
 }
 
 .divider-below-actions {
