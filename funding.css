@@ -199,7 +199,7 @@ body {
   width: 16px;
   height: 16px;
   opacity: 0.6;
-  transform: translateX(-8px); /* ✅ cleanly moves search icon left */
+  transform: translateX(-10px); /* ✅ cleanly moves search icon left */
 }
 
 .checkbox-row {
