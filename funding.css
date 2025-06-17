@@ -270,10 +270,8 @@ body {
   line-height: 1.4;
 }
 
-/* pushed the values column fully to the right */
 .asset-right {
   text-align: right;
-  margin-left: 40px; /* ← shift the entire number block further right */
 }
 
 .asset-amount {
@@ -286,12 +284,12 @@ body {
   color: #aaa;
 }
 
-/* Available / Freeze row */
+/* ✅ Available and Freeze: label left, number far right */
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  width: 140px;
   margin-top: 6px;
+  width: 100%;
 }
 
 .asset-sub-label-left {
@@ -304,6 +302,7 @@ body {
   font-size: 11px;
   color: #aaa;
   text-align: right;
+  flex-grow: 1;
 }
 
 .bottom-nav {
