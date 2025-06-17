@@ -233,7 +233,6 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 14px 0;
-  /* removed border-bottom to avoid faint line above Available */
 }
 
 .asset-left {
@@ -282,11 +281,12 @@ body {
   font-size: 11px;
   color: #aaa;
   margin-top: 6px;
-  padding: 0 4px;
+  padding: 0 16px;
 }
 
 .asset-sub-label-left {
   text-align: left;
+  margin-left: 42px;
 }
 
 .asset-sub-label-right {
