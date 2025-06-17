@@ -1,4 +1,3 @@
-/* funding.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -247,7 +246,6 @@ body {
 .asset-left {
   display: flex;
   gap: 10px;
-  flex-direction: column;
 }
 
 .asset-icon-img {
@@ -257,8 +255,7 @@ body {
 }
 
 .asset-info {
-  display: flex;
-  gap: 10px;
+  font-size: 11px;
 }
 
 .asset-name {
@@ -286,23 +283,24 @@ body {
   color: #aaa;
 }
 
+/* ✅ Corrected layout for Available/Freeze */
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  margin-top: 6px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .asset-sub-label-left {
   font-size: 11px;
   color: #aaa;
-  flex: 1;
+  min-width: 68px;
   text-align: left;
 }
 
 .asset-sub-label-right {
   font-size: 11px;
   color: #aaa;
-  flex: 1;
   text-align: right;
 }
 
