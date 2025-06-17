@@ -1,58 +1,51 @@
-// ─── live_prices.js ────────────────────────────────────────────────
+const coinMap = {
+  btc: "bitcoin",
+  bnb: "binancecoin",
+  eth: "ethereum",
+  bonk: "bonk",
+  usdt: "tether"
+};
 
-const assets = [
-  { symbol: "btc", name: "bitcoin", quantity: 0.005 },
-  { symbol: "bnb", name: "binancecoin", quantity: 2 },
-  { symbol: "usdt", name: "tether", quantity: 0.02799625 },
-  { symbol: "bonk", name: "bonk", quantity: 12000 }
-];
+async function fetchPrices() {
+  const ids = Object.values(coinMap).join(",");
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`
+  );
+  const data = await res.json();
+  return data;
+}
 
-let previousPrices = {};
-
-function formatUsd(value) {
-  return "$" + (value < 1 ? value.toFixed(8) : value.toLocaleString(undefined, {
+function formatUSD(amount) {
+  if (amount < 1) {
+    return `$${amount.toFixed(8)}`;
+  }
+  return `$${amount.toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
-  }));
+  })}`;
 }
 
-async function fetchLivePrices() {
-  try {
-    const ids = assets.map(asset => asset.name).join(",");
-    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
-    const data = await res.json();
-    return assets.map(asset => ({
-      symbol: asset.symbol,
-      price: data[asset.name]?.usd || 0,
-      quantity: asset.quantity
-    }));
-  } catch (err) {
-    console.error("Failed to fetch prices", err);
-    return assets.map(asset => ({
-      symbol: asset.symbol,
-      price: previousPrices[asset.symbol] || 0,
-      quantity: asset.quantity
-    }));
-  }
-}
+async function updateAssetPrices() {
+  const prices = await fetchPrices();
 
-function updateAssetPrices(prices) {
-  prices.forEach(({ symbol, price, quantity }) => {
-    const usdValue = quantity * price;
-    const usdDiv = document.querySelector(`.asset-usd[data-symbol="${symbol}"]`);
-    if (usdDiv) {
-      usdDiv.textContent = formatUsd(usdValue);
-    }
-    previousPrices[symbol] = price;
+  document.querySelectorAll(".asset-row").forEach(row => {
+    const nameEl = row.querySelector(".asset-name");
+    const usdEl = row.querySelector(".asset-usd");
+    const amountEl = row.querySelector(".asset-amount");
+
+    if (!nameEl || !usdEl || !amountEl) return;
+
+    const symbol = nameEl.textContent.trim().toLowerCase();
+    const priceInfo = prices[coinMap[symbol]];
+    if (!priceInfo) return;
+
+    const tokenQty = parseFloat(amountEl.textContent.replace(/,/g, ""));
+    const usdValue = tokenQty * priceInfo.usd;
+    usdEl.textContent = formatUSD(usdValue);
   });
 }
 
-async function refreshPrices() {
-  const prices = await fetchLivePrices();
-  updateAssetPrices(prices);
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  refreshPrices();
-  setInterval(refreshPrices, 15000); // refresh every 15s
+window.addEventListener("load", () => {
+  updateAssetPrices();
+  setInterval(updateAssetPrices, 15000); // every 15s
 });
