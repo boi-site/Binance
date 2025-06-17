@@ -264,7 +264,7 @@ body {
 .asset-right {
   margin-left: auto;
   text-align: right;
-  padding-right: 16px; /* ✅ Pushes everything to right-most */
+  padding-right: 22px; /* ✅ Pushes everything to right-most */
 }
 
 .asset-amount {
@@ -284,7 +284,7 @@ body {
   color: #aaa;
   margin-top: 6px;
   padding-left: 42px;
-  padding-right: 16px; /* ✅ aligns with .asset-right */
+  padding-right: 22px; /* ✅ aligns with .asset-right */
 }
 
 .asset-sub-label-left {
