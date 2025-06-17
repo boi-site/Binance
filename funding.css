@@ -199,7 +199,7 @@ body {
   width: 16px;
   height: 16px;
   opacity: 0.6;
-  margin-right: -2px; /* ✅ nudge search icon slightly left */
+  margin-left: -6px; /* ✅ nudge search icon slightly left */
 }
 
 .checkbox-row {
