@@ -285,8 +285,7 @@ body {
 }
 
 .asset-sub-pair {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
   margin-top: 6px;
   width: 100%;
 }
@@ -295,13 +294,15 @@ body {
   font-size: 11px;
   color: #aaa;
   text-align: left;
+  display: inline-block;
 }
 
 .asset-sub-label-right {
   font-size: 11px;
   color: #aaa;
+  position: absolute;
+  right: 0;
   text-align: right;
-  margin-left: auto;
 }
 
 .bottom-nav {
