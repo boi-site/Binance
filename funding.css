@@ -1,4 +1,4 @@
-/* ✅ funding.css – corrected alignment for right-side numbers */
+/* funding.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -262,8 +262,9 @@ body {
 }
 
 .asset-right {
+  margin-left: auto;
   text-align: right;
-  padding-right: 26px; /* ✅ final alignment with search icon */
+  padding-right: 16px; /* ✅ Pushes everything to right-most */
 }
 
 .asset-amount {
@@ -283,12 +284,11 @@ body {
   color: #aaa;
   margin-top: 6px;
   padding-left: 42px;
-  padding-right: 26px; /* ✅ same as asset-right */
+  padding-right: 16px; /* ✅ aligns with .asset-right */
 }
 
 .asset-sub-label-left {
   text-align: left;
-  flex: 1;
 }
 
 .asset-sub-label-right {
