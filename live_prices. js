@@ -1,5 +1,3 @@
-✅ live_prices.js
-```js
 const coinIds = {
   usdt: "tether",
   btc: "bitcoin",
@@ -13,33 +11,34 @@ async function updateFundingPrices() {
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
     const data = await res.json();
 
-    Object.keys(coinIds).forEach(symbol => {
-      const id = coinIds[symbol];
-      const usd = data[id]?.usd || 0;
+    const rows = document.querySelectorAll(".asset-row");
+    rows.forEach(row => {
+      const nameEl = row.querySelector(".asset-name");
+      const symbol = nameEl?.getAttribute("data-symbol");
+      const id = coinIds[symbol?.toLowerCase()];
+      if (!symbol || !id || !data[id]) return;
 
-      const label = document.querySelector(`.asset-name[data-symbol="${symbol}"]`);
-      if (!label) return;
-
-      const assetRow = label.closest(".asset-row");
-      if (!assetRow) return;
-
-      const qtyText = assetRow.querySelector(".asset-amount")?.textContent || "0";
+      const qtyText = row.querySelector(".asset-amount")?.textContent || "0";
       const qty = parseFloat(qtyText.replace(/,/g, ""));
+      if (isNaN(qty)) return;
 
-      const usdDiv = assetRow.querySelector(".asset-usd");
-      if (usdDiv && !isNaN(qty)) {
-        const usdValue = qty * usd;
-        usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
+      const usdPrice = data[id].usd;
+      const totalUsd = qty * usdPrice;
+
+      const usdDiv = row.querySelector(".asset-usd");
+      if (usdDiv) {
+        usdDiv.textContent = `$${totalUsd.toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         })}`;
       }
     });
-  } catch (e) {}
+  } catch (e) {
+    console.error("Price fetch failed", e);
+  }
 }
 
 window.addEventListener("load", () => {
   updateFundingPrices();
   setInterval(updateFundingPrices, 15000);
 });
-```
