@@ -180,14 +180,6 @@ body {
   color: #fff;
 }
 
-.divider-below-actions {
-  height: 1px;
-  background-color: #2a2b31;
-  margin-top: 8px;
-  margin-left: 16px;
-  margin-right: 16px;
-}
-
 .balances-section {
   padding: 0 16px;
 }
@@ -241,7 +233,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 14px 0;
-  border-bottom: 1px solid #1c1f24;
+  /* removed border-bottom to avoid faint line above Available */
 }
 
 .asset-left {
@@ -300,6 +292,12 @@ body {
 .asset-sub-label-right {
   text-align: right;
   min-width: 70px;
+}
+
+.divider-below-actions {
+  height: 1px;
+  background-color: #2a2b31;
+  margin: 8px 0;
 }
 
 .bottom-nav {
