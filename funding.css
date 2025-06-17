@@ -282,11 +282,13 @@ body {
   font-size: 11px;
   color: #aaa;
   margin-top: 6px;
-  padding: 0 4px;
+  padding-left: 42px;  /* aligns exactly with coin name start */
+  padding-right: 16px;
 }
 
 .asset-sub-label-left {
   text-align: left;
+  flex: 1;
 }
 
 .asset-sub-label-right {
