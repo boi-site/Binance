@@ -281,17 +281,18 @@ body {
   font-size: 11px;
   color: #aaa;
   margin-top: 6px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0; /* exact fix: remove any default offset */
 }
 
 .asset-sub-label-left {
   text-align: left;
-  padding-left: 0;
+  padding-left: 16px; /* align perfectly with coin name */
+  flex: 1;
 }
 
 .asset-sub-label-right {
   text-align: right;
+  padding-right: 16px; /* align perfectly with coin amount */
   min-width: 70px;
 }
 
