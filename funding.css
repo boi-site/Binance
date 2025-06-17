@@ -1,4 +1,4 @@
-/* funding.css */
+/* ✅ funding.css — FINAL FIXED VERSION */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -180,6 +180,12 @@ body {
   color: #fff;
 }
 
+.divider-below-actions {
+  height: 1px;
+  background-color: #2a2b31;
+  margin: 8px 0;
+}
+
 .balances-section {
   padding: 0 16px;
 }
@@ -263,7 +269,8 @@ body {
 
 .asset-right {
   text-align: right;
-  padding-right: 6px; /* ← shift right-aligned numbers slightly to match search icon */
+  min-width: 110px;
+  padding-right: 16px;
 }
 
 .asset-amount {
@@ -282,23 +289,18 @@ body {
   font-size: 11px;
   color: #aaa;
   margin-top: 6px;
-  padding: 0 4px;
+  padding-right: 16px;
 }
 
 .asset-sub-label-left {
   text-align: left;
+  padding-left: 2px;
+  width: 80px;
 }
 
 .asset-sub-label-right {
   text-align: right;
-  min-width: 70px;
-  padding-right: 6px; /* ← shift freeze/available numbers right */
-}
-
-.divider-below-actions {
-  height: 1px;
-  background-color: #2a2b31;
-  margin: 8px 0;
+  min-width: 110px;
 }
 
 .bottom-nav {
