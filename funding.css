@@ -1,354 +1,42 @@
-/* funding.css */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #181a20;
-  color: #eaecef;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 20px;
-}
+// ─── live_prices.js ────────────────────────────────────────────────
 
-.loading {
-  padding: 16px;
-  text-align: center;
-  color: #888;
-}
+const coinIds = {
+  usdt: "tether",
+  btc: "bitcoin",
+  bnb: "binancecoin",
+  bonk: "bonk"
+};
 
-.toggle-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 12px 0 20px;
-}
+// Read token quantities from DOM and update USD equivalent
+async function updateFundingPrices() {
+  try {
+    const ids = Object.values(coinIds).join(",");
+    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
+    const data = await res.json();
 
-.toggle-box {
-  display: flex;
-  background-color: #1e2329;
-  border-radius: 6px;
-}
+    Object.keys(coinIds).forEach(symbol => {
+      const id = coinIds[symbol];
+      const coinRow = document.querySelector(`.asset-row img[alt="${symbol.toUpperCase()}"]`)?.closest('.asset-row');
+      const usdDiv = coinRow?.querySelector('.asset-usd');
+      const qtyDiv = coinRow?.querySelector('.asset-amount');
 
-.toggle-btn {
-  padding: 6px 22px;
-  font-size: 13px;
-  color: #888;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 6px;
-}
+      if (coinRow && usdDiv && qtyDiv) {
+        const qty = parseFloat(qtyDiv.textContent.replace(/,/g, ''));
+        const price = data[id]?.usd || 0;
+        const usdValue = qty * price;
 
-.toggle-btn.selected {
-  background-color: #2b3139;
-  color: #fff;
-}
-
-.toggle-btn:active {
-  opacity: 0.8;
-  transform: scale(0.98);
-}
-
-.sub-tabs {
-  padding: 0 16px;
-}
-
-.sub-tab-group {
-  display: flex;
-  gap: 18px;
-  font-size: 14px;
-  color: #888;
-  font-weight: 500;
-}
-
-.sub-tab-group span {
-  cursor: pointer;
-}
-
-.sub-tab-group .active {
-  color: #eaecef;
-}
-
-.sub-tab-divider {
-  height: 1px;
-  background-color: #2a2b31;
-  margin: 10px 0 14px;
-}
-
-.balance-section {
-  padding: 0;
-}
-
-.title-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 16px 0;
-  margin-top: 4px;
-}
-
-.title-left {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: #bfc2c7;
-}
-
-.icon-svg,
-.title-left img {
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-  opacity: 0.6;
-}
-
-.title-row img[alt="history icon"] {
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-}
-
-.balance-amount {
-  font-size: 26px;
-  font-weight: 700;
-  margin: 10px 16px 6px;
-}
-
-.usd-tag {
-  font-size: 12px;
-  color: #bfc2c7;
-  font-weight: 500;
-  margin-left: 6px;
-}
-
-.pnl-inline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #888;
-  margin: 10px 16px 16px;
-}
-
-.pnl-label {
-  color: #bfc2c7;
-}
-
-.pnl-green {
-  color: #0ecb81;
-}
-
-.pnl-red {
-  color: #e74c3c;
-}
-
-.right-arrow {
-  font-size: 11px;
-  color: #888;
-  transform: translateY(-1px);
-}
-
-.action-buttons {
-  display: flex;
-  gap: 8px;
-  margin: 0 16px 16px;
-}
-
-.action-buttons button {
-  flex: 1;
-  font-size: 13px;
-  padding: 10px 0;
-  border-radius: 6px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.action-buttons button:active {
-  opacity: 0.8;
-  transform: scale(0.98);
-}
-
-.add {
-  background-color: #fcd535;
-  color: #0b0e11;
-}
-
-.gray {
-  background-color: #2b3139;
-  color: #fff;
-}
-
-.balances-section {
-  padding-left: 16px;
-  padding-right: 0; /* ✅ allow asset-right to go to far right */
-}
-
-.balances-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-  color: #eaecef;
-  margin-top: 14px;
-}
-
-.search-icon {
-  width: 16px;
-  height: 16px;
-  opacity: 0.6;
-  transform: translateX(-16px); /* ✅ cleanly moves search icon left */
-}
-
-.checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 400;
-  color: #bfc2c7;
-  margin: 8px 0 12px;
-  margin-left: 10px;
-}
-
-.checkbox-row input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  border: 1px solid #888;
-  background-color: transparent;
-  appearance: none;
-  outline: none;
-  border-radius: 2px;
-}
-
-.checkbox-row input[type="checkbox"]:checked {
-  background-color: transparent;
-}
-
-.asset-list {
-  padding: 0 0 80px;
-}
-
-.asset-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
-}
-
-.asset-left {
-  display: flex;
-  gap: 10px;
-}
-
-.asset-icon-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-.asset-info {
-  font-size: 11px;
-}
-
-.asset-name {
-  font-weight: 600;
-  font-size: 13px;
-}
-
-.asset-sub {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.4;
-}
-
-.asset-right {
-  margin-left: auto;
-  text-align: right;
-  padding-right: 18px; /* ✅ Pushes everything to right-most */
-}
-
-.asset-amount {
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.asset-usd {
-  font-size: 11px;
-  color: #aaa;
-}
-
-.asset-sub-pair {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: #aaa;
-  margin-top: 6px;
-  padding-left: 42px;
-  padding-right: 18px; /* ✅ aligns with .asset-right */
-}
-
-.asset-sub-label-left {
-  text-align: left;
-}
-
-.asset-sub-label-right {
-  text-align: right;
-  min-width: 70px;
-}
-
-.divider-below-actions {
-  height: 1px;
-  background-color: #2a2b31;
-  margin: 8px 0;
-}
-
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background: #181a20;
-  padding: 6px 0 4px;
-  border-top: 1px solid #1c1f24;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-
-.nav-icon {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 2px;
-  filter: brightness(0.8);
-  transition: filter 0.2s;
-}
-
-.nav-item.active .nav-icon {
-  filter: brightness(1.4);
-}
-
-.nav-label {
-  font-size: 11px;
-  color: #888;
-}
-
-.nav-item.active .nav-label {
-  color: #fcd535;
-}
-
-@media (min-width: 768px) {
-  .balance-amount {
-    font-size: 26px;
-  }
-
-  .asset-row {
-    padding: 18px 0;
+        usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })}`;
+      }
+    });
+  } catch (e) {
+    console.error("Live price fetch failed:", e);
   }
 }
+
+window.addEventListener("load", () => {
+  updateFundingPrices();
+  setInterval(updateFundingPrices, 15000);
+});
