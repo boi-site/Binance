@@ -11,30 +11,24 @@ async function updateFundingPrices() {
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
     const data = await res.json();
 
-    const rows = document.querySelectorAll(".asset-row");
-    rows.forEach(row => {
-      const nameEl = row.querySelector(".asset-name");
-      const symbol = nameEl?.getAttribute("data-symbol");
-      const id = coinIds[symbol?.toLowerCase()];
-      if (!symbol || !id || !data[id]) return;
-
-      const qtyText = row.querySelector(".asset-amount")?.textContent || "0";
-      const qty = parseFloat(qtyText.replace(/,/g, ""));
-      if (isNaN(qty)) return;
-
-      const usdPrice = data[id].usd;
-      const totalUsd = qty * usdPrice;
-
+    document.querySelectorAll(".asset-row").forEach(row => {
+      const nameDiv = row.querySelector(".asset-name");
+      const symbol = nameDiv?.getAttribute("data-symbol")?.toLowerCase();
+      const id = coinIds[symbol];
+      const qtyDiv = row.querySelector(".asset-amount");
       const usdDiv = row.querySelector(".asset-usd");
-      if (usdDiv) {
-        usdDiv.textContent = `$${totalUsd.toLocaleString(undefined, {
+
+      if (id && data[id] && qtyDiv && usdDiv) {
+        const qty = parseFloat(qtyDiv.textContent.replace(/,/g, ""));
+        const usdValue = qty * data[id].usd;
+        usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         })}`;
       }
     });
-  } catch (e) {
-    console.error("Price fetch failed", e);
+  } catch (err) {
+    console.error("Fetch error:", err);
   }
 }
 
