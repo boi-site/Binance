@@ -257,6 +257,8 @@ body {
 
 .asset-info {
   font-size: 11px;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .asset-name {
@@ -287,9 +289,10 @@ body {
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   font-size: 11px;
-  margin-top: 6px;
   color: #aaa;
+  margin-top: 4px;
 }
 
 .asset-sub-label-left {
@@ -298,6 +301,8 @@ body {
 
 .asset-sub-label-right {
   text-align: right;
+  margin-left: auto;
+  min-width: 60px;
 }
 
 .bottom-nav {
