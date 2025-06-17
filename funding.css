@@ -288,6 +288,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin-top: 6px;
+  width: 100%;
 }
 
 .asset-sub-label-left {
@@ -301,8 +302,6 @@ body {
   color: #aaa;
   text-align: right;
   margin-left: auto;
-  padding-left: 20px;
-  min-width: 60px;
 }
 
 .bottom-nav {
