@@ -233,7 +233,6 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 14px 0;
-  /* removed border-bottom to avoid faint line above Available */
 }
 
 .asset-left {
@@ -264,6 +263,7 @@ body {
 
 .asset-right {
   text-align: right;
+  padding-right: 16px; /* ✅ bring numbers back in */
 }
 
 .asset-amount {
@@ -282,8 +282,8 @@ body {
   font-size: 11px;
   color: #aaa;
   margin-top: 6px;
-  padding-left: 42px;  /* aligns exactly with coin name start */
-  padding-right: 16px;
+  padding-left: 42px;  /* ✅ perfect label alignment with coin names */
+  padding-right: 16px; /* ✅ numbers realigned */
 }
 
 .asset-sub-label-left {
