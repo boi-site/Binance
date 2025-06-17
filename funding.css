@@ -285,23 +285,18 @@ body {
 }
 
 .asset-sub-pair {
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
   margin-top: 6px;
-  width: 100%;
+  color: #aaa;
 }
 
 .asset-sub-label-left {
-  font-size: 11px;
-  color: #aaa;
   text-align: left;
-  display: inline-block;
 }
 
 .asset-sub-label-right {
-  font-size: 11px;
-  color: #aaa;
-  position: absolute;
-  right: 0;
   text-align: right;
 }
 
