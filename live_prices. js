@@ -17,13 +17,18 @@ async function updateFundingPrices() {
       const id = coinIds[symbol];
       const usd = data[id]?.usd || 0;
 
-      const row = document.querySelector(`.asset-name[data-symbol="${symbol}"]`)?.closest(".asset-row");
-      const qtyText = row?.querySelector(".asset-amount")?.textContent || "0";
-      const qty = parseFloat(qtyText.replace(/,/g, ""));
-      const usdValue = qty * usd;
+      const label = document.querySelector(`.asset-name[data-symbol="${symbol}"]`);
+      if (!label) return;
 
-      const usdDiv = row?.querySelector(".asset-usd");
-      if (usdDiv) {
+      const assetRow = label.closest(".asset-row");
+      if (!assetRow) return;
+
+      const qtyText = assetRow.querySelector(".asset-amount")?.textContent || "0";
+      const qty = parseFloat(qtyText.replace(/,/g, ""));
+
+      const usdDiv = assetRow.querySelector(".asset-usd");
+      if (usdDiv && !isNaN(qty)) {
+        const usdValue = qty * usd;
         usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
