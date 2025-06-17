@@ -283,25 +283,25 @@ body {
   color: #aaa;
 }
 
-/* ✅ Corrected layout for Available/Freeze */
+/* Final fix: Left + Right column layout for Available and Freeze */
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .asset-sub-label-left {
   font-size: 11px;
   color: #aaa;
-  min-width: 68px;
   text-align: left;
+  flex: 1;
 }
 
 .asset-sub-label-right {
   font-size: 11px;
   color: #aaa;
   text-align: right;
+  flex: 1;
 }
 
 .bottom-nav {
