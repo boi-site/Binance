@@ -1,51 +1,42 @@
-const coinMap = {
+// ─── live_prices.js ────────────────────────────────────────────────
+
+const coinIds = {
+  usdt: "tether",
   btc: "bitcoin",
   bnb: "binancecoin",
-  eth: "ethereum",
-  bonk: "bonk",
-  usdt: "tether"
+  bonk: "bonk"
 };
 
-async function fetchPrices() {
-  const ids = Object.values(coinMap).join(",");
-  const res = await fetch(
-    `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`
-  );
-  const data = await res.json();
-  return data;
-}
+// Read token quantities from DOM and update USD equivalent
+async function updateFundingPrices() {
+  try {
+    const ids = Object.values(coinIds).join(",");
+    const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
+    const data = await res.json();
 
-function formatUSD(amount) {
-  if (amount < 1) {
-    return `$${amount.toFixed(8)}`;
+    Object.keys(coinIds).forEach(symbol => {
+      const id = coinIds[symbol];
+      const coinRow = document.querySelector(`.asset-row img[alt="${symbol.toUpperCase()}"]`)?.closest('.asset-row');
+      const usdDiv = coinRow?.querySelector('.asset-usd');
+      const qtyDiv = coinRow?.querySelector('.asset-amount');
+
+      if (coinRow && usdDiv && qtyDiv) {
+        const qty = parseFloat(qtyDiv.textContent.replace(/,/g, ''));
+        const price = data[id]?.usd || 0;
+        const usdValue = qty * price;
+
+        usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })}`;
+      }
+    });
+  } catch (e) {
+    console.error("Live price fetch failed:", e);
   }
-  return `$${amount.toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })}`;
-}
-
-async function updateAssetPrices() {
-  const prices = await fetchPrices();
-
-  document.querySelectorAll(".asset-row").forEach(row => {
-    const nameEl = row.querySelector(".asset-name");
-    const usdEl = row.querySelector(".asset-usd");
-    const amountEl = row.querySelector(".asset-amount");
-
-    if (!nameEl || !usdEl || !amountEl) return;
-
-    const symbol = nameEl.textContent.trim().toLowerCase();
-    const coinId = coinMap[symbol];
-    if (!coinId || !prices[coinId]) return;
-
-    const tokenQty = parseFloat(amountEl.textContent.replace(/,/g, ""));
-    const usdValue = tokenQty * prices[coinId].usd;
-    usdEl.textContent = formatUSD(usdValue);
-  });
 }
 
 window.addEventListener("load", () => {
-  updateAssetPrices();
-  setInterval(updateAssetPrices, 15000);
+  updateFundingPrices();
+  setInterval(updateFundingPrices, 15000);
 });
