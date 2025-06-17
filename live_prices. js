@@ -11,24 +11,23 @@ async function updateFundingPrices() {
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
     const data = await res.json();
 
-    document.querySelectorAll(".asset-row").forEach(row => {
-      const nameDiv = row.querySelector(".asset-name");
-      const symbol = nameDiv?.getAttribute("data-symbol")?.toLowerCase();
-      const id = coinIds[symbol];
-      const qtyDiv = row.querySelector(".asset-amount");
-      const usdDiv = row.querySelector(".asset-usd");
+    Object.entries(coinIds).forEach(([symbol, id]) => {
+      const usdDiv = document.querySelector(`.asset-usd[data-symbol="${symbol}"]`);
+      const qtyDiv = document.querySelector(`.asset-name[data-symbol="${symbol}"]`)?.closest(".asset-row")?.querySelector(".asset-amount");
 
-      if (id && data[id] && qtyDiv && usdDiv) {
+      if (usdDiv && qtyDiv) {
         const qty = parseFloat(qtyDiv.textContent.replace(/,/g, ""));
-        const usdValue = qty * data[id].usd;
+        const price = data[id]?.usd || 0;
+        const usdValue = qty * price;
+
         usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2
         })}`;
       }
     });
-  } catch (err) {
-    console.error("Fetch error:", err);
+  } catch (e) {
+    console.error("Live price fetch failed:", e);
   }
 }
 
