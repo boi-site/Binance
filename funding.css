@@ -281,17 +281,18 @@ body {
   font-size: 11px;
   color: #aaa;
   margin-top: 6px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding: 0 16px;
 }
 
 .asset-sub-label-left {
   text-align: left;
+  flex: 1;
 }
 
 .asset-sub-label-right {
   text-align: right;
   min-width: 70px;
+  padding-right: 0;
 }
 
 .divider-below-actions {
