@@ -181,7 +181,8 @@ body {
 }
 
 .balances-section {
-  padding: 0 16px;
+  padding-left: 16px;
+  padding-right: 0; /* ✅ allow asset-right to go to far right */
 }
 
 .balances-header {
