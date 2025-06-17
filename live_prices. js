@@ -1,0 +1,54 @@
+// ✅ live_prices.js
+
+const trackedCoins = [
+  { symbol: "btc", name: "bitcoin", quantity: 0.005 },
+  { symbol: "eth", name: "ethereum", quantity: 1 },
+  { symbol: "bnb", name: "binancecoin", quantity: 2 },
+  { symbol: "usdt", name: "tether", quantity: 100 },
+  { symbol: "bonk", name: "bonk", quantity: 5000000 },
+  { symbol: "xrp", name: "ripple", quantity: 1500 }
+];
+
+let lastPrices = {};
+
+function formatPrice(val) {
+  if (val < 1) return val.toFixed(8);
+  return val.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
+async function fetchLivePrices() {
+  try {
+    const ids = trackedCoins.map(c => c.name).join(',');
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;
+    const res = await fetch(url);
+    const json = await res.json();
+
+    trackedCoins.forEach(coin => {
+      const coinPrice = json[coin.name]?.usd || 0;
+      const totalValue = coin.quantity * coinPrice;
+      lastPrices[coin.symbol] = {
+        price: coinPrice,
+        value: totalValue
+      };
+
+      // Update DOM
+      const amountEl = document.querySelector(`.asset-amount[data-symbol="${coin.symbol}"]`);
+      const usdEl = document.querySelector(`.asset-usd[data-symbol="${coin.symbol}"]`);
+      if (amountEl && usdEl) {
+        usdEl.textContent = `$${formatPrice(totalValue)}`;
+      }
+    });
+
+  } catch (err) {
+    console.error("Live price error:", err);
+  }
+}
+
+// Load once, then refresh every 15s
+window.addEventListener("DOMContentLoaded", () => {
+  fetchLivePrices();
+  setInterval(fetchLivePrices, 15000);
+});
