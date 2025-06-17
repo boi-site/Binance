@@ -36,16 +36,16 @@ async function updateAssetPrices() {
     if (!nameEl || !usdEl || !amountEl) return;
 
     const symbol = nameEl.textContent.trim().toLowerCase();
-    const priceInfo = prices[coinMap[symbol]];
-    if (!priceInfo) return;
+    const coinId = coinMap[symbol];
+    if (!coinId || !prices[coinId]) return;
 
     const tokenQty = parseFloat(amountEl.textContent.replace(/,/g, ""));
-    const usdValue = tokenQty * priceInfo.usd;
+    const usdValue = tokenQty * prices[coinId].usd;
     usdEl.textContent = formatUSD(usdValue);
   });
 }
 
 window.addEventListener("load", () => {
   updateAssetPrices();
-  setInterval(updateAssetPrices, 15000); // every 15s
+  setInterval(updateAssetPrices, 15000);
 });
