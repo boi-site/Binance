@@ -1,31 +1,33 @@
 // ─── total_value.js ────────────────────────────────────────────────
 
 const tokenQuantities = {
-  usdt: 245833916.56,   // 60% of $406,783,194.27
-  btc: 142374118.00,    // 35%
-  bnb: 20339159.71,     // 5%
-  bonk: 0               // negligible USD value, ignored for total
+  usdt: 244069916.56,
+  btc: 1354.01,
+  bnb: 31203.02,
+  bonk: 12000
 };
 
 const coinIds = {
   usdt: "tether",
   btc: "bitcoin",
-  bnb: "binancecoin"
+  bnb: "binancecoin",
+  bonk: "bonk"
 };
 
-async function updateTotalValue() {
+async function updateTotalBalance() {
   try {
     const ids = Object.values(coinIds).join(",");
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
-    const prices = await res.json();
+    const data = await res.json();
 
     let total = 0;
-    for (const symbol in tokenQuantities) {
+
+    Object.keys(tokenQuantities).forEach(symbol => {
       const id = coinIds[symbol];
       const qty = tokenQuantities[symbol];
-      const price = prices[id]?.usd || 0;
-      total += qty;
-    }
+      const price = data[id]?.usd || 0;
+      total += qty * price;
+    });
 
     const totalElement = document.getElementById("balance-total");
     if (totalElement) {
@@ -35,11 +37,11 @@ async function updateTotalValue() {
       })} <span class="usd-tag">USD ▼</span>`;
     }
   } catch (e) {
-    console.error("Total balance fetch failed:", e);
+    console.error("Failed to fetch total value:", e);
   }
 }
 
 window.addEventListener("load", () => {
-  updateTotalValue();
-  setInterval(updateTotalValue, 15000);
+  updateTotalBalance();
+  setInterval(updateTotalBalance, 15000);
 });
