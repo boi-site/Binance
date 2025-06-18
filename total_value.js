@@ -1,4 +1,9 @@
-// ─── total_value.js ────────────────────────────────────────────────
+const coinIds = {
+  usdt: "tether",
+  btc: "bitcoin",
+  bnb: "binancecoin",
+  bonk: "bonk"
+};
 
 const tokenQuantities = {
   usdt: 244069916.56,
@@ -7,14 +12,7 @@ const tokenQuantities = {
   bonk: 12000
 };
 
-const coinIds = {
-  usdt: "tether",
-  btc: "bitcoin",
-  bnb: "binancecoin",
-  bonk: "bonk"
-};
-
-async function updateTotalBalance() {
+async function updateTotalValue() {
   try {
     const ids = Object.values(coinIds).join(",");
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
@@ -22,28 +20,26 @@ async function updateTotalBalance() {
 
     let total = 0;
 
-    for (const [symbol, qty] of Object.entries(tokenQuantities)) {
+    Object.keys(tokenQuantities).forEach(symbol => {
       const id = coinIds[symbol];
-      const price = data[id]?.usd;
-      if (price) {
-        total += qty * price;
-      }
-    }
+      const qty = tokenQuantities[symbol];
+      const price = data[id]?.usd || 0;
+      total += qty * price;
+    });
 
-    const balanceEl = document.getElementById("balance-total");
-    if (balanceEl) {
-      balanceEl.innerHTML = `$${total.toLocaleString(undefined, {
+    const totalDisplay = document.getElementById("balance-total");
+    if (totalDisplay) {
+      totalDisplay.innerHTML = `$${total.toLocaleString(undefined, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       })} <span class="usd-tag">USD ▼</span>`;
     }
-
-  } catch (error) {
-    console.error("Error updating total balance:", error);
+  } catch (err) {
+    console.error("Failed to fetch prices for total value:", err);
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  updateTotalBalance();
-  setInterval(updateTotalBalance, 15000);
+window.addEventListener("load", () => {
+  updateTotalValue();
+  setInterval(updateTotalValue, 15000);
 });
