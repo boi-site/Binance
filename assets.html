@@ -5,7 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b0e11" />
   <title>Assets</title>
-  <link rel="stylesheet" href="assets.css" />
+  <link rel="stylesheet" href="funding.css" />
+
+  <style>
+    .asset-toggle-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 16px;
+      margin-top: 10px;
+    }
+
+    .asset-toggle-tabs {
+      display: flex;
+      gap: 40px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #888;
+      position: relative;
+    }
+
+    .asset-toggle-tabs span {
+      cursor: pointer;
+    }
+
+    .asset-toggle-tabs .active {
+      color: #eaecef;
+    }
+
+    .toggle-underline {
+      position: absolute;
+      bottom: -2px;
+      height: 2px;
+      width: 28px;
+      background-color: #fcd535;
+      border-radius: 2px;
+      transition: transform 0.3s ease;
+    }
+
+    .asset-toggle-icons {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .asset-toggle-icons img {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+
+    .title-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-right: 4px;
+    }
+
+    .title-right img {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
 <body>
 
@@ -22,7 +84,7 @@
     <div class="sub-tab-group">
       <span class="active">Overview</span>
       <span>Earn</span>
-      <span>Funding</span>
+      <span onclick="location.href='funding.html'">Funding</span>
       <span>Spot</span>
     </div>
     <div class="sub-tab-divider"></div>
@@ -35,9 +97,12 @@
         <span>Est. Total Value</span>
         <img src="eye.svg" class="icon-svg" alt="eye icon" />
       </div>
-      <a href="history.html">
-        <img src="ic_history.svg" alt="history icon" />
-      </a>
+      <div class="title-right">
+        <img src="chart.svg" alt="chart icon" />
+        <a href="history.html">
+          <img src="ic_history.svg" alt="history icon" />
+        </a>
+      </div>
     </div>
 
     <div class="balance-amount" id="balance-total">
@@ -57,18 +122,21 @@
     </div>
   </div>
 
+  <!-- Crypto / Account toggle with icons -->
+  <div class="asset-toggle-wrapper">
+    <div class="asset-toggle-tabs">
+      <span class="active" id="tab-crypto">Crypto</span>
+      <span id="tab-account">Account</span>
+      <div class="toggle-underline" id="toggle-underline"></div>
+    </div>
+    <div class="asset-toggle-icons">
+      <img src="search.svg" alt="search icon" />
+      <img src="settings.svg" alt="settings icon" />
+    </div>
+  </div>
+
   <!-- Balances and Coin List -->
   <section class="balances-section">
-    <div class="balances-header">
-      <strong>Balances</strong>
-      <img src="search.svg" class="search-icon" alt="Search" />
-    </div>
-
-    <div class="checkbox-row">
-      <input type="checkbox" id="hide-assets" />
-      <label for="hide-assets">Hide assets &lt; 1 USD</label>
-    </div>
-
     <div class="asset-list">
 
       <!-- USDT -->
@@ -77,69 +145,21 @@
           <img src="usdt-logo.svg" class="asset-icon-img" alt="USDT" />
           <div class="asset-info">
             <div class="asset-name" data-symbol="usdt">USDT</div>
-            <div class="asset-sub">TetherUS</div>
+            <div class="asset-sub" data-symbol="usdt-price">$0.00</div>
           </div>
         </div>
         <div class="asset-right">
-          <div class="asset-amount">244,069,916.56</div>
-          <div class="asset-usd" data-symbol="usdt">$0.00</div>
+          <div class="asset-amount">1.03117068</div>
+          <div class="asset-usd" data-symbol="usdt-usd">$0.00</div>
         </div>
       </div>
       <div class="asset-sub-pair">
         <div class="asset-sub-label-left">Today's PNL</div>
-        <div class="asset-sub-label-right" data-pnl="usdt">+0.00</div>
+        <div class="asset-sub-label-right" data-symbol="usdt-pnl">$0.00 (+0.00%)</div>
       </div>
       <div class="asset-sub-pair">
         <div class="asset-sub-label-left">Average cost</div>
-        <div class="asset-sub-label-right" data-cost="usdt">$0.00</div>
-      </div>
-      <div class="divider-below-actions"></div>
-
-      <!-- BTC -->
-      <div class="asset-row">
-        <div class="asset-left">
-          <img src="btc-logo.svg" class="asset-icon-img" alt="BTC" />
-          <div class="asset-info">
-            <div class="asset-name" data-symbol="btc">BTC</div>
-            <div class="asset-sub">Bitcoin</div>
-          </div>
-        </div>
-        <div class="asset-right">
-          <div class="asset-amount">1,354.01</div>
-          <div class="asset-usd" data-symbol="btc">$0.00</div>
-        </div>
-      </div>
-      <div class="asset-sub-pair">
-        <div class="asset-sub-label-left">Today's PNL</div>
-        <div class="asset-sub-label-right" data-pnl="btc">+0.00</div>
-      </div>
-      <div class="asset-sub-pair">
-        <div class="asset-sub-label-left">Average cost</div>
-        <div class="asset-sub-label-right" data-cost="btc">$0.00</div>
-      </div>
-      <div class="divider-below-actions"></div>
-
-      <!-- BNB -->
-      <div class="asset-row">
-        <div class="asset-left">
-          <img src="bnb-logo.svg" class="asset-icon-img" alt="BNB" />
-          <div class="asset-info">
-            <div class="asset-name" data-symbol="bnb">BNB</div>
-            <div class="asset-sub">BNB</div>
-          </div>
-        </div>
-        <div class="asset-right">
-          <div class="asset-amount">31,203.02</div>
-          <div class="asset-usd" data-symbol="bnb">$0.00</div>
-        </div>
-      </div>
-      <div class="asset-sub-pair">
-        <div class="asset-sub-label-left">Today's PNL</div>
-        <div class="asset-sub-label-right" data-pnl="bnb">+0.00</div>
-      </div>
-      <div class="asset-sub-pair">
-        <div class="asset-sub-label-left">Average cost</div>
-        <div class="asset-sub-label-right" data-cost="bnb">$0.00</div>
+        <div class="asset-sub-label-right" data-symbol="usdt-cost">$0.00</div>
       </div>
       <div class="divider-below-actions"></div>
 
@@ -149,21 +169,45 @@
           <img src="bonk-logo.svg" class="asset-icon-img" alt="BONK" />
           <div class="asset-info">
             <div class="asset-name" data-symbol="bonk">BONK</div>
-            <div class="asset-sub">Bonk</div>
+            <div class="asset-sub" data-symbol="bonk-price">$0.00</div>
           </div>
         </div>
         <div class="asset-right">
           <div class="asset-amount">12,000</div>
-          <div class="asset-usd" data-symbol="bonk">$0.00</div>
+          <div class="asset-usd" data-symbol="bonk-usd">$0.00</div>
         </div>
       </div>
       <div class="asset-sub-pair">
         <div class="asset-sub-label-left">Today's PNL</div>
-        <div class="asset-sub-label-right" data-pnl="bonk">+0.00</div>
+        <div class="asset-sub-label-right" data-symbol="bonk-pnl">$0.00 (+0.00%)</div>
       </div>
       <div class="asset-sub-pair">
         <div class="asset-sub-label-left">Average cost</div>
-        <div class="asset-sub-label-right" data-cost="bonk">$0.00</div>
+        <div class="asset-sub-label-right" data-symbol="bonk-cost">$0.00</div>
+      </div>
+      <div class="divider-below-actions"></div>
+
+      <!-- ETH -->
+      <div class="asset-row">
+        <div class="asset-left">
+          <img src="eth-logo.svg" class="asset-icon-img" alt="ETH" />
+          <div class="asset-info">
+            <div class="asset-name" data-symbol="eth">ETH</div>
+            <div class="asset-sub" data-symbol="eth-price">$0.00</div>
+          </div>
+        </div>
+        <div class="asset-right">
+          <div class="asset-amount">0.00005666</div>
+          <div class="asset-usd" data-symbol="eth-usd">$0.00</div>
+        </div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">Today's PNL</div>
+        <div class="asset-sub-label-right" data-symbol="eth-pnl">$0.00 (+0.00%)</div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">Average cost</div>
+        <div class="asset-sub-label-right" data-symbol="eth-cost">$0.00</div>
       </div>
       <div class="divider-below-actions"></div>
 
@@ -194,8 +238,41 @@
     </div>
   </footer>
 
-  <script src="pnl_simulator.js"></script>
+  <script src="pnl_simulator_assets.js"></script>
   <script src="live_prices_assets.js"></script>
   <script src="total_value.js"></script>
+
+  <script>
+    const cryptoTab = document.getElementById('tab-crypto');
+    const accountTab = document.getElementById('tab-account');
+    const underline = document.getElementById('toggle-underline');
+    const assetList = document.querySelector('.asset-list');
+
+    function updateUnderline(position) {
+      if (position === 'left') {
+        underline.style.transform = 'translateX(-40px)';
+      } else {
+        underline.style.transform = 'translateX(40px)';
+      }
+    }
+
+    cryptoTab.addEventListener('click', () => {
+      cryptoTab.classList.add('active');
+      accountTab.classList.remove('active');
+      assetList.style.display = 'block';
+      updateUnderline('left');
+    });
+
+    accountTab.addEventListener('click', () => {
+      cryptoTab.classList.remove('active');
+      accountTab.classList.add('active');
+      assetList.style.display = 'none';
+      updateUnderline('right');
+    });
+
+    window.addEventListener('load', () => {
+      updateUnderline('left');
+    });
+  </script>
 </body>
 </html>
