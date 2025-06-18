@@ -1,160 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0e11" />
-  <title>Binance Clone</title>
-  <link rel="stylesheet" href="home.css" />
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    .top-bar,
-    .balance-label,
-    .balance-row,
-    .quick-actions,
-    .tab-row,
-    .category-toggle,
-    .table-headers,
-    #coin-list,
-    #discover-strip,
-    .bottom-nav {
-      max-width: 430px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Top Bar -->
-  <div class="top-bar">
-    <img src="binance-logo.svg" class="logo" />
-    <div class="search-container">🔥<span>SUI</span></div>
-    <div class="top-icons">
-      <img src="ic_notification.svg" />
-      <img src="ic_headset.svg" />
-      <img src="ic_coin_in_hand.svg" />
-    </div>
-  </div>
-
-  <!-- Balance -->
-  <div class="balance-label">Est. Total Value (USD)</div>
-  <div class="balance-row">
-    <h2 class="total-balance" onclick="location='assets.html'">
-      $406,783,194.27
-    </h2>
-    <button class="add-funds">Add Funds</button>
-  </div>
-
-  <!-- Quick Actions -->
-  <div class="quick-actions">
-    <div class="action">
-      <div class="icon-box"><img src="ic_deposit.svg" /></div>
-      <label>Deposit</label>
-    </div>
-    <div class="action">
-      <div class="icon-box"><img src="ic_transfer.svg" /></div>
-      <label>Transfer</label>
-    </div>
-    <div class="action">
-      <div class="icon-box"><img src="ic_referral.svg" /></div>
-      <label>Referral</label>
-    </div>
-    <div class="action">
-      <div class="icon-box"><img src="ic_more.svg" /></div>
-      <label>More</label>
-    </div>
-  </div>
-
-  <!-- Top Tabs -->
-  <div class="tab-row">
-    <div class="scroll-tabs no-scrollbar">
-      <span class="tab">Favorites</span>
-      <span class="tab active">Hot</span>
-      <span class="tab">Alpha</span>
-      <span class="tab">New</span>
-      <span class="tab">Gainers</span>
-      <span class="tab">Losers</span>
-      <span class="tab">24h Vol</span>
-      <span class="tab">Market Cap</span>
-    </div>
-    <div class="tab-fixed-icon">
-      <img src="ic_hamburger.svg" />
-    </div>
-  </div>
-
-  <!-- Category Toggle -->
-  <div class="category-toggle">
-    <button class="active">Crypto</button>
-    <button>Futures</button>
-  </div>
-
-  <!-- Table Headers -->
-  <div class="table-headers">
-    <div class="coin-name">Name</div>
-    <div class="coin-price">Last Price</div>
-    <div class="coin-change">24h chg%</div>
-  </div>
-
-  <!-- Coin List -->
-  <div id="coin-list" class="coin-list"></div>
-
-  <!-- Discover Strip -->
-  <div id="discover-strip" class="bottom-scroll-tabs">
-    <div class="scroll-tabs no-scrollbar">
-      <span class="bottom-tab active">Discover</span>
-      <span class="bottom-tab">Following</span>
-      <span class="bottom-tab">News</span>
-      <span class="bottom-tab">Announcement</span>
-      <span class="bottom-tab">Hot</span>
-    </div>
-    <div class="tab-fixed-icon">
-      <span class="tab-arrow">⌃</span>
-    </div>
-  </div>
-
-  <!-- Bottom Nav -->
-  <div class="bottom-nav">
-    <div class="nav-item active" onclick="location='home.html'">
-      <img src="ic_home.svg" /><p>Home</p>
-    </div>
-    <div class="nav-item">
-      <img src="ic_market.svg" /><p>Markets</p>
-    </div>
-    <div class="nav-item">
-      <img src="ic_trade.svg" /><p>Trade</p>
-    </div>
-    <div class="nav-item">
-      <img src="ic_futures.svg" /><p>Futures</p>
-    </div>
-    <div class="nav-item" onclick="location='assets.html'">
-      <img src="ic_assets.svg" /><p>Assets</p>
-    </div>
-  </div>
-
-  <script src="coin_prices_api.js"></script>
-  <script>
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          const bar = document.getElementById('discover-strip');
-          if (!entry.isIntersecting) {
-            bar.style.position = 'static';
-          } else {
-            bar.style.position = 'sticky';
-            bar.style.bottom = '48px';
-          }
-        });
-      },
-      { root: null, threshold: 0 }
-    );
-    const xrpRow = document.querySelector(".coin-row:last-child");
-    if (xrpRow) observer.observe(xrpRow);
-  </script>
-</body>
+<!DOCTYPE html>  <html lang="en">    <head>        <meta charset="UTF-8" />      
+  <meta name="viewport"      
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>      
+  <title>Binance Clone</title>      
+  <link rel="stylesheet" href="home.css" />      
+</head>      
+<body>    <!-- Top Bar -->    <div class="top-bar">      
+    <img src="binance-logo.svg" class="logo" />      
+    <div class="search-container">🔥<span>SUI</span></div>      
+    <div class="top-icons">      
+      <img src="ic_notification.svg" />      
+      <img src="ic_headset.svg" />      
+      <img src="ic_coin_in_hand.svg" />      
+    </div>      
+  </div>    <!-- Balance -->    <div class="balance-label">Est. Total Value (USD)</div>      
+  <div class="balance-row">      
+    <h2 class="total-balance" onclick="location='assets.html'">      
+      $406,783,194.27      
+    </h2>      
+    <button class="add-funds">Add Funds</button>      
+  </div>    <!-- Quick Actions -->    <div class="quick-actions">      
+    <div class="action">      
+      <div class="icon-box"><img src="ic_deposit.svg" /></div>      
+      <label>Deposit</label>      
+    </div>      
+    <div class="action">      
+      <div class="icon-box"><img src="ic_transfer.svg" /></div>      
+      <label>Transfer</label>      
+    </div>      
+    <div class="action">      
+      <div class="icon-box"><img src="ic_referral.svg" /></div>      
+      <label>Referral</label>      
+    </div>      
+    <div class="action">      
+      <div class="icon-box"><img src="ic_more.svg" /></div>      
+      <label>More</label>      
+    </div>      
+  </div>    <!-- Top Tabs -->    <div class="tab-row">      
+    <div class="scroll-tabs no-scrollbar">      
+      <span class="tab">Favorites</span>      
+      <span class="tab active">Hot</span>      
+      <span class="tab">Alpha</span>      
+      <span class="tab">New</span>      
+      <span class="tab">Gainers</span>      
+      <span class="tab">Losers</span>      
+      <span class="tab">24h Vol</span>      
+      <span class="tab">Market Cap</span>      
+    </div>      
+    <div class="tab-fixed-icon">      
+      <img src="ic_hamburger.svg" />      
+    </div>      
+  </div>    <!-- Category Toggle -->    <div class="category-toggle">      
+    <button class="active">Crypto</button>      
+    <button>Futures</button>      
+  </div>    <!-- Table Headers -->    <div class="table-headers">      
+    <div class="coin-name">Name</div>      
+    <div class="coin-price">Last Price</div>      
+    <div class="coin-change">24h chg%</div>      
+  </div>    <!-- Coin List -->    <div id="coin-list" class="coin-list"></div>    <!-- Discover Strip -->    <div id="discover-strip" class="bottom-scroll-tabs">      
+    <div class="scroll-tabs no-scrollbar">      
+      <span class="bottom-tab active">Discover</span>      
+      <span class="bottom-tab">Following</span>      
+      <span class="bottom-tab">News</span>      
+      <span class="bottom-tab">Announcement</span>      
+      <span class="bottom-tab">Hot</span>      
+    </div>      
+    <div class="tab-fixed-icon">      
+      <span class="tab-arrow">⌃</span>      
+    </div>      
+  </div>    <!-- Bottom Nav -->    <div class="bottom-nav">      
+    <div class="nav-item active" onclick="location='home.html'">      
+      <img src="ic_home.svg" /><p>Home</p>      
+    </div>      
+    <div class="nav-item">      
+      <img src="ic_market.svg" /><p>Markets</p>      
+    </div>      
+    <div class="nav-item">      
+      <img src="ic_trade.svg" /><p>Trade</p>      
+    </div>      
+    <div class="nav-item">      
+      <img src="ic_futures.svg" /><p>Futures</p>      
+    </div>      
+    <div class="nav-item" onclick="location='assets.html'">      
+      <img src="ic_assets.svg" /><p>Assets</p>      
+    </div>      
+  </div>    <script src="coin_prices_api.js"></script>    <script>      
+    const observer = new IntersectionObserver(      
+      entries => {      
+        entries.forEach(entry => {      
+          const bar = document.getElementById('discover-strip');      
+          if (!entry.isIntersecting) {      
+            bar.style.position = 'static';      
+          } else {      
+            bar.style.position = 'sticky';      
+            bar.style.bottom = '48px';      
+          }      
+        });      
+      },      
+      { root: null, threshold: 0 }      
+    );      
+    const xrpRow = document.querySelector(".coin-row:last-child");      
+    if (xrpRow) observer.observe(xrpRow);      
+  </script>  </body>      
 </html>
