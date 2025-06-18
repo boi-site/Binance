@@ -6,29 +6,34 @@ const coinIds = {
   eth: "ethereum"
 };
 
-async function updateFundingPrices() {
+async function updateAssetPrices() {
   try {
     const ids = Object.values(coinIds).join(",");
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
     const data = await res.json();
 
     Object.entries(coinIds).forEach(([symbol, id]) => {
+      const price = data[id]?.usd || 0;
+
+      // Update small faded price line
+      const faded = document.querySelector(`[data-symbol="${symbol}-price"]`);
+      if (faded) {
+        faded.textContent = `$${price.toFixed(2)}`;
+      }
+
+      // Update USD value = price * qty
+      const qtyDiv = document.querySelector(`.asset-name[data-symbol="${symbol}"]`)?.closest(".asset-row")?.querySelector(".asset-amount");
       const usdDiv = document.querySelector(`.asset-usd[data-symbol="${symbol}-usd"]`);
       const avgCostDiv = document.querySelector(`[data-symbol="${symbol}-cost"]`);
-      const priceText = document.querySelector(`[data-symbol="${symbol}-price"]`);
-      const qtyDiv = document.querySelector(`.asset-name[data-symbol="${symbol}"]`)?.closest(".asset-row")?.querySelector(".asset-amount");
 
-      if (qtyDiv) {
+      if (qtyDiv && usdDiv) {
         const qty = parseFloat(qtyDiv.textContent.replace(/,/g, ""));
-        const price = data[id]?.usd || 0;
-        const usdValue = qty * price;
+        const usd = qty * price;
 
-        if (usdDiv) {
-          usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          })}`;
-        }
+        usdDiv.textContent = `$${usd.toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })}`;
 
         if (avgCostDiv) {
           avgCostDiv.textContent = `$${price.toLocaleString(undefined, {
@@ -36,21 +41,13 @@ async function updateFundingPrices() {
             maximumFractionDigits: 2
           })}`;
         }
-
-        if (priceText) {
-          priceText.textContent = `$${price.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          })}`;
-        }
       }
     });
-  } catch (e) {
-    console.error("Live price fetch failed:", e);
+  } catch (err) {
+    console.error("Error loading live asset prices:", err);
   }
 }
 
 window.addEventListener("load", () => {
-  updateFundingPrices();
-  setInterval(updateFundingPrices, 15000);
-});
+  updateAssetPrices();
+  setInterval(updateAssetPrices, 15000);
