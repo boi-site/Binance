@@ -6,27 +6,6 @@
   <meta name="theme-color" content="#0b0e11" />
   <title>Assets Overview</title>
   <link rel="stylesheet" href="assets.css" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background-color: #181a20;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #eaecef;
-      display: flex;
-      justify-content: center;
-    }
-
-    .mobile-wrapper {
-      width: 100%;
-      max-width: 430px;
-      min-height: 100vh;
-      background-color: #181a20;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 0 20px #000; /* optional shadow for desktop look */
-    }
-  </style>
 </head>
 <body>
   <div class="mobile-wrapper">
@@ -55,13 +34,11 @@
       <div class="title-row">
         <div class="title-left">
           <span>Est. Total Value</span>
-          <img src="eye.svg" class="icon-svg" alt="eye icon" />
+          <img src="eye.svg" class="icon-svg" />
         </div>
         <div class="icon-group">
-          <img src="chart.svg" class="icon-svg" alt="chart icon" />
-          <a href="history.html">
-            <img src="ic_history.svg" class="icon-svg" alt="history icon" />
-          </a>
+          <img src="chart.svg" class="icon-svg" />
+          <a href="history.html"><img src="ic_history.svg" class="icon-svg" /></a>
         </div>
       </div>
 
@@ -91,42 +68,42 @@
         <span class="inactive">Account</span>
       </div>
       <div class="right-icons">
-        <img src="search.svg" class="icon-svg" alt="search icon" />
-        <img src="settings.svg" class="icon-svg" alt="settings icon" />
+        <img src="search.svg" class="icon-svg" />
+        <img src="settings.svg" class="icon-svg" />
       </div>
     </div>
 
     <!-- Asset List -->
     <div class="asset-list" id="asset-list">
-      <!-- Dynamic coin data inserted via JS -->
+      <!-- Coin data injected by JS -->
     </div>
 
     <!-- Bottom Nav -->
     <footer class="bottom-nav">
       <div class="nav-item" onclick="location.href='home.html'">
-        <img src="ic_home.svg" class="nav-icon" alt="Home" />
+        <img src="ic_home.svg" class="nav-icon" />
         <div class="nav-label">Home</div>
       </div>
       <div class="nav-item">
-        <img src="ic_market.svg" class="nav-icon" alt="Markets" />
+        <img src="ic_market.svg" class="nav-icon" />
         <div class="nav-label">Markets</div>
       </div>
       <div class="nav-item">
-        <img src="ic_trade.svg" class="nav-icon" alt="Trade" />
+        <img src="ic_trade.svg" class="nav-icon" />
         <div class="nav-label">Trade</div>
       </div>
       <div class="nav-item">
-        <img src="ic_futures.svg" class="nav-icon" alt="Futures" />
+        <img src="ic_futures.svg" class="nav-icon" />
         <div class="nav-label">Futures</div>
       </div>
       <div class="nav-item active">
-        <img src="ic_assets.svg" class="nav-icon" alt="Assets" />
+        <img src="ic_assets.svg" class="nav-icon" />
         <div class="nav-label">Assets</div>
       </div>
     </footer>
-
   </div>
 
+  <script src="total_value.js"></script>
   <script>
     function simulatePNL() {
       const pnlSpan = document.getElementById('total-pnl');
@@ -134,11 +111,9 @@
       const isProfit = Math.random() > 0.5;
       const amount = (Math.random() * 5).toFixed(2);
       const percent = (Math.random() * 10).toFixed(2);
-      const formatted = `$${amount} (${isProfit ? '+' : '-'}${percent}%)`;
-      pnlSpan.textContent = formatted;
+      pnlSpan.textContent = `$${amount} (${isProfit ? '+' : '-'}${percent}%)`;
       pnlSpan.className = isProfit ? 'pnl-green' : 'pnl-red';
     }
-
     setInterval(simulatePNL, 5000);
     simulatePNL();
   </script>
