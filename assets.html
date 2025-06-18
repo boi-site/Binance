@@ -33,16 +33,24 @@
       color: #eaecef;
     }
 
-    .toggle-underline {
-      position: absolute;
-      bottom: -2px;
-      height: 2px;
-      width: 28px;
-      background-color: #fcd535;
-      border-radius: 2px;
-      transition: transform 0.3s ease;
-    }
+.toggle-underline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  pointer-events: none;
+}
 
+.toggle-underline span {
+  display: inline-block;
+  height: 2px;
+  width: 28px;
+  background-color: #fcd535;
+  border-radius: 2px;
+  margin-left: 0;
+}
     .asset-toggle-icons {
       display: flex;
       gap: 14px;
