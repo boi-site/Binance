@@ -88,7 +88,7 @@ margin: 0;
 color: white;
 cursor: pointer;
 line-height: 36px;
-margin-left: 16px;  
+transform: translateX(-16px);  
 }
 
 .balance-label {
