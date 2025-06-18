@@ -6,6 +6,56 @@
   <meta name="theme-color" content="#0b0e11" />
   <title>Assets</title>
   <link rel="stylesheet" href="funding.css" />
+  <style>
+    .asset-toggle-tabs {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #888;
+      position: relative;
+    }
+
+    .asset-toggle-tabs span {
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .asset-toggle-tabs .active {
+      color: #eaecef;
+    }
+
+    .toggle-underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .toggle-underline span {
+      display: inline-block;
+      height: 2px;
+      width: 28px;
+      background-color: #fcd535;
+      border-radius: 2px;
+    }
+
+    .title-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .title-right img {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+    }
+  </style>
 </head>
 <body>
 
@@ -35,10 +85,10 @@
         <span>Est. Total Value</span>
         <img src="eye.svg" class="icon-svg" alt="eye icon" />
       </div>
-      <div class="title-right" style="display: flex; gap: 10px;">
-        <img src="chart.svg" alt="chart icon" class="icon-svg" />
-        <img src="search.svg" alt="search icon" class="icon-svg" />
-        <img src="settings.svg" alt="settings icon" class="icon-svg" />
+      <div class="title-right">
+        <img src="chart.svg" alt="chart icon" />
+        <img src="search.svg" alt="search icon" />
+        <img src="settings.svg" alt="settings icon" />
         <a href="history.html">
           <img src="ic_history.svg" alt="history icon" />
         </a>
@@ -59,6 +109,15 @@
       <button class="add">Add Funds</button>
       <button class="gray">Send</button>
       <button class="gray">Transfer</button>
+    </div>
+  </div>
+
+  <!-- Crypto / Account toggle row -->
+  <div class="asset-toggle-tabs">
+    <span class="active">Crypto</span>
+    <span>Account</span>
+    <div class="toggle-underline">
+      <span></span>
     </div>
   </div>
 
@@ -169,8 +228,28 @@
     </div>
   </footer>
 
-  <script src="pnl_simulator.js"></script>
-  <script src="live_prices.js"></script>
+  <script src="pnl_simulator_assets.js"></script>
+  <script src="live_prices_assets.js"></script>
   <script src="total_value.js"></script>
+<script>
+  const cryptoTab = document.querySelector('.asset-toggle-tabs span:nth-child(1)');
+  const accountTab = document.querySelector('.asset-toggle-tabs span:nth-child(2)');
+  const underline = document.querySelector('.toggle-underline');
+  const cryptoSection = document.querySelector('.asset-list');
+
+  cryptoTab.addEventListener('click', () => {
+    cryptoTab.classList.add('active');
+    accountTab.classList.remove('active');
+    underline.style.left = '0%';
+    cryptoSection.style.display = 'block';
+  });
+
+  accountTab.addEventListener('click', () => {
+    cryptoTab.classList.remove('active');
+    accountTab.classList.add('active');
+    underline.style.left = '50%';
+    cryptoSection.style.display = 'none';
+  });
+</script>
 </body>
 </html>
