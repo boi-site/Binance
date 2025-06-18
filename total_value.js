@@ -1,4 +1,4 @@
-const coinIds = {
+const coinIdMap = {
   usdt: "tether",
   btc: "bitcoin",
   bnb: "binancecoin",
@@ -14,14 +14,14 @@ const tokenQuantities = {
 
 async function updateTotalValue() {
   try {
-    const ids = Object.values(coinIds).join(",");
+    const ids = Object.values(coinIdMap).join(",");
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
     const data = await res.json();
 
     let total = 0;
 
     Object.keys(tokenQuantities).forEach(symbol => {
-      const id = coinIds[symbol];
+      const id = coinIdMap[symbol];
       const qty = tokenQuantities[symbol];
       const price = data[id]?.usd || 0;
       total += qty * price;
