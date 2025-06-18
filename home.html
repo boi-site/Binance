@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-
   <!-- Top Bar -->
   <div class="top-bar">
     <img src="binance-logo.svg" class="logo" />
@@ -22,7 +21,7 @@
   <!-- Balance -->
   <div class="balance-label">Est. Total Value (USD)</div>
   <div class="balance-row">
-    <h2 class="total-balance" id="balance-total" onclick="location='assets.html'">
+    <h2 class="total-balance" onclick="location='assets.html'" id="balance-total">
       $406,783,194.27
     </h2>
     <button class="add-funds">Add Funds</button>
@@ -135,6 +134,5 @@
     const xrpRow = document.querySelector(".coin-row:last-child");
     if (xrpRow) observer.observe(xrpRow);
   </script>
-
 </body>
 </html>
