@@ -1,16 +1,16 @@
 // ─── total_value.js ────────────────────────────────────────────────
 
 const tokenQuantities = {
-  usdt: 245833916.56,   // 60%
+  usdt: 245833916.56,   // 60% of $406,783,194.27
   btc: 142374118.00,    // 35%
   bnb: 20339159.71,     // 5%
-  bonk: 0               // treated as 0 since its USD is too low
+  bonk: 0               // negligible USD value, ignored for total
 };
 
 const coinIds = {
   usdt: "tether",
   btc: "bitcoin",
-  bnb: "binancecoin",
+  bnb: "binancecoin"
 };
 
 async function updateTotalValue() {
@@ -24,11 +24,16 @@ async function updateTotalValue() {
       const id = coinIds[symbol];
       const qty = tokenQuantities[symbol];
       const price = prices[id]?.usd || 0;
-      total += qty / price === 0 ? 0 : qty;
+      total += qty;
     }
 
-    document.getElementById("balance-total").innerHTML =
-      `$${total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} <span class="usd-tag">USD ▼</span>`;
+    const totalElement = document.getElementById("balance-total");
+    if (totalElement) {
+      totalElement.innerHTML = `$${total.toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      })} <span class="usd-tag">USD ▼</span>`;
+    }
   } catch (e) {
     console.error("Total balance fetch failed:", e);
   }
