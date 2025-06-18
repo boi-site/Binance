@@ -1,3 +1,4 @@
+/* assets.css */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -5,20 +6,13 @@ body {
   color: #eaecef;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 18px;
+  padding-top: 20px;
 }
 
-.loading {
-  padding: 16px;
-  text-align: center;
-  color: #888;
-}
-
-/* Exchange/Wallet Toggle */
 .toggle-wrapper {
   display: flex;
   justify-content: center;
-  margin: 12px 0;
+  margin: 12px 0 20px;
 }
 
 .toggle-box {
@@ -43,12 +37,6 @@ body {
   color: #fff;
 }
 
-.toggle-btn:active {
-  opacity: 0.8;
-  transform: scale(0.98);
-}
-
-/* Tabs */
 .sub-tabs {
   padding: 0 16px;
 }
@@ -75,7 +63,6 @@ body {
   margin: 10px 0 14px;
 }
 
-/* Balance Section */
 .balance-section {
   padding: 0;
 }
@@ -96,17 +83,10 @@ body {
   color: #bfc2c7;
 }
 
-.icon-svg,
-.title-left img {
+.title-left img,
+.title-row img {
   width: 16px;
   height: 16px;
-  vertical-align: middle;
-  opacity: 0.6;
-}
-
-.title-row img[alt="history icon"] {
-  width: 18px;
-  height: 18px;
   opacity: 0.6;
 }
 
@@ -114,13 +94,6 @@ body {
   font-size: 26px;
   font-weight: 700;
   margin: 10px 16px 6px;
-}
-
-.usd-tag {
-  font-size: 12px;
-  color: #bfc2c7;
-  font-weight: 500;
-  margin-left: 6px;
 }
 
 .pnl-inline {
@@ -144,13 +117,6 @@ body {
   color: #e74c3c;
 }
 
-.right-arrow {
-  font-size: 11px;
-  color: #888;
-  transform: translateY(-1px);
-}
-
-/* Action Buttons */
 .action-buttons {
   display: flex;
   gap: 8px;
@@ -168,11 +134,6 @@ body {
   transition: all 0.2s ease;
 }
 
-.action-buttons button:active {
-  opacity: 0.8;
-  transform: scale(0.98);
-}
-
 .add {
   background-color: #fcd535;
   color: #0b0e11;
@@ -183,80 +144,36 @@ body {
   color: #fff;
 }
 
-/* Divider */
-.divider-below-actions {
-  height: 1px;
-  background-color: #2a2b31;
-  margin-top: 8px;
-  margin-left: 16px;
-  margin-right: 16px;
+.balances-section {
+  padding-left: 16px;
+  padding-right: 0;
 }
 
-/* Crypto/Account Tab Row */
-.asset-tabs {
+.balances-header {
   display: flex;
   justify-content: space-between;
-  padding: 0 16px;
-  margin: 12px 0 8px;
-}
-
-.tab-labels {
-  display: flex;
-  gap: 16px;
-}
-
-.tab-labels span {
-  font-size: 13px;
+  align-items: center;
+  font-size: 16px;
   font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  color: #eaecef;
+  margin-top: 14px;
 }
 
-.tab-labels span:active {
-  opacity: 0.8;
-}
-
-.tab-labels .tab-active {
-  color: #fff;
-  position: relative;
-}
-
-.tab-labels .tab-active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 22px;
-  height: 2px;
-  background-color: #fcd535;
-  border-radius: 1px;
-}
-
-.tab-labels .inactive {
-  color: #888;
-}
-
-.right-icons {
-  display: flex;
-  gap: 12px;
-}
-
-.right-icons img {
+.search-icon {
   width: 16px;
   height: 16px;
   opacity: 0.6;
+  transform: translateX(-16px);
 }
 
-/* Coin List */
 .asset-list {
-  padding: 0 16px 80px;
+  padding-bottom: 80px;
 }
 
 .asset-row {
   display: flex;
   justify-content: space-between;
   padding: 14px 0;
-  border-bottom: 1px solid #1c1f24;
 }
 
 .asset-left {
@@ -277,6 +194,7 @@ body {
 .asset-name {
   font-weight: 600;
   font-size: 13px;
+  margin-bottom: 6px;
 }
 
 .asset-sub {
@@ -286,12 +204,15 @@ body {
 }
 
 .asset-right {
+  margin-left: auto;
   text-align: right;
+  padding-right: 18px;
 }
 
 .asset-amount {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
+  margin-bottom: 6px;
 }
 
 .asset-usd {
@@ -299,7 +220,46 @@ body {
   color: #aaa;
 }
 
-/* Bottom Nav */
+.asset-sub-pair {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-top: 6px;
+  padding-left: 42px;
+  padding-right: 18px;
+}
+
+.asset-sub-label-left {
+  text-align: left;
+  color: #aaa;
+}
+
+.asset-sub-label-right {
+  text-align: right;
+  min-width: 70px;
+  color: #fff;
+}
+
+.asset-pnl {
+  font-size: 11px;
+  color: #0ecb81;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.asset-avg-cost {
+  font-size: 11px;
+  color: #aaa;
+  text-align: right;
+  margin-top: 2px;
+}
+
+.divider-below-actions {
+  height: 1px;
+  background-color: #2a2b31;
+  margin: 8px 0;
+}
+
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -339,7 +299,6 @@ body {
   color: #fcd535;
 }
 
-/* Responsive */
 @media (min-width: 768px) {
   .balance-amount {
     font-size: 26px;
