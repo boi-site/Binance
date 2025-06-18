@@ -22,26 +22,28 @@ async function updateTotalBalance() {
 
     let total = 0;
 
-    Object.keys(tokenQuantities).forEach(symbol => {
+    for (const [symbol, qty] of Object.entries(tokenQuantities)) {
       const id = coinIds[symbol];
-      const qty = tokenQuantities[symbol];
-      const price = data[id]?.usd || 0;
-      total += qty * price;
-    });
+      const price = data[id]?.usd;
+      if (price) {
+        total += qty * price;
+      }
+    }
 
-    const totalElement = document.getElementById("balance-total");
-    if (totalElement) {
-      totalElement.innerHTML = `$${total.toLocaleString(undefined, {
+    const balanceEl = document.getElementById("balance-total");
+    if (balanceEl) {
+      balanceEl.innerHTML = `$${total.toLocaleString(undefined, {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
       })} <span class="usd-tag">USD ▼</span>`;
     }
-  } catch (e) {
-    console.error("Failed to fetch total value:", e);
+
+  } catch (error) {
+    console.error("Error updating total balance:", error);
   }
 }
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
   updateTotalBalance();
   setInterval(updateTotalBalance, 15000);
 });
