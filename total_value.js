@@ -1,49 +1,40 @@
-// ─── total_value.js ──────────────────────────────────────────────
+// ─── total_value.js ────────────────────────────────────────────────
 
-// Fixed token quantities (edit only here to update everywhere)
-const fixedQuantities = {
-  usdt: 244069916.56, // 60% of 406,783,194.27
-  btc: 1.368,         // 35% worth of BTC
-  bnb: 1354.3,        // 5% worth of BNB
-  bonk: 12000         // stays unchanged, very small portion
+const tokenQuantities = {
+  usdt: 245833916.56,   // 60%
+  btc: 142374118.00,    // 35%
+  bnb: 20339159.71,     // 5%
+  bonk: 0               // treated as 0 since its USD is too low
 };
 
-// Map to CoinGecko IDs
 const coinIds = {
   usdt: "tether",
   btc: "bitcoin",
   bnb: "binancecoin",
-  bonk: "bonk"
 };
 
-async function updateTotalBalance() {
+async function updateTotalValue() {
   try {
     const ids = Object.values(coinIds).join(",");
     const res = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`);
-    const data = await res.json();
+    const prices = await res.json();
 
     let total = 0;
-
-    Object.keys(fixedQuantities).forEach(symbol => {
+    for (const symbol in tokenQuantities) {
       const id = coinIds[symbol];
-      const price = data[id]?.usd || 0;
-      const quantity = fixedQuantities[symbol];
-      total += price * quantity;
-    });
-
-    const balanceDiv = document.getElementById("balance-total");
-    if (balanceDiv) {
-      balanceDiv.innerHTML = `$${total.toLocaleString(undefined, {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })} <span class="usd-tag">USD ▼</span>`;
+      const qty = tokenQuantities[symbol];
+      const price = prices[id]?.usd || 0;
+      total += qty / price === 0 ? 0 : qty;
     }
-  } catch (err) {
-    console.error("Failed to update total balance:", err);
+
+    document.getElementById("balance-total").innerHTML =
+      `$${total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} <span class="usd-tag">USD ▼</span>`;
+  } catch (e) {
+    console.error("Total balance fetch failed:", e);
   }
 }
 
 window.addEventListener("load", () => {
-  updateTotalBalance();
-  setInterval(updateTotalBalance, 15000);
+  updateTotalValue();
+  setInterval(updateTotalValue, 15000);
 });
