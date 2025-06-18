@@ -2,8 +2,15 @@ const coinIds = {
   usdt: "tether",
   btc: "bitcoin",
   bnb: "binancecoin",
-  bonk: "bonk",
-  eth: "ethereum"
+  bonk: "bonk"
+};
+
+const tokenQuantities = {
+  usdt: 1.03117068,
+  btc: 0,
+  bnb: 0,
+  bonk: 12000,
+  eth: 0.00005666
 };
 
 async function updateAssetPrices() {
@@ -51,3 +58,4 @@ async function updateAssetPrices() {
 window.addEventListener("load", () => {
   updateAssetPrices();
   setInterval(updateAssetPrices, 15000);
+});
