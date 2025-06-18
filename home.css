@@ -88,8 +88,7 @@ margin: 0;
 color: white;
 cursor: pointer;
 line-height: 36px;
-margin-left: 0px;         /* remove any old margin /
-transform: translateX(-16px); / nudge left, try -16px or tweak as needed */
+margin-left: 16px;  
 }
 
 .balance-label {
