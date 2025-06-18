@@ -256,6 +256,7 @@ font-size: 11px;
 .asset-name {
 font-weight: 600;
 font-size: 13px;
+margin-bottom: 6px;
 }
 
 .asset-sub {
@@ -273,6 +274,8 @@ padding-right: 18px; /* ✅ Pushes everything to right-most */
 .asset-amount {
 font-size: 15px;
 font-weight: 600;
+margin-bottom: 6px;
+
 }
 
 .asset-usd {
