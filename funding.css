@@ -284,22 +284,23 @@ color: #aaa;
 }
 
 .asset-sub-pair {
-display: flex;
-justify-content: space-between;
-font-size: 11px;
-color: #aaa;
-margin-top: 6px;
-padding-left: 42px;
-padding-right: 18px; /* ✅ aligns with .asset-right */
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-top: 6px;
+  padding-left: 42px;
+  padding-right: 18px;
 }
 
 .asset-sub-label-left {
-text-align: left;
+  text-align: left;
+  color: #aaa; /* ✅ label text stays gray */
 }
 
 .asset-sub-label-right {
-text-align: right;
-min-width: 70px;
+  text-align: right;
+  min-width: 70px;
+  color: #fff; /* ✅ value is white */
 }
 
 .divider-below-actions {
