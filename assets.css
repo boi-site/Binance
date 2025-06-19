@@ -333,10 +333,10 @@ body {
 
 .toggle-underline {
   display: flex;
-  justify-content: flex-start;
-  padding-left: 16px;
-  margin-top: 2px; /* slightly pushes it downward */
-  margin-bottom: 10px; /* creates breathing room below */
+  justify-content: center;
+  align-items: center;
+  margin-top: 4px;     /* pushes it down from "Crypto" */
+  margin-bottom: 12px; /* gives breathing room below */
 }
 
 .toggle-underline span {
