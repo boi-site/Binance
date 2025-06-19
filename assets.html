@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b0e11" />
   <title>Assets</title>
-  <link rel="stylesheet" href="funding.css" />
+  <link rel="stylesheet" href="assets.css" />
 
   <style>
     .asset-toggle-wrapper {
@@ -22,7 +22,6 @@
       font-size: 14px;
       font-weight: 500;
       color: #888;
-      position: relative;
     }
 
     .asset-toggle-tabs span {
@@ -33,24 +32,6 @@
       color: #eaecef;
     }
 
-.toggle-underline {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  pointer-events: none;
-}
-
-.toggle-underline span {
-  display: inline-block;
-  height: 2px;
-  width: 28px;
-  background-color: #fcd535;
-  border-radius: 2px;
-  margin-left: 0;
-}
     .asset-toggle-icons {
       display: flex;
       gap: 14px;
@@ -61,6 +42,23 @@
       width: 16px;
       height: 16px;
       opacity: 0.6;
+    }
+
+    /* 🔶 Yellow underline that stays under Crypto */
+    .toggle-underline {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 16px;
+      margin-top: -4px;
+      margin-bottom: 4px;
+    }
+
+    .toggle-underline span {
+      display: inline-block;
+      height: 2px;
+      width: 28px;
+      background-color: #fcd535;
+      border-radius: 2px;
     }
 
     .title-right {
@@ -117,11 +115,11 @@
       $0.00 <span class="usd-tag">USD ▼</span>
     </div>
 
-  <div class="pnl-inline">
-  <span class="pnl-label">Today's PNL</span>
-  <span id="total-pnl" class="pnl-green">+0.00</span>
-  <span class="right-arrow">&#8250;</span>
-</div>
+    <div class="pnl-inline">
+      <span class="pnl-label">Today's PNL</span>
+      <span id="total-pnl" class="pnl-green">+0.00</span>
+      <span class="right-arrow">&#8250;</span>
+    </div>
 
     <div class="action-buttons">
       <button class="add">Add Funds</button>
@@ -130,18 +128,20 @@
     </div>
   </div>
 
-  <!-- Crypto / Account toggle with icons -->
+  <!-- Crypto / Account toggle and static underline -->
   <div class="asset-toggle-wrapper">
     <div class="asset-toggle-tabs">
       <span class="active" id="tab-crypto">Crypto</span>
       <span id="tab-account">Account</span>
-      <div class="toggle-underline" id="toggle-underline"></div>
     </div>
     <div class="asset-toggle-icons">
       <img src="search.svg" alt="search icon" />
       <img src="settings.svg" alt="settings icon" />
     </div>
   </div>
+
+  <!-- 🔶 Static yellow underline below the tabs -->
+  <div class="toggle-underline"><span></span></div>
 
   <!-- Balances and Coin List -->
   <section class="balances-section">
@@ -250,37 +250,5 @@
   <script src="live_prices.js"></script>
   <script src="total_value.js"></script>
 
-  <script>
-    const cryptoTab = document.getElementById('tab-crypto');
-    const accountTab = document.getElementById('tab-account');
-    const underline = document.getElementById('toggle-underline');
-    const assetList = document.querySelector('.asset-list');
-
-    function updateUnderline(position) {
-      if (position === 'left') {
-        underline.style.transform = 'translateX(-40px)';
-      } else {
-        underline.style.transform = 'translateX(40px)';
-      }
-    }
-
-    cryptoTab.addEventListener('click', () => {
-      cryptoTab.classList.add('active');
-      accountTab.classList.remove('active');
-      assetList.style.display = 'block';
-      updateUnderline('left');
-    });
-
-    accountTab.addEventListener('click', () => {
-      cryptoTab.classList.remove('active');
-      accountTab.classList.add('active');
-      assetList.style.display = 'none';
-      updateUnderline('right');
-    });
-
-    window.addEventListener('load', () => {
-      updateUnderline('left');
-    });
-  </script>
 </body>
 </html>
