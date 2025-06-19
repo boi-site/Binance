@@ -1,4 +1,4 @@
-/* assets.css */
+/* ───── General Layout ───── */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -9,6 +9,7 @@ body {
   padding-top: 20px;
 }
 
+/* ───── Exchange/Wallet Toggle ───── */
 .toggle-wrapper {
   display: flex;
   justify-content: center;
@@ -37,6 +38,7 @@ body {
   color: #fff;
 }
 
+/* ───── Sub-tabs (Overview, Earn, etc.) ───── */
 .sub-tabs {
   padding: 0 16px;
 }
@@ -63,6 +65,7 @@ body {
   margin: 10px 0 14px;
 }
 
+/* ───── Balance Section ───── */
 .balance-section {
   padding: 0;
 }
@@ -117,6 +120,7 @@ body {
   color: #e74c3c;
 }
 
+/* ───── Action Buttons (Add Funds, Send, Transfer) ───── */
 .action-buttons {
   display: flex;
   gap: 8px;
@@ -144,26 +148,10 @@ body {
   color: #fff;
 }
 
+/* ───── Asset List Section ───── */
 .balances-section {
   padding-left: 16px;
   padding-right: 0;
-}
-
-.balances-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-  color: #eaecef;
-  margin-top: 14px;
-}
-
-.search-icon {
-  width: 16px;
-  height: 16px;
-  opacity: 0.6;
-  transform: translateX(-16px);
 }
 
 .asset-list {
@@ -240,26 +228,14 @@ body {
   color: #fff;
 }
 
-.asset-pnl {
-  font-size: 11px;
-  color: #0ecb81;
-  text-align: right;
-  margin-top: 4px;
-}
-
-.asset-avg-cost {
-  font-size: 11px;
-  color: #aaa;
-  text-align: right;
-  margin-top: 2px;
-}
-
+/* ───── Divider ───── */
 .divider-below-actions {
   height: 1px;
   background-color: #2a2b31;
   margin: 8px 0;
 }
 
+/* ───── Bottom Navigation Bar ───── */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -299,6 +275,7 @@ body {
   color: #fcd535;
 }
 
+/* ───── Responsive ───── */
 @media (min-width: 768px) {
   .balance-amount {
     font-size: 26px;
@@ -307,4 +284,57 @@ body {
   .asset-row {
     padding: 18px 0;
   }
+}
+
+/* ───── Crypto | Account Tabs + Underline ───── */
+.asset-toggle-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  margin-top: 10px;
+}
+
+.asset-toggle-tabs {
+  display: flex;
+  gap: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #888;
+}
+
+.asset-toggle-tabs span {
+  cursor: pointer;
+}
+
+.asset-toggle-tabs .active {
+  color: #eaecef;
+}
+
+.asset-toggle-icons {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.asset-toggle-icons img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+.toggle-underline {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 16px;
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+.toggle-underline span {
+  display: inline-block;
+  height: 2px;
+  width: 28px;
+  background-color: #fcd535;
+  border-radius: 2px;
 }
