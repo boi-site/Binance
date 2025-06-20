@@ -112,7 +112,11 @@ body {
   color: #888;
   margin: 10px 16px 16px;
 }
-
+.pnl-divider {
+  border-bottom: 1px solid #2b3139;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
 .pnl-label {
   color: #bfc2c7;
 }
