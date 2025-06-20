@@ -27,7 +27,6 @@ async function updateAssetPrices() {
           maximumFractionDigits: 2
         })}`;
 
-        // Set average cost same as live price for now
         if (costDiv) {
           costDiv.textContent = `$${price.toLocaleString(undefined, {
             minimumFractionDigits: 2,
