@@ -1,11 +1,8 @@
 /* history.css */
-:root {
-  --safe-area-top: env(safe-area-inset-top, 20px);
-}
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 32px 0 0 0; /* Added padding-top for Android status bar */
   background: #181a20;
   color: #eaecef;
   font-family: 'Segoe UI', sans-serif;
@@ -23,7 +20,6 @@ body {
   right: 0;
   background: #181a20;
   z-index: 100;
-  padding-top: var(--safe-area-top);
 }
 
 /* Header with back button and title */
@@ -57,7 +53,6 @@ body {
 /* Sub-tabs */
 .sub-tabs {
   padding: 0 16px;
-  position: relative;
 }
 .sub-tab-group {
   display: flex;
@@ -86,11 +81,8 @@ body {
 .sub-tab-divider {
   height: 1px;
   background: #2a2b31;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
   margin: 0;
+  width: 100vw;
 }
 
 /* Filter row */
@@ -124,7 +116,7 @@ body {
 .tx-scroll-wrapper {
   flex: 1;
   overflow-y: auto;
-  margin-top: calc(48px + 42px + 1px + 52px + var(--safe-area-top)); /* height of fixed header */
+  margin-top: calc(48px + 42px + 1px + 52px); /* total height of fixed header */
 }
 .tx-list {
   padding: 0 16px;
