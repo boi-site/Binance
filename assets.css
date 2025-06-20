@@ -1,3 +1,4 @@
+/* ───── General Layout ───── */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -8,6 +9,7 @@ body {
   padding-top: 20px;
 }
 
+/* ───── Exchange/Wallet Toggle ───── */
 .toggle-wrapper {
   display: flex;
   justify-content: center;
@@ -36,6 +38,7 @@ body {
   color: #fff;
 }
 
+/* ───── Sub-tabs (Overview, Earn, etc.) ───── */
 .sub-tabs {
   padding: 0 16px;
 }
@@ -62,6 +65,7 @@ body {
   margin: 10px 0 14px;
 }
 
+/* ───── Balance Section ───── */
 .balance-section {
   padding: 0;
 }
@@ -124,6 +128,7 @@ body {
   color: #e74c3c;
 }
 
+/* ───── Action Buttons ───── */
 .action-buttons {
   display: flex;
   gap: 8px;
@@ -151,6 +156,7 @@ body {
   color: #fff;
 }
 
+/* ───── Asset Section ───── */
 .balances-section {
   padding-left: 16px;
   padding-right: 0;
@@ -182,15 +188,15 @@ body {
 }
 
 .asset-name {
-  font-size: 13px;
   font-weight: 600;
-  margin-bottom: 6px;
+  font-size: 14px;
+  margin-bottom: 2px;
 }
 
 .asset-sub {
-  font-size: 11px;
+  font-size: 12px;
   color: #aaa;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .asset-right {
@@ -200,22 +206,22 @@ body {
 }
 
 .asset-amount {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .asset-usd {
   font-size: 12px;
   color: #aaa;
-  font-weight: 500;
 }
 
+/* ───── PNL / Cost Rows ───── */
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  font-size: 11px;
-  margin-top: 6px;
+  font-size: 12px;
+  margin-top: 4px;
   padding-left: 42px;
   padding-right: 18px;
 }
@@ -223,7 +229,6 @@ body {
 .asset-sub-label-left {
   text-align: left;
   color: #aaa;
-  font-weight: 400;
 }
 
 .asset-sub-label-right {
@@ -233,12 +238,14 @@ body {
   font-weight: 500;
 }
 
+/* ───── Divider ───── */
 .divider-below-actions {
   height: 1px;
   background-color: #2a2b31;
   margin: 8px 0;
 }
 
+/* ───── Bottom Nav ───── */
 .bottom-nav {
   position: fixed;
   bottom: 0;
@@ -278,17 +285,7 @@ body {
   color: #fcd535;
 }
 
-@media (min-width: 768px) {
-  .balance-amount {
-    font-size: 26px;
-  }
-
-  .asset-row {
-    padding: 18px 0;
-  }
-}
-
-/* ───── Tabs & Underline ───── */
+/* ───── Tabs and Underline ───── */
 .asset-toggle-wrapper {
   display: flex;
   justify-content: space-between;
@@ -325,7 +322,7 @@ body {
   opacity: 0.6;
 }
 
-/* ✅ Underline fix (untouched as requested) */
+/* ✅ Yellow underline stays under Crypto (DO NOT TOUCH) */
 .tab-crypto-container {
   display: flex;
   flex-direction: column;
@@ -343,4 +340,15 @@ body {
   width: 20px;
   background-color: #fcd535;
   border-radius: 2px;
+}
+
+/* ───── Responsive ───── */
+@media (min-width: 768px) {
+  .balance-amount {
+    font-size: 26px;
+  }
+
+  .asset-row {
+    padding: 18px 0;
+  }
 }
