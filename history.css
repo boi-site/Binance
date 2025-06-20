@@ -1,32 +1,38 @@
 /* history.css */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 20px);
+}
+
 body {
   margin: 0;
-  padding-top: 28px; /* ✅ Adjustable padding for Android status bar */
+  padding: 0;
   background: #181a20;
   color: #eaecef;
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Fixed Top Container */
-.top-fixed {
+/* ─── FIXED SECTION ───────────────────── */
+.fixed-header {
   position: fixed;
-  top: 28px; /* match body padding-top */
+  top: 0;
   left: 0;
   right: 0;
   background: #181a20;
-  z-index: 10;
+  z-index: 100;
+  padding-top: var(--safe-area-top);
 }
 
-/* Header */
+/* Header with back button and title */
 .header {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 48px;
   padding: 0 16px;
-  position: relative;
 }
 .back-btn {
   position: absolute;
@@ -41,7 +47,8 @@ body {
   filter: brightness(0.8);
 }
 .header-title {
-  margin: 0;
+  flex: 1;
+  text-align: center;
   font-size: 18px;
   font-weight: 600;
   color: #fff;
@@ -50,6 +57,7 @@ body {
 /* Sub-tabs */
 .sub-tabs {
   padding: 0 16px;
+  position: relative;
 }
 .sub-tab-group {
   display: flex;
@@ -60,6 +68,7 @@ body {
 }
 .sub-tab {
   cursor: pointer;
+  color: #888;
 }
 .sub-tab.active {
   color: #fff;
@@ -77,15 +86,20 @@ body {
 .sub-tab-divider {
   height: 1px;
   background: #2a2b31;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin: 0;
 }
 
-/* Filter Row */
+/* Filter row */
 .filter-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px 12px;
+  background: #181a20;
 }
 .filter-dropdown {
   background: #1e2329;
@@ -106,15 +120,15 @@ body {
   opacity: 0.6;
 }
 
-/* Scrollable Content Below */
-.scrollable-content {
-  margin-top: 140px; /* height of fixed top content (adjust if needed) */
-  height: calc(100vh - 140px);
+/* ─── SCROLLABLE TRANSACTION SECTION ───── */
+.tx-scroll-wrapper {
+  flex: 1;
   overflow-y: auto;
+  margin-top: calc(48px + 42px + 1px + 52px + var(--safe-area-top)); /* height of fixed header */
+}
+.tx-list {
   padding: 0 16px;
 }
-
-/* Transaction List */
 .tx-row {
   display: flex;
   justify-content: space-between;
@@ -144,7 +158,6 @@ body {
   margin-bottom: 4px;
 }
 
-/* Status styling */
 .tx-status {
   display: inline-flex;
   align-items: center;
