@@ -112,13 +112,11 @@ body {
   color: #888;
   margin: 10px 16px 16px;
 }
-
 .pnl-divider {
   border-bottom: 1px solid #2b3139;
   margin-top: 6px;
   margin-bottom: 12px;
 }
-
 .pnl-label {
   color: #bfc2c7;
 }
@@ -186,17 +184,17 @@ body {
 }
 
 .asset-info {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .asset-name {
   font-weight: 600;
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 4px;
 }
 
 .asset-sub {
-  font-size: 13px;
+  font-size: 11px;
   color: #aaa;
   font-weight: 500;
 }
@@ -208,13 +206,13 @@ body {
 }
 
 .asset-amount {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 6px;
 }
 
 .asset-usd {
-  font-size: 13px;
+  font-size: 11px;
   color: #aaa;
   font-weight: 500;
 }
@@ -222,7 +220,7 @@ body {
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
+  font-size: 11px;
   margin-top: 6px;
   padding-left: 42px;
   padding-right: 18px;
