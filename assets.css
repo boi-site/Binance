@@ -298,7 +298,7 @@ body {
 .asset-toggle-wrapper {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 0 16px;
   margin-top: 10px;
 }
@@ -331,12 +331,17 @@ body {
   opacity: 0.6;
 }
 
-.toggle-underline {
+/* ✅ Tab wrapper for centered underline */
+.tab-crypto-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-top: 4px;     /* pushes it down from "Crypto" */
-  margin-bottom: 12px; /* gives breathing room below */
+  position: relative;
+}
+
+/* ✅ Yellow underline fixed beneath "Crypto" */
+.toggle-underline {
+  margin-top: 4px;
 }
 
 .toggle-underline span {
