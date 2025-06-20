@@ -1,32 +1,38 @@
 /* history.css */
 body {
   margin: 0;
+  padding-top: 20px;
   background: #181a20;
   color: #eaecef;
   font-family: 'Segoe UI', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Header */
-.history-header {
+/* center “History” and absolutely position the back button */
+.header {
+  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 12px 16px;
+  height: 48px;
+  padding: 0 16px;
 }
-.history-header .back-btn {
+.back-btn {
+  position: absolute;
+  left: 16px;
   background: none;
   border: none;
   padding: 0;
-  margin-right: 16px;
-  cursor: pointer;
 }
-.history-header h1 {
-  flex: 1;
-  text-align: center;
+.back-btn img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0.8);
+}
+.header-title {
+  margin: 0;
   font-size: 18px;
   font-weight: 600;
-  margin: 0;
+  color: #fff;
 }
 
 /* Sub-tabs */
@@ -37,107 +43,119 @@ body {
   display: flex;
   gap: 24px;
   font-size: 14px;
-}
-.sub-tab-group span {
   color: #888;
-  position: relative;
-  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.sub-tab {
   cursor: pointer;
+  color: #888;
 }
-.sub-tab-group span.active {
-  color: #eaecef;
+.sub-tab.active {
+  color: #fff;
+  position: relative;
 }
-.sub-tab-group span.active::after {
-  content: "";
+.sub-tab.active::after {
+  content: '';
   position: absolute;
-  left: 0; bottom: 0;
-  width: 100%; height: 2px;
+  bottom: -4px;
+  left: 0;
+  height: 2px;
+  width: 100%;
   background: #fcd535;
-  border-radius: 1px;
+}
+/* divider now full-width */
+.sub-tab-divider {
+  height: 1px;
+  background: #2a2b31;
+  margin: 0;
 }
 
 /* Filter row */
 .filter-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-}
-.dropdown {
-  display: inline-flex;
   align-items: center;
-  font-size: 14px;
+  padding: 0 16px 12px;
+}
+.filter-dropdown {
+  background: #1e2329;
   color: #eaecef;
-}
-.dropdown svg {
-  margin-left: 4px;
-}
-.calendar-btn {
-  background: none;
   border: none;
-  padding: 0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
   cursor: pointer;
 }
-
-/* History list */
-.history-list {
-  list-style: none;
-  margin: 0;
-  padding: 0 16px 32px;
+.filter-dropdown .arrow {
+  margin-left: 6px;
+  font-size: 12px;
 }
-.history-item {
+.calendar-icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+}
+
+/* Transaction list */
+.tx-list {
+  padding: 0 16px;
+}
+.tx-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: 12px 0;
 }
-.item-left {
-  max-width: 60%;
+.tx-info {
+  max-width: 65%;
 }
-.item-title {
+.tx-desc {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
   margin-bottom: 4px;
 }
-.item-date {
+.tx-time {
   font-size: 12px;
   color: #888;
 }
-.item-right {
+.tx-meta {
   text-align: right;
 }
-.item-amount {
+.tx-amount {
   font-size: 15px;
   font-weight: 600;
   color: #fff;
   margin-bottom: 4px;
 }
-.item-status {
-  display: flex;
+
+/* status: only the dot is colored; text stays default */
+.tx-status {
+  display: inline-flex;
   align-items: center;
+  gap: 6px;
   font-size: 12px;
+  color: #eaecef;
 }
 .status-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  margin-right: 6px;
+  display: inline-block;
 }
-.status-dot.completed {
+.tx-status.completed .status-dot {
   background: #0ecb81;
 }
-.status-dot.refunded {
+.tx-status.refunded .status-dot {
   background: #888;
 }
-.status-text {
+.tx-status.refunded {
   color: #888;
 }
 
-/* No-more-data */
 .no-data {
   text-align: center;
-  font-size: 13px;
   color: #888;
   padding: 16px 0;
+  font-size: 13px;
 }
