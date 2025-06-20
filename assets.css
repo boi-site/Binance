@@ -339,15 +339,14 @@ body {
   position: relative;
 }
 
-/* ✅ Yellow underline fixed beneath "Crypto" */
 .toggle-underline {
-  margin-top: 4px;
+  margin-top: 2px; /* tighter vertical spacing */
 }
 
 .toggle-underline span {
   display: inline-block;
   height: 2px;
-  width: 28px;
+  width: 20px;  /* shorter underline width */
   background-color: #fcd535;
   border-radius: 2px;
 }
