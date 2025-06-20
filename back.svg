@@ -1,16 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24" height="24" viewBox="0 0 24 24"
-     xmlns="http://www.w3.org/2000/svg" fill="none">
-  <!-- shaft: from x=22 all the way to x=4 -->
-  <path d="M22 12 H4"
-        stroke="#ffffff"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
-  <!-- arrowhead: tips at (4,12), arms up to (10,6)/(10,18) -->
-  <path d="M10 6 L4 12 L10 18"
-        stroke="#ffffff"
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"/>
+<svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M22 12H6 L11 7 M6 12L11 17"
+    fill="none"
+    stroke="#FAFAFA"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
 </svg>
