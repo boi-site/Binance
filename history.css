@@ -2,27 +2,27 @@
 
 body {
   margin: 0;
-  padding: 32px 0 0 0; /* Added padding-top for Android status bar */
+  padding-top: 32px; /* Android status bar space — adjust as needed */
   background: #181a20;
   color: #eaecef;
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
-/* ─── FIXED SECTION ───────────────────── */
+/* ─── FIXED HEADER AREA ───────────────────── */
 .fixed-header {
   position: fixed;
-  top: 0;
+  top: 32px; /* same as padding-top */
   left: 0;
   right: 0;
   background: #181a20;
   z-index: 100;
 }
 
-/* Header with back button and title */
+/* Header */
 .header {
   position: relative;
   display: flex;
@@ -85,7 +85,7 @@ body {
   width: 100vw;
 }
 
-/* Filter row */
+/* Filter Row */
 .filter-row {
   display: flex;
   justify-content: space-between;
@@ -93,6 +93,8 @@ body {
   padding: 0 16px 12px;
   background: #181a20;
 }
+
+/* Filter Dropdown & Calendar */
 .filter-dropdown {
   background: #1e2329;
   color: #eaecef;
@@ -116,7 +118,7 @@ body {
 .tx-scroll-wrapper {
   flex: 1;
   overflow-y: auto;
-  margin-top: calc(48px + 42px + 1px + 52px); /* total height of fixed header */
+  margin-top: calc(48px + 42px + 1px + 52px); /* header + sub-tabs + divider + filter row */
 }
 .tx-list {
   padding: 0 16px;
