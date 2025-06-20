@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="24" height="24" viewBox="0 0 24 24"
-     xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-     stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-  <!-- shaft -->
-  <path d="M20 12 H8"/>
+     xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- shaft: extended further left -->
+  <path d="M22 12 H6"
+        stroke="#e1e1e1"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
   <!-- arrowhead -->
-  <path d="M14 6  L8 12  L14 18"/>
+  <path d="M16 6 L10 12 L16 18"
+        stroke="#e1e1e1"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
 </svg>
