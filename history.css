@@ -1,10 +1,24 @@
 /* history.css */
 body {
   margin: 0;
-  padding-top: 20px;
+  padding: 0;
   background: #181a20;
   color: #eaecef;
   font-family: 'Segoe UI', sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ─── FIXED TOP SECTION ───────────────────────────── */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #181a20;
+  z-index: 100;
 }
 
 /* center “History” and align the back button on the same line */
@@ -77,6 +91,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 16px 12px;
+  background: #181a20;
 }
 .filter-dropdown {
   background: #1e2329;
@@ -97,7 +112,12 @@ body {
   opacity: 0.6;
 }
 
-/* Transaction list */
+/* ─── SCROLLABLE TRANSACTION LIST ─────────────────── */
+.tx-scroll-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding-top: 140px; /* height of fixed section */
+}
 .tx-list {
   padding: 0 16px;
 }
