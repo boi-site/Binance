@@ -1,0 +1,153 @@
+<!-- history.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>History</title>
+  <link rel="stylesheet" href="history.css" />
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <button class="back-btn" onclick="history.back()">
+      <img src="back.svg" alt="Back" />
+    </button>
+    <h1 class="header-title">History</h1>
+  </div>
+
+  <!-- Sub-Tabs -->
+  <div class="sub-tabs">
+    <div class="sub-tab-group">
+      <span class="sub-tab">P2P</span>
+      <span class="sub-tab active">Pay</span>
+      <span class="sub-tab">Convert</span>
+      <span class="sub-tab">Distribution</span>
+      <span class="sub-tab">Auto Convert</span>
+    </div>
+    <div class="sub-tab-divider"></div>
+  </div>
+
+  <!-- Filter Row -->
+  <div class="filter-row">
+    <button class="filter-dropdown">
+      All <span class="arrow">▾</span>
+    </button>
+    <img src="calendar.svg" class="calendar-icon" alt="Calendar" />
+  </div>
+
+  <!-- Transaction List -->
+  <div class="tx-list">
+    <div class="tx-row">
+      <div class="tx-info">
+        <div class="tx-desc">Claim Campaign Reward</div>
+        <div class="tx-time">2024-09-29 13:48:34</div>
+      </div>
+      <div class="tx-meta">
+        <div class="tx-amount">+12,000 BONK</div>
+        <div class="tx-status completed">
+          <span class="status-dot"></span>Completed
+        </div>
+      </div>
+    </div>
+    <div class="tx-row">
+      <div class="tx-info">
+        <div class="tx-desc">Send – User-201bd</div>
+        <div class="tx-time">2024-09-26 14:51:03</div>
+      </div>
+      <div class="tx-meta">
+        <div class="tx-amount">−1 USDT</div>
+        <div class="tx-status completed">
+          <span class="status-dot"></span>Completed
+        </div>
+      </div>
+    </div>
+    <div class="tx-row">
+      <div class="tx-info">
+        <div class="tx-desc">Refund Campaign Red Packet</div>
+        <div class="tx-time">2024-03-01 07:49:10</div>
+      </div>
+      <div class="tx-meta">
+        <div class="tx-amount">+0.02476235 USDT</div>
+        <div class="tx-status completed">
+          <span class="status-dot"></span>Completed
+        </div>
+      </div>
+    </div>
+    <div class="tx-row">
+      <div class="tx-info">
+        <div class="tx-desc">Create Campaign Red Packet</div>
+        <div class="tx-time">2024-02-19 02:16:43</div>
+      </div>
+      <div class="tx-meta">
+        <div class="tx-amount">−0.03 USDT</div>
+        <div class="tx-status refunded">
+          <span class="status-dot"></span>Refunded 0.02476235 USDT
+        </div>
+      </div>
+    </div>
+    <div class="tx-row">
+      <div class="tx-info">
+        <div class="tx-desc">Claim Red Packet</div>
+        <div class="tx-time">2024-02-19 02:15:05</div>
+      </div>
+      <div class="tx-meta">
+        <div class="tx-amount">+0.0326625 USDT</div>
+        <div class="tx-status completed">
+          <span class="status-dot"></span>Completed
+        </div>
+      </div>
+    </div>
+    <div class="tx-row">
+      <div class="tx-info">
+        <div class="tx-desc">Claim Red Packet</div>
+        <div class="tx-time">2023-10-02 17:46:22</div>
+      </div>
+      <div class="tx-meta">
+        <div class="tx-amount">+0.018 USDT</div>
+        <div class="tx-status completed">
+          <span class="status-dot"></span>Completed
+        </div>
+      </div>
+    </div>
+    <div class="tx-row">
+      <div class="tx-info">
+        <div class="tx-desc">Claim Red Packet</div>
+        <div class="tx-time">2023-09-23 14:06:13</div>
+      </div>
+      <div class="tx-meta">
+        <div class="tx-amount">+0.06 USDT</div>
+        <div class="tx-status completed">
+          <span class="status-dot"></span>Completed
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-data">No more data</div>
+
+  <!-- Bottom Navigation (same as other pages) -->
+  <footer class="bottom-nav">
+    <div class="nav-item" onclick="location.href='home.html'">
+      <img src="ic_home.svg" class="nav-icon" alt="Home" />
+      <p class="nav-label">Home</p>
+    </div>
+    <div class="nav-item">
+      <img src="ic_market.svg" class="nav-icon" alt="Markets" />
+      <p class="nav-label">Markets</p>
+    </div>
+    <div class="nav-item">
+      <img src="ic_trade.svg" class="nav-icon" alt="Trade" />
+      <p class="nav-label">Trade</p>
+    </div>
+    <div class="nav-item">
+      <img src="ic_futures.svg" class="nav-icon" alt="Futures" />
+      <p class="nav-label">Futures</p>
+    </div>
+    <div class="nav-item active">
+      <img src="ic_assets.svg" class="nav-icon" alt="Assets" />
+      <p class="nav-label">Assets</p>
+    </div>
+  </footer>
+</body>
+</html>
