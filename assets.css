@@ -176,11 +176,12 @@ body {
 }
 .asset-amount {
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 6px;
 }
+
 .asset-usd {
-  font-size: 11.5px;
+  font-size: 12px; /* ✅ match Funding */
   color: #aaa;
 }
 .asset-sub-pair {
