@@ -346,21 +346,3 @@ body {
   background-color: #fcd535;
   border-radius: 2px;
 }
-.tab-crypto-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-}
-
-.toggle-underline {
-  margin-top: 4px;
-}
-
-.toggle-underline span {
-  display: inline-block;
-  height: 2px;
-  width: 28px;
-  background-color: #fcd535;
-  border-radius: 2px;
-}
