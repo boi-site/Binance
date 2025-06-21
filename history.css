@@ -1,28 +1,30 @@
 /* history.css */
+:root {
+  --safe-area-top: env(safe-area-inset-top, 32px); /* Android safe-area top */
+}
 
 body {
   margin: 0;
-  padding-top: 32px; /* Android status bar space — adjust as needed */
+  padding-top: var(--safe-area-top);
   background: #181a20;
   color: #eaecef;
   font-family: 'Segoe UI', sans-serif;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
-/* ─── FIXED HEADER AREA ───────────────────── */
+/* ─── FIXED SECTION ───────────────────── */
 .fixed-header {
-  position: fixed;
-  top: 32px; /* same as padding-top */
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
   background: #181a20;
   z-index: 100;
 }
 
-/* Header */
+/* Header with back button and title */
 .header {
   position: relative;
   display: flex;
@@ -85,7 +87,7 @@ body {
   width: 100vw;
 }
 
-/* Filter Row */
+/* Filter row */
 .filter-row {
   display: flex;
   justify-content: space-between;
@@ -93,8 +95,6 @@ body {
   padding: 0 16px 12px;
   background: #181a20;
 }
-
-/* Filter Dropdown & Calendar */
 .filter-dropdown {
   background: #1e2329;
   color: #eaecef;
@@ -116,9 +116,12 @@ body {
 
 /* ─── SCROLLABLE TRANSACTION SECTION ───── */
 .tx-scroll-wrapper {
-  flex: 1;
+  position: absolute;
+  top: calc(var(--safe-area-top) + 48px + 42px + 1px + 52px); /* status + header + tabs + divider + filter */
+  bottom: 0;
+  left: 0;
+  right: 0;
   overflow-y: auto;
-  margin-top: calc(48px + 42px + 1px + 52px); /* header + sub-tabs + divider + filter row */
 }
 .tx-list {
   padding: 0 16px;
