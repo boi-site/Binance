@@ -123,7 +123,7 @@ body {
 /* ─── SCROLLABLE TRANSACTION SECTION ───── */
 .tx-scroll-wrapper {
   position: absolute;
-  top: calc(32px + 48px + 42px + 1px + 52px); /* status + header + sub-tabs + divider + filter row */
+  top: calc(32px + 48px + 42px + 1px + 44px); /* status + header + sub-tabs + divider + filter row */
   bottom: 0;
   left: 0;
   right: 0;
