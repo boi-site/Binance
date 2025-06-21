@@ -103,10 +103,10 @@ body {
   color: #eaecef;
   border: none;
   border-radius: 6px;
-  padding: 6px 14px; 
+  padding: 6px 12px; 
   font-size: 13px;
   cursor: pointer;
-  width: 90px;   
+  width: 78px;   
 }
 .filter-dropdown .arrow {
   margin-left: 6px;
