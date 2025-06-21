@@ -113,9 +113,10 @@ body {
   font-size: 12px;
 }
 .calendar-icon {
-  width: 20px;
-  height: 18px;
-  opacity: 0.6;
+  width: 22px;     
+  height: 16px;    
+  filter: brightness(1000%);
+  opacity: 1;
 }
 
 /* ─── SCROLLABLE TRANSACTION SECTION ───── */
