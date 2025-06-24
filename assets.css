@@ -4,7 +4,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #181a20;
   color: #eaecef;
-  padding-top: 20px;
+  padding-top: 32px; /* or increase your existing value */
 }
 
 /* ───── Exchange/Wallet Toggle ───── */
