@@ -49,6 +49,9 @@ body {
 }
 
 .sub-tab-group span {
+  margin-right: 12px;  /* Reduce from 16px or more */
+  font-weight: 500;    /* Make less bold if currently 600 or above */
+  }
   cursor: pointer;
 }
 
