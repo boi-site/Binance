@@ -1,362 +1,169 @@
-/* ───── General Layout ───── */
+/* ✅ assets.css */
 body {
+  background-color: #0b0e11;
+  color: white;
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #181a20;
-  color: #eaecef;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 20px;
+  padding: 0;
+  max-width: 430px;
+  margin-inline: auto;
 }
 
-/* ───── Exchange/Wallet Toggle ───── */
 .toggle-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 12px 0 20px;
+  padding: 16px 20px 10px;
 }
 
 .toggle-box {
-  display: flex;
   background-color: #1e2329;
-  border-radius: 6px;
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .toggle-btn {
-  padding: 6px 22px;
-  font-size: 13px;
-  color: #888;
+  flex: 1;
+  padding: 8px 0;
   background: none;
+  color: #848e9c;
+  font-weight: 500;
+  font-size: 14px;
   border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 6px;
 }
 
 .toggle-btn.selected {
-  background-color: #2b3139;
-  color: #fff;
+  background-color: #fcd535;
+  color: #1e2329;
+  font-weight: bold;
 }
 
-/* ───── Sub-tabs (Overview, Earn, etc.) ───── */
 .sub-tabs {
-  padding: 0 16px;
+  padding: 0 20px 5px;
 }
 
 .sub-tab-group {
   display: flex;
-  gap: 18px;
-  font-size: 14px;
-  color: #888;
-  font-weight: 500;
-}
-
-.sub-tab-group span {
-  cursor: pointer;
+  gap: 20px;
+  font-size: 13px;
+  color: #848e9c;
 }
 
 .sub-tab-group .active {
-  color: #eaecef;
+  color: white;
 }
 
 .sub-tab-divider {
   height: 1px;
-  background-color: #2a2b31;
-  margin: 10px 0 14px;
+  background-color: #1e2329;
+  margin-top: 8px;
 }
 
-/* ───── Balance Section ───── */
 .balance-section {
-  padding: 0;
+  padding: 12px 20px 0;
 }
 
 .title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 16px 0;
-  margin-top: 4px;
+  font-size: 12px;
+  color: #848e9c;
 }
 
-.title-left {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: #bfc2c7;
-}
-
-.title-left img,
 .title-row img {
-  width: 16px;
-  height: 16px;
-  opacity: 0.6;
+  height: 12px;
+  margin-left: 8px;
 }
 
 .balance-amount {
-  font-size: 22px !important;
-  font-weight: 600;
-  margin: 10px 16px 6px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 6px;
 }
 
 .usd-tag {
-  font-size: 12px;
-  color: #bfc2c7;
-  font-weight: 500;
-  margin-left: 6px;
-  vertical-align: middle;
+  font-size: 13px;
+  font-weight: normal;
 }
 
 .pnl-inline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #888;
-  margin: 10px 16px 8px;
-}
-
-.pnl-label {
-  color: #bfc2c7;
+  margin-top: 6px;
+  font-size: 13px;
 }
 
 .pnl-green {
-  color: #0ecb81;
+  color: #00b469;
+  font-weight: 500;
+  margin-left: 6px;
 }
 
-.pnl-red {
-  color: #e74c3c;
-}
-
-/* ✅ Divider under Today’s PNL */
 .divider-below-pnl {
   height: 1px;
-  background-color: #2a2b31;
-  margin: 0 16px 14px;
+  background-color: #1e2329;
+  margin: 16px 0;
 }
 
-/* ───── Action Buttons (Add Funds, Send, Transfer) ───── */
 .action-buttons {
   display: flex;
   gap: 8px;
-  margin: 0 16px 16px;
+  padding: 0 20px;
 }
 
 .action-buttons button {
   flex: 1;
-  font-size: 13px;
   padding: 10px 0;
-  border-radius: 6px;
-  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
   border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
-.add {
+button.add {
   background-color: #fcd535;
-  color: #0b0e11;
+  color: #1e2329;
 }
 
-.gray {
-  background-color: #2b3139;
-  color: #fff;
+button.gray {
+  background-color: #1e2329;
+  color: white;
 }
 
-/* ───── Asset List Section ───── */
-.balances-section {
-  padding-left: 16px;
-  padding-right: 0;
-}
-
-.asset-list {
-  padding-bottom: 80px;
-}
-
-.asset-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 14px 0;
-}
-
-.asset-left {
-  display: flex;
-  gap: 10px;
-}
-
-.asset-icon-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-}
-
-.asset-info {
-  font-size: 11px;
-}
-
-.asset-name {
-  font-weight: 600;
-  font-size: 13px;
-  margin-bottom: 4px;
-}
-
-.asset-sub {
-  font-size: 11px;
-  color: #aaa;
-  line-height: 1.4;
-  font-weight: 500;
-}
-
-.asset-right {
-  margin-left: auto;
-  text-align: right;
-  padding-right: 18px;
-}
-
-.asset-amount {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.asset-usd {
-  font-size: 11px;
-  color: #aaa;
-  font-weight: 500;
-}
-
-.asset-sub-pair {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  margin-top: 6px;
-  padding-left: 42px;
-  padding-right: 18px;
-}
-
-.asset-sub-label-left {
-  text-align: left;
-  color: #aaa;
-}
-
-.asset-sub-label-right {
-  text-align: right;
-  min-width: 70px;
-  color: #fff;
-  font-weight: 500;
-}
-
-/* ───── Divider ───── */
-.divider-below-actions {
-  height: 1px;
-  background-color: #2a2b31;
-  margin: 8px 0;
-}
-
-/* ───── Bottom Navigation Bar ───── */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background: #181a20;
-  padding: 6px 0 4px;
-  border-top: 1px solid #1c1f24;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-}
-
-.nav-icon {
-  width: 20px;
-  height: 20px;
-  margin-bottom: 2px;
-  filter: brightness(0.8);
-  transition: filter 0.2s;
-}
-
-.nav-item.active .nav-icon {
-  filter: brightness(1.4);
-}
-
-.nav-label {
-  font-size: 11px;
-  color: #888;
-}
-
-.nav-item.active .nav-label {
-  color: #fcd535;
-}
-
-/* ───── Responsive ───── */
-@media (min-width: 768px) {
-  .balance-amount {
-    font-size: 26px;
-  }
-
-  .asset-row {
-    padding: 18px 0;
-  }
-}
-
-/* ───── Crypto | Account Tabs + Underline ───── */
 .asset-toggle-wrapper {
+  margin-top: 16px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  padding: 0 16px;
-  margin-top: 10px;
+  align-items: center;
 }
 
 .asset-toggle-tabs {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   font-size: 14px;
   font-weight: 500;
-  color: #888;
 }
 
-.asset-toggle-tabs span {
-  cursor: pointer;
-}
-
-.asset-toggle-tabs .active {
-  color: #eaecef;
-}
-
-.asset-toggle-icons {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-}
-
-.asset-toggle-icons img {
-  width: 16px;
-  height: 16px;
-  opacity: 0.6;
-}
-
-/* ✅ Tab wrapper for centered underline */
 .tab-crypto-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+}
+
+.tab-crypto-container .active {
+  color: white;
+}
+
+.asset-toggle-tabs span:not(.active) {
+  color: #848e9c;
 }
 
 .toggle-underline {
-  margin-top: 2px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 3px;
+  margin-top: 5px;
 }
 
 .toggle-underline span {
-  display: inline-block;
-  height: 2px;
-  width: 20px;
-  background-color: #fcd535;
-  border-radius: 2px;
-}
+ 
