@@ -106,23 +106,23 @@ body {
   margin-left: 6px;
   vertical-align: middle;
 }
-.pnl-wrapper {
+.pnl-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  margin-top: 4px;
   font-size: 13px;
-  margin: 6px 16px 10px;
+  color: #848e9c;
 }
 
 .pnl-label {
-  color: #a0a0a0;
-  font-weight: 500;
+  margin-right: 6px;
+  font-weight: 400;
 }
 
 #total-pnl {
   font-weight: 500;
   font-size: 13px;
-  white-space: nowrap;
+  margin-right: 4px;
 }
 
 .pnl-green {
@@ -133,9 +133,9 @@ body {
   color: #f6465d;
 }
 
-.right-arrow {
-  font-size: 13px;
-  color: #999;
+.pnl-arrow {
+  font-size: 14px;
+  color: #848e9c;
 }
 
 /* ───── Action Buttons ───── */
