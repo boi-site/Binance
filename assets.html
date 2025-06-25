@@ -1,9 +1,8 @@
-<!-- ✅ assets.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Assets</title>
   <link rel="stylesheet" href="assets.css" />
 </head>
@@ -28,22 +27,28 @@
 
   <div class="balance-section">
     <div class="title-row">
-      <span>Est. Total Value</span>
-      <img src="eye.svg" />
+      <div class="title-left">
+        <span>Est. Total Value</span>
+        <img src="eye.svg" alt="eye" />
+      </div>
     </div>
-    <div class="balance-amount">
-      $408,018,640.15 <span class="usd-tag">USD ▼</span>
-    </div>
-    <div class="pnl-inline">
-      Today's PNL <span id="total-pnl" class="pnl-green">+$2.16000000 (+1.83%)</span>
-    </div>
-    <div class="divider-below-pnl"></div>
-  </div>
 
-  <div class="action-buttons">
-    <button class="add">Add Funds</button>
-    <button class="gray">Send</button>
-    <button class="gray">Transfer</button>
+    <div class="balance-amount">
+      $405,701,938.73 <span class="usd-tag">USD ▼</span>
+    </div>
+
+    <div class="pnl-inline">
+      <span class="pnl-label">Today’s PNL</span>
+      <span class="pnl-green">$0.66</span>
+    </div>
+
+    <div class="divider-below-pnl"></div>
+
+    <div class="action-buttons">
+      <button class="add">Add Funds</button>
+      <button class="gray">Send</button>
+      <button class="gray">Transfer</button>
+    </div>
   </div>
 
   <div class="asset-toggle-wrapper">
@@ -54,60 +59,121 @@
       </div>
       <span>Account</span>
     </div>
-    <div>
-      <img src="search.svg" />
-      <img src="settings.svg" />
+    <div class="asset-toggle-icons">
+      <img src="search.svg" alt="search" />
+      <img src="settings.svg" alt="settings" />
     </div>
   </div>
 
-  <div class="coin-list">
+  <div class="balances-section">
+    <div class="asset-list">
 
-    <div class="coin-row">
-      <img src="usdt-logo.svg" />
-      <div>
-        <div class="coin-name">USDT</div>
-        <div class="coin-sub">TetherUS</div>
+      <!-- USDT -->
+      <div class="asset-row">
+        <div class="asset-left">
+          <img src="usdt-logo.svg" class="asset-icon-img" />
+          <div class="asset-info">
+            <div class="asset-name">USDT</div>
+            <div class="asset-sub">TetherUS</div>
+          </div>
+        </div>
+        <div class="asset-right">
+          <div class="asset-amount">244,069,916.56</div>
+          <div class="asset-usd">$244,062,838.53</div>
+        </div>
       </div>
-      <div class="coin-values">
-        <div class="coin-amount">244,069,916.56</div>
-        <div class="coin-sub">$244,069,916.56</div>
-        <div class="coin-sub">Today's PNL <span class="pnl-green">$0.66 (0.32%)</span></div>
-        <div class="coin-sub">Average cost <span>$1.00</span></div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">
+          Today’s PNL<br />
+          Average cost
+        </div>
+        <div class="asset-sub-label-right">
+          $0.05 (0.64%)<br />
+          $1.00
+        </div>
       </div>
+      <div class="divider-below-actions"></div>
+
+      <!-- BTC -->
+      <div class="asset-row">
+        <div class="asset-left">
+          <img src="btc-logo.svg" class="asset-icon-img" />
+          <div class="asset-info">
+            <div class="asset-name">BTC</div>
+            <div class="asset-sub">Bitcoin</div>
+          </div>
+        </div>
+        <div class="asset-right">
+          <div class="asset-amount">1,354.01</div>
+          <div class="asset-usd">$141,546,851.39</div>
+        </div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">
+          Today’s PNL<br />
+          Average cost
+        </div>
+        <div class="asset-sub-label-right">
+          $0.08 (-0.73%)<br />
+          $104,539.00
+        </div>
+      </div>
+      <div class="divider-below-actions"></div>
+
+      <!-- BNB -->
+      <div class="asset-row">
+        <div class="asset-left">
+          <img src="bnb-logo.svg" class="asset-icon-img" />
+          <div class="asset-info">
+            <div class="asset-name">BNB</div>
+            <div class="asset-sub">Binance Coin</div>
+          </div>
+        </div>
+        <div class="asset-right">
+          <div class="asset-amount">31,203.02</div>
+          <div class="asset-usd">$20,092,248.64</div>
+        </div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">
+          Today’s PNL<br />
+          Average cost
+        </div>
+        <div class="asset-sub-label-right">
+          $0.39 (-0.32%)<br />
+          $643.92
+        </div>
+      </div>
+      <div class="divider-below-actions"></div>
+
     </div>
+  </div>
 
-    <div class="coin-row">
-      <img src="btc-logo.svg" />
-      <div>
-        <div class="coin-name">BTC</div>
-        <div class="coin-sub">Bitcoin</div>
-      </div>
-      <div class="coin-values">
-        <div class="coin-amount">1,354.01</div>
-        <div class="coin-sub">$144,066,664.00</div>
-        <div class="coin-sub">Today's PNL <span class="pnl-red">$0.21 (-0.13%)</span></div>
-        <div class="coin-sub">Average cost <span>$106,400.00</span></div>
-      </div>
+  <div class="bottom-nav">
+    <div class="nav-item">
+      <img src="ic_home.svg" class="nav-icon" />
+      <div class="nav-label">Home</div>
     </div>
-
-    <div class="coin-row">
-      <img src="bnb-logo.svg" />
-      <div>
-        <div class="coin-name">BNB</div>
-        <div class="coin-sub">Binance Coin</div>
-      </div>
-      <div class="coin-values">
-        <div class="coin-amount">31,203.02</div>
-        <div class="coin-sub">$20,112,218.57</div>
-        <div class="coin-sub">Today's PNL <span class="pnl-green">$0.45 (0.65%)</span></div>
-        <div class="coin-sub">Average cost <span>$0.00</span></div>
-      </div>
+    <div class="nav-item">
+      <img src="ic_market.svg" class="nav-icon" />
+      <div class="nav-label">Markets</div>
     </div>
-
+    <div class="nav-item">
+      <img src="ic_trade.svg" class="nav-icon" />
+      <div class="nav-label">Trade</div>
+    </div>
+    <div class="nav-item">
+      <img src="ic_futures.svg" class="nav-icon" />
+      <div class="nav-label">Futures</div>
+    </div>
+    <div class="nav-item active">
+      <img src="ic_assets.svg" class="nav-icon" />
+      <div class="nav-label">Assets</div>
+    </div>
   </div>
 
   <script src="live_prices.js"></script>
   <script src="pnl_simulator.js"></script>
-  <script src="total_value.js"></script>
+
 </body>
 </html>
