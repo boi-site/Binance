@@ -113,10 +113,11 @@ body {
   font-size: 13px;
   color: #848e9c;
 }
-
 .pnl-label {
-  margin-right: 6px;
+  font-size: 12px;
   font-weight: 400;
+  color: #c5c5c5;
+  margin-right: 6px;
 }
 
 #total-pnl {
