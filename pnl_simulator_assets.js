@@ -24,28 +24,35 @@ function updatePNLs() {
     }
   });
 }
-
 function updateTotalPNL() {
   let totalPNL = 0;
+  let totalPercent = 0;
 
   pnlSymbols.forEach(symbol => {
     const pnlText = document.querySelector(`[data-symbol="${symbol}-pnl"]`)?.textContent;
     if (pnlText) {
-      const match = pnlText.match(/\$([0-9,.\-]+)/);
-      if (match) {
-        const usdValue = parseFloat(match[1].replace(/,/g, ""));
+      const dollarMatch = pnlText.match(/\$([0-9,.\-]+)/);
+      const percentMatch = pnlText.match(/\(([\+\-]?[0-9.]+)%\)/);
+
+      if (dollarMatch && percentMatch) {
+        const usdValue = parseFloat(dollarMatch[1].replace(/,/g, ""));
+        const percentValue = parseFloat(percentMatch[1]);
+
         totalPNL += usdValue;
+        totalPercent += percentValue;
       }
     }
   });
 
   const totalPNLSpan = document.getElementById("total-pnl");
   if (totalPNLSpan) {
-    const formatted = `$${Math.abs(totalPNL).toFixed(2)}`;
-    const colorClass = totalPNL > 0 ? "pnl-green" : totalPNL < 0 ? "pnl-red" : "";
+    const isPositive = totalPNL >= 0;
+    const sign = isPositive ? "+" : "-";
+    const absTotal = Math.abs(totalPNL).toFixed(8);
+    const absPercent = Math.abs(totalPercent).toFixed(2);
 
-    totalPNLSpan.className = colorClass;
-    totalPNLSpan.textContent = `${totalPNL >= 0 ? "" : "-"}${formatted}`;
+    totalPNLSpan.textContent = `${sign}$${absTotal} (${sign}${absPercent}%)`;
+    totalPNLSpan.className = isPositive ? "pnl-green" : "pnl-red";
   }
 }
 
