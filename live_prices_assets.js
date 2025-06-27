@@ -19,18 +19,26 @@ async function updateAssetPrices() {
 
       if (usdDiv && qtyDiv) {
         const qty = parseFloat(qtyDiv.textContent.replace(/,/g, ""));
-        const price = data[id]?.usd || 0;
+
+        let price = data[id]?.usd;
+
+        if (symbol === "bonk") {
+          price = price || 0.000000017;
+        } else {
+          price = price || 0;
+        }
+
         const usdValue = qty * price;
 
         usdDiv.textContent = `$${usdValue.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2
+          minimumFractionDigits: 6,
+          maximumFractionDigits: 8
         })}`;
 
         if (costDiv) {
           costDiv.textContent = `$${price.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
+            minimumFractionDigits: 8,
+            maximumFractionDigits: 8
           })}`;
         }
       }
