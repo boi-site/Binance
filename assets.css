@@ -8,37 +8,35 @@ body {
   margin-inline: auto;
 }
 
-/* Top Toggle Section: Exchange | Wallet */
+/* Top Toggle Section (Exchange | Wallet) - Gray Style */
 .toggle-wrapper {
   padding: 16px 20px 10px;
 }
 
 .toggle-box {
-  background-color: #1e2329;
   display: flex;
-  border-radius: 999px;
-  overflow: hidden;
-  height: 36px;
+  gap: 4px;
+  background-color: transparent;
 }
 
 .toggle-btn {
   flex: 1;
-  background: none;
+  padding: 8px 0;
+  background-color: #2b3139;
   color: #848e9c;
-  font-weight: 500;
-  font-size: 14px;
   border: none;
-  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 0;
+  align-items: center;
 }
 
 .toggle-btn.selected {
-  background-color: #fcd535;
-  color: #1e2329;
-  font-weight: 700;
+  background-color: #3e444d;
+  color: white;
+  font-weight: 600;
 }
 
 /* Sub-tab Row: Overview | Earn | Funding | Spot */
