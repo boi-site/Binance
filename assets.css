@@ -8,7 +8,7 @@ body {
   margin-inline: auto;
 }
 
-/* Toggle Container (Exchange | Wallet) */
+/* Toggle Container (Binance style) */
 .toggle-container {
   display: flex;
   background-color: #1e2329;
@@ -42,7 +42,7 @@ body {
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.6);
 }
 
-/* Sub Tabs */
+/* Sub-tabs (Overview | Earn | Funding | Spot) */
 .sub-tabs {
   padding: 0 20px 5px;
   margin-top: 4px;
@@ -128,6 +128,7 @@ body {
   margin-left: 6px;
 }
 
+/* Action Buttons */
 .action-buttons {
   display: flex;
   gap: 8px;
@@ -153,7 +154,7 @@ button.gray {
   color: white;
 }
 
-/* Crypto | Account Tabs */
+/* Crypto | Account Toggle */
 .asset-toggle-wrapper {
   margin-top: 16px;
   padding: 0 20px;
@@ -197,7 +198,6 @@ button.gray {
   visibility: visible;
 }
 
-/* Search & Settings Icons */
 .asset-toggle-icons img {
   width: 14px;
   height: 14px;
@@ -206,7 +206,7 @@ button.gray {
   opacity: 0.6;
 }
 
-/* Assets Section */
+/* Balances Section */
 .balances-section {
   padding: 0 20px 70px;
 }
@@ -266,7 +266,7 @@ button.gray {
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  width: 170px; /* adjust this if needed */
+  width: 180px;
   font-size: 13px;
   margin-top: 4px;
 }
@@ -280,6 +280,15 @@ button.gray {
   font-weight: 500;
 }
 
+.pnl-green {
+  color: #00b469;
+}
+
+.pnl-red {
+  color: #e74c4c;
+}
+
+/* Divider */
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
