@@ -8,35 +8,36 @@ body {
   margin-inline: auto;
 }
 
-/* Binance-style Exchange/Wallet toggle */
-.toggle-wrapper {
-  padding: 12px 20px 10px;
-}
-
-.toggle-box {
+/* Toggle section: Exchange | Wallet */
+.toggle-container {
   display: flex;
-  background-color: #1e2329;
-  border-radius: 12px;
+  justify-content: space-between;
+  background-color: #1e1e1e; /* Dark gray background */
+  border-radius: 20px;
   padding: 4px;
-  gap: 4px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 320px;
+  height: 40px;
+  box-sizing: border-box;
 }
 
 .toggle-btn {
   flex: 1;
+  text-align: center;
   padding: 8px 0;
-  background-color: transparent;
-  color: #848e9c;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
+  color: #8b8b8b;
   border: none;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+  border-radius: 16px;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .toggle-btn.selected {
-  background-color: #3a3f45;
-  color: white;
-  font-weight: 600;
+  background-color: #2c2c2c; /* Slightly lighter for selected */
+  color: #ffffff;
 }
 
 /* Sub-tab Row: Overview | Earn | Funding | Spot */
