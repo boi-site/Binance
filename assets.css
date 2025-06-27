@@ -8,7 +8,7 @@ body {
   margin-inline: auto;
 }
 
-/* Toggle Container (Binance style) */
+/* Toggle Container (Exchange | Wallet) */
 .toggle-container {
   display: flex;
   background-color: #1e2329;
@@ -273,6 +273,7 @@ button.gray {
 
 .asset-sub-label-left {
   color: #848e9c;
+  font-weight: 500;
 }
 
 .asset-sub-label-right {
