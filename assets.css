@@ -8,7 +8,7 @@ body {
   margin-inline: auto;
 }
 
-/* Toggle at the top (Exchange | Wallet) */
+/* Toggle */
 .toggle-wrapper {
   padding: 16px 20px 10px;
 }
@@ -36,7 +36,7 @@ body {
   font-weight: bold;
 }
 
-/* Sub-tabs (Overview, Earn, Funding...) */
+/* Sub-tabs */
 .sub-tabs {
   padding: 0 20px 5px;
 }
@@ -58,7 +58,7 @@ body {
   margin-top: 8px;
 }
 
-/* Balance & PNL */
+/* Balance */
 .balance-section {
   padding: 12px 20px 0;
 }
@@ -141,7 +141,7 @@ button.gray {
   color: white;
 }
 
-/* Crypto | Account Tabs */
+/* Crypto | Account */
 .asset-toggle-wrapper {
   margin-top: 16px;
   padding: 0 20px;
@@ -186,7 +186,7 @@ button.gray {
   border-radius: 3px;
 }
 
-/* Asset Section */
+/* Assets Section */
 .balances-section {
   padding: 0 20px 70px;
 }
@@ -195,7 +195,7 @@ button.gray {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .asset-left {
@@ -204,8 +204,8 @@ button.gray {
 }
 
 .asset-icon-img {
-  height: 32px;
-  width: 32px;
+  height: 28px;
+  width: 28px;
   border-radius: 50%;
   margin-right: 12px;
 }
@@ -240,7 +240,7 @@ button.gray {
   margin-top: 2px;
 }
 
-/* PNL + Cost Row */
+/* PNL and Cost */
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
@@ -256,14 +256,14 @@ button.gray {
   font-weight: 500;
 }
 
-/* Divider under each coin */
+/* Divider */
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
   margin-top: 14px;
 }
 
-/* Bottom Navigation */
+/* Bottom Nav */
 .bottom-nav {
   position: fixed;
   bottom: 0;
