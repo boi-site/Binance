@@ -155,6 +155,7 @@ button.gray {
 }
 
 /* Crypto | Account */
+
 .asset-toggle-wrapper {
   margin-top: 16px;
   padding: 0 20px;
@@ -170,33 +171,32 @@ button.gray {
   font-weight: 500;
 }
 
-.asset-toggle-tabs span {
+.tab-crypto-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tab-crypto-container span {
   color: #848e9c;
 }
 
-.asset-toggle-tabs .active {
-  color: white;
+.tab-crypto-container.active span {
+  color: #ffffff;
 }
 
-.asset-toggle-icons img {
-  height: 16px;
-  margin-left: 10px;
-  opacity: 0.8;
-}
-
-.toggle-underline {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  height: 3px;
-  margin-top: 5px;
-}
-
-.toggle-underline span {
+.tab-crypto-container .toggle-underline {
+  margin-top: 4px;
+  width: 14px;
+  height: 2px;
   background-color: #fcd535;
-  width: 20px;
-  height: 3px;
-  border-radius: 3px;
+  border-radius: 1px;
+  visibility: hidden;
+}
+
+.tab-crypto-container.active .toggle-underline {
+  visibility: visible;
 }
 
 /* Assets Section */
