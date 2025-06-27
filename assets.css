@@ -1,3 +1,4 @@
+/* ---------- BASE ---------- */
 body {
   background-color: #0b0e11;
   color: white;
@@ -8,7 +9,7 @@ body {
   margin-inline: auto;
 }
 
-/* Toggle Container (Exchange | Wallet) */
+/* ---------- TOGGLE: Exchange | Wallet ---------- */
 .toggle-container {
   display: flex;
   background-color: #1e2329;
@@ -42,7 +43,7 @@ body {
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.6);
 }
 
-/* Sub-tabs (Overview | Earn | Funding | Spot) */
+/* ---------- SUB-TABS ---------- */
 .sub-tabs {
   padding: 0 20px 5px;
   margin-top: 4px;
@@ -70,7 +71,7 @@ body {
   margin-top: 8px;
 }
 
-/* Balance Section */
+/* ---------- BALANCE SECTION ---------- */
 .balance-section {
   padding: 12px 20px 0;
 }
@@ -128,7 +129,7 @@ body {
   margin-left: 6px;
 }
 
-/* Action Buttons */
+/* ---------- ACTION BUTTONS ---------- */
 .action-buttons {
   display: flex;
   gap: 8px;
@@ -154,7 +155,7 @@ button.gray {
   color: white;
 }
 
-/* Crypto | Account Toggle */
+/* ---------- CRYPTO | ACCOUNT ---------- */
 .asset-toggle-wrapper {
   margin-top: 16px;
   padding: 0 20px;
@@ -206,7 +207,7 @@ button.gray {
   opacity: 0.6;
 }
 
-/* Balances Section */
+/* ---------- BALANCES SECTION ---------- */
 .balances-section {
   padding: 0 20px 70px;
 }
@@ -220,7 +221,7 @@ button.gray {
 
 .asset-left {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .asset-icon-img {
@@ -245,6 +246,12 @@ button.gray {
   color: #848e9c;
 }
 
+.asset-sub-label {
+  font-size: 13px;
+  color: #848e9c;
+  margin-top: 4px;
+}
+
 .asset-right {
   text-align: right;
   display: flex;
@@ -263,22 +270,11 @@ button.gray {
   margin-top: 2px;
 }
 
-.asset-sub-pair {
-  display: flex;
-  justify-content: space-between;
-  width: 180px;
+.asset-sub-value {
   font-size: 13px;
-  margin-top: 4px;
-}
-
-.asset-sub-label-left {
-  color: #848e9c;
-  font-weight: 500;
-}
-
-.asset-sub-label-right {
   color: #ffffff;
   font-weight: 500;
+  margin-top: 4px;
 }
 
 .pnl-green {
@@ -289,14 +285,14 @@ button.gray {
   color: #e74c4c;
 }
 
-/* Divider */
+/* ---------- DIVIDER ---------- */
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
   margin-top: 14px;
 }
 
-/* Bottom Nav */
+/* ---------- BOTTOM NAV ---------- */
 .bottom-nav {
   position: fixed;
   bottom: 0;
