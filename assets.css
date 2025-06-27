@@ -8,7 +8,7 @@ body {
   margin-inline: auto;
 }
 
-/* Toggle */
+/* Top Toggle Section: Exchange | Wallet */
 .toggle-wrapper {
   padding: 16px 20px 10px;
 }
@@ -16,29 +16,35 @@ body {
 .toggle-box {
   background-color: #1e2329;
   display: flex;
-  border-radius: 8px;
+  border-radius: 999px;
   overflow: hidden;
+  height: 36px;
 }
 
 .toggle-btn {
   flex: 1;
-  padding: 8px 0;
   background: none;
   color: #848e9c;
   font-weight: 500;
   font-size: 14px;
   border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .toggle-btn.selected {
   background-color: #fcd535;
   color: #1e2329;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-/* Sub-tabs */
+/* Sub-tab Row: Overview | Earn | Funding | Spot */
 .sub-tabs {
   padding: 0 20px 5px;
+  margin-top: 4px;
 }
 
 .sub-tab-group {
@@ -46,6 +52,11 @@ body {
   gap: 20px;
   font-size: 13px;
   color: #848e9c;
+  font-weight: 500;
+}
+
+.sub-tab-group span {
+  cursor: pointer;
 }
 
 .sub-tab-group .active {
