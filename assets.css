@@ -8,33 +8,33 @@ body {
   margin-inline: auto;
 }
 
-/* Top Toggle Section (Exchange | Wallet) - Gray Style */
+/* Binance-style Exchange/Wallet toggle */
 .toggle-wrapper {
-  padding: 16px 20px 10px;
+  padding: 12px 20px 10px;
 }
 
 .toggle-box {
   display: flex;
+  background-color: #1e2329;
+  border-radius: 12px;
+  padding: 4px;
   gap: 4px;
-  background-color: transparent;
 }
 
 .toggle-btn {
   flex: 1;
   padding: 8px 0;
-  background-color: #2b3139;
+  background-color: transparent;
   color: #848e9c;
-  border: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .toggle-btn.selected {
-  background-color: #3e444d;
+  background-color: #3a3f45;
   color: white;
   font-weight: 600;
 }
