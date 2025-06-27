@@ -1,9 +1,9 @@
-<!-- ✅ assets.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0e11" />
   <title>Assets</title>
   <link rel="stylesheet" href="assets.css" />
 </head>
@@ -58,8 +58,8 @@
   <!-- Crypto | Account Tabs -->
   <div class="asset-toggle-wrapper">
     <div class="asset-toggle-tabs">
-      <span class="active" id="tab-crypto">Crypto</span>
-      <span id="tab-account">Account</span>
+      <span class="active">Crypto</span>
+      <span>Account</span>
     </div>
     <div class="asset-toggle-icons">
       <img src="search.svg" />
@@ -68,11 +68,11 @@
   </div>
   <div class="toggle-underline"><span></span></div>
 
-  <!-- Coin List -->
+  <!-- Asset List -->
   <section class="balances-section">
-    <div class="asset-list" id="crypto-tab">
+    <div class="asset-list">
 
-      <!-- Coin Template (USDT, BTC, BNB, BONK, ETH) -->
+      <!-- USDT -->
       <div class="asset-row" data-symbol="usdt">
         <div class="asset-left">
           <img src="usdt-logo.svg" class="asset-icon-img" />
@@ -82,21 +82,67 @@
           </div>
         </div>
         <div class="asset-right">
-          <div class="asset-amount">0</div>
-          <div class="asset-usd">$0.00</div>
+          <div class="asset-amount">244,069,916.56</div>
+          <div class="asset-usd" data-symbol="usdt-usd">$244,069,916.56</div>
         </div>
       </div>
       <div class="asset-sub-pair">
         <div class="asset-sub-label-left">Today's PNL</div>
-        <div class="asset-sub-label-right">$0.00 (0.00%)</div>
+        <div class="asset-sub-label-right pnl-green" data-symbol="usdt-pnl">$0.74 (0.13%)</div>
       </div>
       <div class="asset-sub-pair">
         <div class="asset-sub-label-left">Average cost</div>
-        <div class="asset-sub-label-right">$0.00</div>
+        <div class="asset-sub-label-right" data-symbol="usdt-cost">$1.00</div>
       </div>
       <div class="divider-below-actions"></div>
 
-      <!-- Repeat for btc, bnb, bonk, eth with same structure -->
+      <!-- BTC -->
+      <div class="asset-row" data-symbol="btc">
+        <div class="asset-left">
+          <img src="btc-logo.svg" class="asset-icon-img" />
+          <div class="asset-info">
+            <div class="asset-name">BTC</div>
+            <div class="asset-sub">Bitcoin</div>
+          </div>
+        </div>
+        <div class="asset-right">
+          <div class="asset-amount">1,354.01</div>
+          <div class="asset-usd" data-symbol="btc-usd">$143,787,737.94</div>
+        </div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">Today's PNL</div>
+        <div class="asset-sub-label-right pnl-red" data-symbol="btc-pnl">$0.16 (-0.65%)</div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">Average cost</div>
+        <div class="asset-sub-label-right" data-symbol="btc-cost">$106,194.00</div>
+      </div>
+      <div class="divider-below-actions"></div>
+
+      <!-- BNB -->
+      <div class="asset-row" data-symbol="bnb">
+        <div class="asset-left">
+          <img src="bnb-logo.svg" class="asset-icon-img" />
+          <div class="asset-info">
+            <div class="asset-name">BNB</div>
+            <div class="asset-sub">Binance Coin</div>
+          </div>
+        </div>
+        <div class="asset-right">
+          <div class="asset-amount">31,203.02</div>
+          <div class="asset-usd" data-symbol="bnb-usd">$20,112,218.57</div>
+        </div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">Today's PNL</div>
+        <div class="asset-sub-label-right pnl-red" data-symbol="bnb-pnl">$0.97 (-0.66%)</div>
+      </div>
+      <div class="asset-sub-pair">
+        <div class="asset-sub-label-left">Average cost</div>
+        <div class="asset-sub-label-right" data-symbol="bnb-cost">$644.56</div>
+      </div>
+      <div class="divider-below-actions"></div>
 
     </div>
   </section>
@@ -114,5 +160,6 @@
   </footer>
 
   <script src="live_prices_assets.js"></script>
+  <script src="pnl_simulator_assets.js"></script>
 </body>
 </html>
