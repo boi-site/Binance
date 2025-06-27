@@ -171,6 +171,14 @@ button.gray {
   font-weight: 500;
 }
 
+.asset-toggle-icons img {
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+
 .tab-crypto-container {
   display: flex;
   flex-direction: column;
