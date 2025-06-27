@@ -8,7 +8,7 @@ body {
   margin-inline: auto;
 }
 
-/* Toggle Container (Binance style) */
+/* Toggle Container (Exchange | Wallet) */
 .toggle-container {
   display: flex;
   background-color: #1e2329;
@@ -20,7 +20,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Toggle Buttons */
 .toggle-btn {
   background-color: transparent;
   color: #848e9c;
@@ -43,7 +42,7 @@ body {
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.6);
 }
 
-/* Sub-tab Row: Overview | Earn | Funding | Spot */
+/* Sub Tabs */
 .sub-tabs {
   padding: 0 20px 5px;
   margin-top: 4px;
@@ -71,7 +70,7 @@ body {
   margin-top: 8px;
 }
 
-/* Balance */
+/* Balance Section */
 .balance-section {
   padding: 12px 20px 0;
 }
@@ -154,8 +153,7 @@ button.gray {
   color: white;
 }
 
-/* Crypto | Account */
-
+/* Crypto | Account Tabs */
 .asset-toggle-wrapper {
   margin-top: 16px;
   padding: 0 20px;
@@ -169,14 +167,6 @@ button.gray {
   gap: 20px;
   font-size: 14px;
   font-weight: 500;
-}
-
-.asset-toggle-icons img {
-  width: 12px;
-  height: 12px;
-  margin-left: 10px;
-  vertical-align: middle;
-  opacity: 0.6;
 }
 
 .tab-crypto-container {
@@ -207,6 +197,15 @@ button.gray {
   visibility: visible;
 }
 
+/* Search & Settings Icons */
+.asset-toggle-icons img {
+  width: 14px;
+  height: 14px;
+  margin-left: 10px;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+
 /* Assets Section */
 .balances-section {
   padding: 0 20px 70px;
@@ -215,7 +214,7 @@ button.gray {
 .asset-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 24px;
 }
 
@@ -248,6 +247,9 @@ button.gray {
 
 .asset-right {
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .asset-amount {
@@ -261,12 +263,12 @@ button.gray {
   margin-top: 2px;
 }
 
-/* PNL and Cost */
 .asset-sub-pair {
   display: flex;
   justify-content: space-between;
-  margin-top: 6px;
+  width: 170px; /* adjust this if needed */
   font-size: 13px;
+  margin-top: 4px;
 }
 
 .asset-sub-label-left {
@@ -274,10 +276,10 @@ button.gray {
 }
 
 .asset-sub-label-right {
+  color: #ffffff;
   font-weight: 500;
 }
 
-/* Divider */
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
