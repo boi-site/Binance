@@ -247,7 +247,7 @@ button.gray {
 }
 
 .asset-sub-label {
-  font-size: 9px;
+  font-size: 11px;
   color: #848e9c;
   margin-top: 4px;
 }
@@ -261,7 +261,7 @@ button.gray {
 
 .asset-amount {
   font-weight: 500;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .asset-usd {
@@ -271,7 +271,7 @@ button.gray {
 }
 
 .asset-sub-value {
-  font-size: 9px;
+  font-size: 11px;
   color: #ffffff;
   font-weight: 500;
   margin-top: 4px;
