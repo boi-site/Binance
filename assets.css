@@ -8,36 +8,38 @@ body {
   margin-inline: auto;
 }
 
-/* Toggle container with rectangular look */
+/* Toggle Container */
 .toggle-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #1e1e1e; /* Outer background */
-  border-radius: 10px;
-  padding: 4px;
-  width: 220px;
-  margin: 20px auto 12px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  padding: 2px;
+  width: fit-content;
+  margin: 0 auto 16px auto;
+  height: 36px;
+  box-sizing: border-box;
 }
 
-/* Toggle buttons */
+/* Common Button Styles */
 .toggle-btn {
-  flex: 1;
-  padding: 10px 0;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-  border-radius: 6px;
   background-color: transparent;
-  color: #7a7a7a;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  color: #6f6f6f;
+  border: none;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Selected button */
+/* Selected State */
 .toggle-btn.selected {
-  background-color: #2a2a2a;
-  color: #fff;
+  background-color: #2e2f32;
+  color: #ffffff;
 }
 
 /* Sub-tab Row: Overview | Earn | Funding | Spot */
