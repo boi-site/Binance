@@ -216,8 +216,10 @@ button.gray {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  margin-bottom: 12px;
+  padding: 18px 0;           /* was 12px 0 */
+  margin-bottom: 8px;        /* was 12px, reduce double gap after divider */
+  border-bottom: 1px solid #2b3139;
+}
 }
 
 .asset-left {
