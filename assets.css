@@ -73,7 +73,7 @@ body {
 
 /* ---------- BALANCE SECTION ---------- */
 .balance-section {
-  padding: 12px 24px 24px;
+  padding: 12px 24px 24px; /* add bottom space under balance section */
 }
 
 .title-row {
@@ -133,18 +133,16 @@ body {
 .action-buttons {
   display: flex;
   gap: 8px;
-  margin-top: 16px;        /* Added space below total value */
-  padding: 12px 0 0;    /* Add left/right spacing like funding page */
+  padding: 16px 20px 16px;
 }
 
 .action-buttons button {
   flex: 1;
-  padding: 10px 0;         /* More vertical height like funding page */
+  padding: 12px 0;
   font-size: 14px;
   border-radius: 8px;
   border: none;
   font-weight: 500;
-  min-width: 0;            /* Allow buttons to shrink equally */
 }
 
 button.add {
@@ -214,17 +212,23 @@ button.gray {
   padding: 0 20px 70px;
 }
 
+/* Single divider between assets, thin & close */
+.divider {
+  height: 1px;
+  background-color: #1e2329;
+  margin: 6px 0;
+}
+
 .asset-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;           /* was 12px 0 */
-  margin-bottom: 0; 
+  align-items: flex-start;
+  padding: 10px 0;
 }
 
 .asset-left {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .asset-icon-img,
@@ -238,21 +242,25 @@ button.gray {
 .asset-info {
   display: flex;
   flex-direction: column;
-  margin-bottom: 8px;
+  gap: 4px;
 }
 
 .asset-name {
   font-weight: 500;
-  font-size: 12px; /* updated from 14px */
+  font-size: 13px;
 }
 
-.asset-symbol,
+.asset-symbol {
+  font-size: 11px;
+  color: #848e9c;
+  font-weight: 400;
+}
+
 .asset-sub,
 .asset-sub-label {
+  font-size: 11px;
   color: #848e9c;
-  font-size: 10px; /* updated from 12px */
-  margin-top: 4px; /* tighter spacing */
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .asset-right {
@@ -260,39 +268,40 @@ button.gray {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 4px;
 }
 
 .asset-amount {
   font-weight: 500;
-  font-size: 12px; /* updated from 14px */
+  font-size: 13px;
 }
 
 .asset-usd {
-  font-size: 10px; /* updated from 12px */
+  font-size: 11px;
   color: #848e9c;
-  margin-top: 2px;
 }
 
 .asset-sub-value {
-  font-size: 10px; /* updated from 12px */
+  font-size: 11px;
   color: #ffffff;
   font-weight: 500;
-  margin-top: 4px; /* tighter layout */
 }
 
 .pnl-green {
   color: #00b469;
+  font-weight: 500;
 }
 
 .pnl-red {
   color: #e74c4c;
+  font-weight: 500;
 }
 
-/* ---------- DIVIDER ---------- */
+/* ---------- DIVIDER BELOW ACTIONS ---------- */
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
-  margin-top: 15px;
+  margin: 8px 0;
 }
 
 /* ---------- BOTTOM NAV ---------- */
