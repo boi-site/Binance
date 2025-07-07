@@ -217,6 +217,7 @@ button.gray {
   justify-content: space-between;
   align-items: center;
   padding: 18px 0;           /* was 12px 0 */
+  margin-bottom: 0; 
 }
 
 .asset-left {
