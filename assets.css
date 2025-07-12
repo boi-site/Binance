@@ -302,6 +302,7 @@ button.gray {
   height: 1px;
   background-color: #1e2329;
   margin-top: 14px;
+  margin-bottom: 1px;
 }
 
 /* ---------- BOTTOM NAV ---------- */
