@@ -241,8 +241,8 @@ button.gray {
 }
 
 .asset-name {
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 13px;
 }
 
 .asset-symbol,
@@ -250,15 +250,15 @@ button.gray {
 .asset-sub-label {
   color: #848e9c;
   font-size: 11px;
-  margin-top: 6px;
+  margin-top: 2px;
   font-weight: 500;
 }
 
 /* override margin-top for asset-sub only */
 .asset-sub {
-  margin-top: 0;
+  margin-top: 2;
   color: #848e9c;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
 }
 
