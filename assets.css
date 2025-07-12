@@ -223,7 +223,7 @@ button.gray {
 
 .asset-left {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .asset-icon-img,
@@ -245,7 +245,10 @@ button.gray {
 }
 
 .asset-symbol,
-.asset-sub,
+.asset-sub{
+  margin-top: 0;
+}
+
 .asset-sub-label {
   color: #848e9c;
   font-size: 11px;
