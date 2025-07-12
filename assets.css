@@ -133,7 +133,7 @@ body {
   display: flex;
   gap: 8px;
   margin-top: 12px;       /* smaller gap below PNL like funding page */
-  padding: 0 20px;        /* left-right spacing same as page sides */
+  padding: 0 16px;        /* left-right spacing same as page sides */
 }
 
 .action-buttons button {
