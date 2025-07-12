@@ -310,8 +310,8 @@ button.gray {
 .divider-asset-row {
   height: 1px;
   background-color: #1e2329;
+  width: calc(100% - 16px);
   margin-left: 0px;
-  margin-right: 16px;    
 }
 
 /* ---------- BOTTOM NAV ---------- */
