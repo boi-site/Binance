@@ -299,9 +299,9 @@ button.gray {
 
 /* ---------- DIVIDER ---------- */
 .divider-below-actions {
-  height: 8px;
+  height: 1px;
   background-color: #1e2329;
-  margin-top: 14px;
+  margin-top: 16px;
   margin-bottom: 2px;
 }
 
