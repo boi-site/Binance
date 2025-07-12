@@ -243,6 +243,7 @@ button.gray {
 .asset-name {
   font-weight: 600;
   font-size: 13px;
+  margin-bottom: 4px;
 }
 
 .asset-symbol,
@@ -251,6 +252,7 @@ button.gray {
   color: #848e9c;
   font-size: 11px;
   margin-top: 2px;
+  margin-bottom: 4px;
 }
 
 /* override margin-top for asset-sub only */
@@ -258,6 +260,7 @@ button.gray {
   margin-top: 2;
   color: #848e9c;
   font-size: 11px;
+  margin-bottom: 4px;
 }
 
 .asset-right {
