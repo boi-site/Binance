@@ -301,7 +301,11 @@ button.gray {
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
-  margin-top: 14px 0 1px 0;
+  margin-top: 14px;
+  margin-bottom: 2px;
+  width: 100vw; /* full viewport width */
+  margin-left: calc(-1 * ((100vw - 100%) / 2)); /* cancel container's horizontal padding */
+}
   
 }
 
