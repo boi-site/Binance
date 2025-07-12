@@ -310,9 +310,8 @@ button.gray {
 .divider-asset-row {
   height: 1px;
   background-color: #1e2329;
-  width: 100vw;
-  margin-left: calc(-1 * (100vw - 100%) / 2);
-  margin-right: 16px;  
+  width: calc(100vw - 16px); /* Leave 16px gap on right */
+  margin-left: calc(-1 * ((100vw - 430px) / 2)); /* Extend to touch left screen edge */
 }
 
 /* ---------- BOTTOM NAV ---------- */
