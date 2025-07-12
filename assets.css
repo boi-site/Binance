@@ -310,7 +310,7 @@ button.gray {
 .divider-asset-row {
   height: 1px;
   background-color: #1e2329;
-  width: calc(100vw - 8px); /* Leave 8px gap on right */
+  width: calc(100vw - 4px); /* Leave 4px gap on right */
   margin-left: calc(-1 * ((100vw - 430px) / 2)); /* Extend to touch left screen edge */
 }
 
