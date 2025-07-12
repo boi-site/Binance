@@ -51,8 +51,8 @@ body {
 
 .sub-tab-group {
   display: flex;
-  gap: 20px;
-  font-size: 13px;
+  gap: 18px;
+  font-size: 14px;
   color: #848e9c;
   font-weight: 500;
 }
@@ -68,7 +68,7 @@ body {
 .sub-tab-divider {
   height: 1px;
   background-color: #1e2329;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 /* ---------- BALANCE SECTION ---------- */
@@ -248,7 +248,7 @@ button.gray {
 .asset-sub,
 .asset-sub-label {
   color: #848e9c;
-  font-size: 12px;
+  font-size: 11px;
   margin-top: 4px;
   font-weight: 500;
 }
@@ -261,12 +261,12 @@ button.gray {
 }
 
 .asset-amount {
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .asset-usd {
-  font-size: 12px;
+  font-size: 11px;
   color: #848e9c;
   margin-top: 2px;
 }
@@ -302,7 +302,7 @@ button.gray {
   background-color: #1e2329;
   display: flex;
   justify-content: space-around;
-  padding: 8px 0 5px;
+  padding: 6px 0 4px;
   z-index: 100;
 }
 
