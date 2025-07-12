@@ -139,7 +139,7 @@ body {
 
 .action-buttons button {
   flex: 1;
-  padding: 8px 0;         /* lower height, less vertical padding */
+  padding: 8px 0;
   font-size: 13px;
   border-radius: 6px;
   border: none;
@@ -223,7 +223,7 @@ button.gray {
 
 .asset-left {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* top-align icon with text */
 }
 
 .asset-icon-img,
@@ -237,6 +237,7 @@ button.gray {
 .asset-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .asset-name {
@@ -245,14 +246,19 @@ button.gray {
 }
 
 .asset-symbol,
-.asset-sub{
-  margin-top: 0;
-}
-
+.asset-sub,
 .asset-sub-label {
   color: #848e9c;
   font-size: 11px;
   margin-top: 6px;
+  font-weight: 500;
+}
+
+/* override margin-top for asset-sub only */
+.asset-sub {
+  margin-top: 0;
+  color: #848e9c;
+  font-size: 12px;
   font-weight: 500;
 }
 
