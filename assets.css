@@ -302,8 +302,12 @@ button.gray {
   height: 1px;
   background-color: #1e2329;
   margin-top: 14px;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
+  margin-left: 0;
+  margin-right: 0;
   width: 100vw;
+  position: relative;
+  transform: tranlatex(-50%);
 }
 
 /* ---------- BOTTOM NAV ---------- */
