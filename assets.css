@@ -306,7 +306,12 @@ button.gray {
   width: 100vw; /* full viewport width */
   margin-left: calc(-1 * ((100vw - 100%) / 2)); /* cancel container's horizontal padding */
 }
-  
+
+.divider-asset-row {
+  height: 1px;
+  background-color: #1e2329;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 /* ---------- BOTTOM NAV ---------- */
