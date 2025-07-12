@@ -243,7 +243,7 @@ button.gray {
 .asset-name {
   font-weight: 600;
   font-size: 13px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .asset-symbol,
@@ -252,7 +252,7 @@ button.gray {
   color: #848e9c;
   font-size: 11px;
   margin-top: 2px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 /* override margin-top for asset-sub only */
@@ -260,7 +260,7 @@ button.gray {
   margin-top: 2;
   color: #848e9c;
   font-size: 11px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .asset-right {
@@ -301,7 +301,7 @@ button.gray {
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
-  margin-top: 15px;
+  margin-top: 14px;
 }
 
 /* ---------- BOTTOM NAV ---------- */
