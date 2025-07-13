@@ -274,6 +274,7 @@ button.gray {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding-right: 18px;
 }
 
 .asset-amount {
@@ -303,7 +304,21 @@ button.gray {
   color: #e74c4c;
 }
 
+.divider-below-actions {
+  height: 1px;
+  background-color: #1e2329;
+  margin-top: 14px;
+  margin-bottom: 1px;
+}
 
+.divider-asset-row {
+  height: 1px;
+  background-color: #2a2b31;
+  margin-left: 0;
+  margin-right: 18px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
 
 /* ---------- BOTTOM NAV ---------- */
 .bottom-nav {
