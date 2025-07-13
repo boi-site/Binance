@@ -301,21 +301,29 @@ button.gray {
 }
 
 /* ---------- DIVIDER ---------- */
+
+/* ---------- DIVIDER ---------- */
 .divider-below-actions {
   height: 1px;
   background-color: #1e2329;
   margin-top: 14px;
-  margin-bottom: 2px;
-  width: 100vw; /* full viewport width */
-  margin-left: calc(-1 * ((100vw - 100%) / 2)); /* cancel container's horizontal padding */
+  margin-bottom: 1px;
 }
 
 .divider-asset-row {
+  position: relative;
+  height: 1px;
+  background-color: transparent;
+}
+
+.divider-asset-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 4px; /* controls how close to the right edge */
   height: 1px;
   background-color: #1e2329;
-  width: calc(100vw - 2px); /* Leave 2px gap on right */
-  margin-left: calc(-1 * ((100vw - 430px) / 2)); /* Extend to touch left screen edge */
-  margin-top: 10px;
 }
 
 /* ---------- BOTTOM NAV ---------- */
