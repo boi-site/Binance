@@ -213,10 +213,7 @@ button.gray {
 
 /* ---------- BALANCES SECTION ---------- */
 .balances-section {
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  padding-bottom: 70px;
+  padding: 0 16px 70px;
 }
 
 .asset-row {
@@ -314,7 +311,7 @@ button.gray {
 .divider-asset-row {
   height: 1px;
   background-color: #2a2b31;
-  margin-left: 0;
+  margin-left: -16px;
   margin-right: 18px;
   margin-top: 8px;
   margin-bottom: 8px;
